@@ -1,6 +1,16 @@
 import 'react-native-gesture-handler';
-import React, { useEffect, useReducer, useMemo } from 'react';
+import React, { useEffect, useReducer, useMemo, useState } from 'react';
+import { AppLoading } from 'expo';
 import * as SecureStore from 'expo-secure-store';
+import * as Font from 'expo-font';
+
+const getFonts = () => Font.loadAsync({
+  'nunito-regular': require('./src/assets/fonts/Nunito-Regular.ttf'),
+  'nunito-bold': require('./src/assets/fonts/Nunito-Bold.ttf'),
+  'nunito-semiBold': require('./src/assets/fonts/Nunito-SemiBold.ttf'),
+  'nunito-light': require('./src/assets/fonts/Nunito-Light.ttf'),
+  'nunito-black': require('./src/assets/fonts/Nunito-Black.ttf'),
+})
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -14,6 +24,9 @@ const Stack = createStackNavigator();
 import AuthContext from './src/config';
 
 export default function App() {
+
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
 
   function reducer(state, action) {
     switch (action.type) {
@@ -43,10 +56,10 @@ export default function App() {
       } catch (e) {
         console.log("Error: ", e);
       }
-        dispatch({ type: 'RESTORE_TOKEN', token: userToken });
-      };
-      bootstrapAsync();
-    }, []);
+      dispatch({ type: 'RESTORE_TOKEN', token: userToken });
+    };
+    bootstrapAsync();
+  }, []);
 
   const authContext = useMemo(() => {
     return { state, dispatch };
@@ -57,16 +70,17 @@ export default function App() {
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
         <Stack.Navigator>
-        {state.userToken == null ? (
-          <>
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="Login" component={Login} />
-          </>
-        ) : (
-          <Stack.Screen name="Main" component={Main} />
-        )}
+          {state.userToken == null ? (
+            <>
+              <Stack.Screen name="Home" component={Home} />
+              <Stack.Screen name="Login" component={Login} />
+            </>
+          ) : (
+            <Stack.Screen name="Main" component={Main} />
+          )}
         </Stack.Navigator>
       </NavigationContainer>
     </AuthContext.Provider>
   );
 }
+
