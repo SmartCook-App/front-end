@@ -1,17 +1,21 @@
 import React from 'react';
-import { ImageBackground } from 'react-native';
+import { ImageBackground, View } from 'react-native';
 import HomeStyle from '../styles/HomeStyle';
-import image2 from '../assets/frontLogin3.jpeg';
+import ImageBackgroundLogin from '../assets/frontLogin3.jpeg';
 
-const Fondo = props => {
+const BackgroundImage = props => {
     return (
         <ImageBackground
-        source={image2}
+        source={ImageBackgroundLogin}
         style={HomeStyle.image}
-        blurRadius={0.7}>
-        {props.children}
+        blurRadius={1}>
+          <View style={HomeStyle.child}>
+            <View style={HomeStyle.childtwo}>
+            {props.children}
+            </View>
+          </View>
       </ImageBackground>
     )
 }
 
-export default Fondo;
+export default BackgroundImage;

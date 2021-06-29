@@ -3,14 +3,6 @@ import React, { useEffect, useReducer, useMemo, useState } from 'react';
 import { AppLoading } from 'expo';
 import * as SecureStore from 'expo-secure-store';
 import * as Font from 'expo-font';
-/*
-const getFonts = () => Font.loadAsync({
-  'nunito-regular': require('./src/assets/fonts/Nunito-Regular.ttf'),
-  'nunito-bold': require('./src/assets/fonts/Nunito-Bold.ttf'),
-  'nunito-semiBold': require('./src/assets/fonts/Nunito-SemiBold.ttf'),
-  'nunito-light': require('./src/assets/fonts/Nunito-Light.ttf'),
-  'nunito-black': require('./src/assets/fonts/Nunito-Black.ttf'),
-})*/
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
