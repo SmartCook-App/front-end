@@ -3,7 +3,8 @@ import { StyleSheet} from 'react-native';
 const HomeStyle = StyleSheet.create({
     container: {
       flex: 1,
-      flexDirection: "column"
+      flexDirection: "column",
+      backgroundColor: 'rgba(109,108,108,0.81)'
     },
     image: {
       flex: 1,
@@ -14,9 +15,7 @@ const HomeStyle = StyleSheet.create({
       flex: 1,
       backgroundColor: 'rgba(0,0,0,0.5)'
     },
-    childOpaque: {
-      backgroundColor: 'rgba(109,108,108,0.81)'
-    },
+
     title: {
       color: "#FAB73D",
       fontFamily: 'nunito-black',
