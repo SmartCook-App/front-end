@@ -79,10 +79,7 @@ const HomeStyle = StyleSheet.create({
       alignItems: 'center',
       justifyContent: "space-evenly",
     },
-    hola: {
-      alignItems: 'center',
-      justifyContent: 'center',
-    }
+
   });
 
 export default HomeStyle;

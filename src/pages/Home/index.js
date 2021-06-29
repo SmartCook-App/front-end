@@ -16,7 +16,7 @@ export default function Home({ navigation }) {
           </View>
         </View>
         <View style={HomeStyle.containerFooter}>
-        <ButtonLogin style={HomeStyle.hola}>
+        <ButtonLogin contenido={'Entrar con correo'} title={'Email'}>
        
         </ButtonLogin>
           {/* <Button

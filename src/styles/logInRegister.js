@@ -18,6 +18,7 @@ const logInRegisterStyle = StyleSheet.create({
     },
     buttonText: {
         fontSize: 14,
+        fontFamily: 'nunito-semiBold',
         position: 'relative',
         color: '#000000',
         textTransform: 'uppercase',
