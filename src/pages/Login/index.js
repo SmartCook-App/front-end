@@ -4,8 +4,8 @@ import AuthContext from '../../config';
 
 export default function Login({ navigation }) {
 
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const { state, dispatch } = useContext(AuthContext);
 
