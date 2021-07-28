@@ -19,12 +19,12 @@ export const MainPageStackNavigator: FC = () => {
   return (
     <RootStack.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: Colors.colorPrimary },
-        headerTintColor: Colors.textColorPrimary,
+        headerStyle: { backgroundColor: "blue" },
+        headerTintColor: "red",
       }}
     >
       <RootStack.Screen
-        name="HomeScreen"
+        name="LoginRegisterScreen"
         component={LoginRegister}
         options={{
           title: LRL[lang]?.appName,

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import { Text } from "react-native";
 
-const LoginRegister: FC<Props> = (props: Props) => {
+const LoginRegister: FC = () => {
   return <Text>Hola</Text>;
 };
 export default LoginRegister;
