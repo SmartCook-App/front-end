@@ -7,7 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --watchAll",
-    "precommit": "lint-staged"
+    "precommit": "pretty-quick -staged"
   },
   "jest": {
     "preset": "jest-expo"
@@ -62,11 +62,5 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx,css,json}": [
-      "prettier --write",
-      "git add"
-    ]
   }
 }
