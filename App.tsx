@@ -1,6 +1,8 @@
 import "react-native-gesture-handler";
 import React, { FC } from "react";
 import useCachedResources from "./hooks/useCachedResources";
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 import { NavigationContainer } from "@react-navigation/native";
 import { MenuProvider } from "react-native-popup-menu";
 import MainNavigator from "./navigation/MainNavigator";
@@ -11,11 +13,13 @@ const App: FC = () => {
     return null;
   } else {
     return (
-      <NavigationContainer>
-        <MenuProvider>
-          <MainNavigator />
-        </MenuProvider>
-      </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer>
+          <MenuProvider>
+            <MainNavigator />
+          </MenuProvider>
+        </NavigationContainer>
+      </Provider>
     );
   }
 };

@@ -1,0 +1,98 @@
+Arguments: 
+  /home/florencia/.nvm/versions/node/v12.22.1/bin/node /d/SmartCook/front-end/.yarn/releases/yarn-1.21.0.js install
+
+PATH: 
+  /home/florencia/.nvm/versions/node/v12.22.1/bin:/home/florencia/.nodenv/shims:/home/florencia/.nodenv/bin:/home/florencia/.rbenv/plugins/ruby-build/bin:/home/florencia/.rbenv/plugins/ruby-build/bin:/home/florencia/.rbenv/shims:/home/florencia/.rbenv/bin:/home/florencia/.rbenv/shims:/home/florencia/.rbenv/bin:/home/florencia/.rbenv/shims:/home/florencia/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/c/Program Files (x86)/Common Files/Oracle/Java/javapath_target_185718:/c/Program Files (x86)/Intel/iCLS Client:/c/Program Files/Intel/iCLS Client:/c/Windows/System32:/c/Windows:/c/Windows/System32/wbem:/c/Windows/System32/WindowsPowerShell/v1.0:/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/c/Windows/System32:/c/Windows:/c/Windows/System32/wbem:/c/Windows/System32/WindowsPowerShell/v1.0:/c/Program Files (x86)/Wolfram Research/WolframScript:/c/Windows/System32/OpenSSH:/c/Program Files/Git/cmd:/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/c/Program Files/Intel/WiFi/bin:/c/Program Files/Common Files/Intel/WirelessCommon:/c/Program Files/dotnet:/c/Program Files/MongoDB/Server/4.4/bin:/c/Program Files/Docker/Docker/resources/bin:/c/ProgramData/DockerDesktop/version-bin:/c/Users/Florencia  Valdivia/AppData/Local/Programs/Python/Python37-32/Scripts:/c/Users/Florencia  Valdivia/AppData/Local/Programs/Python/Python37-32:/c/Users/Florencia  Valdivia/AppData/Local/Microsoft/WindowsApps:/c/Users/Florencia  Valdivia/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin:/opt/yarn-[version]/bin:/home/florencia/.local/bin
+
+Yarn version: 
+  1.21.0
+
+Node version: 
+  12.22.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, scandir '/d/SmartCook/front-end/node_modules/@babel/preset-env/node_modules/@babel/plugin-transform-shorthand-properties/node_modules/@babel/core/lib/tools'
+
+npm manifest: 
+  {
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web",
+      "eject": "expo eject",
+      "test": "jest --watchAll",
+      "precommit": "pretty-quick -staged"
+    },
+    "jest": {
+      "preset": "jest-expo"
+    },
+    "dependencies": {
+      "@expo/vector-icons": "^12.0.0",
+      "@react-native-async-storage/async-storage": "^1.15.5",
+      "@react-native-community/masked-view": "0.1.10",
+      "@react-navigation/bottom-tabs": "^5.11.11",
+      "@react-navigation/material-bottom-tabs": "^5.3.15",
+      "@react-navigation/native": "~5.8.10",
+      "@react-navigation/stack": "~5.12.8",
+      "@reduxjs/toolkit": "^1.6.1",
+      "@typescript-eslint/eslint-plugin": "^4.28.5",
+      "@typescript-eslint/parser": "^4.28.5",
+      "eslint-config-prettier": "^8.3.0",
+      "eslint-plugin-prettier": "^3.4.0",
+      "expo": "~42.0.1",
+      "expo-asset": "~8.3.2",
+      "expo-constants": "~11.0.1",
+      "expo-font": "~9.2.1",
+      "expo-linking": "~2.3.1",
+      "expo-splash-screen": "~0.11.2",
+      "expo-status-bar": "~1.0.4",
+      "expo-web-browser": "~9.2.0",
+      "prettier": "^2.3.2",
+      "react": "16.13.1",
+      "react-dom": "16.13.1",
+      "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+      "react-native-gesture-handler": "~1.10.2",
+      "react-native-paper": "^4.9.2",
+      "react-native-popup-menu": "^0.15.11",
+      "react-native-reanimated": "~2.2.0",
+      "react-native-safe-area-context": "3.2.0",
+      "react-native-screens": "~3.4.0",
+      "react-native-vector-icons": "^8.1.0",
+      "react-native-web": "~0.13.12",
+      "react-redux": "^7.2.4",
+      "redux": "^4.1.0",
+      "redux-persist": "^6.0.0"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.9.0",
+      "@types/react": "~16.9.35",
+      "@types/react-native": "~0.63.2",
+      "eslint": "^7.2.0",
+      "eslint-config-airbnb": "18.2.1",
+      "eslint-plugin-import": "^2.22.1",
+      "eslint-plugin-jsx-a11y": "^6.4.1",
+      "eslint-plugin-react": "^7.21.5",
+      "eslint-plugin-react-hooks": "^1.7.0",
+      "husky": "^7.0.1",
+      "jest-expo": "~41.0.0-beta.0",
+      "lint-staged": "^11.1.1",
+      "typescript": "~4.0.0"
+    },
+    "private": true,
+    "husky": {
+      "hooks": {
+        "pre-commit": "lint-staged"
+      }
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
