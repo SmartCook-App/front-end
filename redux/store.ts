@@ -8,7 +8,7 @@ import { languageReducer } from './slices/languageSlice';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['userAuth', 'language'],
+  whitelist: ['language'],
 };
 
 // Add new reducers here

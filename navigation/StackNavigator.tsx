@@ -4,10 +4,11 @@ import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginRegister from "../screens/LoginRegister/LoginRegister";
-import Colors from "../assets/Colors";
+import SettingScreens from "../screens/SettingScreens";
 
 type RootStackParamList = {
   LoginRegisterScreen: undefined;
+  SettingScreens: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -28,6 +29,30 @@ export const MainPageStackNavigator: FC = () => {
         component={LoginRegister}
         options={{
           title: LRL[lang]?.appName,
+        }}
+      />
+    </RootStack.Navigator>
+  );
+};
+
+export const AccountStackNavigator: FC = () => {
+  const lang = useSelector<RootState, RootState["language"]>(
+    (state) => state.language
+  );
+  return (
+    <RootStack.Navigator
+      initialRouteName="SettingScreens"
+      screenOptions={{
+        headerStyle: { backgroundColor: "white" },
+        headerTintColor: "red",
+        headerTitleStyle: { fontWeight: "bold" },
+      }}
+    >
+      <RootStack.Screen
+        name="SettingScreens"
+        component={SettingScreens}
+        options={{
+          title: "Hola que tal settings",
         }}
       />
     </RootStack.Navigator>
