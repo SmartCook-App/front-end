@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from "react-native";
-import slide from './slide';
+import slide from './Slide';
 import SlideComponentItem from './SlideComponentItem';
 
 export default function SlideComponent() {
@@ -10,7 +10,7 @@ export default function SlideComponent() {
                 data={slide}
                 renderItem={({ item }) => < SlideComponentItem item={item} />}
                 horizontal
-                // showHorizontalScrollinIndicator
+                showsHorizontalScrollIndicator={true}
                 pagingEnabled
                 bounces={false}
                 keyExtractor={(item) => item.id}

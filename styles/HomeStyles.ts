@@ -18,6 +18,7 @@ const HomeStyle = StyleSheet.create({
       backgroundColor: 'rgba(0,0,0,0.57)'
     },
     title: {
+      textTransform: 'uppercase',
       color: "#FAB73D",
       fontFamily: 'nunito-black',
       fontSize: 40,

@@ -3,7 +3,7 @@ import LRL from "../assets/Languages/LoginRegisterLanguage";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { createStackNavigator } from "@react-navigation/stack";
-import LoginRegister from "../screens/LoginRegister/LoginRegister";
+import LoginRegisterScreen from "../screens/LoginRegister/LoginRegisterScreen";
 import SettingScreens from "../screens/SettingScreens";
 
 type RootStackParamList = {
@@ -26,7 +26,7 @@ export const MainPageStackNavigator: FC = () => {
     >
       <RootStack.Screen
         name="LoginRegisterScreen"
-        component={LoginRegister}
+        component={LoginRegisterScreen}
         options={{
           title: LRL[lang]?.appName,
         }}

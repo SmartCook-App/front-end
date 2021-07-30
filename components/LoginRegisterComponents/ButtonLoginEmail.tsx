@@ -11,7 +11,7 @@ const ButtonLoginEmail : FC<Props> = (props: Props) =>  {
     return (
         <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.button}>
             <Text style={styles.buttonText}>{contenido}</Text>
-            <Image source={require('../../assets/imgLogin/email.png')} style={styles.icon} />
+            <Image source={require('../../assets/Images/LoginImg/email.png')} style={styles.icon} />
         </TouchableOpacity>
     )
 }
