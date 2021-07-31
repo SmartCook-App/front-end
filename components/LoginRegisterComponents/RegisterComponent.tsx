@@ -7,10 +7,10 @@ interface Props {
     navigation: any;
 }
 const RegisterComponent: FC<Props> = (props: Props) =>  {
-  const [name, setName] = React.useState('');
-  const [lastName, setlastName] = React.useState('');
-  const [email, setemail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [name, setName] = useState('');
+  const [lastName, setlastName] = useState('');
+  const [email, setemail] = useState('');
+  const [password, setPassword] = useState('');
 //   const [showRegister, setShowRegister] = useState(false)
 //   const { state, dispatch } = useContext(AuthContext);
 //   const registerView = () => {
@@ -21,7 +21,7 @@ const RegisterComponent: FC<Props> = (props: Props) =>  {
     <View>
       <View style={loginRegisterStyle.subContainer}>
         <View style={loginRegisterStyle.viewInput}>
-          <Image source={require('../../assets/imgLogin/userIcon.png')} style={loginRegisterStyle.icon} />
+          <Image source={require('../../assets/Images/LoginImg/userIcon.png')} style={loginRegisterStyle.icon} />
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
@@ -42,7 +42,7 @@ const RegisterComponent: FC<Props> = (props: Props) =>  {
         </View>
 
         <View style={loginRegisterStyle.viewInput}>
-          <Image source={require('../../assets/imgLogin/whiteEmail.png')} style={loginRegisterStyle.icon} />
+          <Image source={require('../../assets/Images/LoginImg/whiteEmail.png')} style={loginRegisterStyle.icon} />
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
@@ -53,7 +53,7 @@ const RegisterComponent: FC<Props> = (props: Props) =>  {
         </View>
 
         <View style={loginRegisterStyle.viewInput}>
-          <Image source={require('../../assets/imgLogin/password.png')} style={loginRegisterStyle.icon} />
+          <Image source={require('../../assets/Images/LoginImg/password.png')} style={loginRegisterStyle.icon} />
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}

@@ -1,15 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Image, Text, View, TextInput, TouchableOpacity } from 'react-native';
 // import AuthContext from '../../config';
-import loginRegisterStyle from '../../styles/loginRegisterStyles';
+import loginRegisterStyle from '../../styles/LoginRegisterStyles';
 import BackgroundImage from '../../components/ImagesComponents/LoginBackgroundImage';
 
 interface Props {
     navigation: any;
 }
 const LoginComponent: FC<Props> = (props: Props) =>  {
-  const [email, setemail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [email, setemail] = useState('');
+  const [password, setPassword] = useState('');
 //   const [showRegister, setShowRegister] = useState(false)
 //   const { state, dispatch } = useContext(AuthContext);
 //   const registerView = () => {
@@ -20,7 +20,7 @@ const LoginComponent: FC<Props> = (props: Props) =>  {
     <View>
       <View style={loginRegisterStyle.subContainer}>
         <View style={loginRegisterStyle.viewInput}>
-          <Image source={require('../../assets/imgLogin/userIcon.png')} style={loginRegisterStyle.icon} />
+          <Image source={require('../../assets/Images/LoginImg/userIcon.png')} style={loginRegisterStyle.icon} />
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
@@ -30,7 +30,7 @@ const LoginComponent: FC<Props> = (props: Props) =>  {
           />
         </View>
         <View style={loginRegisterStyle.viewInput}>
-          <Image source={require('../../assets/imgLogin/password.png')} style={loginRegisterStyle.icon} />
+          <Image source={require('../../assets/Images/LoginImg/password.png')} style={loginRegisterStyle.icon} />
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
