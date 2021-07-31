@@ -14,7 +14,14 @@ const LRL: any = {
         password: 'Contraseña',
         legalMessageLogin: 'Al crear una cuenta estas aceptando los Términos del servicio y Política de privacidad',
         forgotPassword: '¿Olvidaste tu contraseña?',
-
+        slideTitle1: "Dale variedad a tu alimentación",
+        slideDescription1: "Con SmartCook podrás alimentarte con platos variados en base a lo que tienes en casa",
+        slideTitle2: "Ahorra tiempo y energía",
+        slideDescription2: "Gracias a que la app es automatizada no tendrás que hacer los labores tediosos de la casa, nosotros nos encargamos de eso! ",
+        slideTitle3: "Ahorra dinero",
+        slideDescription3: "Optimiza el dinero empleado en las compras de supermercado",
+        slideTitle4: "Sigue y dale like",
+        slideDescription4: "Crea una red de amigos para poder ver sus recetas y comentarios!",
 
     },
     EN: {
@@ -32,6 +39,15 @@ const LRL: any = {
         password: 'Password',
         legalMessageLogin: 'By creating an account you are accepting the Terms of Service and Privacy Policy',
         forgotPassword: '¿Forgot your password?',
+        slideTitle1: "Give variety to your diet",
+        slideDescription1: "With SmartCook you can feed yourself with a variety of dishes based on what you have at home",
+        slideTitle2: "Save time and energy",
+        slideDescription2: "Because the app is automated, you won't have to do tedious chores around the house, we'll take care of that for you!",
+        slideTitle3: "Save money",
+        slideDescription3: "Optimize the money spent on grocery shopping",
+        slideTitle4: "Follow and like",
+        slideDescription4: "Create a network of friends so you can see their recipes and comments!",
+
     }
 }
 export default LRL;

@@ -3,10 +3,12 @@ import LRL from "../assets/Languages/LoginRegisterLanguage";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { createStackNavigator } from "@react-navigation/stack";
+import MainLoginRegisterScreen from "../screens/LoginRegister/MainLoginRegisterScreen";
 import LoginRegisterScreen from "../screens/LoginRegister/LoginRegisterScreen";
 import SettingScreens from "../screens/SettingScreens";
 
 type RootStackParamList = {
+  MainLoginRegisterScreen: undefined;
   LoginRegisterScreen: undefined;
   SettingScreens: undefined;
 };
@@ -20,10 +22,17 @@ export const MainPageStackNavigator: FC = () => {
   return (
     <RootStack.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: "blue" },
-        headerTintColor: "red",
+        headerStyle: { backgroundColor: "yellow" },
+        headerTintColor: "white",
       }}
     >
+      <RootStack.Screen
+        name="MainLoginRegisterScreen"
+        component={MainLoginRegisterScreen}
+        options={{
+          title: LRL[lang]?.appName,
+        }}
+      />
       <RootStack.Screen
         name="LoginRegisterScreen"
         component={LoginRegisterScreen}
@@ -34,6 +43,28 @@ export const MainPageStackNavigator: FC = () => {
     </RootStack.Navigator>
   );
 };
+
+// export const LoginRegisterStackNavigator: FC = () => {
+//   const lang = useSelector<RootState, RootState["language"]>(
+//     (state) => state.language
+//   );
+//   return (
+//     <RootStack.Navigator
+//       screenOptions={{
+//         headerStyle: { backgroundColor: "yellow" },
+//         headerTintColor: "white",
+//       }}
+//     >
+//       <RootStack.Screen
+//         name="LoginRegisterScreen"
+//         component={LoginRegisterScreen}
+//         options={{
+//           title: LRL[lang]?.appName,
+//         }}
+//       />
+//     </RootStack.Navigator>
+//   );
+// };
 
 export const AccountStackNavigator: FC = () => {
   const lang = useSelector<RootState, RootState["language"]>(

@@ -9,7 +9,7 @@ interface Props {
 const ButtonLoginEmail : FC<Props> = (props: Props) =>  {
     const { contenido, navigation } = props;
     return (
-        <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.button}>
+        <TouchableOpacity onPress={() => navigation.navigate('LoginRegisterScreen')} style={styles.button}>
             <Text style={styles.buttonText}>{contenido}</Text>
             <Image source={require('../../assets/Images/LoginImg/email.png')} style={styles.icon} />
         </TouchableOpacity>

@@ -1,50 +1,90 @@
-import React, { FC } from "react";
-import { Text, View } from "react-native";
-import HomeStyle from '../../styles/HomeStyles';
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import LRL from "../../assets/Languages/LoginRegisterLanguage";
+import React, { FC, useState } from 'react';
+import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import loginRegisterStyle from '../../styles/LoginRegisterStyles';
 import BackgroundImage from '../../components/ImagesComponents/LoginBackgroundImage';
-import ButtonLoginEmail from '../../components/LoginRegisterComponents/ButtonLoginEmail';
-import SlideComponent from '../../components/LoginRegisterComponents/SlideComponent';
-import IconFacebookGoogle from '../../components/LoginRegisterComponents/iconFacebookGoogle';
+import RegisterComponent from '../../components/LoginRegisterComponents/RegisterComponent';
+import LoginComponent from '../../components/LoginRegisterComponents/LoginComponent';
 
 interface Props {
-  navigation: any;
+    navigation: any;
 }
 
-const LoginRegister: FC<Props> = (props: Props) => {
+const Login: FC<Props> = (props: Props) =>  {
   const { navigation } = props;
-  const lang = useSelector<RootState, RootState["language"]>(
-    (state) => state.language
-  );
+  const [showRegister, setShowRegister] = useState(true)
+
+  const registerView = () => {
+    setShowRegister(!showRegister);
+  }
+
   return (
-    <View style={HomeStyle.container}>
+    <View style={loginRegisterStyle.container}>
       <BackgroundImage>
-        <View>
-          <Text style={HomeStyle.title}>{LRL[lang]?.appName}</Text>
-          <Text style={HomeStyle.subtitle}>{LRL[lang]?.slogan}</Text>
-          <View style={HomeStyle.scroller}>
-            <Text style={HomeStyle.text}>{LRL[lang]?.knowMore} </Text>
-            <View>
-              < SlideComponent />
-            </View>
-          </View>
+        <TouchableOpacity
+        //   style={styles.goBack}
+          onPress={() => navigation.navigate('Home')}>
+          <Image source={require('../../assets/Images/LoginImg/cross.png')} style={styles.icon} />
+        </TouchableOpacity>
+        <View style={styles.showViewRegisterLogIn}>
+          <TouchableOpacity onPress={() => registerView()} style={styles.button}>
+            {showRegister ? (
+              <>
+                <Text style={styles.buttonText}>Registrarse</Text>
+                <View style={styles.line} ></View>
+              </>
+            ) : (
+              <Text style={[styles.buttonText, styles.buttonTextOpacity]}>Registrarse</Text>
+            )}
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => registerView()} style={styles.button}>
+            {showRegister ? (
+              <Text style={[styles.buttonText, styles.buttonTextOpacity]}>Iniciar Sesión</Text>
+            ) : (
+              <>
+                <Text style={styles.buttonText}>Iniciar Sesión</Text>
+                <View style={styles.line} ></View>
+              </>
+            )}
+
+          </TouchableOpacity>
         </View>
-        <View style={HomeStyle.containerFooter}>
-          <ButtonLoginEmail contenido={LRL[lang]?.buttonEmail} navigation={props.navigation.navigate('')}>
-          </ButtonLoginEmail>
-          <View style={HomeStyle.rectanguleContainer}>
-            <Text style={HomeStyle.textFooter}>{LRL[lang]?.conectWith}</Text>
-            <View style={HomeStyle.buttonsLogin}>
-              <IconFacebookGoogle imageIcon={"facebook"}  navigation={navigation} />
-              <IconFacebookGoogle imageIcon={"google"} navigation={navigation} />
-            </View>
-          </View>
-          <Text style={[HomeStyle.textFooter, HomeStyle.textLater]}>{LRL[lang]?.signInLater}</Text>
-        </View>
+        {showRegister ? (
+          < RegisterComponent navigation={navigation} />
+        ) : (
+          <LoginComponent navigation={navigation}/>
+        )}
       </BackgroundImage>
     </View>
- );
+  );
 }
-export default LoginRegister;
+export default Login;
+
+const styles = StyleSheet.create({
+  showViewRegisterLogIn: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
+  button: {
+    marginTop: '20%'
+  },
+  buttonText: {
+    fontSize: 22,
+    fontFamily: 'nunito-semiBold',
+    color: 'white',
+  },
+  icon: {
+    fontSize: 27,
+    fontFamily: 'nunito-semiBold',
+    color: 'white',
+    marginHorizontal: '10%',
+    marginVertical: '10%'
+  },
+  buttonTextOpacity: {
+    color: 'rgba(255, 255, 255, 0.53)',
+  },
+  line: {
+    backgroundColor: 'white',
+    height: 2,
+    width: '100%'
+  }
+})
