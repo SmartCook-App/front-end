@@ -7,6 +7,31 @@ const logInRegisterStyle = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
     },
+    showViewRegisterLogIn: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+    },
+    registerLoginButton: {
+        marginTop: '20%'
+    },
+    registerLoginButtonText: {
+        fontSize: 22,
+        fontFamily: 'nunito-semiBold',
+        color: 'white',
+    },
+    crossButton: {
+        color: 'white',
+        marginTop: '15%',
+        marginLeft: '5%',
+    },
+    buttonTextOpacity: {
+        color: 'rgba(255, 255, 255, 0.53)',
+    },
+    line: {
+        backgroundColor: 'white',
+        height: 2,
+        width: '100%'
+    },
     button: {
         backgroundColor: "white",
         padding: 20,
@@ -40,10 +65,15 @@ const logInRegisterStyle = StyleSheet.create({
         margin: 15,
     },
     icon: {
-        height: 24,
-        width: 24,
+        color: "white",
         resizeMode: 'contain',
-        left: -10,
+        left: -13,
+        position: 'absolute',
+    },
+    passwordIcon: {
+        color: "white",
+        resizeMode: 'contain',
+        right: 18,
         position: 'absolute',
     },
     viewInput: {

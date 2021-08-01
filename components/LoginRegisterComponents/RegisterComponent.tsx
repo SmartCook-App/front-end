@@ -1,10 +1,10 @@
 import React, { FC, useState, useContext } from 'react';
-import { Image, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Image, Text, View, TextInput, TouchableOpacity, Switch} from 'react-native';
 import loginRegisterStyle from '../../styles/LoginRegisterStyles';
 import LRL from "../../assets/Languages/LoginRegisterLanguage";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import IoniconsIcon from 'react-native-vector-icons';
+import { FontAwesome5, Feather , MaterialIcons } from '@expo/vector-icons';
 
 interface Props {
     navigation: any;
@@ -14,6 +14,7 @@ const RegisterComponent: FC<Props> = (props: Props) =>  {
   const [lastName, setlastName] = useState('');
   const [email, setemail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(true);
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
   );
@@ -22,12 +23,7 @@ const RegisterComponent: FC<Props> = (props: Props) =>  {
     <View>
       <View style={loginRegisterStyle.subContainer}>
         <View style={loginRegisterStyle.viewInput}>
-          <Image source={require('../../assets/Images/LoginImg/userIcon.png')} style={loginRegisterStyle.icon} />
-          <IoniconsIcon
-            name="settings-outline"
-            color={'black'}
-            size={26}
-          />
+          <FontAwesome5 name="user-circle" size={23} style={loginRegisterStyle.icon} />
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
@@ -48,7 +44,7 @@ const RegisterComponent: FC<Props> = (props: Props) =>  {
         </View>
 
         <View style={loginRegisterStyle.viewInput}>
-          <Image source={require('../../assets/Images/LoginImg/whiteEmail.png')} style={loginRegisterStyle.icon} />
+          <Feather name="mail" size={23} style={loginRegisterStyle.icon} />
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
@@ -59,15 +55,20 @@ const RegisterComponent: FC<Props> = (props: Props) =>  {
         </View>
 
         <View style={loginRegisterStyle.viewInput}>
-          <Image source={require('../../assets/Images/LoginImg/password.png')} style={loginRegisterStyle.icon} />
+          <MaterialIcons name="vpn-key" size={23} style={loginRegisterStyle.icon}/>
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
             placeholder={LRL[lang]?.password}
             value={password}
             onChangeText={setPassword}
-            secureTextEntry
-          />
+            secureTextEntry={showPassword ? true : false}
+          /> 
+          {showPassword ? (
+              <Feather name="eye-off" onPress={() => setShowPassword(!showPassword)} size={23} style={loginRegisterStyle.passwordIcon} />
+            ) : (
+              <Feather name="eye" onPress={() => setShowPassword(!showPassword)} size={23} style={loginRegisterStyle.passwordIcon} />
+            )}
         </View>
         <TouchableOpacity style={loginRegisterStyle.button}>
           <Text style={loginRegisterStyle.buttonText}>{LRL[lang]?.register}</Text>

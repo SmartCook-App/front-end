@@ -4,6 +4,7 @@ import loginRegisterStyle from '../../styles/LoginRegisterStyles';
 import LRL from "../../assets/Languages/LoginRegisterLanguage";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
+import { Feather, MaterialIcons } from '@expo/vector-icons'; 
 
 interface Props {
     navigation: any;
@@ -11,6 +12,7 @@ interface Props {
 const LoginComponent: FC<Props> = (props: Props) =>  {
   const [email, setemail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(true);
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
   );
@@ -19,7 +21,7 @@ const LoginComponent: FC<Props> = (props: Props) =>  {
     <View>
       <View style={loginRegisterStyle.subContainer}>
         <View style={loginRegisterStyle.viewInput}>
-          <Image source={require('../../assets/Images/LoginImg/userIcon.png')} style={loginRegisterStyle.icon} />
+          <Feather name="mail" size={23} style={loginRegisterStyle.icon} />
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
@@ -29,7 +31,7 @@ const LoginComponent: FC<Props> = (props: Props) =>  {
           />
         </View>
         <View style={loginRegisterStyle.viewInput}>
-          <Image source={require('../../assets/Images/LoginImg/password.png')} style={loginRegisterStyle.icon} />
+          <MaterialIcons name="vpn-key" size={23} style={loginRegisterStyle.icon} />
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
@@ -38,6 +40,11 @@ const LoginComponent: FC<Props> = (props: Props) =>  {
             onChangeText={setPassword}
             secureTextEntry
           />
+          {showPassword ? (
+              <Feather name="eye-off" onPress={() => setShowPassword(!showPassword)} size={23} style={loginRegisterStyle.passwordIcon} />
+            ) : (
+              <Feather name="eye" onPress={() => setShowPassword(!showPassword)} size={23} style={loginRegisterStyle.passwordIcon} />
+            )}
         </View>
         <TouchableOpacity style={loginRegisterStyle.buttonLogIn}>
           <Text style={loginRegisterStyle.buttonText}>{LRL[lang]?.logIn}</Text>

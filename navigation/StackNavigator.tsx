@@ -31,6 +31,7 @@ export const MainPageStackNavigator: FC = () => {
         component={MainLoginRegisterScreen}
         options={{
           title: LRL[lang]?.appName,
+          headerShown: false, 
         }}
       />
       <RootStack.Screen
@@ -38,6 +39,7 @@ export const MainPageStackNavigator: FC = () => {
         component={LoginRegisterScreen}
         options={{
           title: LRL[lang]?.appName,
+          headerShown: false, 
         }}
       />
     </RootStack.Navigator>

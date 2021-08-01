@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import HomeStyle from '../../styles/HomeStyles';
+import { FontAwesome5 } from '@expo/vector-icons'; 
 
 interface Props {
     navigation: any;
