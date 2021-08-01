@@ -21,6 +21,7 @@
     "@react-navigation/native": "~5.8.10",
     "@react-navigation/stack": "~5.12.8",
     "@reduxjs/toolkit": "^1.6.1",
+    "@types/react-native-vector-icons": "^6.4.8",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "eslint-config-prettier": "^8.3.0",

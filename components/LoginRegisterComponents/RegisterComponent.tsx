@@ -1,7 +1,10 @@
 import React, { FC, useState, useContext } from 'react';
 import { Image, Text, View, TextInput, TouchableOpacity } from 'react-native';
-// import AuthContext from '../../config';
 import loginRegisterStyle from '../../styles/LoginRegisterStyles';
+import LRL from "../../assets/Languages/LoginRegisterLanguage";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import IoniconsIcon from 'react-native-vector-icons';
 
 interface Props {
     navigation: any;
@@ -11,21 +14,24 @@ const RegisterComponent: FC<Props> = (props: Props) =>  {
   const [lastName, setlastName] = useState('');
   const [email, setemail] = useState('');
   const [password, setPassword] = useState('');
-//   const [showRegister, setShowRegister] = useState(false)
-//   const { state, dispatch } = useContext(AuthContext);
-//   const registerView = () => {
-//     setShowRegister(!register);
-//   }
+  const lang = useSelector<RootState, RootState["language"]>(
+    (state) => state.language
+  );
 
   return (
     <View>
       <View style={loginRegisterStyle.subContainer}>
         <View style={loginRegisterStyle.viewInput}>
           <Image source={require('../../assets/Images/LoginImg/userIcon.png')} style={loginRegisterStyle.icon} />
+          <IoniconsIcon
+            name="settings-outline"
+            color={'black'}
+            size={26}
+          />
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
-            placeholder="Nombre"
+            placeholder={LRL[lang]?.name}
             value={name}
             onChangeText={setName}
           />
@@ -35,7 +41,7 @@ const RegisterComponent: FC<Props> = (props: Props) =>  {
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
-            placeholder="Apellido"
+            placeholder={LRL[lang]?.lastName}
             value={lastName}
             onChangeText={setlastName}
           />
@@ -46,7 +52,7 @@ const RegisterComponent: FC<Props> = (props: Props) =>  {
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
-            placeholder="Correo"
+            placeholder={LRL[lang]?.email}
             value={email}
             onChangeText={setemail}
           />
@@ -57,18 +63,18 @@ const RegisterComponent: FC<Props> = (props: Props) =>  {
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
-            placeholder="Contraseña"
+            placeholder={LRL[lang]?.password}
             value={password}
             onChangeText={setPassword}
             secureTextEntry
           />
         </View>
         <TouchableOpacity style={loginRegisterStyle.button}>
-          <Text style={loginRegisterStyle.buttonText}>Registrarse</Text>
+          <Text style={loginRegisterStyle.buttonText}>{LRL[lang]?.register}</Text>
         </TouchableOpacity>
-        <Text style={loginRegisterStyle.footerText}>Al crear una cuenta estas aceptando los 
-          <Text style={loginRegisterStyle.footerTextBold}> Términos del servicio</Text> y 
-          <Text style={loginRegisterStyle.footerTextBold}> Política de privacidad</Text>
+        <Text style={loginRegisterStyle.footerText}>{LRL[lang]?.legalMessageAccept} 
+          <Text style={loginRegisterStyle.footerTextBold}> {LRL[lang]?.legalMessageTerms}</Text> {LRL[lang]?.and} 
+          <Text style={loginRegisterStyle.footerTextBold}> {LRL[lang]?.legalMessagePolitics}</Text>
         </Text>
         {/* onPress={() => dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' })} */}
       </View>

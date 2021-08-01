@@ -1,8 +1,9 @@
 import React, { FC, useState } from 'react';
 import { Image, Text, View, TextInput, TouchableOpacity } from 'react-native';
-// import AuthContext from '../../config';
 import loginRegisterStyle from '../../styles/LoginRegisterStyles';
-import BackgroundImage from '../../components/ImagesComponents/LoginBackgroundImage';
+import LRL from "../../assets/Languages/LoginRegisterLanguage";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 interface Props {
     navigation: any;
@@ -10,11 +11,9 @@ interface Props {
 const LoginComponent: FC<Props> = (props: Props) =>  {
   const [email, setemail] = useState('');
   const [password, setPassword] = useState('');
-//   const [showRegister, setShowRegister] = useState(false)
-//   const { state, dispatch } = useContext(AuthContext);
-//   const registerView = () => {
-//     setShowRegister(!register);
-//   }
+  const lang = useSelector<RootState, RootState["language"]>(
+    (state) => state.language
+  );
 
   return (
     <View>
@@ -24,7 +23,7 @@ const LoginComponent: FC<Props> = (props: Props) =>  {
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
-            placeholder="Correo"
+            placeholder={LRL[lang]?.email}
             value={email}
             onChangeText={setemail}
           />
@@ -34,16 +33,16 @@ const LoginComponent: FC<Props> = (props: Props) =>  {
           <TextInput
             placeholderTextColor='white'
             style={loginRegisterStyle.textInput}
-            placeholder="Contraseña"
+            placeholder={LRL[lang]?.password}
             value={password}
             onChangeText={setPassword}
             secureTextEntry
           />
         </View>
         <TouchableOpacity style={loginRegisterStyle.buttonLogIn}>
-          <Text style={loginRegisterStyle.buttonText}>Iniciar Sesión</Text>
+          <Text style={loginRegisterStyle.buttonText}>{LRL[lang]?.logIn}</Text>
         </TouchableOpacity>
-        <Text style={loginRegisterStyle.footerText}>                                ¿Olvidaste tu contraseña?                                </Text>
+        <Text style={loginRegisterStyle.footerText}>                                {LRL[lang]?.forgotPassword}                                </Text>
         {/* onPress={() => dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' })} */}
       </View>
     </View>
