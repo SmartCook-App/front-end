@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-import { AccountStackNavigator } from "./StackNavigator";
-
+// import { AccountStackNavigator } from "./StackNavigator";
 const Tab = createMaterialBottomTabNavigator();
 
 export const TabNavigator: FC = () => {
@@ -19,7 +18,7 @@ export const TabNavigator: FC = () => {
       inactiveColor="#95a5a6"
       sceneAnimationEnabled={false}
     >
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Account"
         component={AccountStackNavigator}
         options={{
@@ -29,7 +28,7 @@ export const TabNavigator: FC = () => {
             <Ionicons name="ios-person" color={color} size={26} />
           ),
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };

@@ -53,7 +53,7 @@ const LoginRegister: FC<Props> = (props: Props) => {
           </View>
           <Text
             style={[HomeStyle.textFooter, HomeStyle.textLater]}
-            onPress={() => navigation.navigate("LoginRegisterScreen")}
+            onPress={() => navigation.navigate("IndexScreen")}
           >
             {LRL[lang]?.signInLater}
           </Text>
