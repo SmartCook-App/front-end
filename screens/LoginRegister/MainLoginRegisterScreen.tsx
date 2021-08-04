@@ -35,7 +35,7 @@ const LoginRegister: FC<Props> = (props: Props) => {
         </View>
         <View style={HomeStyle.containerFooter}>
           <ButtonLoginEmail
-            contenido={LRL[lang]?.buttonEmail}
+            content={LRL[lang]?.buttonEmail}
             navigation={navigation}
           ></ButtonLoginEmail>
           <View style={HomeStyle.rectanguleContainer}>

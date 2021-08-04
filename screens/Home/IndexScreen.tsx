@@ -1,12 +1,11 @@
 import React, { FC } from "react";
 import { Text, View } from "react-native";
+import UpperTitle from "../../components/UpperTitleComponent";
 
 const IndexScreen: FC = () => {
   return (
     <View>
-      <Text>WELCOME</Text>
-      <Text>WELCOME</Text>
-      <Text>WELCOME</Text>
+      <UpperTitle content="SMARTCOOK" />
     </View>
   );
 };
