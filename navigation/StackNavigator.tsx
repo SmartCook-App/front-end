@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MainLoginRegisterScreen from "../screens/LoginRegister/MainLoginRegisterScreen";
 import LoginRegisterScreen from "../screens/LoginRegister/LoginRegisterScreen";
 import SettingScreens from "../screens/SettingScreens";
+import SlideComponent from "../components/LoginRegisterComponents/SlideComponent";
 
 type RootStackParamList = {
   MainLoginRegisterScreen: undefined;
@@ -31,7 +32,7 @@ export const MainPageStackNavigator: FC = () => {
         component={MainLoginRegisterScreen}
         options={{
           title: LRL[lang]?.appName,
-          headerShown: false, 
+          headerShown: false,
         }}
       />
       <RootStack.Screen
@@ -39,7 +40,7 @@ export const MainPageStackNavigator: FC = () => {
         component={LoginRegisterScreen}
         options={{
           title: LRL[lang]?.appName,
-          headerShown: false, 
+          headerShown: false,
         }}
       />
     </RootStack.Navigator>
