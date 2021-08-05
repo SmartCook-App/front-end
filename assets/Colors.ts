@@ -10,6 +10,7 @@ export default {
     tabIconDefault: "#ccc",
     tabIconSelected: tintColorLight,
     lineUpperTitle: "#BEBDBD",
+    greyOfFilters: "#E9E9E9",
   },
   dark: {
     text: "#fff",
