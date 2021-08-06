@@ -1,12 +1,12 @@
 const FL: any = {
   ES: {
-    diet: "Tipo de dieta",
+    diet: "Tipo dieta",
     time: "Tiempo",
     nutrition: "Nutrición",
     frecuency: "Frecuencia",
   },
   EN: {
-    diet: "Type of diet",
+    diet: "Diet type",
     time: "Time",
     nutrition: "Nutrition",
     frecuency: "Frecuency",

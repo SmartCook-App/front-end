@@ -7,7 +7,6 @@ const FiltersComponentsStyle = StyleSheet.create({
     borderRadius: 14,
     width: 80,
     height: 20,
-    alignContent: "stretch",
     alignItems: "center",
     marginRight: 12,
     marginVertical: 20,
@@ -16,9 +15,36 @@ const FiltersComponentsStyle = StyleSheet.create({
   letter: {
     fontFamily: "nunito-regular",
     fontSize: 10,
+    width: 70,
+    textAlign: "center",
   },
   container: {
-    marginHorizontal: 10,
+    marginHorizontal: 22,
+  },
+  circle: {
+    width: 60,
+    height: 60,
+    borderRadius: 50,
+    marginRight: 15,
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "space-around",
+  },
+  circlePress: {
+    backgroundColor: Colors.light.yellow,
+  },
+  circleNotPress: {
+    backgroundColor: Colors.light.greyOfFilters,
+  },
+  allCircles: {
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "space-around",
+    height: 70,
+  },
+  allText: {},
+  textAndCircles: {
+    flexDirection: "column",
   },
 });
 
