@@ -22,12 +22,11 @@ const FiltersComponentsStyle = StyleSheet.create({
     marginHorizontal: 22,
   },
   circle: {
-    width: 60,
-    height: 60,
+    width: 62,
+    height: 62,
     borderRadius: 50,
     marginRight: 15,
     alignItems: "center",
-    alignContent: "center",
     justifyContent: "space-around",
   },
   circlePress: {
@@ -37,14 +36,17 @@ const FiltersComponentsStyle = StyleSheet.create({
     backgroundColor: Colors.light.greyOfFilters,
   },
   allCircles: {
-    alignItems: "center",
-    alignContent: "center",
     justifyContent: "space-around",
     height: 70,
   },
-  allText: {},
-  textAndCircles: {
-    flexDirection: "column",
+  direction: {
+    flexDirection: "row",
+  },
+  title: {
+    fontFamily: "nunito-light",
+    fontSize: 12,
+    width: 65,
+    textAlign: "center",
   },
 });
 

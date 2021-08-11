@@ -5,7 +5,7 @@ const CFL: any = {
     alcoholicBeverages: "Bebidas alcoholicas",
     juices: "Jugos",
     chilean: "Chilena",
-    Dessert: "Postres",
+    dessert: "Postres",
     salad: "Ensaladas",
   },
   EN: {
@@ -14,7 +14,7 @@ const CFL: any = {
     alcoholicBeverages: "Alcoholic Beverages",
     juices: "Juices",
     chilean: "Chilean",
-    Dessert: "Desserts",
+    dessert: "Desserts",
     salad: "Salads",
   },
 };

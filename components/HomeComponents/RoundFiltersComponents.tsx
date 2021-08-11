@@ -3,21 +3,29 @@ import { Text, View } from "react-native";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import Colors from "../../assets/Colors";
-import { Feather, MaterialIcons } from "@expo/vector-icons";
 
 interface Props {
   name: any;
+  title: any;
 }
 
 const RoundFiltersComponents: FC<Props> = (props: Props) => {
   const [press, setPress] = useState(false);
-  const { name } = props;
+  const { name, title } = props;
+
+  const changePosition = () => {
+    console.log("lelvar al principop");
+  };
+
   const applyFilter = () => {
     setPress(!press);
+    if (press === true) {
+      changePosition();
+    }
   };
 
   return (
-    <>
+    <View>
       <View
         style={
           press
@@ -38,7 +46,8 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
           onPress={applyFilter}
         />
       </View>
-    </>
+      <Text style={FiltersComponentsStyle.title}>{title}</Text>
+    </View>
   );
 };
 export default RoundFiltersComponents;
