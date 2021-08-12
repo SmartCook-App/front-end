@@ -14,7 +14,7 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
   const { name, title } = props;
 
   const changePosition = () => {
-    console.log("lelvar al principop");
+    console.log("change position");
   };
 
   const applyFilter = () => {

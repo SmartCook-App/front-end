@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { Text, View, ScrollView } from "react-native";
 import UpperTitle from "../../components/UpperTitleComponent";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
@@ -9,13 +9,13 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import CFL from "../../assets/Languages/CircleFiltersLanguages";
 import IndexScreenStyle from "../../styles/HomeComponentsStyle/IndexScreenStyle";
-import { useTransition, animated } from "@react-spring/native";
-/** Constants */
-const AnimatedView: any = animated(View);
+//PRONANDO
 
-const ListItemHeight = 190;
+import { useTransition, animated } from "@react-spring/native";
 import data from "./data";
-/** Constants */
+
+const AnimatedView: any = animated(View);
+const ListItemHeight = 190;
 
 const IndexScreen: FC = () => {
   const lang = useSelector<RootState, RootState["language"]>(
@@ -74,10 +74,12 @@ const IndexScreen: FC = () => {
       name: "Pan de arandanos",
     },
   };
-  const [edges, _set] = useState(data);
+
+  const [rows, _set] = useState(data);
   let height = 150;
+
   const transitions = useTransition(
-    edges?.map((data, i) => ({ ...data, y: -(i * ListItemHeight) })),
+    rows.map((data, i) => ({ ...data, y: -(i * ListItemHeight) })),
     {
       key: (item: any) => item.name,
       from: { height: height, opacity: 0 },
@@ -86,9 +88,8 @@ const IndexScreen: FC = () => {
       update: ({ y, height }) => ({ y, height }),
     }
   );
-
   return (
-    <View>
+    <>
       <View>
         <UpperTitle content="SMARTCOOK" />
       </View>
@@ -102,8 +103,32 @@ const IndexScreen: FC = () => {
             <OvalFilterComponent value={item} />
           ))}
         </ScrollView>
-        <View>
-          <ScrollView
+      </View>
+      <View>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {transitions((style, item, _, index) => (
+            <AnimatedView
+              style={{
+                zIndex: data.length - index,
+                height: style.height,
+                opacity: style.opacity,
+              }}
+              key={item.name}
+            >
+              <RoundFiltersComponents
+                name={item.name}
+                title={CFL[lang].salad}
+              />
+            </AnimatedView>
+          ))}
+        </ScrollView>
+      </View>
+    </>
+  );
+};
+
+{
+  /* <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ minHeight: 1 * ListItemHeight }}
@@ -161,64 +186,23 @@ const IndexScreen: FC = () => {
                       name={"flower-outline"}
                       title={CFL[lang].popular}
                     />
-                    {/* </View> */}
-                  </AnimatedView>
+                    {/* </View> */
+}
+{
+  /* </AnimatedView> 
                 )
               )
             )}
-          </ScrollView>
-          {/* <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <View style={FiltersComponentsStyle.direction}>
-              <RoundFiltersComponents
-                name={"flame-outline"}
-                title={CFL[lang].popular}
-              />
-              <RoundFiltersComponents
-                name={"flame-outline"}
-                title={CFL[lang].cookers}
-              />
-              <RoundFiltersComponents
-                name={"flame-outline"}
-                title={CFL[lang].alcoholicBeverages}
-              />
-              <RoundFiltersComponents
-                name={"flame-outline"}
-                title={CFL[lang].juices}
-              />
-              <RoundFiltersComponents
-                name={"flame-outline"}
-                title={CFL[lang].chilean}
-              />
-              <RoundFiltersComponents
-                name={"flame-outline"}
-                title={CFL[lang].dessert}
-              />
-              <RoundFiltersComponents
-                name={"flame-outline"}
-                title={CFL[lang].salad}
-              />
-              <RoundFiltersComponents
-                name={"flame-outline"}
-                title={CFL[lang].popular}
-              />
-              <RoundFiltersComponents
-                name={"flame-outline"}
-                title={CFL[lang].popular}
-              />
-              <RoundFiltersComponents
-                name={"flame-outline"}
-                title={CFL[lang].popular}
-              />
-            </View>
-          </ScrollView> */}
-        </View>
-      </View>
-      {/* <ScrollView>
-        {Object.entries(listPictures).forEach(([key, value]) =>
-          console.log(value)
-        )}
-      </ScrollView> */}
-    </View>
-  );
-};
+          </ScrollView> */
+}
+
+// </View>
+//   </View>
+//   {/* <ScrollView>
+//     {Object.entries(listPictures).forEach(([key, value]) =>
+//       console.log(value)
+//     )}
+//   </ScrollView> */}
+// </View>
+
 export default IndexScreen;
