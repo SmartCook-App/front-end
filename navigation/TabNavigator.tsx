@@ -3,8 +3,13 @@ import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-import { AccountStackNavigator } from "./StackNavigator";
-
+import {
+  RecepiesStackNavigator,
+  // ListStackNavigator,
+  // CalendaryStackNavigator,
+  // SearchStackNavigator,
+  // ProfileStackNavigator,
+} from "./StackNavigator";
 const Tab = createMaterialBottomTabNavigator();
 
 export const TabNavigator: FC = () => {
@@ -20,16 +25,60 @@ export const TabNavigator: FC = () => {
       sceneAnimationEnabled={false}
     >
       <Tab.Screen
-        name="Account"
-        component={AccountStackNavigator}
+        name="Recepies"
+        component={RecepiesStackNavigator}
         options={{
-          tabBarLabel: "hola registrarse?",
+          tabBarLabel: "Recetas",
           tabBarColor: "black",
           tabBarIcon: ({ color }) => (
             <Ionicons name="ios-person" color={color} size={26} />
           ),
         }}
       />
+      {/* <Tab.Screen
+        name="List"
+        component={ListStackNavigator}
+        options={{
+          tabBarLabel: "Lista",
+          tabBarColor: "black",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="ios-person" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Calendary"
+        component={CalendaryStackNavigator}
+        options={{
+          tabBarLabel: "Calendario",
+          tabBarColor: "black",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="ios-person" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={SearchStackNavigator}
+        options={{
+          tabBarLabel: "Buscador",
+          tabBarColor: "black",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="ios-person" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileStackNavigator}
+        options={{
+          tabBarLabel: "Perfil",
+          tabBarColor: "black",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="ios-person" color={color} size={26} />
+          ),
+        }}
+      /> */}
     </Tab.Navigator>
   );
 };
