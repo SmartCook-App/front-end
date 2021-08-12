@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import Colors from '../assets/Colors';
 
 const logInRegisterStyle = StyleSheet.create({
     container: {
@@ -63,6 +64,11 @@ const logInRegisterStyle = StyleSheet.create({
         color: 'white',
         padding: 5,
         margin: 15,
+    },
+    errorText: {
+        fontSize: 14,
+        color: Colors.light.error,
+        width: 300,
     },
     icon: {
         color: "white",
