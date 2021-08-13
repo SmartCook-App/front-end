@@ -1,34 +1,39 @@
 import React, { FC, useState } from "react";
 import { Text, View } from "react-native";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import Colors from "../../assets/Colors";
+import { IconsState } from "../../redux/types/HomeTypes";
 
 interface Props {
   name: any;
   title: any;
+  isPressed: boolean;
+  updateOrderButtons: any;
+  setupdateOrderButtons: any;
 }
 
 const RoundFiltersComponents: FC<Props> = (props: Props) => {
-  const [press, setPress] = useState(false);
-  const { name, title } = props;
-
-  const changePosition = () => {
-    console.log("change position");
-  };
+  const { name, title, setupdateOrderButtons } = props;
+  let { isPressed, updateOrderButtons } = props;
+  const state = useSelector((state: RootState) => state);
+  const [pressed, setPressed] = useState(false);
 
   const applyFilter = () => {
-    setPress(!press);
-    if (press === true) {
-      changePosition();
-    }
+    // From other view
+    isPressed = !isPressed;
+    setupdateOrderButtons(!updateOrderButtons);
+    // This is from this view
+    setPressed(!pressed);
   };
 
   return (
     <View>
-      <View
+      <View 
         style={
-          press
+          pressed
             ? [
                 FiltersComponentsStyle.circle,
                 FiltersComponentsStyle.circlePress,

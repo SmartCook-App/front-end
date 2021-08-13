@@ -9,85 +9,28 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import CFL from "../../assets/Languages/CircleFiltersLanguages";
 import IndexScreenStyle from "../../styles/HomeComponentsStyle/IndexScreenStyle";
-//PRONANDO
-
 import { useTransition, animated } from "@react-spring/native";
-import data from "./data";
+import { boolean } from "yup/lib/locale";
+import RecipiesComponent from "../../components/HomeComponents/recipiesComponent";
 
 const AnimatedView: any = animated(View);
-const ListItemHeight = 190;
 
 const IndexScreen: FC = () => {
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
   );
+  const [updateOrderButtons, setupdateOrderButtons] = useState(false);
+  const state = useSelector((state: RootState) => state);
   var listNamesFilters = Object.values(FL[lang]);
+  const sortByKey = (key: any) => (a: any, b: any) => a[key] === b[key] ? 0 : a[key] ? -1 : 1;
+  // const sorted = data.slice().sort(sortByKey('press'));
 
-  // esto hay que eliminarlo dps cuando tengamos la base de datos
-  const listPictures = {
-    foto1: {
-      img: require("../../assets/Images/LoginImg/loginBackground.jpeg"),
-      time: "30 min",
-      likes: "90",
-      name: "Pan de arandanos",
-    },
-    foto2: {
-      img: require("../../assets/Images/LoginImg/loginBackground.jpeg"),
-      time: "20 min",
-      likes: "40",
-      name: "Bowl de lechuga",
-    },
-    foto3: {
-      img: require("../../assets/Images/LoginImg/loginBackground.jpeg"),
-      time: "70 min",
-      likes: "10",
-      name: "Mouse de chocolate",
-    },
-    foto4: {
-      img: require("../../assets/Images/LoginImg/loginBackground.jpeg"),
-      time: "30 min",
-      likes: "90",
-      name: "Pan de arandanos",
-    },
-    foto5: {
-      img: require("../../assets/Images/LoginImg/loginBackground.jpeg"),
-      time: "30 min",
-      likes: "90",
-      name: "Pan de arandanos",
-    },
-    foto6: {
-      img: require("../../assets/Images/LoginImg/loginBackground.jpeg"),
-      time: "30 min",
-      likes: "90",
-      name: "Pan de arandanos",
-    },
-    foto7: {
-      img: require("../../assets/Images/LoginImg/loginBackground.jpeg"),
-      time: "30 min",
-      likes: "90",
-      name: "Pan de arandanos",
-    },
-    foto8: {
-      img: require("../../assets/Images/LoginImg/loginBackground.jpeg"),
-      time: "30 min",
-      likes: "90",
-      name: "Pan de arandanos",
-    },
-  };
-
-  const [rows, _set] = useState(data);
-  let height = 150;
-
-  const transitions = useTransition(
-    rows.map((data, i) => ({ ...data, y: -(i * ListItemHeight) })),
-    {
-      key: (item: any) => item.name,
-      from: { height: height, opacity: 0 },
-      leave: { height: height, opacity: 0 },
-      enter: ({ y, height }) => ({ y, height, opacity: 1 }),
-      update: ({ y, height }) => ({ y, height }),
+  useEffect(() => {
+    if(updateOrderButtons){
+      // state.homeIconFilter.iconArray.slice().sort(sortByKey('press'));
     }
-  );
+  }, [updateOrderButtons]);
+
   return (
     <>
       <View>
@@ -106,103 +49,22 @@ const IndexScreen: FC = () => {
       </View>
       <View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {transitions((style, item, _, index) => (
-            <AnimatedView
-              style={{
-                zIndex: data.length - index,
-                height: style.height,
-                opacity: style.opacity,
-              }}
-              key={item.name}
-            >
-              <RoundFiltersComponents
-                name={item.name}
-                title={CFL[lang].salad}
-              />
-            </AnimatedView>
-          ))}
+        {state.homeIconFilter.iconArray.map((icon: any) => (
+          <RoundFiltersComponents
+          name={icon.name}
+          title={icon.title}
+          isPressed={icon.press}
+          updateOrderButtons={updateOrderButtons}
+          setupdateOrderButtons={setupdateOrderButtons}
+          />
+        ))}
         </ScrollView>
+      </View>
+      <View>
+        <RecipiesComponent name={"name"} image={"image"} cal={"cal"} time={"time"}/>
       </View>
     </>
   );
 };
-
-{
-  /* <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{ minHeight: 1 * ListItemHeight }}
-            style={{
-              backgroundColor: "red",
-              flexDirection: "row",
-            }}
-          >
-            {transitions(
-              (style, item, _, index) => (
-                console.log(item),
-                (
-                  <AnimatedView
-                    style={{
-                      zIndex: data.length - index,
-                      bottom: 150,
-                      height: style.height,
-                      opacity: style.opacity,
-                    }}
-                    key={item.name}
-                  >
-                    <RoundFiltersComponents
-                      name={"flame-outline"}
-                      title={CFL[lang].popular}
-                    />
-                    <RoundFiltersComponents
-                      name={"flashlight-outline"}
-                      title={CFL[lang].cookers}
-                    />
-                    <RoundFiltersComponents
-                      name={"flask-outline"}
-                      title={CFL[lang].alcoholicBeverages}
-                    />
-                    <RoundFiltersComponents
-                      name={"flash-off-outline"}
-                      title={CFL[lang].chilean}
-                    />
-                    <RoundFiltersComponents
-                      name={"flash-outline"}
-                      title={CFL[lang].dessert}
-                    />
-                    <RoundFiltersComponents
-                      name={"flag-outline"}
-                      title={CFL[lang].salad}
-                    />
-                    <RoundFiltersComponents
-                      name={"beaker-outline"}
-                      title={CFL[lang].popular}
-                    />
-                    <RoundFiltersComponents
-                      name={"rose-outline"}
-                      title={CFL[lang].popular}
-                    />
-                    <RoundFiltersComponents
-                      name={"flower-outline"}
-                      title={CFL[lang].popular}
-                    />
-                    {/* </View> */
-}
-{
-  /* </AnimatedView> 
-                )
-              )
-            )}
-          </ScrollView> */
-}
-
-// </View>
-//   </View>
-//   {/* <ScrollView>
-//     {Object.entries(listPictures).forEach(([key, value]) =>
-//       console.log(value)
-//     )}
-//   </ScrollView> */}
-// </View>
 
 export default IndexScreen;

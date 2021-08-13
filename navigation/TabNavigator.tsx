@@ -2,7 +2,10 @@ import React, { FC } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { Ionicons } from "@expo/vector-icons";
+import IoniconsComponent from "../components/HomeComponents/IoniconsComponent";
+import Colors from "../assets/Colors";
 import {
   RecepiesStackNavigator,
   // ListStackNavigator,
@@ -11,74 +14,73 @@ import {
   // ProfileStackNavigator,
 } from "./StackNavigator";
 const Tab = createMaterialBottomTabNavigator();
-
 export const TabNavigator: FC = () => {
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
   );
   return (
     <Tab.Navigator
-      shifting={true}
-      initialRouteName="Folders"
-      activeColor="#fff"
-      inactiveColor="#95a5a6"
+      initialRouteName="Recepies"
+      activeColor="#ffffff"
+      inactiveColor="#000000"
       sceneAnimationEnabled={false}
+      shifting={true}
     >
       <Tab.Screen
         name="Recepies"
         component={RecepiesStackNavigator}
         options={{
           tabBarLabel: "Recetas",
-          tabBarColor: "black",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-person" color={color} size={26} />
+          tabBarColor: Colors.light.navbarColor,
+          tabBarIcon: () => (
+            <IoniconsComponent name="home-outline" />
           ),
         }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name="List"
-        component={ListStackNavigator}
+        component={RecepiesStackNavigator}
         options={{
           tabBarLabel: "Lista",
-          tabBarColor: "black",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-person" color={color} size={26} />
+          tabBarColor: Colors.light.navbarColor,
+          tabBarIcon: () => (
+            <IoniconsComponent name="list-outline" />
           ),
         }}
       />
       <Tab.Screen
         name="Calendary"
-        component={CalendaryStackNavigator}
+        component={RecepiesStackNavigator}
         options={{
           tabBarLabel: "Calendario",
-          tabBarColor: "black",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-person" color={color} size={26} />
+          tabBarColor: Colors.light.navbarColor,
+          tabBarIcon: () => (
+            <IoniconsComponent name="calendar-outline"/>
           ),
         }}
       />
       <Tab.Screen
         name="Search"
-        component={SearchStackNavigator}
+        component={RecepiesStackNavigator}
         options={{
           tabBarLabel: "Buscador",
-          tabBarColor: "black",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-person" color={color} size={26} />
+          tabBarColor: Colors.light.navbarColor,
+          tabBarIcon: () => (
+            <IoniconsComponent name="search-outline" />
           ),
         }}
       />
       <Tab.Screen
         name="Profile"
-        component={ProfileStackNavigator}
+        component={RecepiesStackNavigator}
         options={{
           tabBarLabel: "Perfil",
-          tabBarColor: "black",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-person" color={color} size={26} />
+          tabBarColor: Colors.light.navbarColor,
+          tabBarIcon: () => (
+            <IoniconsComponent name="person-outline"/>
           ),
         }}
-      /> */}
+      />
     </Tab.Navigator>
   );
 };

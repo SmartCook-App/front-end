@@ -12,6 +12,7 @@ export default {
     error: '#FAB73D',
     lineUpperTitle: "#BEBDBD",
     greyOfFilters: "#E9E9E9",
+    navbarColor: "#E7E7E7",
   },
   dark: {
     text: "#fff",
