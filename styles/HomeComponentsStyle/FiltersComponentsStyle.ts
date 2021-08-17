@@ -11,6 +11,7 @@ const FiltersComponentsStyle = StyleSheet.create({
     marginRight: 12,
     marginVertical: 20,
     justifyContent: "space-around",
+    flexDirection: "row",
   },
   letter: {
     fontFamily: "nunito-regular",
@@ -18,14 +19,19 @@ const FiltersComponentsStyle = StyleSheet.create({
     width: 70,
     textAlign: "center",
   },
+  arrow: {
+    marginRight: 8,
+  },
   container: {
-    marginHorizontal: 22,
+    marginHorizontal: 28,
+  },
+  margin: {
+    marginLeft: 16,
   },
   circle: {
     width: 62,
     height: 62,
     borderRadius: 50,
-    marginRight: 15,
     alignItems: "center",
     justifyContent: "space-around",
   },

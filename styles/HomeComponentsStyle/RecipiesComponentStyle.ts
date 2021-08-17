@@ -1,22 +1,17 @@
 import { StyleSheet, Platform, Dimensions } from "react-native";
 
 // screen sizing
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 // orientation must fixed
 const SCREEN_WIDTH = width < height ? width : height;
 
 const recipeNumColums = 2;
 // item size
-const RECIPE_ITEM_HEIGHT = 115;
+const RECIPE_ITEM_HEIGHT = 131;
 const RECIPE_ITEM_MARGIN = 18;
+const BORDER_RADIUS = 15;
 
 const RecipiesComponentStyle = StyleSheet.create({
-  // image: {
-  //   marginTop: 15,
-  //   fontSize: 16,
-  //   fontFamily: "nunito-regular",
-  //   marginLeft: 15,
-  // },
   container: {
     flex: 1,
     backgroundColor: '#E9E9E9',
@@ -24,16 +19,18 @@ const RecipiesComponentStyle = StyleSheet.create({
     alignItems: 'center',
     marginLeft: RECIPE_ITEM_MARGIN,
     marginTop: 25,
-    width: (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) / recipeNumColums,
-    height: RECIPE_ITEM_HEIGHT + 26,
-    borderColor: '#E9E9E9',
+    width:
+      (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) /
+      recipeNumColums,
+    height: RECIPE_ITEM_HEIGHT,
+    borderColor: "#E9E9E9",
     borderWidth: 0.5,
-    borderRadius: 15
+    borderRadius: BORDER_RADIUS,
   },
   photo: {
     width: (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) / recipeNumColums,
     height: RECIPE_ITEM_HEIGHT,
-    borderRadius: 15, 
+    borderRadius: BORDER_RADIUS, 
     overflow: 'hidden',
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0
@@ -41,7 +38,7 @@ const RecipiesComponentStyle = StyleSheet.create({
   },
   title: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 12,
     fontFamily: "nunito-regular",
     textAlign: 'center',
     color: '#000000',
