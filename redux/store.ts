@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import thunk from 'redux-thunk';
 import { userAuthReducer } from './slices/userAuthSlice';
 import { languageReducer } from './slices/languageSlice';
+import { iconReducer } from './slices/homeSlice';
 
 // Parts of the state you want to persist and level of persistance
 const persistConfig = {
@@ -16,6 +17,7 @@ const persistConfig = {
 const RootReducer = combineReducers({
   userAuth: userAuthReducer,
   language: languageReducer,
+  homeIconFilter: iconReducer,
 });
 
 const RootReducerPersistor = persistReducer(persistConfig, RootReducer);

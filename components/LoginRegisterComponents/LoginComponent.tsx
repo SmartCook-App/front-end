@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react';
-import { Image, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import loginRegisterStyle from '../../styles/LoginRegisterStyles';
+import React, { FC, useState } from "react";
+import { Image, Text, View, TextInput, TouchableOpacity } from "react-native";
+import loginRegisterStyle from "../../styles/LoginRegisterStyles";
 import LRL from "../../assets/Languages/LoginRegisterLanguage";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
@@ -9,12 +9,10 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 interface Props {
-    navigation: any;
+  navigation: any;
 }
 const LoginComponent: FC<Props> = (props: Props) =>  {
   const initialValues = { email: '', password: '' };
-  const [email, setemail] = useState('');
-  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(true);
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
@@ -43,7 +41,7 @@ const LoginComponent: FC<Props> = (props: Props) =>  {
         <View style={loginRegisterStyle.viewInput}>
           <Feather name="mail" size={23} style={loginRegisterStyle.icon} />
           <TextInput
-            placeholderTextColor='white'
+            placeholderTextColor="white"
             style={loginRegisterStyle.textInput}
             placeholder={LRL[lang]?.email}
             onChangeText={handleChange('email')}
@@ -55,9 +53,13 @@ const LoginComponent: FC<Props> = (props: Props) =>  {
           {errors.email && touched.email ? <Text style={loginRegisterStyle.errorText}>{errors.email}</Text> : null}
         </View>
         <View style={loginRegisterStyle.viewInput}>
-          <MaterialIcons name="vpn-key" size={23} style={loginRegisterStyle.icon} />
+          <MaterialIcons
+            name="vpn-key"
+            size={23}
+            style={loginRegisterStyle.icon}
+          />
           <TextInput
-            placeholderTextColor='white'
+            placeholderTextColor="white"
             style={loginRegisterStyle.textInput}
             placeholder={LRL[lang]?.password}
             onChangeText={handleChange('password')}
@@ -66,10 +68,20 @@ const LoginComponent: FC<Props> = (props: Props) =>  {
             secureTextEntry
           />
           {showPassword ? (
-              <Feather name="eye-off" onPress={() => setShowPassword(!showPassword)} size={23} style={loginRegisterStyle.passwordIcon} />
-            ) : (
-              <Feather name="eye" onPress={() => setShowPassword(!showPassword)} size={23} style={loginRegisterStyle.passwordIcon} />
-            )}
+            <Feather
+              name="eye-off"
+              onPress={() => setShowPassword(!showPassword)}
+              size={23}
+              style={loginRegisterStyle.passwordIcon}
+            />
+          ) : (
+            <Feather
+              name="eye"
+              onPress={() => setShowPassword(!showPassword)}
+              size={23}
+              style={loginRegisterStyle.passwordIcon}
+            />
+          )}
         </View>
         <View>
           {errors.password && touched.password ? <Text style={loginRegisterStyle.errorText}>{errors.password}</Text> : null}
@@ -80,9 +92,12 @@ const LoginComponent: FC<Props> = (props: Props) =>  {
         </>
           )}
         </Formik>
-        <Text style={loginRegisterStyle.footerText}>                                {LRL[lang]?.forgotPassword}                                </Text>
+        <Text style={loginRegisterStyle.footerText}>
+          {" "}
+          {LRL[lang]?.forgotPassword}{" "}
+        </Text>
         {/* onPress={() => dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' })} */}
       </View>
   );
-}
+};
 export default LoginComponent;

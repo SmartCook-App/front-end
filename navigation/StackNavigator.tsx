@@ -5,16 +5,15 @@ import { RootState } from "../redux/store";
 import { createStackNavigator } from "@react-navigation/stack";
 import MainLoginRegisterScreen from "../screens/LoginRegister/MainLoginRegisterScreen";
 import LoginRegisterScreen from "../screens/LoginRegister/LoginRegisterScreen";
-import SettingScreens from "../screens/SettingScreens";
+import IndexScreen from "../screens/Home/IndexScreen";
 
 type RootStackParamList = {
   MainLoginRegisterScreen: undefined;
   LoginRegisterScreen: undefined;
-  SettingScreens: undefined;
+  IndexScreen: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
-
 export const MainPageStackNavigator: FC = () => {
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
@@ -31,7 +30,7 @@ export const MainPageStackNavigator: FC = () => {
         component={MainLoginRegisterScreen}
         options={{
           title: LRL[lang]?.appName,
-          headerShown: false, 
+          headerShown: false,
         }}
       />
       <RootStack.Screen
@@ -39,53 +38,37 @@ export const MainPageStackNavigator: FC = () => {
         component={LoginRegisterScreen}
         options={{
           title: LRL[lang]?.appName,
-          headerShown: false, 
+          headerShown: false,
+        }}
+      />
+      <RootStack.Screen
+        name="IndexScreen"
+        component={IndexScreen}
+        options={{
+          headerShown: false,
         }}
       />
     </RootStack.Navigator>
   );
 };
 
-// export const LoginRegisterStackNavigator: FC = () => {
-//   const lang = useSelector<RootState, RootState["language"]>(
-//     (state) => state.language
-//   );
-//   return (
-//     <RootStack.Navigator
-//       screenOptions={{
-//         headerStyle: { backgroundColor: "yellow" },
-//         headerTintColor: "white",
-//       }}
-//     >
-//       <RootStack.Screen
-//         name="LoginRegisterScreen"
-//         component={LoginRegisterScreen}
-//         options={{
-//           title: LRL[lang]?.appName,
-//         }}
-//       />
-//     </RootStack.Navigator>
-//   );
-// };
-
-export const AccountStackNavigator: FC = () => {
+export const RecepiesStackNavigator: FC = () => {
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
   );
   return (
     <RootStack.Navigator
-      initialRouteName="SettingScreens"
       screenOptions={{
-        headerStyle: { backgroundColor: "white" },
-        headerTintColor: "red",
-        headerTitleStyle: { fontWeight: "bold" },
+        headerStyle: { backgroundColor: "yellow" },
+        headerTintColor: "white",
       }}
     >
       <RootStack.Screen
-        name="SettingScreens"
-        component={SettingScreens}
+        name="IndexScreen"
+        component={IndexScreen}
         options={{
-          title: "Hola que tal settings",
+          title: " LRL[lang]?.appName",
+          headerShown: false,
         }}
       />
     </RootStack.Navigator>
