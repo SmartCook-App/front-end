@@ -30,8 +30,8 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
   };
 
   return (
-    <View>
-      <View 
+    <View style={FiltersComponentsStyle.margin}>
+      <View
         style={
           pressed
             ? [
