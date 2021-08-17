@@ -19,9 +19,9 @@ const RecipiesComponentStyle = StyleSheet.create({
   // },
   container: {
     flex: 1,
+    backgroundColor: '#E9E9E9',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#E9E9E9',
     marginLeft: RECIPE_ITEM_MARGIN,
     marginTop: 25,
     width: (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) / recipeNumColums,
@@ -33,9 +33,11 @@ const RecipiesComponentStyle = StyleSheet.create({
   photo: {
     width: (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) / recipeNumColums,
     height: RECIPE_ITEM_HEIGHT,
-    borderRadius: 15,
+    borderRadius: 15, 
+    overflow: 'hidden',
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0
+
   },
   title: {
     flex: 1,
@@ -43,15 +45,33 @@ const RecipiesComponentStyle = StyleSheet.create({
     fontFamily: "nunito-regular",
     textAlign: 'center',
     color: '#000000',
-    marginRight: 7,
-    marginLeft: 7,
+    marginRight: 6,
+    marginLeft: 6,
   },
-  oval: {
+  likesOval: {
+    alignItems: 'center',
     width: 45,
     height: 16,
+    fontSize: 10,
+    textAlign: 'center',
     borderRadius: 50,
     backgroundColor: "#FAB73D",
     transform: [{ scaleX: 1 }],
+    alignSelf: 'flex-end',
+    right: (SCREEN_WIDTH - (recipeNumColums + 20) * RECIPE_ITEM_MARGIN) / recipeNumColums,
+    top: RECIPE_ITEM_HEIGHT - 40,
+  },
+  timeOval: {
+    alignItems: 'center', 
+    width: 60,
+    height: 16,
+    textAlign: 'center',
+    borderRadius: 50,
+    backgroundColor: 'rgba(0, 0, 0, 0.35)',
+    color: '#ffffff',
+    left: 12,
+    top: 10,
+    fontSize: 10,
   }
 });
 export default RecipiesComponentStyle;
