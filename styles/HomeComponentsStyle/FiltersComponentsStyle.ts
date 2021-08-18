@@ -15,16 +15,43 @@ const FiltersComponentsStyle = StyleSheet.create({
     flexDirection: "row",
   },
   letter: {
-    fontFamily: "nunito-regular",
+    fontFamily: "nunito-light",
     fontSize: 10,
     width: 70,
     textAlign: "center",
   },
+  titleItemFilter: {
+    fontFamily: "nunito-bold",
+    fontSize: 22,
+    textAlign: "center",
+  },
   filterOptions: {
-    fontSize: 20,
+    fontSize: 16,
+    fontFamily: "nunito-regular",
+    marginLeft: 12,
+    padding: 3,
+    flexDirection: "row",
+  },
+  iconFilterOptions: {
+    marginLeft: 10,
   },
   arrow: {
     marginRight: 8,
+  },
+  buttonApply: {
+    marginTop: 230,
+    alignSelf: "center",
+    position: "absolute",
+    backgroundColor: "black",
+    width: 320,
+    height: 60,
+    justifyContent: "center",
+  },
+  buttonText: {
+    fontFamily: "nunito-regular",
+    alignSelf: "center",
+    fontSize: 20,
+    color: "white",
   },
   container: {
     marginHorizontal: 28,
@@ -55,6 +82,12 @@ const FiltersComponentsStyle = StyleSheet.create({
   direction: {
     flexDirection: "row",
   },
+  directionIconAndFilterText: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 4,
+    marginTop: 8,
+  },
   title: {
     fontFamily: "nunito-light",
     fontSize: 12,
@@ -62,9 +95,18 @@ const FiltersComponentsStyle = StyleSheet.create({
     textAlign: "center",
   },
   bottomPopUp: {
+    //tengo que cambiar
+    position: "absolute",
+    bottom: -21,
+    left: -20,
     backgroundColor: "white",
-    height: 200,
-    width: 500,
+    height: 320,
+    width: 410,
+  },
+  crossButton: {
+    alignSelf: "flex-end",
+    marginRight: 10,
+    marginTop: 10,
   },
 });
 
