@@ -32,7 +32,7 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
           <View style={FiltersComponentsStyle.bottomPopUp}>
             <Text style={FiltersComponentsStyle.letter}>{item.name}</Text>
             {item.values.map((item: any) => (
-              <Text style={FiltersComponentsStyle.letter}>{item}</Text>
+              <Text style={FiltersComponentsStyle.filterOptions}>{item}</Text>
             ))}
             <TouchableOpacity onPress={toggleModal}>
               <Text style={FiltersComponentsStyle.letter}>out</Text>

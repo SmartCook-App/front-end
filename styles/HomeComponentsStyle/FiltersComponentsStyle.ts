@@ -20,6 +20,9 @@ const FiltersComponentsStyle = StyleSheet.create({
     width: 70,
     textAlign: "center",
   },
+  filterOptions: {
+    fontSize: 20,
+  },
   arrow: {
     marginRight: 8,
   },
