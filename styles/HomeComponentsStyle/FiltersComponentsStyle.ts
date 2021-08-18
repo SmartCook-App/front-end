@@ -3,6 +3,7 @@ import Colors from "../../assets/Colors";
 
 const FiltersComponentsStyle = StyleSheet.create({
   oval: {
+    flex: 1,
     backgroundColor: Colors.light.greyOfFilters,
     borderRadius: 14,
     width: 80,
@@ -19,16 +20,22 @@ const FiltersComponentsStyle = StyleSheet.create({
     width: 70,
     textAlign: "center",
   },
+  filterOptions: {
+    fontSize: 20,
+  },
   arrow: {
     marginRight: 8,
   },
   container: {
     marginHorizontal: 28,
+    marginTop: 12,
   },
-  margin: {
-    marginLeft: 16,
+  containerRoundFilters: {
+    width: 370,
+    marginHorizontal: 20,
   },
   circle: {
+    marginRight: 10,
     width: 62,
     height: 62,
     borderRadius: 50,
@@ -53,6 +60,11 @@ const FiltersComponentsStyle = StyleSheet.create({
     fontSize: 12,
     width: 65,
     textAlign: "center",
+  },
+  bottomPopUp: {
+    backgroundColor: "white",
+    height: 200,
+    width: 500,
   },
 });
 

@@ -1,15 +1,19 @@
 const FL: any = {
   ES: {
-    diet: "Tipo dieta",
-    time: "Tiempo",
-    calories: "Calorias",
-    frecuency: "Frecuencia",
+    diet: {
+      name: "Tipo dieta",
+      values: ["Vegetariano", "Vegana", "Sin gluten"],
+    },
+    time: { name: "Tiempo", values: ["Vegetariano", "Vegana", "Sin gluten"] },
+    calories: { name: "Calorias", values: ["100", "10", "1000"] },
   },
   EN: {
-    diet: "Diet type",
-    time: "Time",
-    calories: "Calories",
-    frecuency: "Frecuency",
+    diet: {
+      name: "Diet Type",
+      values: ["Vegetariano", "Vegana", "Sin gluten"],
+    },
+    time: { name: "Time", values: ["Vegetariano", "Vegana", "Sin gluten"] },
+    calories: { name: "Calories", values: ["100", "10", "1000"] },
   },
 };
 export default FL;

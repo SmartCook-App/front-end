@@ -37,18 +37,18 @@ const IndexScreen: FC = () => {
       <View>
         <UpperTitle content="SMARTCOOK" />
       </View>
-      <View style={IndexScreenStyle.welcomeText}>
+      {/* <View style={IndexScreenStyle.welcomeText}>
         <Text> Hola Usuario</Text>
         <Text> Ya sabes que cocinar hoy?</Text>
-      </View>
+      </View> */}
       <View style={FiltersComponentsStyle.container}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {listNamesFilters.map((item: any) => (
-            <OvalFilterComponent value={item} />
+            <OvalFilterComponent item={item} />
           ))}
         </ScrollView>
       </View>
-      <View>
+      <View style={FiltersComponentsStyle.containerRoundFilters}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {state.homeIconFilter.iconArray.map((icon: any) => (
             <RoundFiltersComponents
