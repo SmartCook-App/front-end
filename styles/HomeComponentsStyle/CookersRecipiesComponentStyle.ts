@@ -12,6 +12,9 @@ const RECIPE_ITEM_MARGIN = 18;
 const BORDER_RADIUS = 15;
 
 const CookersRecipiesComponentStyle = StyleSheet.create({
+  allRecipies: {
+    flex:1,
+  },
   cookersContainer: {
     flex: 1,
     marginTop: 10,
@@ -23,10 +26,11 @@ const CookersRecipiesComponentStyle = StyleSheet.create({
     justifyContent: 'center',
   },
   goToCookersProfile: {
-    left: 35,
+    left: 110,
+    bottom: 7,
   },
   cookersName: {
-    right: 25,
+    right: 110,
   },
   container: {
     flex: 1,
@@ -34,7 +38,7 @@ const CookersRecipiesComponentStyle = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: RECIPE_ITEM_MARGIN,
-    marginTop: 10,
+    marginTop: 5,
     width:
       (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) /
       recipeNumColums,
