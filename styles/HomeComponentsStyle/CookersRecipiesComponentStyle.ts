@@ -11,14 +11,30 @@ const RECIPE_ITEM_HEIGHT = 131;
 const RECIPE_ITEM_MARGIN = 18;
 const BORDER_RADIUS = 15;
 
-const RecipiesComponentStyle = StyleSheet.create({
+const CookersRecipiesComponentStyle = StyleSheet.create({
+  cookersContainer: {
+    flex: 1,
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  cookersTitle: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: 'center',
+  },
+  goToCookersProfile: {
+    left: 35,
+  },
+  cookersName: {
+    right: 25,
+  },
   container: {
     flex: 1,
     backgroundColor: '#E9E9E9',
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: RECIPE_ITEM_MARGIN,
-    marginTop: 25,
+    marginTop: 10,
     width:
       (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) /
       recipeNumColums,
@@ -71,4 +87,4 @@ const RecipiesComponentStyle = StyleSheet.create({
     fontSize: 10,
   },
 });
-export default RecipiesComponentStyle;
+export default CookersRecipiesComponentStyle;
