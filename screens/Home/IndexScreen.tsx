@@ -37,10 +37,6 @@ const IndexScreen: FC = () => {
       <View>
         <UpperTitle content="SMARTCOOK" />
       </View>
-      {/* <View style={IndexScreenStyle.welcomeText}>
-        <Text> Hola Usuario</Text>
-        <Text> Ya sabes que cocinar hoy?</Text>
-      </View> */}
       <View style={FiltersComponentsStyle.container}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {listNamesFilters.map((item: any) => (

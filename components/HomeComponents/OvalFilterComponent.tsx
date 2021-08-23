@@ -2,6 +2,7 @@ import React, { FC, useState } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
+import SwipePickerComponent from "./SwipePickerComponent";
 import Modal from "react-native-modal";
 import {
   Entypo,
@@ -45,46 +46,76 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
             <Text style={FiltersComponentsStyle.titleItemFilter}>
               {item.name}
             </Text>
-
-            {item.values.map((item: any) => (
-              <TouchableOpacity>
-                <View style={FiltersComponentsStyle.directionIconAndFilterText}>
-                  {Object.keys(item) == "Sin gluten" ? (
-                    <>
-                      <MaterialCommunityIcons
-                        name={item[Object.keys(item)]}
-                        size={30}
-                        style={FiltersComponentsStyle.iconFilterOptions}
-                      />
-                      <Text style={FiltersComponentsStyle.filterOptions}>
-                        {Object.keys(item)}
-                      </Text>
-                    </>
-                  ) : Object.keys(item) == "Calorias" ? (
-                    <>
-                      <MaterialCommunityIcons
-                        name={item[Object.keys(item)]}
-                        size={30}
-                        style={FiltersComponentsStyle.iconFilterOptions}
-                      />
-                      <Text style={FiltersComponentsStyle.filterOptions}>
-                        Menos de
-                      </Text>
-                    </>
-                  ) : (
-                    <>
-                      <FontAwesome
-                        name={item[Object.keys(item)]}
-                        size={30}
-                        style={FiltersComponentsStyle.iconFilterOptions}
-                      />
-                      <Text style={FiltersComponentsStyle.filterOptions}>
-                        {Object.keys(item)}
-                      </Text>
-                    </>
-                  )}
-                </View>
-              </TouchableOpacity>
+            {console.log(item)}
+            {item.values.map((itemValue: any) => (
+              <>
+                {item.name === "Tipo dieta" ? (
+                  <TouchableOpacity>
+                    <View
+                      style={FiltersComponentsStyle.directionIconAndFilterText}
+                    >
+                      {Object.keys(itemValue) == "Sin gluten" ? (
+                        <>
+                          <MaterialCommunityIcons
+                            name={itemValue[Object.keys(itemValue)]}
+                            size={30}
+                            style={FiltersComponentsStyle.iconFilterOptions}
+                          />
+                          <Text style={FiltersComponentsStyle.filterOptions}>
+                            {Object.keys(itemValue)}
+                          </Text>
+                        </>
+                      ) : Object.keys(itemValue) == "Calorías" ? (
+                        <>
+                          <MaterialCommunityIcons
+                            name={itemValue[Object.keys(itemValue)]}
+                            size={30}
+                            style={FiltersComponentsStyle.iconFilterOptions}
+                          />
+                        </>
+                      ) : (
+                        <>
+                          <FontAwesome
+                            name={itemValue[Object.keys(itemValue)]}
+                            size={30}
+                            style={FiltersComponentsStyle.iconFilterOptions}
+                          />
+                          <Text style={FiltersComponentsStyle.filterOptions}>
+                            {Object.keys(itemValue)}
+                          </Text>
+                        </>
+                      )}
+                    </View>
+                  </TouchableOpacity>
+                ) : null}
+                {item.name === "Time" ? (
+                  <View
+                    style={FiltersComponentsStyle.directionIconAndFilterText}
+                  >
+                    <FontAwesome
+                      name={itemValue[Object.keys(itemValue)]}
+                      size={30}
+                      style={FiltersComponentsStyle.iconFilterOptions}
+                    />
+                    <SwipePickerComponent value={"time"} text={"minutos"} />
+                  </View>
+                ) : null}
+                {item.name === "Calorías" ? (
+                  <View
+                    style={FiltersComponentsStyle.directionIconAndFilterText}
+                  >
+                    <MaterialCommunityIcons
+                      name={itemValue[Object.keys(itemValue)]}
+                      size={30}
+                      style={FiltersComponentsStyle.iconFilterOptions}
+                    />
+                    <SwipePickerComponent
+                      value={"calories"}
+                      text={"calorías"}
+                    />
+                  </View>
+                ) : null}
+              </>
             ))}
 
             <View style={FiltersComponentsStyle.buttonApply}>

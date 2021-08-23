@@ -13,8 +13,8 @@ const FL: any = {
       values: [{ "Menos de": "clock-o" }],
     },
     calories: {
-      name: "Calorias",
-      values: [{ Calorias: "fire" }],
+      name: "Calorías",
+      values: [{ Calorías: "fire" }],
     },
   },
   EN: {

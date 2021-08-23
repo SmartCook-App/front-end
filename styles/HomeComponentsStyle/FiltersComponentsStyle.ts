@@ -1,6 +1,9 @@
 import { StyleSheet, Platform, Dimensions } from "react-native";
 import Colors from "../../assets/Colors";
+import window from "../../assets/Layout";
 
+const { width, height } = Dimensions.get("window");
+console.log(width);
 const FiltersComponentsStyle = StyleSheet.create({
   oval: {
     flex: 1,
@@ -33,7 +36,7 @@ const FiltersComponentsStyle = StyleSheet.create({
     flexDirection: "row",
   },
   iconFilterOptions: {
-    marginLeft: 10,
+    marginLeft: 25,
   },
   arrow: {
     marginRight: 8,
@@ -54,7 +57,7 @@ const FiltersComponentsStyle = StyleSheet.create({
     color: "white",
   },
   container: {
-    marginHorizontal: 28,
+    marginHorizontal: width - 350,
     marginTop: 12,
   },
   containerRoundFilters: {
