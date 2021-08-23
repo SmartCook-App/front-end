@@ -6,6 +6,7 @@ import {
   View,
   ImageBackground,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import RecipiesComponentStyle from "../../styles/HomeComponentsStyle/RecipiesComponentStyle";
 import { recipes } from '../../screens/Home/recipiesDataArray';
@@ -27,7 +28,7 @@ const RecipiesComponent: FC<Props> = (props: Props) => {
 
   const renderRecipes = (item: any) => (
     <>
-      <TouchableHighlight onPress={onPressRecipe}>
+      <TouchableOpacity onPress={onPressRecipe}>
         <View style={RecipiesComponentStyle.container}>
           <ImageBackground
             source={require("../../assets/Images/LoginImg/loginBackground.jpeg")}
@@ -38,7 +39,7 @@ const RecipiesComponent: FC<Props> = (props: Props) => {
           </ImageBackground>
           <Text style={RecipiesComponentStyle.title}>Sopa Tailandesa con dientes de ajo</Text>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     </>
   );
 

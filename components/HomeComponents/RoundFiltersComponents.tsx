@@ -11,13 +11,15 @@ interface Props {
   name: any;
   title: any;
   isPressed: boolean;
+  cookersView: boolean;
+  setcookersView: any;
   updateOrderButtons: any;
   setupdateOrderButtons: any;
 }
 
 const RoundFiltersComponents: FC<Props> = (props: Props) => {
-  const { name, title, setupdateOrderButtons } = props;
-  let { isPressed, updateOrderButtons } = props;
+  const { name, title, setupdateOrderButtons, setcookersView } = props;
+  let { isPressed, updateOrderButtons, cookersView } = props;
   const state = useSelector((state: RootState) => state);
   const [pressed, setPressed] = useState(false);
 
@@ -27,6 +29,9 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
     setupdateOrderButtons(!updateOrderButtons);
     // This is from this view
     setPressed(!pressed);
+    if (title == 'cookers') {
+      setcookersView(!cookersView);
+    }
   };
 
   return (
