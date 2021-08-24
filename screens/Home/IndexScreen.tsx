@@ -11,7 +11,7 @@ import CFL from "../../assets/Languages/CircleFiltersLanguages";
 import IndexScreenStyle from "../../styles/HomeComponentsStyle/IndexScreenStyle";
 import { useTransition, animated } from "@react-spring/native";
 import { boolean } from "yup/lib/locale";
-import RecipiesComponent from "../../components/HomeComponents/RecipiesComponent";
+import RecipiesComponent from "../../components/HomeComponents/recipiesComponent";
 import CookersRecipiesComponent from "../../components/HomeComponents/CookersRecipiesComponent";
 
 const AnimatedView: any = animated(View);

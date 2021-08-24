@@ -8,8 +8,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import CookersRecipiesComponentStyle from "../../styles/HomeComponentsStyle/CookersRecipiesComponentStyle";
-import { Cookers } from '../../screens/Home/CookersDataArray';
-import { Feather, MaterialIcons } from '@expo/vector-icons'; 
+import { Cookers } from "../../screens/Home/CookersDataArray";
+import { Feather, MaterialIcons } from "@expo/vector-icons";
 
 interface Props {
   name: any;
@@ -27,37 +27,52 @@ const RecipiesComponent: FC<Props> = (props: Props) => {
   const renderRecipes = (cooker: any) => (
     <View style={CookersRecipiesComponentStyle.cookersContainer}>
       <View style={CookersRecipiesComponentStyle.cookersTitle}>
-        <Text style={CookersRecipiesComponentStyle.cookersName}> Paula Sin Culpas</Text>
-        <MaterialIcons name="keyboard-arrow-right" size={30} color="#FAB73D" style={CookersRecipiesComponentStyle.goToCookersProfile}/>
+        <Text style={CookersRecipiesComponentStyle.cookersName}>
+          {" "}
+          Paula Sin Culpas
+        </Text>
+        <MaterialIcons
+          name="keyboard-arrow-right"
+          size={30}
+          color="#FAB73D"
+          style={CookersRecipiesComponentStyle.goToCookersProfile}
+        />
       </View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      {cooker['item'].map((recipie: any) => (
-      <TouchableOpacity onPress={onPressRecipe}>
-      <View style={CookersRecipiesComponentStyle.container}>
-          <ImageBackground
-          source={require('../../assets/Images/ensalada.jpg')}
-          style={CookersRecipiesComponentStyle.photo}
-          >
-          <Text style={CookersRecipiesComponentStyle.timeOval}><MaterialIcons name="access-time" color="white" /> {recipie.time}</Text>
-          <Text style={CookersRecipiesComponentStyle.likesOval}><Feather name="heart" color="black" /> {recipie.likes}</Text>
-          </ImageBackground>
-          <Text style={CookersRecipiesComponentStyle.title}>{recipie.title}</Text>
-      </View>
-      </TouchableOpacity>
-      ))}
+        {cooker["item"].map((recipie: any) => (
+          <TouchableOpacity onPress={onPressRecipe}>
+            <View style={CookersRecipiesComponentStyle.container}>
+              <ImageBackground
+                source={require("../../assets/Images/LoginImg/loginBackground.jpeg")}
+                style={CookersRecipiesComponentStyle.photo}
+              >
+                <Text style={CookersRecipiesComponentStyle.timeOval}>
+                  <MaterialIcons name="access-time" color="white" />{" "}
+                  {recipie.time}
+                </Text>
+                <Text style={CookersRecipiesComponentStyle.likesOval}>
+                  <Feather name="heart" color="black" /> {recipie.likes}
+                </Text>
+              </ImageBackground>
+              <Text style={CookersRecipiesComponentStyle.title}>
+                {recipie.title}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        ))}
       </ScrollView>
     </View>
   );
 
   return (
-      <View>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          numColumns={1}
-          data={Cookers}
-          renderItem={renderRecipes}
-          keyExtractor={(item) => `${item}`}
-        />
+    <View>
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        numColumns={1}
+        data={Cookers}
+        renderItem={renderRecipes}
+        keyExtractor={(item) => `${item}`}
+      />
     </View>
   );
 };
