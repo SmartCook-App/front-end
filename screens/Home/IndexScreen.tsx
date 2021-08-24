@@ -11,7 +11,8 @@ import CFL from "../../assets/Languages/CircleFiltersLanguages";
 import IndexScreenStyle from "../../styles/HomeComponentsStyle/IndexScreenStyle";
 import { useTransition, animated } from "@react-spring/native";
 import { boolean } from "yup/lib/locale";
-import RecipiesComponent from "../../components/HomeComponents/RecipiesComponent";
+import RecipiesComponent from "../../components/HomeComponents/recipiesComponent";
+import CookersRecipiesComponent from "../../components/HomeComponents/CookersRecipiesComponent";
 
 const AnimatedView: any = animated(View);
 
@@ -20,6 +21,7 @@ const IndexScreen: FC = () => {
     (state) => state.language
   );
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
+  const [cookersView, setcookersView] = useState(false);
   const state = useSelector((state: RootState) => state);
   var listNamesFilters = Object.values(FL[lang]);
   const sortByKey = (key: any) => (a: any, b: any) =>
@@ -37,10 +39,6 @@ const IndexScreen: FC = () => {
       <View>
         <UpperTitle content="SMARTCOOK" />
       </View>
-      {/* <View style={IndexScreenStyle.welcomeText}>
-        <Text> Hola Usuario</Text>
-        <Text> Ya sabes que cocinar hoy?</Text>
-      </View> */}
       <View style={FiltersComponentsStyle.container}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {listNamesFilters.map((item: any) => (
@@ -57,18 +55,31 @@ const IndexScreen: FC = () => {
               isPressed={icon.press}
               updateOrderButtons={updateOrderButtons}
               setupdateOrderButtons={setupdateOrderButtons}
+              cookersView={cookersView}
+              setcookersView={setcookersView}
             />
           ))}
         </ScrollView>
       </View>
-      <View>
-        <RecipiesComponent
-          name={"name"}
-          image={"image"}
-          cal={"cal"}
-          time={"time"}
-        />
-      </View>
+      {cookersView ? (
+        <View>
+          <CookersRecipiesComponent
+            name={"name"}
+            image={"image"}
+            cal={"cal"}
+            time={"time"}
+          />
+        </View>
+      ) : (
+        <View>
+          <RecipiesComponent
+            name={"name"}
+            image={"image"}
+            cal={"cal"}
+            time={"time"}
+          />
+        </View>
+      )}
     </>
   );
 };

@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import IoniconsComponent from "../components/HomeComponents/IoniconsComponent";
 import Colors from "../assets/Colors";
@@ -32,9 +32,7 @@ export const TabNavigator: FC = () => {
         options={{
           tabBarLabel: "Recetas",
           tabBarColor: Colors.light.navbarColor,
-          tabBarIcon: () => (
-            <IoniconsComponent name="home-outline" />
-          ),
+          tabBarIcon: () => <IoniconsComponent name="home-outline" />,
         }}
       />
       <Tab.Screen
@@ -43,9 +41,7 @@ export const TabNavigator: FC = () => {
         options={{
           tabBarLabel: "Lista",
           tabBarColor: Colors.light.navbarColor,
-          tabBarIcon: () => (
-            <IoniconsComponent name="list-outline" />
-          ),
+          tabBarIcon: () => <IoniconsComponent name="list-outline" />,
         }}
       />
       <Tab.Screen
@@ -54,12 +50,10 @@ export const TabNavigator: FC = () => {
         options={{
           tabBarLabel: "Calendario",
           tabBarColor: Colors.light.navbarColor,
-          tabBarIcon: () => (
-            <IoniconsComponent name="calendar-outline"/>
-          ),
+          tabBarIcon: () => <IoniconsComponent name="calendar-outline" />,
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Search"
         component={RecepiesStackNavigator}
         options={{
@@ -69,16 +63,14 @@ export const TabNavigator: FC = () => {
             <IoniconsComponent name="search-outline" />
           ),
         }}
-      />
+      /> */}
       <Tab.Screen
         name="Profile"
         component={RecepiesStackNavigator}
         options={{
           tabBarLabel: "Perfil",
           tabBarColor: Colors.light.navbarColor,
-          tabBarIcon: () => (
-            <IoniconsComponent name="person-outline"/>
-          ),
+          tabBarIcon: () => <IoniconsComponent name="person-outline" />,
         }}
       />
     </Tab.Navigator>

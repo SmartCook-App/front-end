@@ -2,17 +2,27 @@ const FL: any = {
   ES: {
     diet: {
       name: "Tipo dieta",
-      values: ["Vegetariano", "Vegana", "Sin gluten"],
+      values: [
+        { Vegetariana: "leaf" },
+        { Vegana: "heart" },
+        { "Sin gluten": "corn-off" },
+      ],
     },
-    time: { name: "Tiempo", values: ["Vegetariano", "Vegana", "Sin gluten"] },
-    calories: { name: "Calorias", values: ["100", "10", "1000"] },
+    time: {
+      name: "Time",
+      values: [{ "Menos de": "clock-o" }],
+    },
+    calories: {
+      name: "Calorías",
+      values: [{ Calorías: "fire" }],
+    },
   },
   EN: {
     diet: {
       name: "Diet Type",
-      values: ["Vegetariano", "Vegana", "Sin gluten"],
+      values: ["Veggie", "Vegan", "Gluten Free"],
     },
-    time: { name: "Time", values: ["Vegetariano", "Vegana", "Sin gluten"] },
+    time: { name: "Time", values: ["Veggie", "Vegan", "Gluten Free"] },
     calories: { name: "Calories", values: ["100", "10", "1000"] },
   },
 };
