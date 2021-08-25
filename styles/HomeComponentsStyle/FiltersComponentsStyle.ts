@@ -31,22 +31,24 @@ const FiltersComponentsStyle = StyleSheet.create({
   filterOptions: {
     fontSize: 16,
     fontFamily: "nunito-regular",
-    marginLeft: 12,
+    // marginLeft: 12,
     padding: 3,
     flexDirection: "row",
   },
   iconFilterOptions: {
     marginLeft: 25,
+    marginRight: 6,
   },
   arrow: {
     marginRight: 8,
   },
   buttonApply: {
     marginTop: 230,
+    borderRadius: 8,
     alignSelf: "center",
     position: "absolute",
     backgroundColor: "black",
-    width: 320,
+    width: 340,
     height: 60,
     justifyContent: "center",
   },
@@ -91,6 +93,12 @@ const FiltersComponentsStyle = StyleSheet.create({
     padding: 4,
     marginTop: 8,
   },
+  check: {
+    marginLeft: 320,
+    position: "absolute",
+    color: Colors.light.yellow,
+    opacity: 0.5,
+  },
   title: {
     fontFamily: "nunito-light",
     fontSize: 12,
@@ -105,11 +113,16 @@ const FiltersComponentsStyle = StyleSheet.create({
     backgroundColor: "white",
     height: 320,
     width: 410,
+    borderRadius: 8,
   },
   crossButton: {
     alignSelf: "flex-end",
     marginRight: 10,
     marginTop: 10,
+  },
+  pickerView: {
+    padding: 8,
+    width: 200,
   },
 });
 

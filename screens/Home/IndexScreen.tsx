@@ -62,14 +62,14 @@ const IndexScreen: FC = () => {
         </ScrollView>
       </View>
       {cookersView ? (
-        <View>
+        <ScrollView>
           <CookersRecipiesComponent
             name={"name"}
             image={"image"}
             cal={"cal"}
             time={"time"}
           />
-        </View>
+        </ScrollView>
       ) : (
         <View>
           <RecipiesComponent

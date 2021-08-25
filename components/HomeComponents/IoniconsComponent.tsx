@@ -8,11 +8,10 @@ interface Props {
 }
 
 const IoniconsComponent: FC<Props> = (props: Props) => {
-  const {name} = props;
+  const { name } = props;
   return (
     <>
-    <Ionicons name={name} style={TabBarStyle.icon} size={36}/>
-    {/* <Text style={TabBarStyle.color}>text</Text> */}
+      <Ionicons name={name} style={TabBarStyle.icon} size={36} />
     </>
   );
 };

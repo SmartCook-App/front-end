@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity } from "react-native";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import SwipePickerComponent from "./SwipePickerComponent";
+import DietTypeFilter from "./DietTypeFilter";
 import Modal from "react-native-modal";
 import {
   Entypo,
@@ -50,43 +51,7 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
             {item.values.map((itemValue: any) => (
               <>
                 {item.name === "Tipo dieta" ? (
-                  <TouchableOpacity>
-                    <View
-                      style={FiltersComponentsStyle.directionIconAndFilterText}
-                    >
-                      {Object.keys(itemValue) == "Sin gluten" ? (
-                        <>
-                          <MaterialCommunityIcons
-                            name={itemValue[Object.keys(itemValue)]}
-                            size={30}
-                            style={FiltersComponentsStyle.iconFilterOptions}
-                          />
-                          <Text style={FiltersComponentsStyle.filterOptions}>
-                            {Object.keys(itemValue)}
-                          </Text>
-                        </>
-                      ) : Object.keys(itemValue) == "Calorías" ? (
-                        <>
-                          <MaterialCommunityIcons
-                            name={itemValue[Object.keys(itemValue)]}
-                            size={30}
-                            style={FiltersComponentsStyle.iconFilterOptions}
-                          />
-                        </>
-                      ) : (
-                        <>
-                          <FontAwesome
-                            name={itemValue[Object.keys(itemValue)]}
-                            size={30}
-                            style={FiltersComponentsStyle.iconFilterOptions}
-                          />
-                          <Text style={FiltersComponentsStyle.filterOptions}>
-                            {Object.keys(itemValue)}
-                          </Text>
-                        </>
-                      )}
-                    </View>
-                  </TouchableOpacity>
+                  <DietTypeFilter itemValue={itemValue} />
                 ) : null}
                 {item.name === "Time" ? (
                   <View
@@ -94,7 +59,7 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
                   >
                     <FontAwesome
                       name={itemValue[Object.keys(itemValue)]}
-                      size={30}
+                      size={35}
                       style={FiltersComponentsStyle.iconFilterOptions}
                     />
                     <SwipePickerComponent value={"time"} text={"minutos"} />
@@ -106,7 +71,7 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
                   >
                     <MaterialCommunityIcons
                       name={itemValue[Object.keys(itemValue)]}
-                      size={30}
+                      size={35}
                       style={FiltersComponentsStyle.iconFilterOptions}
                     />
                     <SwipePickerComponent

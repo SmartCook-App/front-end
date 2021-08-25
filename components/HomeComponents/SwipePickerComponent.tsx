@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
-import { Text } from "react-native";
-import SwipePicker from "react-native-swipe-picker";
+import { Text, View } from "react-native";
+// import SwipePicker from "react-native-swipe-picker";
+import { Picker } from "@react-native-community/picker";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
 
 const SwipePickerComponent: FC<Props> = (props: Props) => {
   const { value, text } = props;
+  const [selectedValue, setSelectedValue] = useState("");
   const [valueItems, _setValueItems] = useState(
     value === "calories"
       ? [
@@ -58,19 +60,20 @@ const SwipePickerComponent: FC<Props> = (props: Props) => {
         ]
   );
   return (
-    <>
+    <View style={FiltersComponentsStyle.pickerView}>
       <Text style={FiltersComponentsStyle.filterOptions}>Menos de</Text>
-      <SwipePicker
-        items={valueItems}
-        onChange={(index: any, item: any) => {
-          console.log(`Selected index: ${index.value}`);
-          console.log(`Selected item: ${item}`);
-        }}
-        height={80}
-        width={70}
-      />
+      <Picker
+        selectedValue={selectedValue}
+        onValueChange={(selectedValue: any) => setSelectedValue(selectedValue)}
+        itemStyle={{ height: 120, width: 620, color: "red" }}
+      >
+        <Picker.Item label="- Seleccione -" value="" />
+        {valueItems.map((item: any) => (
+          <Picker.Item key={item.label} label={item.label} value={item.value} />
+        ))}
+      </Picker>
       <Text style={FiltersComponentsStyle.filterOptions}>{text}</Text>
-    </>
+    </View>
   );
 };
 export default SwipePickerComponent;
