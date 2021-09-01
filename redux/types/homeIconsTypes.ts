@@ -1,5 +1,5 @@
 
-export interface IconsState {
+export interface HomeIconsState {
   iconArray: HomeIconTypes[];
 } 
 export interface HomeIconTypes {

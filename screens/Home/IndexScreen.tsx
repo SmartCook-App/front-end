@@ -5,17 +5,17 @@ import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComp
 import OvalFilterComponent from "../../components/HomeComponents/OvalFilterComponent";
 import RoundFiltersComponents from "../../components/HomeComponents/RoundFiltersComponents";
 import FL from "../../assets/Languages/FiltersLanguages";
-import { connect, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import { RootState } from "../../redux/store";
 import { animated } from "@react-spring/native";
 import RecipiesComponent from "../../components/HomeComponents/recipiesComponent";
 import CookersRecipiesComponent from "../../components/HomeComponents/CookersRecipiesComponent";
-import { IconsState } from "../../redux/types/HomeTypes";
+import { HomeIconsState } from "../../redux/types/homeIconsTypes";
 
 const AnimatedView: any = animated(View);
 
 interface StateProps {
-  icons: IconsState;
+  icons: HomeIconsState;
   lang: string;
 }
 
@@ -90,7 +90,7 @@ const IndexScreen: FC<Props> = (props: Props) => {
 
 const mapStateToProps = (state: RootState): StateProps => {
   return {
-    icons: state.homeIconFilter,
+    icons: state.homeIcons,
     lang: state.language,
   };
 };

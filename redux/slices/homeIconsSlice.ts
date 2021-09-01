@@ -1,8 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { IconsState } from "../types/HomeTypes";
-import { Action, baseRequestStatusReducers } from "./base";
+import { HomeIconsState } from '../types/homeIconsTypes';
+import { createSlice } from '@reduxjs/toolkit';
+import { Action, baseRequestStatusReducers } from './base';
+import { updateFilters } from '../../utils/homeIconsHelper';
 
-const initialState: IconsState = {
+const initialState: HomeIconsState = {
   iconArray: [
     {
       name: "search-outline",
@@ -49,31 +50,19 @@ const initialState: IconsState = {
   ],
 };
 
-const orderFilters = (state: IconsState, action: Action) => {
-  return {
-    ...state,
-    iconArray: [...state.iconArray, action.payload],
-  };
-};
-
-const iconSlice = createSlice({
-  name: "catalogue",
+const homeIconsSlice = createSlice({
+  name: 'homeIcons',
   initialState,
   reducers: {
-    ...baseRequestStatusReducers(
-      "orderFilters",
-      initialState,
-      null,
-      orderFilters
-    ),
-    resetIconArray: (state: IconsState) => {
+    reorderFilters: (state: HomeIconsState, action: Action) => {
+      const { filter } = action.payload;
       return {
         ...state,
-        ...initialState,
+        iconArray: updateFilters(state.iconArray, filter),
       };
     },
   },
 });
 
-export const iconReducer = iconSlice.reducer;
-export const iconActions = iconSlice.actions;
+export const homeIconsReducer = homeIconsSlice.reducer;
+export const homeIconsActions = homeIconsSlice.actions;
