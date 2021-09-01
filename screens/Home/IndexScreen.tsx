@@ -1,28 +1,32 @@
 import React, { FC, useState, useEffect } from "react";
-import { Text, View, ScrollView } from "react-native";
+import { View, ScrollView } from "react-native";
 import UpperTitle from "../../components/UpperTitleComponent";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
 import OvalFilterComponent from "../../components/HomeComponents/OvalFilterComponent";
 import RoundFiltersComponents from "../../components/HomeComponents/RoundFiltersComponents";
 import FL from "../../assets/Languages/FiltersLanguages";
-import { useSelector } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import CFL from "../../assets/Languages/CircleFiltersLanguages";
-import IndexScreenStyle from "../../styles/HomeComponentsStyle/IndexScreenStyle";
-import { useTransition, animated } from "@react-spring/native";
-import { boolean } from "yup/lib/locale";
+import { animated } from "@react-spring/native";
 import RecipiesComponent from "../../components/HomeComponents/recipiesComponent";
 import CookersRecipiesComponent from "../../components/HomeComponents/CookersRecipiesComponent";
+import { IconsState } from "../../redux/types/HomeTypes";
 
 const AnimatedView: any = animated(View);
 
-const IndexScreen: FC = () => {
-  const lang = useSelector<RootState, RootState["language"]>(
-    (state) => state.language
-  );
+interface StateProps {
+  icons: IconsState;
+  lang: string;
+}
+
+interface Props extends StateProps {
+  // Se pueden agregar los props adicionales aca.
+}
+
+const IndexScreen: FC<Props> = (props: Props) => {
+  const { icons, lang } = props;
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
-  const state = useSelector((state: RootState) => state);
   var listNamesFilters = Object.values(FL[lang]);
   const sortByKey = (key: any) => (a: any, b: any) =>
     a[key] === b[key] ? 0 : a[key] ? -1 : 1;
@@ -48,7 +52,7 @@ const IndexScreen: FC = () => {
       </View>
       <View style={FiltersComponentsStyle.containerRoundFilters}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {state.homeIconFilter.iconArray.map((icon: any) => (
+          {icons.iconArray.map((icon: any) => (
             <RoundFiltersComponents
               name={icon.name}
               title={icon.title}
@@ -84,4 +88,11 @@ const IndexScreen: FC = () => {
   );
 };
 
-export default IndexScreen;
+const mapStateToProps = (state: RootState): StateProps => {
+  return {
+    icons: state.homeIconFilter,
+    lang: state.language,
+  };
+};
+
+export default connect(mapStateToProps)(IndexScreen);
