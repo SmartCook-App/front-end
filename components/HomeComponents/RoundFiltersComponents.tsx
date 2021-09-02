@@ -5,12 +5,19 @@ import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import * as homeIconsInteractors from "../../redux/interactors/homeIconsInteractors";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import { HomeIconsState, HomeIconTypes } from "../../redux/types/homeIconsTypes";
+import { RootState } from "../../redux/store";
+
+interface StateProps {
+  icons: HomeIconsState;
+}
 
 interface DispatchProps {
   reorderFiltersHomeInteractor: typeof homeIconsInteractors.reorderFiltersHomeInteractor;
 }
 
-interface Props extends DispatchProps {
+interface Props extends DispatchProps, StateProps {
+  id: any;
   name: any;
   title: any;
   isPressed: boolean;
@@ -21,26 +28,25 @@ interface Props extends DispatchProps {
 }
 
 const RoundFiltersComponents: FC<Props> = (props: Props) => {
-  const { name, title, setupdateOrderButtons, setcookersView, reorderFiltersHomeInteractor } = props;
-  let { isPressed, updateOrderButtons, cookersView } = props;
+  const { id, name, title, setcookersView, reorderFiltersHomeInteractor } = props;
+  let { cookersView } = props;
   const [pressed, setPressed] = useState(false);
 
   const applyFilter = () => {
-    // From other view
-    isPressed = !isPressed;
-    setupdateOrderButtons(!updateOrderButtons);
     // This is from this view
-    setPressed(!pressed);
+    setPressed(!pressed)
     if (title == 'cookers') {
       setcookersView(!cookersView);
     }
-    // const updatedFilter = {
-    //   name: name,
-    //   title: title,
-    //   press: pressed,
-    //   height: 150,
-    // }
-    // reorderFiltersHomeInteractor(updatedFilter);
+    console.log("\n\nStatus: \n\n", pressed)
+    const updatedFilter: HomeIconTypes = {
+      id: id,
+      name: name,
+      title: title,
+      press: pressed,
+      height: 150,
+    }
+    reorderFiltersHomeInteractor(updatedFilter);
   };
 
   return (
@@ -79,4 +85,10 @@ const mapDispatchToProps = (dispatch: any): DispatchProps => ({
   ),
 });
 
-export default connect(null, mapDispatchToProps)(RoundFiltersComponents);
+const mapStateToProps = (state: RootState): StateProps => {
+  return {
+    icons: state.homeIcons,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RoundFiltersComponents);

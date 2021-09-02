@@ -10,7 +10,7 @@ import { RootState } from "../../redux/store";
 import { animated } from "@react-spring/native";
 import RecipiesComponent from "../../components/HomeComponents/recipiesComponent";
 import CookersRecipiesComponent from "../../components/HomeComponents/CookersRecipiesComponent";
-import { HomeIconsState } from "../../redux/types/homeIconsTypes";
+import { HomeIconsState, HomeIconTypes } from "../../redux/types/homeIconsTypes";
 
 const AnimatedView: any = animated(View);
 
@@ -28,15 +28,12 @@ const IndexScreen: FC<Props> = (props: Props) => {
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
   var listNamesFilters = Object.values(FL[lang]);
-  const sortByKey = (key: any) => (a: any, b: any) =>
-    a[key] === b[key] ? 0 : a[key] ? -1 : 1;
-  // const sorted = data.slice().sort(sortByKey('press'));
 
   useEffect(() => {
-    if (updateOrderButtons) {
-      // state.homeIconFilter.iconArray.slice().sort(sortByKey('press'));
-    }
-  }, [updateOrderButtons]);
+    icons.iconArray.forEach((icon: HomeIconTypes) => {
+      console.log(icon);
+    })
+  }, [icons]);
 
   return (
     <>
@@ -54,6 +51,7 @@ const IndexScreen: FC<Props> = (props: Props) => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {icons.iconArray.map((icon: any) => (
             <RoundFiltersComponents
+              id={icon.id}
               name={icon.name}
               title={icon.title}
               isPressed={icon.press}
