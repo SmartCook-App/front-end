@@ -3,6 +3,8 @@ import { Text, View } from "react-native";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import * as homeIconsInteractors from "../../redux/interactors/homeIconsInteractors";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
 interface DispatchProps {
   reorderFiltersHomeInteractor: typeof homeIconsInteractors.reorderFiltersHomeInteractor;
@@ -67,4 +69,14 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
     </View>
   );
 };
-export default RoundFiltersComponents;
+
+const mapDispatchToProps = (dispatch: any): DispatchProps => ({
+  ...bindActionCreators(
+    {
+      ...homeIconsInteractors,
+    },
+    dispatch,
+  ),
+});
+
+export default connect(null, mapDispatchToProps)(RoundFiltersComponents);
