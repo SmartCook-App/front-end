@@ -30,6 +30,7 @@ const IndexScreen: FC<Props> = (props: Props) => {
   var listNamesFilters = Object.values(FL[lang]);
 
   useEffect(() => {
+
     icons.iconArray.forEach((icon: HomeIconTypes) => {
       console.log(icon);
     })

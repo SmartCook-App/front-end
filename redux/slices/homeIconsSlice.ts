@@ -65,7 +65,8 @@ const homeIconsSlice = createSlice({
       const filter: HomeIconTypes = action.payload;
       return {
         ...state,
-        iconArray: updateFilters(state.iconArray, filter),
+        iconArray: updateFilters(state.iconArray, filter).sort((a,b) => 
+        (a.press > b.press) ? -1 : ((b.press > a.press) ? 1 : 0)),
       };
     },
   },
