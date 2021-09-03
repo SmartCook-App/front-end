@@ -30,7 +30,6 @@ interface Props extends DispatchProps, StateProps {
 const RoundFiltersComponents: FC<Props> = (props: Props) => {
   const { id, name, title, setcookersView, reorderFiltersHomeInteractor, isPressed } = props;
   let { cookersView } = props;
-  const [pressed, setPressed] = useState(isPressed);
 
   const applyFilter = () => {
     // This is from this view
@@ -41,18 +40,17 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
       id: id,
       name: name,
       title: title,
-      press: !pressed,
+      press: !isPressed,
       height: 150,
     }
     reorderFiltersHomeInteractor(updatedFilter);
-    setPressed(!pressed);
   };
 
   return (
     <View>
       <View
         style={
-          pressed
+          isPressed
             ? [
                 FiltersComponentsStyle.circle,
                 FiltersComponentsStyle.circlePress,
