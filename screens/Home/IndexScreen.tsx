@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from "react";
-import { Text, View, ScrollView } from "react-native";
+import { View, ScrollView } from "react-native";
 import UpperTitle from "../../components/UpperTitleComponent";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
 import OvalFilterComponent from "../../components/HomeComponents/OvalFilterComponent";
@@ -7,32 +7,18 @@ import RoundFiltersComponents from "../../components/HomeComponents/RoundFilters
 import FL from "../../assets/Languages/FiltersLanguages";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import CFL from "../../assets/Languages/CircleFiltersLanguages";
-import IndexScreenStyle from "../../styles/HomeComponentsStyle/IndexScreenStyle";
-import { useTransition, animated } from "@react-spring/native";
-import { boolean } from "yup/lib/locale";
+import { animated } from "@react-spring/native";
 import RecipiesComponent from "../../components/HomeComponents/recipiesComponent";
 import CookersRecipiesComponent from "../../components/HomeComponents/CookersRecipiesComponent";
 
-const AnimatedView: any = animated(View);
+// const AnimatedView: any = animated(View);
 
-const IndexScreen: FC = () => {
-  const lang = useSelector<RootState, RootState["language"]>(
-    (state) => state.language
-  );
+const IndexScreen: FC = (props: any) => {
+  // const { icons, lang } = props;
+  const state = useSelector((state: RootState) => state);
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
-  const state = useSelector((state: RootState) => state);
-  var listNamesFilters = Object.values(FL[lang]);
-  const sortByKey = (key: any) => (a: any, b: any) =>
-    a[key] === b[key] ? 0 : a[key] ? -1 : 1;
-  // const sorted = data.slice().sort(sortByKey('press'));
-
-  useEffect(() => {
-    if (updateOrderButtons) {
-      // state.homeIconFilter.iconArray.slice().sort(sortByKey('press'));
-    }
-  }, [updateOrderButtons]);
+  var listNamesFilters = Object.values(FL[state.language]);
 
   return (
     <>
@@ -48,8 +34,9 @@ const IndexScreen: FC = () => {
       </View>
       <View style={FiltersComponentsStyle.containerRoundFilters}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {state.homeIconFilter.iconArray.map((icon: any) => (
+          {state.homeIcons.iconArray.map((icon: any) => (
             <RoundFiltersComponents
+              id={icon.id}
               name={icon.name}
               title={icon.title}
               isPressed={icon.press}
@@ -83,5 +70,6 @@ const IndexScreen: FC = () => {
     </>
   );
 };
+
 
 export default IndexScreen;

@@ -1,13 +1,13 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Text, View } from "react-native";
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
-import Colors from "../../assets/Colors";
-import { IconsState } from "../../redux/types/HomeTypes";
+import { reorderFiltersHomeInteractor } from "../../redux/interactors/homeIconsInteractors";
+import { useDispatch } from "react-redux";
+import { HomeIconTypes } from "../../redux/types/homeIconsTypes";
 
 interface Props {
+  id: any;
   name: any;
   title: any;
   isPressed: boolean;
@@ -18,27 +18,30 @@ interface Props {
 }
 
 const RoundFiltersComponents: FC<Props> = (props: Props) => {
-  const { name, title, setupdateOrderButtons, setcookersView } = props;
-  let { isPressed, updateOrderButtons, cookersView } = props;
-  const state = useSelector((state: RootState) => state);
-  const [pressed, setPressed] = useState(false);
+  const { id, name, title, setcookersView, isPressed } = props;
+  let { cookersView } = props;
+  const dispatch = useDispatch();
 
   const applyFilter = () => {
-    // From other view
-    isPressed = !isPressed;
-    setupdateOrderButtons(!updateOrderButtons);
     // This is from this view
-    setPressed(!pressed);
     if (title == 'cookers') {
       setcookersView(!cookersView);
     }
+    const updatedFilter: HomeIconTypes = {
+      id: id,
+      name: name,
+      title: title,
+      press: !isPressed,
+      height: 150,
+    }
+    dispatch(reorderFiltersHomeInteractor(updatedFilter));
   };
 
   return (
     <View>
       <View
         style={
-          pressed
+          isPressed
             ? [
                 FiltersComponentsStyle.circle,
                 FiltersComponentsStyle.circlePress,
@@ -60,4 +63,5 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
     </View>
   );
 };
+
 export default RoundFiltersComponents;

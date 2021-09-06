@@ -1,46 +1,54 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { IconsState } from "../types/HomeTypes";
-import { Action, baseRequestStatusReducers } from "./base";
+import { HomeIconsState, HomeIconTypes } from '../types/homeIconsTypes';
+import { createSlice } from '@reduxjs/toolkit';
+import { Action, baseRequestStatusReducers } from './base';
+import { updateFilters } from '../../utils/homeIconsHelper';
 
-const initialState: IconsState = {
+const initialState: HomeIconsState = {
   iconArray: [
     {
+      id: "1",
       name: "search-outline",
       title: "search",
       press: false,
       height: 150,
     },
     {
+      id: "2",
       name: "flag-outline",
       title: "popular",
       press: false,
       height: 150,
     },
     {
+      id: "3",
       name: "flashlight-outline",
       title: "cookers",
       press: false,
       height: 150,
     },
     {
+      id: "4",
       name: "flask-outline",
       title: "alcoholicBeverages",
       press: false,
       height: 150,
     },
     {
+      id: "5",
       name: "flash-off-outline",
       title: "chilean",
       press: false,
       height: 150,
     },
     {
+      id: "6",
       name: "flash-outline",
       title: "dessert",
       press: false,
       height: 150,
     },
     {
+      id: "7",
       name: "beaker-outline",
       title: "popular",
       press: false,
@@ -49,31 +57,20 @@ const initialState: IconsState = {
   ],
 };
 
-const orderFilters = (state: IconsState, action: Action) => {
-  return {
-    ...state,
-    iconArray: [...state.iconArray, action.payload],
-  };
-};
-
-const iconSlice = createSlice({
-  name: "catalogue",
+const homeIconsSlice = createSlice({
+  name: 'homeIcons',
   initialState,
   reducers: {
-    ...baseRequestStatusReducers(
-      "orderFilters",
-      initialState,
-      null,
-      orderFilters
-    ),
-    resetIconArray: (state: IconsState) => {
+    reorderFilters: (state: HomeIconsState, action: Action) => {
+      const filter: HomeIconTypes = action.payload;
       return {
         ...state,
-        ...initialState,
+        iconArray: updateFilters(state.iconArray, filter).sort((a,b) => 
+        (a.press > b.press) ? -1 : ((b.press > a.press) ? 1 : 0)),
       };
     },
   },
 });
 
-export const iconReducer = iconSlice.reducer;
-export const iconActions = iconSlice.actions;
+export const homeIconsReducer = homeIconsSlice.reducer;
+export const homeIconsActions = homeIconsSlice.actions;
