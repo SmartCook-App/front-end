@@ -1,22 +1,12 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Text, View } from "react-native";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
-import * as homeIconsInteractors from "../../redux/interactors/homeIconsInteractors";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { HomeIconsState, HomeIconTypes } from "../../redux/types/homeIconsTypes";
-import { RootState } from "../../redux/store";
+import { reorderFiltersHomeInteractor } from "../../redux/interactors/homeIconsInteractors";
+import { useDispatch } from "react-redux";
+import { HomeIconTypes } from "../../redux/types/homeIconsTypes";
 
-interface StateProps {
-  icons: HomeIconsState;
-}
-
-interface DispatchProps {
-  reorderFiltersHomeInteractor: typeof homeIconsInteractors.reorderFiltersHomeInteractor;
-}
-
-interface Props extends DispatchProps, StateProps {
+interface Props {
   id: any;
   name: any;
   title: any;
@@ -28,8 +18,9 @@ interface Props extends DispatchProps, StateProps {
 }
 
 const RoundFiltersComponents: FC<Props> = (props: Props) => {
-  const { id, name, title, setcookersView, reorderFiltersHomeInteractor, isPressed } = props;
+  const { id, name, title, setcookersView, isPressed } = props;
   let { cookersView } = props;
+  const dispatch = useDispatch();
 
   const applyFilter = () => {
     // This is from this view
@@ -43,7 +34,7 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
       press: !isPressed,
       height: 150,
     }
-    reorderFiltersHomeInteractor(updatedFilter);
+    dispatch(reorderFiltersHomeInteractor(updatedFilter));
   };
 
   return (
@@ -73,19 +64,4 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch: any): DispatchProps => ({
-  ...bindActionCreators(
-    {
-      ...homeIconsInteractors,
-    },
-    dispatch,
-  ),
-});
-
-const mapStateToProps = (state: RootState): StateProps => {
-  return {
-    icons: state.homeIcons,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(RoundFiltersComponents);
+export default RoundFiltersComponents;

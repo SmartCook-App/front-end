@@ -5,36 +5,20 @@ import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComp
 import OvalFilterComponent from "../../components/HomeComponents/OvalFilterComponent";
 import RoundFiltersComponents from "../../components/HomeComponents/RoundFiltersComponents";
 import FL from "../../assets/Languages/FiltersLanguages";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { animated } from "@react-spring/native";
 import RecipiesComponent from "../../components/HomeComponents/recipiesComponent";
 import CookersRecipiesComponent from "../../components/HomeComponents/CookersRecipiesComponent";
-import { HomeIconsState, HomeIconTypes } from "../../redux/types/homeIconsTypes";
 
-const AnimatedView: any = animated(View);
+// const AnimatedView: any = animated(View);
 
-interface StateProps {
-  icons: HomeIconsState;
-  lang: string;
-}
-
-interface Props extends StateProps {
-  // Se pueden agregar los props adicionales aca.
-}
-
-const IndexScreen: FC<Props> = (props: Props) => {
-  const { icons, lang } = props;
+const IndexScreen: FC = (props: any) => {
+  // const { icons, lang } = props;
+  const state = useSelector((state: RootState) => state);
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
-  var listNamesFilters = Object.values(FL[lang]);
-
-  useEffect(() => {
-
-    icons.iconArray.forEach((icon: HomeIconTypes) => {
-      console.log(icon);
-    })
-  }, [icons]);
+  var listNamesFilters = Object.values(FL[state.language]);
 
   return (
     <>
@@ -50,7 +34,7 @@ const IndexScreen: FC<Props> = (props: Props) => {
       </View>
       <View style={FiltersComponentsStyle.containerRoundFilters}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {icons.iconArray.map((icon: any) => (
+          {state.homeIcons.iconArray.map((icon: any) => (
             <RoundFiltersComponents
               id={icon.id}
               name={icon.name}
@@ -87,11 +71,5 @@ const IndexScreen: FC<Props> = (props: Props) => {
   );
 };
 
-const mapStateToProps = (state: RootState): StateProps => {
-  return {
-    icons: state.homeIcons,
-    lang: state.language,
-  };
-};
 
-export default connect(mapStateToProps)(IndexScreen);
+export default IndexScreen;
