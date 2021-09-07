@@ -10,6 +10,7 @@ import { RootState } from "../../redux/store";
 import { animated } from "@react-spring/native";
 import RecipiesComponent from "../../components/HomeComponents/recipiesComponent";
 import CookersRecipiesComponent from "../../components/HomeComponents/CookersRecipiesComponent";
+import IngredientsButtonComponent from "../../components/HomeComponents/IngredientsButtonComponent";
 
 // const AnimatedView: any = animated(View);
 
@@ -67,6 +68,7 @@ const IndexScreen: FC = (props: any) => {
           />
         </View>
       )}
+      <IngredientsButtonComponent></IngredientsButtonComponent>
     </>
   );
 };
