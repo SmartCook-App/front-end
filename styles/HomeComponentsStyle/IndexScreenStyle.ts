@@ -8,5 +8,12 @@ const IndexScreenStyle = StyleSheet.create({
     fontFamily: "nunito-regular",
     marginLeft: 15,
   },
+  ingredientsButton: {
+    position: "absolute",
+    bottom: 35,
+    right: 30,
+    borderRadius: 50,
+    backgroundColor: Colors.light.yellow,
+  },
 });
 export default IndexScreenStyle;
