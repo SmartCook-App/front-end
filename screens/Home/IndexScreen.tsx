@@ -71,14 +71,14 @@ const IndexScreen: FC = () => {
           />
         </ScrollView>
       ) : (
-        <View>
+        <ScrollView>
           <RecipiesComponent
             name={"name"}
             image={"image"}
             cal={"cal"}
             time={"time"}
           />
-        </View>
+        </ScrollView>
       )}
     </>
   );
