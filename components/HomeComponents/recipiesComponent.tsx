@@ -31,7 +31,7 @@ const RecipiesComponent: FC<Props> = (props: Props) => {
       <TouchableOpacity onPress={onPressRecipe}>
         <View style={RecipiesComponentStyle.container}>
           <ImageBackground
-            source={require("../../assets/Images/LoginImg/loginBackground.jpeg")}
+            source={require("../../assets/Images/ensalada.jpg")}
             style={RecipiesComponentStyle.photo}
           >
             <Text style={RecipiesComponentStyle.timeOval}>

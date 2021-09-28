@@ -50,23 +50,23 @@ const IndexScreen: FC = (props: any) => {
         </ScrollView>
       </View>
       {cookersView ? (
-        <View>
+        <ScrollView>
           <CookersRecipiesComponent
             name={"name"}
             image={"image"}
             cal={"cal"}
             time={"time"}
           />
-        </View>
+        </ScrollView>
       ) : (
-        <View>
+        <ScrollView>
           <RecipiesComponent
             name={"name"}
             image={"image"}
             cal={"cal"}
             time={"time"}
           />
-        </View>
+        </ScrollView>
       )}
       <IngredientsButtonComponent></IngredientsButtonComponent>
     </>
