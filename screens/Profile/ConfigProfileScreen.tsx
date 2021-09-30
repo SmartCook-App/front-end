@@ -80,7 +80,7 @@ const IndexScreen: FC = (props: any) => {
                       />
                     </TouchableOpacity>
                   </View>
-                  {visible ? <PopUp /> : null}
+                  {visible ? <PopUp content={"HOLA"} /> : null}
                   <Text style={ConfigProfileStyle.textUploadPicture}>
                     Elige una nueva foto
                   </Text>

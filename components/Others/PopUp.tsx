@@ -1,27 +1,30 @@
 import * as React from "react";
-import { Modal, Portal, Text, Button, Provider } from "react-native-paper";
+import { Modal, Text, Button } from "react-native-paper";
 
-const PopUp = () => {
+interface Props {
+  content: any;
+}
+
+const PopUp = (props: Props) => {
+  const { content } = props;
   const [visible, setVisible] = React.useState(false);
 
   const toggleModal = () => setVisible(!visible);
   const containerStyle = { backgroundColor: "white", padding: 20 };
 
   return (
-    <Provider>
-      <Portal>
-        <Modal
-          visible={visible}
-          onDismiss={toggleModal}
-          contentContainerStyle={containerStyle}
-        >
-          <Text>Example Modal. Click outside this area to dismiss.</Text>
-        </Modal>
-      </Portal>
-      <Button style={{ marginTop: 30 }} onPress={toggleModal}>
-        Show
+    <>
+      <Modal
+        visible={visible}
+        onDismiss={toggleModal}
+        contentContainerStyle={containerStyle}
+      >
+        <Text>Example Modal. Click outside this area to dismiss.</Text>
+      </Modal>
+      <Button style={{ marginTop: 120 }} onPress={toggleModal}>
+        {content}
       </Button>
-    </Provider>
+    </>
   );
 };
 
