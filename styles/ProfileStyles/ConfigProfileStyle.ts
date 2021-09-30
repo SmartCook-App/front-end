@@ -98,5 +98,25 @@ const ConfigProfileStyle = StyleSheet.create({
     fontFamily: "nunito-semiBold",
     textAlign: "center",
   },
+  textUploadPicture: {
+    fontFamily: "nunito-bold",
+    fontSize: 14,
+    color: Colors.light.yellow,
+  },
+  pictureUploadPicture: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+  },
+  firstcontainer: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  pictureUploadContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
 export default ConfigProfileStyle;
