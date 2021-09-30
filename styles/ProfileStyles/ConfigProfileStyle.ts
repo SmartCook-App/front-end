@@ -104,8 +104,8 @@ const ConfigProfileStyle = StyleSheet.create({
     color: Colors.light.yellow,
   },
   pictureUploadPicture: {
-    width: 100,
-    height: 100,
+    width: 50,
+    height: 50,
     borderRadius: 50,
   },
   firstcontainer: {
@@ -117,6 +117,19 @@ const ConfigProfileStyle = StyleSheet.create({
   pictureUploadContainer: {
     alignItems: "center",
     justifyContent: "center",
+  },
+  circle: {
+    width: 100,
+    height: 100,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 50,
+    backgroundColor: "#E1E1E1",
+  },
+  containerStyle: {
+    backgroundColor: "white",
+    padding: 20,
   },
 });
 export default ConfigProfileStyle;

@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from "react";
-import { View, Text, TextInput, ScrollView } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import LRL from "../../assets/Languages/LoginRegisterLanguage"; // Hay que crear archivo para ProfileLanguages
 import ConfigProfileStyle from "../../styles/ProfileStyles/ConfigProfileStyle";
 import { FontAwesome5, Feather, MaterialIcons } from "@expo/vector-icons";
@@ -9,6 +9,7 @@ import BackgroundImage from "../../components/ImagesComponents/LoginBackgroundIm
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Image } from "react-native-animatable";
+import PopUp from "../../components/Others/PopUp";
 
 const IndexScreen: FC = (props: any) => {
   // aqui tienen que ir los valores ya seteados al registrarse
@@ -23,10 +24,14 @@ const IndexScreen: FC = (props: any) => {
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
   );
+  const [visible, setVisible] = useState(false);
   const handleSubmit = () => {
     console.log("submitting");
   };
 
+  const toggleModal = () => {
+    setVisible(!visible);
+  };
   return (
     <>
       <BackgroundImage>
@@ -67,10 +72,15 @@ const IndexScreen: FC = (props: any) => {
             }) => (
               <>
                 <View style={ConfigProfileStyle.pictureUploadContainer}>
-                  <Image
-                    style={ConfigProfileStyle.pictureUploadPicture}
-                    source={require("../../assets/Images/Icons/user.png")}
-                  />
+                  <View style={ConfigProfileStyle.circle}>
+                    <TouchableOpacity onPress={toggleModal}>
+                      <Image
+                        style={ConfigProfileStyle.pictureUploadPicture}
+                        source={require("../../assets/Images/Icons/user.png")}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                  {visible ? <PopUp /> : null}
                   <Text style={ConfigProfileStyle.textUploadPicture}>
                     Elige una nueva foto
                   </Text>
