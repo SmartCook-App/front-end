@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import LRL from "../../assets/Languages/LoginRegisterLanguage"; // Hay que crear archivo para ProfileLanguages
+import LRL from "../../assets/Languages/LoginRegisterLanguage";
+import PL from "../../assets/Languages/ProfileLanguage";
 import ConfigProfileStyle from "../../styles/ProfileStyles/ConfigProfileStyle";
 import { FontAwesome5, Feather, MaterialIcons } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
@@ -82,9 +83,12 @@ const IndexScreen: FC = (props: any) => {
                   </View>
                   {visible ? <PopUp content={"HOLA"} /> : null}
                   <Text style={ConfigProfileStyle.textUploadPicture}>
-                    Elige una nueva foto
+                    {PL[lang]?.choosePicture}
                   </Text>
                 </View>
+                <Text style={ConfigProfileStyle.textUploadPicture}>
+                  {PL[lang]?.infoAccount}
+                </Text>
                 <View style={ConfigProfileStyle.viewInput}>
                   <FontAwesome5
                     name="user-circle"
@@ -133,7 +137,7 @@ const IndexScreen: FC = (props: any) => {
                   <TextInput
                     placeholderTextColor="white"
                     style={ConfigProfileStyle.textInput}
-                    placeholder={"Teléfono"} // Hay que poner LRL[lang]?.phoneNumber
+                    placeholder={LRL[lang]?.phone}
                     onChangeText={handleChange("phoneNumber")}
                     onBlur={handleBlur("phoneNumber")}
                     value={values.phoneNumber}
@@ -179,6 +183,9 @@ const IndexScreen: FC = (props: any) => {
               </>
             )}
           </Formik>
+          <Text style={ConfigProfileStyle.deleteButton}>
+            {PL[lang]?.deleteAccount}
+          </Text>
         </View>
       </BackgroundImage>
     </>

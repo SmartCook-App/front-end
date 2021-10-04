@@ -131,5 +131,10 @@ const ConfigProfileStyle = StyleSheet.create({
     backgroundColor: "white",
     padding: 20,
   },
+  deleteButton: {
+    fontFamily: "nunito-light",
+    color: "#FFFFFF",
+    marginTop: 50,
+  },
 });
 export default ConfigProfileStyle;
