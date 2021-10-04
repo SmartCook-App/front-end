@@ -11,8 +11,14 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { Image } from "react-native-animatable";
 import PopUp from "../../components/Others/PopUp";
+import TopNavbar from "../../components/Others/TopNavbar";
 
-const IndexScreen: FC = (props: any) => {
+interface Props {
+  navigation: any;
+}
+
+const IndexScreen: FC<Props> = (props: Props) => {
+  const { navigation } = props;
   // aqui tienen que ir los valores ya seteados al registrarse
   const initialValues = {
     name: "Florencia",
@@ -36,6 +42,11 @@ const IndexScreen: FC = (props: any) => {
   return (
     <>
       <BackgroundImage>
+        <TopNavbar
+          content={"PERFIL"}
+          path={"LoginRegisterScreen"}
+          navigation={navigation}
+        />
         <View style={ConfigProfileStyle.firstcontainer}>
           {/* Hay que llevarlo a un componente  */}
           <Formik
@@ -86,9 +97,16 @@ const IndexScreen: FC = (props: any) => {
                     {PL[lang]?.choosePicture}
                   </Text>
                 </View>
-                <Text style={ConfigProfileStyle.textUploadPicture}>
-                  {PL[lang]?.infoAccount}
-                </Text>
+                <View style={ConfigProfileStyle.personalInfoView}>
+                  <Text
+                    style={[
+                      ConfigProfileStyle.textUploadPicture,
+                      ConfigProfileStyle.personalInfoText,
+                    ]}
+                  >
+                    {PL[lang]?.infoAccount}
+                  </Text>
+                </View>
                 <View style={ConfigProfileStyle.viewInput}>
                   <FontAwesome5
                     name="user-circle"

@@ -103,6 +103,14 @@ const ConfigProfileStyle = StyleSheet.create({
     fontSize: 14,
     color: Colors.light.yellow,
   },
+  personalInfoText: {
+    fontSize: 10,
+  },
+  personalInfoView: {
+    marginRight: 200,
+    marginTop: 60,
+    marginBottom: 10,
+  },
   pictureUploadPicture: {
     width: 50,
     height: 50,
@@ -135,6 +143,7 @@ const ConfigProfileStyle = StyleSheet.create({
     fontFamily: "nunito-light",
     color: "#FFFFFF",
     marginTop: 50,
+    fontSize: 14,
   },
 });
 export default ConfigProfileStyle;
