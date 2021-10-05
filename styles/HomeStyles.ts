@@ -105,11 +105,12 @@ const HomeStyle = StyleSheet.create({
   containerFooter: {
     flex: 1,
     width: 340,
-    top: "45%",
+    top: "10%",
     left: "9%",
   },
   scroller: {
-    flex: 1,
+    left: 50,
+    top: 60
   },
   textFooter: {
     fontFamily: "nunito-light",

@@ -9,7 +9,8 @@ import BackgroundImage from "../../components/ImagesComponents/LoginBackgroundIm
 import ButtonLoginEmail from "../../components/LoginRegisterComponents/ButtonLoginEmail";
 import SlideComponent from "../../components/LoginRegisterComponents/SlideComponent";
 import IconFacebookGoogle from "../../components/LoginRegisterComponents/IconFacebookGoogle";
-
+import KnowMore from "../../components/LoginRegisterComponents/KnowMore";
+ 
 interface Props {
   navigation: any;
 }
@@ -29,7 +30,7 @@ const LoginRegister: FC<Props> = (props: Props) => {
           <View>
             <Text style={HomeStyle.text}>{LRL[lang]?.knowMore} </Text>
             <View style={HomeStyle.scroller}>
-              <SlideComponent />
+              <KnowMore id={0}/>
             </View>
           </View>
         </View>
