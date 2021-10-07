@@ -1,43 +1,40 @@
 import React, { FC } from "react";
 import { Text, View } from "react-native";
-import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
 import Carousel from "react-native-snap-carousel";
+import { RootState } from "../../redux/store";
+import { useSelector } from "react-redux";
+import LRL from "../../assets/Languages/LoginRegisterLanguage";
+import HomeStyle from "../../styles/HomeStyles";
 
-interface Props {
-  id: any;
-}
+const KnowMore: FC = () => {
+  const lang = useSelector<RootState, RootState["language"]>(
+    (state) => state.language
+  );
 
-const KnowMore: FC<Props> = (props: Props) => {
-
-  const state = {
-    activeIndex: 0,
-    carouselItems: [
+  const carouselItems = [
       {
-          title:"Item 1",
-          text: "Text 1",
+        title: LRL[lang]?.slideTitle1,
+        text: LRL[lang]?.slideDescription1,
       },
       {
-          title:"Item 2",
-          text: "Text 2",
+        title: LRL[lang]?.slideTitle2,
+        text: LRL[lang]?.slideDescription2,
       },
       {
-          title:"Item 3",
-          text: "Text 3",
+        title: LRL[lang]?.slideTitle3,
+        text: LRL[lang]?.slideDescription3,
       },
-    ]
-  }
+      {
+        title: LRL[lang]?.slideTitle4,
+        text: LRL[lang]?.slideDescription4,
+      },
+  ]
 
-  const renderItem = ({item, index}) => {
+  const renderItem = ({item}) => {
     return (
-      <View style={{
-          backgroundColor:'transparent',
-          borderRadius: 5,
-          height: 250,
-          padding: 50,
-          marginLeft: 25,
-          marginRight: 25, }}>
-        <Text style={{fontSize: 30, color: 'white'}}>{item.title}</Text>
-        <Text style={{color: 'white'}}>{item.text}</Text>
+      <View style={HomeStyle.carouselItem}>
+        <Text style={HomeStyle.carouselItemTitle}>{item.title}</Text>
+        <Text style={HomeStyle.carouselItembody}>{item.text}</Text>
       </View>
     )
   };
@@ -46,9 +43,9 @@ const KnowMore: FC<Props> = (props: Props) => {
     <View>
       <Carousel
         layout={"default"}
-        data={state.carouselItems}
-        sliderWidth={300}
-        itemWidth={300}
+        data={carouselItems}
+        sliderWidth={400}
+        itemWidth={400}
         renderItem={renderItem}
       />
     </View>

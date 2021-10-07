@@ -2,7 +2,6 @@ const LRL: any = {
     ES: {
         appName: 'SmartCook',
         slogan: 'Tu tiempo importa, utilízalo smart!!',
-        knowMore: 'Desliza para saber más',
         buttonEmail: 'Entrar con correo',
         conectWith: 'Conectar con',
         signInLater: 'Crear una cuenta más tarde',
@@ -22,7 +21,7 @@ const LRL: any = {
         and: 'y',
         legalMessagePolitics: 'Política de privacidad',
         forgotPassword: '                                  ¿Olvidaste tu contraseña?                                  ',
-        slideTitle1: "Dale variedad a tu alimentación",
+        slideTitle1: "Desliza para saber más",
         slideDescription1: "Con SmartCook podrás alimentarte con platos variados en base a lo que tienes en casa",
         slideTitle2: "Ahorra tiempo y energía",
         slideDescription2: "Gracias a que la app es automatizada no tendrás que hacer los labores tediosos de la casa, nosotros nos encargamos de eso! ",
@@ -35,7 +34,6 @@ const LRL: any = {
     EN: {
         appName: 'SmartCook',
         slogan: 'Your time matters, use it smart!!',
-        knowMore: 'Swipe to know more',
         buttonEmail: 'Entrar con correo',
         conectWith: 'Connect with',
         signInLater: 'Create an account later',
