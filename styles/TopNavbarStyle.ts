@@ -19,7 +19,7 @@ const TopNavbarStyle = StyleSheet.create({
     marginTop: 20,
     backgroundColor: Colors.light.lineUpperTitle,
     height: 0.4,
-    width: "100%",
+    width: 100,
   },
   goBack: {
     fontSize: 30,

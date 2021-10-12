@@ -92,10 +92,15 @@ const IndexScreen: FC<Props> = (props: Props) => {
                       />
                     </TouchableOpacity>
                   </View>
-                  {visible ? <PopUp content={"HOLA"} /> : null}
-                  <Text style={ConfigProfileStyle.textUploadPicture}>
-                    {PL[lang]?.choosePicture}
-                  </Text>
+                  <PopUp visible={visible} setVisible={setVisible} />
+                  <TouchableOpacity
+                    style={{ marginTop: 20 }}
+                    onPress={toggleModal}
+                  >
+                    <Text style={ConfigProfileStyle.textUploadPicture}>
+                      {PL[lang]?.choosePicture}
+                    </Text>
+                  </TouchableOpacity>
                 </View>
                 <View style={ConfigProfileStyle.personalInfoView}>
                   <Text
