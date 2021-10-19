@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState, useEffect } from 'react';
 import {
   FlatList,
   Text,
@@ -7,12 +7,13 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
-} from "react-native";
-import RecipiesComponentStyle from "../../styles/HomeComponentsStyle/RecipiesComponentStyle";
-import { recipes } from "../../screens/Home/recipiesDataArray";
-import { Feather, MaterialIcons } from "@expo/vector-icons";
+} from 'react-native';
+import RecipiesComponentStyle from '../../styles/HomeComponentsStyle/RecipiesComponentStyle';
+import { recipes } from '../../screens/Home/recipiesDataArray';
+import { Feather, MaterialIcons } from '@expo/vector-icons';
 
 interface Props {
+  navigation: any;
   name: any;
   image: any;
   cal: any;
@@ -20,10 +21,10 @@ interface Props {
 }
 
 const RecipiesComponent: FC<Props> = (props: Props) => {
-  const { name, image, cal, time } = props;
+  const { name, image, cal, time, navigation } = props;
 
   const onPressRecipe = (item: any) => {
-    //sth
+    navigation.navigate('RecipieHome');
   };
 
   const renderRecipes = (item: any) => (
@@ -31,7 +32,7 @@ const RecipiesComponent: FC<Props> = (props: Props) => {
       <TouchableOpacity onPress={onPressRecipe}>
         <View style={RecipiesComponentStyle.container}>
           <ImageBackground
-            source={require("../../assets/Images/ensalada.jpg")}
+            source={require('../../assets/Images/ensalada.jpg')}
             style={RecipiesComponentStyle.photo}
           >
             <Text style={RecipiesComponentStyle.timeOval}>

@@ -1,21 +1,21 @@
-import React, { FC } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
-import IoniconsComponent from "../components/HomeComponents/IoniconsComponent";
-import Colors from "../assets/Colors";
+import React, { FC } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
+import IoniconsComponent from '../components/HomeComponents/IoniconsComponent';
+import Colors from '../assets/Colors';
 import {
   RecepiesStackNavigator,
   // ListStackNavigator,
   // CalendaryStackNavigator,
   // SearchStackNavigator,
   // ProfileStackNavigator,
-} from "./StackNavigator";
+} from './StackNavigator';
 const Tab = createMaterialBottomTabNavigator();
 export const TabNavigator: FC = () => {
-  const lang = useSelector<RootState, RootState["language"]>(
+  const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
   return (
@@ -30,7 +30,7 @@ export const TabNavigator: FC = () => {
         name="Recepies"
         component={RecepiesStackNavigator}
         options={{
-          tabBarLabel: "Recetas",
+          tabBarLabel: 'Recetas',
           tabBarColor: Colors.light.navbarColor,
           tabBarIcon: () => <IoniconsComponent name="home-outline" />,
         }}
@@ -39,7 +39,7 @@ export const TabNavigator: FC = () => {
         name="List"
         component={RecepiesStackNavigator}
         options={{
-          tabBarLabel: "Lista",
+          tabBarLabel: 'Lista',
           tabBarColor: Colors.light.navbarColor,
           tabBarIcon: () => <IoniconsComponent name="list-outline" />,
         }}
@@ -48,29 +48,18 @@ export const TabNavigator: FC = () => {
         name="Calendary"
         component={RecepiesStackNavigator}
         options={{
-          tabBarLabel: "Calendario",
+          tabBarLabel: 'Calendario',
           tabBarColor: Colors.light.navbarColor,
           tabBarIcon: () => <IoniconsComponent name="calendar-outline" />,
         }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name="Search"
         component={RecepiesStackNavigator}
         options={{
-          tabBarLabel: "Buscador",
+          tabBarLabel: 'Buscador',
           tabBarColor: Colors.light.navbarColor,
-          tabBarIcon: () => (
-            <IoniconsComponent name="search-outline" />
-          ),
-        }}
-      /> */}
-      <Tab.Screen
-        name="Profile"
-        component={RecepiesStackNavigator}
-        options={{
-          tabBarLabel: "Perfil",
-          tabBarColor: Colors.light.navbarColor,
-          tabBarIcon: () => <IoniconsComponent name="person-outline" />,
+          tabBarIcon: () => <IoniconsComponent name="search-outline" />,
         }}
       />
     </Tab.Navigator>

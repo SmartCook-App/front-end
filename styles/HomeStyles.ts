@@ -2,50 +2,6 @@ import { StyleSheet, Platform, Dimensions } from "react-native";
 
 export const windowWidth = Dimensions.get("window").width;
 export const windowHeight = Dimensions.get("window").height;
-// Fix for ios
-// let marginTopIos = 0;
-// if (Platform.OS === "ios") {
-//   if (windowHeight >= 920) {
-//     marginTopIos = -90;
-//   } else if (windowHeight >= 840 && windowHeight < 920) {
-//     marginTopIos = -85;
-//   } else if (windowHeight >= 800 && windowHeight < 840) {
-//     marginTopIos = -80;
-//   } else {
-//     marginTopIos = -35;
-//   }
-// }
-
-// let modalFlex;
-// if (Platform.OS === "ios") {
-//   if (windowHeight >= 920) {
-//     modalFlex = 0.25;
-//   } else if (windowHeight >= 840 && windowHeight < 920) {
-//     modalFlex = 0.25;
-//   } else if (windowHeight >= 730 && windowHeight < 840) {
-//     modalFlex = 0.3; // iPhone 6/7/8 Plus (736)
-//   } else if (windowHeight >= 650 && windowHeight < 730) {
-//     modalFlex = 0.35;
-//   } else if (windowHeight >= 550 && windowHeight < 650) {
-//     modalFlex = 0.6;
-//   } else {
-//     modalFlex = 0.25;
-//   }
-// } else if (Platform.OS === "android") {
-//   if (windowHeight >= 920) {
-//     modalFlex = 0.25;
-//   } else if (windowHeight >= 840 && windowHeight < 920) {
-//     modalFlex = 0.35;
-//   } else if (windowHeight >= 650 && windowHeight < 840) {
-//     modalFlex = 0.35; // Nexus 6/Pixel 2 XL/Pixel 3a XL (683)
-//   } else if (windowHeight >= 590 && windowHeight < 650) {
-//     modalFlex = 0.43; // WXGA/Nexus 4 (4.7")
-//   } else {
-//     modalFlex = 0.5; // WVGA Nexus S/Nexus S (4") (533)
-//   }
-// } else {
-//   modalFlex = 0.25;
-// }
 
 const HomeStyle = StyleSheet.create({
   // boardContainerFixIos: {
