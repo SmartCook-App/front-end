@@ -53,7 +53,7 @@ const LRL: any = {
         and: 'and',
         legalMessagePolitics: 'Privacy Policy',
         forgotPassword: '                                  ¿Forgot your password?                                  ',
-        slideTitle1: "Give variety to your diet",
+        slideTitle1: "Slide to see more",
         slideDescription1: "With SmartCook you can feed yourself with a variety of dishes based on what you have at home",
         slideTitle2: "Save time and energy",
         slideDescription2: "Because the app is automated, you won't have to do tedious chores around the house, we'll take care of that for you!",
