@@ -18,6 +18,10 @@ import {
   SimpleLineIcons,
   Ionicons,
 } from '@expo/vector-icons';
+import { Avatar } from 'react-native-elements';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Subtitle from '../../components/RecipieHomeComponents/Subtitle';
+import { FAB } from 'react-native-elements';
 
 interface Props {
   navigation: any;
@@ -102,9 +106,9 @@ const RecipieHome: FC<Props> = (props: Props) => {
                 <Text style={RecipieStyle.infoText}> 450</Text>
               </View>
             </View>
-            <AntDesign
-              name="arrowright"
-              size={62}
+            <MaterialCommunityIcons
+              name={'pot-steam'}
+              size={55}
               color="white"
               style={RecipieStyle.seeRecipieDetailButton}
             />
@@ -112,6 +116,37 @@ const RecipieHome: FC<Props> = (props: Props) => {
               <SimpleLineIcons name="arrow-down" size={30} color="white" />
             </View>
           </View>
+          <View style={RecipieStyle.cookerContainer}>
+            <Avatar
+              rounded
+              size="large"
+              icon={{ name: 'user', type: 'font-awesome' }}
+              activeOpacity={1}
+              containerStyle={RecipieStyle.cookerAvatar}
+              // source={{
+              //   uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+              // }}
+            />
+            <View style={RecipieStyle.cookerInfoContainer}>
+              <Text style={RecipieStyle.cookerInfo}>
+                Receta por PaulaCocina
+              </Text>
+              <Text
+                style={RecipieStyle.cookerVisitProfile}
+                onPress={() => navigation.navigate('IndexScreen')}
+              >
+                Visitar perfil
+              </Text>
+            </View>
+          </View>
+          <Subtitle text="Porciones" />
+          <View style={RecipieStyle.portions}>
+            <FAB buttonStyle={RecipieStyle.addPortionButton} title="-" />
+            <Text style={RecipieStyle.portionText}>2</Text>
+            <FAB buttonStyle={RecipieStyle.addPortionButton} title="+" />
+          </View>
+          <Subtitle text="Lo que necesitas" />
+          <Subtitle text="Información nutricional" />
         </ScrollView>
       </ImageBackground>
     </View>
@@ -150,7 +185,7 @@ const RecipieStyle = StyleSheet.create({
   },
   bottom: {
     height: normalizePx(170),
-    marginTop: normalizePx(420),
+    marginTop: normalizePx(475),
   },
   info: {
     flexDirection: 'row',
@@ -178,7 +213,7 @@ const RecipieStyle = StyleSheet.create({
   },
   seeRecipieDetailButton: {
     position: 'absolute',
-    bottom: normalizePx(50),
+    bottom: normalizePx(55),
     right: normalizePx(20),
     borderRadius: normalizePx(50),
     backgroundColor: Colors.light.transparentYellow,
@@ -192,5 +227,41 @@ const RecipieStyle = StyleSheet.create({
     width: normalizePx(140),
     flexDirection: 'row',
     justifyContent: 'space-evenly',
+  },
+  cookerContainer: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: normalizePx(60),
+    paddingVertical: normalizePx(15),
+  },
+  cookerAvatar: {
+    backgroundColor: Colors.light.transparentBlack,
+  },
+  cookerInfoContainer: {
+    flexDirection: 'column',
+  },
+  cookerInfo: {
+    color: Colors.light.white,
+    fontWeight: 'bold',
+    fontSize: normalizeFontSize(12),
+  },
+  cookerVisitProfile: {
+    color: Colors.light.white,
+  },
+  portions: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    padding: normalizePx(15),
+    paddingHorizontal: normalizePx(110),
+    justifyContent: 'space-between',
+  },
+  addPortionButton: {
+    backgroundColor: Colors.light.yellow,
+  },
+  portionText: {
+    color: Colors.light.white,
+    fontWeight: 'bold',
+    fontSize: normalizeFontSize(40),
   },
 });

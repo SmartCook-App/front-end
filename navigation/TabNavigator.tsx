@@ -1,3 +1,4 @@
+
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
@@ -33,6 +34,7 @@ export const TabNavigator: FC = () => {
           tabBarLabel: 'Recetas',
           tabBarColor: Colors.light.navbarColor,
           tabBarIcon: () => <IoniconsComponent name="home-outline" />,
+
         }}
       />
       <Tab.Screen

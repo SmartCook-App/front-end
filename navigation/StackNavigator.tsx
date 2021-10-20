@@ -50,6 +50,14 @@ export const MainPageStackNavigator: FC = () => {
           headerShown: false,
         }}
       />
+      <RootStack.Screen
+        name="RecipieHome"
+        component={RecipieHome}
+        options={{
+          title: ' LRL[lang]?.appName',
+          headerShown: false,
+        }}
+      />
     </RootStack.Navigator>
   );
 };
@@ -84,4 +92,3 @@ export const RecepiesStackNavigator: FC = () => {
     </RootStack.Navigator>
   );
 };
-
