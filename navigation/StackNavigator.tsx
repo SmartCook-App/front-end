@@ -6,14 +6,17 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MainLoginRegisterScreen from "../screens/LoginRegister/MainLoginRegisterScreen";
 import LoginRegisterScreen from "../screens/LoginRegister/LoginRegisterScreen";
 import IndexScreen from "../screens/Home/IndexScreen";
+import AccountScreen from "../screens/AccountScreen";
 
 type RootStackParamList = {
   MainLoginRegisterScreen: undefined;
   LoginRegisterScreen: undefined;
   IndexScreen: undefined;
+  Account: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
+
 export const MainPageStackNavigator: FC = () => {
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
@@ -70,6 +73,30 @@ export const RecepiesStackNavigator: FC = () => {
           title: " LRL[lang]?.appName",
           headerShown: false,
         }}
+      />
+    </RootStack.Navigator>
+  );
+};
+
+export const AccountStackNavigator: FC = () => {
+  const lang = useSelector<RootState, RootState['language']>(
+    state => state.language,
+  );
+  return (
+    <RootStack.Navigator
+      initialRouteName="IndexScreen"
+      // screenOptions={{
+      //   headerStyle: { backgroundColor: "yellow" }, // parametrizar colores
+      //   headerTintColor: "white",
+      //   headerTitleStyle: { fontWeight: 'bold' },
+      // }}
+      >
+      <RootStack.Screen
+        name="Account"
+        component={AccountScreen}
+        // options={{
+        //   title: "Account", // Parametrizar este texto
+        // }}
       />
     </RootStack.Navigator>
   );
