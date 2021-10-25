@@ -24,6 +24,17 @@ const FiltersComponentsStyle = StyleSheet.create({
     paddingTop: 10,
     paddingLeft: 30,
   },
+  switchContainer: {
+    flex: 0.1,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    fontWeight: "bold",
+  },
+  switchContainerText: {
+    fontWeight: "bold",
+    fontSize: 17,
+    color: "#FAB73D",
+  },
   recipesContainer: {
     flex: 4,
   },
@@ -34,7 +45,7 @@ const FiltersComponentsStyle = StyleSheet.create({
     alignItems: "center",
     padding: 10,
     alignSelf: "stretch",
-  }
+  },
 });
 
 export default FiltersComponentsStyle;

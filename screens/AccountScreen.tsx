@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { View, ScrollView, SafeAreaView, TouchableOpacity } from "react-native";
+import { View, ScrollView, SafeAreaView, TouchableOpacity, Pressable } from "react-native";
 import RoundFiltersComponents from "../components/HomeComponents/RoundFiltersComponents";
 import ASL from "../assets/Languages/AccountScreenLanguages";
 import { useSelector } from "react-redux";
@@ -13,6 +13,7 @@ const AccountScreen: FC = (props: any) => {
   const state = useSelector((state: RootState) => state);
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
+  const [ownProfile, setOwnProfile] = useState(true);
 
   return (
     <>
@@ -26,9 +27,15 @@ const AccountScreen: FC = (props: any) => {
               <Text>Descripcion</Text>
             </View>
           </View>
-          <TouchableOpacity style={styles.followButton}>
-            <Text>{ASL[state.language]?.followButton}</Text>
-          </TouchableOpacity>
+          {ownProfile ? (
+            <TouchableOpacity style={styles.followButton}>
+              <Text>{ASL[state.language]?.editButton}</Text>
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity style={styles.followButton}>
+              <Text>{ASL[state.language]?.followButton}</Text>
+            </TouchableOpacity>
+          )}
         </View>
         <View style={styles.filtersContainer}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -45,6 +52,18 @@ const AccountScreen: FC = (props: any) => {
               />
             ))}
           </ScrollView>
+        </View>
+        <View style={styles.switchContainer}>
+          {ownProfile ? (
+            <>
+              <TouchableOpacity>
+                <Text style={styles.switchContainerText}>Recetas Guardadas</Text>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Text style={styles.switchContainerText}>Personas Seguidas</Text>
+              </TouchableOpacity>
+            </>
+          ) : null}
         </View>
         <ScrollView style={styles.recipesContainer}>
           <RecipiesComponent

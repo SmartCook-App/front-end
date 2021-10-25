@@ -1,9 +1,11 @@
 const ASL: any = {
   ES: {
-    followButton: "Seguir Perfil"
+    followButton: "Seguir Perfil",
+    editButton: "Editar Perfil",
   },
   EN: {
-    followButton: "Follow Account"
+    followButton: "Follow Account",
+    editButton: "Edit Account",
   },
 };
 export default ASL;
