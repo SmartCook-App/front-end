@@ -5,6 +5,7 @@ import {
   ScrollView,
   Text,
   ImageBackground,
+  TouchableHighlight,
 } from 'react-native';
 import FL from '../../assets/Languages/FiltersLanguages';
 import { useSelector } from 'react-redux';
@@ -21,6 +22,7 @@ import {
 import { Avatar } from 'react-native-elements';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Subtitle from '../../components/RecipieHomeComponents/Subtitle';
+import NutritionCircles from '../../components/RecipieHomeComponents/NutritionCircles';
 import { FAB } from 'react-native-elements';
 
 interface Props {
@@ -146,7 +148,22 @@ const RecipieHome: FC<Props> = (props: Props) => {
             <FAB buttonStyle={RecipieStyle.addPortionButton} title="+" />
           </View>
           <Subtitle text="Lo que necesitas" />
+          <View>
+            <Avatar
+              rounded
+              size="large"
+              icon={{ name: 'user', type: 'font-awesome' }}
+              activeOpacity={1}
+              containerStyle={RecipieStyle.cookerAvatar}
+              source={require('../../assets/Images/ensalada.jpg')}
+            />
+          </View>
+
           <Subtitle text="Información nutricional" />
+          <View style={RecipieStyle.nutriCirclesContainer}>
+            <NutritionCircles calories="140" proteins="14" fat="16" carbs="86" />
+
+          </View>
         </ScrollView>
       </ImageBackground>
     </View>
@@ -263,5 +280,28 @@ const RecipieStyle = StyleSheet.create({
     color: Colors.light.white,
     fontWeight: 'bold',
     fontSize: normalizeFontSize(40),
+  },
+  nutriCirclesContainer: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    paddingHorizontal: normalizePx(40),
+    paddingVertical: normalizePx(30),
+    justifyContent: 'space-between',
+  },
+  nutriCircles: {
+    borderRadius: normalizePx(50),
+    width: normalizePx(70),
+    height: normalizePx(70),
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: '#C4C4C4',
+    borderWidth: normalizePx(2),
+  },
+  nutriCirclesText: {
+    color: Colors.light.white,
+  },
+  nutriCirclesNumber: {
+    color: Colors.light.yellow,
+    fontWeight: 'bold',
   },
 });
