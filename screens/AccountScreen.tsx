@@ -57,10 +57,10 @@ const AccountScreen: FC = (props: any) => {
           {ownProfile ? (
             <>
               <TouchableOpacity>
-                <Text style={styles.switchContainerText}>Recetas Guardadas</Text>
+                <Text style={styles.switchContainerText}>{ASL[state.language]?.savedRecipes}</Text>
               </TouchableOpacity>
               <TouchableOpacity>
-                <Text style={styles.switchContainerText}>Personas Seguidas</Text>
+                <Text style={styles.switchContainerText}>{ASL[state.language]?.accountsFollowed}</Text>
               </TouchableOpacity>
             </>
           ) : null}
