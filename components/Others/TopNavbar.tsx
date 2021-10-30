@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import Colors from "../../assets/Colors";
 import TopNavbarStyle from "../../styles/TopNavbarStyle";
+import { Ionicons } from '@expo/vector-icons'; 
 interface Props {
   navigation: any;
   content: any;
@@ -23,16 +24,25 @@ const SCREEN_WIDTH = width < height ? width : height;
 const TopNavbar: FC<Props> = (props: Props) => {
   const { content, navigation, path } = props;
   return (
-    <View style={TopNavbarStyle.view}>
-      {path == "None" ? null : (
+    <View>
+      {path == "None" ? (
+        <>
+        <View style={TopNavbarStyle.container}>
+          <Text style={TopNavbarStyle.title}>{content}</Text>
+        </View>
+        </>
+      ) : (
+        <>
+        <View style={TopNavbarStyle.container}>
         <TouchableOpacity onPress={() => navigation.navigate(path)}>
-          <Text style={TopNavbarStyle.goBack}>{"<-"}</Text>
-        </TouchableOpacity>
+          <Ionicons name="arrow-undo" style={TopNavbarStyle.goBack} color={Colors.light.yellow}/>   
+          </TouchableOpacity>
+          <Text style={TopNavbarStyle.title}>{content}</Text>
+        </View>
+        </>
+
       )}
-      <View style={TopNavbarStyle.container}>
-        <Text style={TopNavbarStyle.title}>{content}</Text>
-        <View style={TopNavbarStyle.line}></View>
-      </View>
+      <View style={TopNavbarStyle.line}></View>
     </View>
   );
 };
