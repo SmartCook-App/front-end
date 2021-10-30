@@ -63,6 +63,7 @@ const FiltersComponentsStyle = StyleSheet.create({
     marginTop: 12,
   },
   containerRoundFilters: {
+    flexDirection: "row",
     width: 370,
     marginHorizontal: 20,
   },

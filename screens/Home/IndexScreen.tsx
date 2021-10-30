@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState } from "react";
 import { View, ScrollView } from "react-native";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
 import OvalFilterComponent from "../../components/HomeComponents/OvalFilterComponent";
@@ -6,10 +6,10 @@ import RoundFiltersComponents from "../../components/HomeComponents/RoundFilters
 import FL from "../../assets/Languages/FiltersLanguages";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { animated } from "@react-spring/native";
 import RecipiesComponent from "../../components/HomeComponents/recipiesComponent";
 import CookersRecipiesComponent from "../../components/HomeComponents/CookersRecipiesComponent";
-import IngredientsButtonComponent from "../../components/HomeComponents/IngredientsButtonComponent";
+import IngredientsButtonComponent from "../../components/HomeComponents/IngredientsButtonComponent
+import SearchButtonComponent from "../../components/HomeComponents/SearchButtonComponent";
 import TopNavbar from "../../components/Others/TopNavbar";
 
 interface Props {
@@ -40,6 +40,7 @@ const IndexScreen: FC<Props> = (props: Props) => {
         </ScrollView>
       </View>
       <View style={FiltersComponentsStyle.containerRoundFilters}>
+        <SearchButtonComponent/>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {state.homeIcons.iconArray.map((icon: any) => (
             <RoundFiltersComponents
