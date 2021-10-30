@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import RecipiesComponent from "../../components/HomeComponents/recipiesComponent";
 import CookersRecipiesComponent from "../../components/HomeComponents/CookersRecipiesComponent";
-import IngredientsButtonComponent from "../../components/HomeComponents/IngredientsButtonComponent
+import IngredientsButtonComponent from "../../components/HomeComponents/IngredientsButtonComponent";
 import SearchButtonComponent from "../../components/HomeComponents/SearchButtonComponent";
 import TopNavbar from "../../components/Others/TopNavbar";
 
