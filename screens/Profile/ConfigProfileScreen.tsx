@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
 import LRL from "../../assets/Languages/LoginRegisterLanguage";
 import PL from "../../assets/Languages/ProfileLanguage";
 import ConfigProfileStyle from "../../styles/ProfileStyles/ConfigProfileStyle";
@@ -10,7 +10,6 @@ import BackgroundImage from "../../components/ImagesComponents/LoginBackgroundIm
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Image } from "react-native-animatable";
-import PopUp from "../../components/Others/PopUp";
 import TopNavbar from "../../components/Others/TopNavbar";
 
 interface Props {
@@ -39,6 +38,18 @@ const IndexScreen: FC<Props> = (props: Props) => {
   const toggleModal = () => {
     setVisible(!visible);
   };
+
+  const notWorkingYet = () => 
+    Alert.alert(
+      "Hola!",
+      "Esta opción todavía no está disponible",
+      [
+        {
+          text: "Ok",
+          onPress: () => console.log("OK")
+        }
+      ]
+    )
   return (
     <>
       <BackgroundImage>
@@ -59,7 +70,7 @@ const IndexScreen: FC<Props> = (props: Props) => {
               email: Yup.string()
                 .email(LRL[lang]?.formErrorEmail)
                 .required(LRL[lang]?.formErrorRequired),
-              // password: Yup.string()
+             // password: Yup.string()
               //   .min(
               //     5,
               //     ({ min }) =>
@@ -92,10 +103,9 @@ const IndexScreen: FC<Props> = (props: Props) => {
                       />
                     </TouchableOpacity>
                   </View>
-                  <PopUp visible={visible} setVisible={setVisible} />
                   <TouchableOpacity
                     style={{ marginTop: 20 }}
-                    onPress={toggleModal}
+                    onPress={notWorkingYet}
                   >
                     <Text style={ConfigProfileStyle.textUploadPicture}>
                       {PL[lang]?.choosePicture}

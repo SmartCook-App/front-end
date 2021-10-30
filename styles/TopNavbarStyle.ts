@@ -1,35 +1,35 @@
 import { StyleSheet, Platform, Dimensions } from "react-native";
 import Colors from "../assets/Colors";
+import { normalizeFontSize, normalizePx } from "./normalize";
 
 const TopNavbarStyle = StyleSheet.create({
   container: {
-    padding: 20,
-    marginTop: 20,
-    height: 60,
-    justifyContent: "space-evenly",
+    marginTop: normalizePx(30),
+    height: normalizePx(60),
     alignItems: "center",
+    justifyContent: 'center',
+    flexDirection: "row",
   },
   title: {
-    marginVertical: 10,
     color: Colors.light.yellow,
-    fontSize: 25,
+    fontSize: normalizeFontSize(18),
     fontFamily: "nunito-black",
+    
   },
   line: {
-    marginTop: 20,
+    marginTop: 0.5,
     backgroundColor: Colors.light.lineUpperTitle,
     height: 0.4,
-    width: 100,
+    width: normalizePx(420),
   },
   goBack: {
-    fontSize: 30,
+    marginLeft:-130,
+    fontSize: normalizePx(25),
     color: Colors.light.yellow,
     fontFamily: "nunito-black",
   },
   view: {
     flexDirection: "row",
-    // alignItems: "flex-start",
-    // padding: 45,
   },
 });
 export default TopNavbarStyle;
