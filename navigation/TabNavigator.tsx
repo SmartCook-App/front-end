@@ -11,7 +11,7 @@ import {
   // ListStackNavigator,
   // CalendaryStackNavigator,
   // SearchStackNavigator,
-  // ProfileStackNavigator,
+  ProfileStackNavigator,
 } from "./StackNavigator";
 const Tab = createMaterialBottomTabNavigator();
 export const TabNavigator: FC = () => {
@@ -66,7 +66,7 @@ export const TabNavigator: FC = () => {
       /> */}
       <Tab.Screen
         name="Profile"
-        component={RecepiesStackNavigator}
+        component={ProfileStackNavigator}
         options={{
           tabBarLabel: "Perfil",
           tabBarColor: Colors.light.navbarColor,
