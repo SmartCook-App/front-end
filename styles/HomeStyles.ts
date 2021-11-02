@@ -87,13 +87,6 @@ const HomeStyle = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-  text: {
-    fontFamily: "nunito-light",
-    fontSize: 20,
-    top: 50,
-    textAlign: "center",
-    color: "#DADADA",
-  },
   rectanguleContainer: {
     height: 140,
     backgroundColor: "rgba(52, 52, 52, 0.07)",
@@ -105,11 +98,31 @@ const HomeStyle = StyleSheet.create({
   containerFooter: {
     flex: 1,
     width: 340,
-    top: "45%",
+    top: "10%",
     left: "9%",
   },
-  scroller: {
-    flex: 1,
+  carousel: {
+    top: 60
+  },
+  carouselItem: {
+    backgroundColor:'transparent',
+    borderRadius: 5,
+    height: 250,
+    padding: 50,
+    marginLeft: 25,
+    marginRight: 25
+  },
+  carouselItemTitle: {
+    fontFamily: "nunito-light",
+    fontSize: 20,
+    textAlign: "center",
+    color: "#DADADA",
+  },
+  carouselItembody: {
+    fontFamily: "nunito-light",
+    fontSize: 15,
+    textAlign: "center",
+    color: "#DADADA"
   },
   textFooter: {
     fontFamily: "nunito-light",
