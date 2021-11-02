@@ -47,7 +47,6 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
             <Text style={FiltersComponentsStyle.titleItemFilter}>
               {item.name}
             </Text>
-            {console.log(item)}
             {item.values.map((itemValue: any) => (
               <>
                 {item.name === "Tipo dieta" ? (

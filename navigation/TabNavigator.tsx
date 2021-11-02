@@ -12,8 +12,8 @@ import {
   // ListStackNavigator,
   // CalendaryStackNavigator,
   // SearchStackNavigator,
-  // ProfileStackNavigator,
-} from './StackNavigator';
+  ProfileStackNavigator,
+} from "./StackNavigator";
 const Tab = createMaterialBottomTabNavigator();
 export const TabNavigator: FC = () => {
   const lang = useSelector<RootState, RootState['language']>(
@@ -55,13 +55,22 @@ export const TabNavigator: FC = () => {
           tabBarIcon: () => <IoniconsComponent name="calendar-outline" />,
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Search"
         component={RecepiesStackNavigator}
         options={{
           tabBarLabel: 'Buscador',
           tabBarColor: Colors.light.navbarColor,
           tabBarIcon: () => <IoniconsComponent name="search-outline" />,
+        }}
+      /> */}
+        <Tab.Screen
+        name="Profile"
+        component={ProfileStackNavigator}
+        options={{
+          tabBarLabel: "Perfil",
+          tabBarColor: Colors.light.navbarColor,
+          tabBarIcon: () => <IoniconsComponent name="person-outline" />,
         }}
       />
     </Tab.Navigator>
