@@ -23,7 +23,6 @@ import { Avatar } from 'react-native-elements';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Subtitle from '../../components/RecipieHomeComponents/Subtitle';
 import NutritionCircles from '../../components/RecipieHomeComponents/NutritionCircles';
-import { FAB } from 'react-native-elements';
 
 interface Props {
   navigation: any;
@@ -31,7 +30,14 @@ interface Props {
 
 const RecipieHome: FC<Props> = (props: Props) => {
   const { navigation } = props;
+  const [amountPortions, setamountPortions] = useState(0);
+  const onPressAddButton = (item: any) => {
+    setamountPortions(amountPortions+1)
+  };
 
+  const onPressSubstractButton = (item: any) => {
+    setamountPortions(amountPortions-1)
+  };
   return (
     <View style={RecipieStyle.container}>
       <ImageBackground
@@ -125,9 +131,6 @@ const RecipieHome: FC<Props> = (props: Props) => {
               icon={{ name: 'user', type: 'font-awesome' }}
               activeOpacity={1}
               containerStyle={RecipieStyle.cookerAvatar}
-              // source={{
-              //   uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-              // }}
             />
             <View style={RecipieStyle.cookerInfoContainer}>
               <Text style={RecipieStyle.cookerInfo}>
@@ -141,15 +144,67 @@ const RecipieHome: FC<Props> = (props: Props) => {
               </Text>
             </View>
           </View>
-          <Subtitle text="Porciones" />
+          <Subtitle text="Porciones"/>
           <View style={RecipieStyle.portions}>
-            <FAB buttonStyle={RecipieStyle.addPortionButton} title="-" />
-            <Text style={RecipieStyle.portionText}>2</Text>
-            <FAB buttonStyle={RecipieStyle.addPortionButton} title="+" />
+            <TouchableHighlight onPress={onPressAddButton} style={RecipieStyle.changePortionButton}>
+            <Text style={RecipieStyle.portionText}>+</Text>
+            </TouchableHighlight>
+            <Text style={RecipieStyle.portionText}>{amountPortions}</Text>
+            <TouchableHighlight onPress={onPressSubstractButton} style={RecipieStyle.changePortionButton}>
+            <Text style={RecipieStyle.portionText}>-</Text>
+            </TouchableHighlight>
           </View>
           <Subtitle text="Lo que necesitas" />
-          <View>
+          <View style={RecipieStyle.whatYouNeedContainer}>
             <Avatar
+              rounded
+              size="large"
+              icon={{ name: 'user', type: 'font-awesome' }}
+              activeOpacity={1}
+              containerStyle={RecipieStyle.cookerAvatar}
+              source={require('../../assets/Images/ensalada.jpg')}
+            />
+             <Avatar
+              rounded
+              size="large"
+              icon={{ name: 'user', type: 'font-awesome' }}
+              activeOpacity={1}
+              containerStyle={RecipieStyle.cookerAvatar}
+              source={require('../../assets/Images/ensalada.jpg')}
+            />
+             <Avatar
+              rounded
+              size="large"
+              icon={{ name: 'user', type: 'font-awesome' }}
+              activeOpacity={1}
+              containerStyle={RecipieStyle.cookerAvatar}
+              source={require('../../assets/Images/ensalada.jpg')}
+            />
+            <Avatar
+              rounded
+              size="large"
+              icon={{ name: 'user', type: 'font-awesome' }}
+              activeOpacity={1}
+              containerStyle={RecipieStyle.cookerAvatar}
+              source={require('../../assets/Images/ensalada.jpg')}
+            />
+             <Avatar
+              rounded
+              size="large"
+              icon={{ name: 'user', type: 'font-awesome' }}
+              activeOpacity={1}
+              containerStyle={RecipieStyle.cookerAvatar}
+              source={require('../../assets/Images/ensalada.jpg')}
+            />
+            <Avatar
+              rounded
+              size="large"
+              icon={{ name: 'user', type: 'font-awesome' }}
+              activeOpacity={1}
+              containerStyle={RecipieStyle.cookerAvatar}
+              source={require('../../assets/Images/ensalada.jpg')}
+            />
+             <Avatar
               rounded
               size="large"
               icon={{ name: 'user', type: 'font-awesome' }}
@@ -181,6 +236,15 @@ const RecipieStyle = StyleSheet.create({
   photo: {
     flex: 1,
     resizeMode: 'stretch', // or 'cover'
+    opacity: 3
+  },
+  changePortionButton:{
+    height: normalizePx(70),
+    width: normalizePx(70),
+    borderRadius: normalizePx(40),
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: Colors.light.transparentYellow,
   },
   blackRectangule: {
     height: normalizePx(240),
@@ -203,6 +267,10 @@ const RecipieStyle = StyleSheet.create({
   bottom: {
     height: normalizePx(170),
     marginTop: normalizePx(475),
+  },
+  whatYouNeedContainer:{
+    padding: 30,
+    flexDirection: "row"
   },
   info: {
     flexDirection: 'row',
@@ -233,6 +301,8 @@ const RecipieStyle = StyleSheet.create({
     bottom: normalizePx(55),
     right: normalizePx(20),
     borderRadius: normalizePx(50),
+    height: 70,
+    width: 70,
     backgroundColor: Colors.light.transparentYellow,
   },
   goDownArrow: {
@@ -280,6 +350,7 @@ const RecipieStyle = StyleSheet.create({
     color: Colors.light.white,
     fontWeight: 'bold',
     fontSize: normalizeFontSize(40),
+    padding: 5,
   },
   nutriCirclesContainer: {
     alignItems: 'center',
