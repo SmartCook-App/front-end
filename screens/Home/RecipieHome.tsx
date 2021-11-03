@@ -6,6 +6,7 @@ import {
   Text,
   ImageBackground,
   TouchableHighlight,
+  FlatList
 } from 'react-native';
 import FL from '../../assets/Languages/FiltersLanguages';
 import { useSelector } from 'react-redux';
@@ -34,9 +35,13 @@ const RecipieHome: FC<Props> = (props: Props) => {
   const onPressAddButton = (item: any) => {
     setamountPortions(amountPortions+1)
   };
-
+  // TODO: eliminar esta data cuando tengamos la base de datos
+  const data = ["1", "2", "3", "4", "5", "6"]
   const onPressSubstractButton = (item: any) => {
     setamountPortions(amountPortions-1)
+  };
+  const doNothing = (item: any) => {
+    console.log("hi")
   };
   return (
     <View style={RecipieStyle.container}>
@@ -75,9 +80,11 @@ const RecipieHome: FC<Props> = (props: Props) => {
                 </View>
               </View>
             </View>
+            <View style={RecipieStyle.centerText}>
             <Text style={RecipieStyle.title}>
               Tallarines con Pesto y otras salsas
             </Text>
+            </View>
           </View>
           <View style={RecipieStyle.bottom}>
             <View style={RecipieStyle.info}>
@@ -114,12 +121,13 @@ const RecipieHome: FC<Props> = (props: Props) => {
                 <Text style={RecipieStyle.infoText}> 450</Text>
               </View>
             </View>
-            <MaterialCommunityIcons
-              name={'pot-steam'}
-              size={55}
-              color="white"
-              style={RecipieStyle.seeRecipieDetailButton}
-            />
+            <TouchableHighlight onPress={doNothing}  style={RecipieStyle.seeRecipieDetailButton}>
+              <MaterialCommunityIcons
+                name={'pot-steam'}
+                size={55}
+                color="white"
+              />
+              </TouchableHighlight>
             <View style={RecipieStyle.goDownArrow}>
               <SimpleLineIcons name="arrow-down" size={30} color="white" />
             </View>
@@ -156,62 +164,22 @@ const RecipieHome: FC<Props> = (props: Props) => {
           </View>
           <Subtitle text="Lo que necesitas" />
           <View style={RecipieStyle.whatYouNeedContainer}>
-            <Avatar
-              rounded
-              size="large"
-              icon={{ name: 'user', type: 'font-awesome' }}
-              activeOpacity={1}
-              containerStyle={RecipieStyle.cookerAvatar}
-              source={require('../../assets/Images/ensalada.jpg')}
+            <FlatList
+              data={data}
+              numColumns={3}
+              columnWrapperStyle={{flexGrow: 1, justifyContent: 'space-evenly'}}
+              renderItem={({item: avatar})=> 
+              <Avatar
+                rounded
+                size="large"
+                icon={{ name: 'user', type: 'font-awesome' }}
+                activeOpacity={1}
+                containerStyle={RecipieStyle.cookerAvatar}
+                source={require('../../assets/Images/ensalada.jpg')}
+              />
+            }
             />
-             <Avatar
-              rounded
-              size="large"
-              icon={{ name: 'user', type: 'font-awesome' }}
-              activeOpacity={1}
-              containerStyle={RecipieStyle.cookerAvatar}
-              source={require('../../assets/Images/ensalada.jpg')}
-            />
-             <Avatar
-              rounded
-              size="large"
-              icon={{ name: 'user', type: 'font-awesome' }}
-              activeOpacity={1}
-              containerStyle={RecipieStyle.cookerAvatar}
-              source={require('../../assets/Images/ensalada.jpg')}
-            />
-            <Avatar
-              rounded
-              size="large"
-              icon={{ name: 'user', type: 'font-awesome' }}
-              activeOpacity={1}
-              containerStyle={RecipieStyle.cookerAvatar}
-              source={require('../../assets/Images/ensalada.jpg')}
-            />
-             <Avatar
-              rounded
-              size="large"
-              icon={{ name: 'user', type: 'font-awesome' }}
-              activeOpacity={1}
-              containerStyle={RecipieStyle.cookerAvatar}
-              source={require('../../assets/Images/ensalada.jpg')}
-            />
-            <Avatar
-              rounded
-              size="large"
-              icon={{ name: 'user', type: 'font-awesome' }}
-              activeOpacity={1}
-              containerStyle={RecipieStyle.cookerAvatar}
-              source={require('../../assets/Images/ensalada.jpg')}
-            />
-             <Avatar
-              rounded
-              size="large"
-              icon={{ name: 'user', type: 'font-awesome' }}
-              activeOpacity={1}
-              containerStyle={RecipieStyle.cookerAvatar}
-              source={require('../../assets/Images/ensalada.jpg')}
-            />
+           
           </View>
 
           <Subtitle text="Información nutricional" />
@@ -238,6 +206,9 @@ const RecipieStyle = StyleSheet.create({
     resizeMode: 'stretch', // or 'cover'
     opacity: 3
   },
+  centerText:{
+    flex: 1,
+  },
   changePortionButton:{
     height: normalizePx(70),
     width: normalizePx(70),
@@ -249,6 +220,9 @@ const RecipieStyle = StyleSheet.create({
   blackRectangule: {
     height: normalizePx(240),
     backgroundColor: Colors.light.transparentBlack,
+  },
+  whatYouNeedContainer:{
+    padding: 5
   },
   header: {
     flexDirection: 'row',
@@ -268,10 +242,6 @@ const RecipieStyle = StyleSheet.create({
     height: normalizePx(170),
     marginTop: normalizePx(475),
   },
-  whatYouNeedContainer:{
-    padding: 30,
-    flexDirection: "row"
-  },
   info: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -290,10 +260,9 @@ const RecipieStyle = StyleSheet.create({
     fontWeight: 'bold',
   },
   title: {
-    padding: normalizePx(15),
+    paddingHorizontal: normalizePx(20),
     fontFamily: 'nunito-light',
     color: Colors.light.white,
-    alignItems: 'stretch',
     fontSize: normalizeFontSize(25),
   },
   seeRecipieDetailButton: {
@@ -303,12 +272,14 @@ const RecipieStyle = StyleSheet.create({
     borderRadius: normalizePx(50),
     height: 70,
     width: 70,
+    alignSelf:"center",
+    padding:7,
     backgroundColor: Colors.light.transparentYellow,
   },
   goDownArrow: {
     alignItems: 'center',
     marginTop: normalizePx(100),
-    backgroundColor: Colors.light.transparentBlack,
+    // backgroundColor: Colors.light.transparentBlack,
   },
   iconsContainer: {
     width: normalizePx(140),
@@ -324,6 +295,7 @@ const RecipieStyle = StyleSheet.create({
   },
   cookerAvatar: {
     backgroundColor: Colors.light.transparentBlack,
+    marginVertical: 10
   },
   cookerInfoContainer: {
     flexDirection: 'column',
