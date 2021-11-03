@@ -8,11 +8,7 @@ import {
   TouchableHighlight,
   FlatList
 } from 'react-native';
-import FL from '../../assets/Languages/FiltersLanguages';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
 import { normalizeFontSize, normalizePx } from '../../styles/normalize';
-import window from '../../assets/Layout';
 import Colors from '../../assets/Colors';
 import {
   AntDesign,
@@ -32,18 +28,18 @@ interface Props {
 const RecipieHome: FC<Props> = (props: Props) => {
   const { navigation } = props;
   const [amountPortions, setamountPortions] = useState(0);
-  const onPressAddButton = (item: any) => {
+  const onPressAddButton = () => {
     setamountPortions(amountPortions+1)
   };
   // TODO: eliminar esta data cuando tengamos la base de datos
   const data = ["1", "2", "3", "4", "5", "6"]
-  const onPressSubstractButton = (item: any) => {
+  const onPressSubstractButton = () => {
     if (amountPortions >0){
       setamountPortions(amountPortions-1)
     }
     
   };
-  const doNothing = (item: any) => {
+  const doNothing = () => {
     console.log("hi")
   };
   return (
