@@ -38,7 +38,10 @@ const RecipieHome: FC<Props> = (props: Props) => {
   // TODO: eliminar esta data cuando tengamos la base de datos
   const data = ["1", "2", "3", "4", "5", "6"]
   const onPressSubstractButton = (item: any) => {
-    setamountPortions(amountPortions-1)
+    if (amountPortions >0){
+      setamountPortions(amountPortions-1)
+    }
+    
   };
   const doNothing = (item: any) => {
     console.log("hi")
