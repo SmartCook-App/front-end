@@ -1,19 +1,33 @@
 import React, { FC, useState } from "react";
-import { View, ScrollView, SafeAreaView, TouchableOpacity, Pressable } from "react-native";
+import { View, ScrollView, SafeAreaView, TouchableOpacity } from "react-native";
 import RoundFiltersComponents from "../components/HomeComponents/RoundFiltersComponents";
 import ASL from "../assets/Languages/AccountScreenLanguages";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import RecipiesComponent from "../components/HomeComponents/recipiesComponent";
 import { Ionicons } from "@expo/vector-icons";
-import styles from '../styles/AccountScreenStyles';
+import styles from "../styles/AccountScreenStyles";
 import { Text } from "../components/Themed";
+import { addFilterHomeInteractor } from "../redux/interactors/homeIconsInteractors";
+import { HomeIconTypes } from "../redux/types/homeIconsTypes";
 
 const AccountScreen: FC = (props: any) => {
   const state = useSelector((state: RootState) => state);
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
   const [ownProfile, setOwnProfile] = useState(true);
+  const dispatch = useDispatch();
+
+  const addFilter = () => {
+    const newFilter: HomeIconTypes = {
+      id: "7",
+      name: "cart-outline",
+      title: "new filter",
+      press: false,
+      height: 150,
+    };
+    dispatch(addFilterHomeInteractor(newFilter));
+  };
 
   return (
     <>
@@ -22,8 +36,10 @@ const AccountScreen: FC = (props: any) => {
           <View style={styles.headerRowContainer}>
             <Ionicons name={"person-circle-outline"} size={80} />
             <View style={styles.headerTextContainer}>
-              <Text>Nombre</Text>{/* Aca hay que reemplazar con la informacion del usuario cuando */}
-              <Text>Link Pagina</Text>{/* tengamos la data. */}
+              <Text>Nombre</Text>
+              {/* Aca hay que reemplazar con la informacion del usuario cuando */}
+              <Text>Link Pagina</Text>
+              {/* tengamos la data. */}
               <Text>Descripcion</Text>
             </View>
           </View>
@@ -38,8 +54,19 @@ const AccountScreen: FC = (props: any) => {
           )}
         </View>
         <View style={styles.filtersContainer}>
+          <View style={styles.addFilterContainer}>
+            <TouchableOpacity
+              style={styles.addFilterButton}
+              onPress={addFilter}
+            >
+              <Ionicons name={"add-circle-outline"} size={45} color={"black"} />
+            </TouchableOpacity>
+            <Text style={styles.addFilterButtonTitle}>
+              {ASL[state.language]?.addFilter}
+            </Text>
+          </View>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {state.homeIcons.iconArray.map((icon: any) => (
+            {state.homeIcons.accountsIconArray.map((icon: any) => (
               <RoundFiltersComponents
                 id={icon.id}
                 name={icon.name}
@@ -49,6 +76,7 @@ const AccountScreen: FC = (props: any) => {
                 setupdateOrderButtons={setupdateOrderButtons}
                 cookersView={cookersView}
                 setcookersView={setcookersView}
+                screen={"AccountScreen"}
               />
             ))}
           </ScrollView>
@@ -57,10 +85,14 @@ const AccountScreen: FC = (props: any) => {
           {ownProfile ? (
             <>
               <TouchableOpacity>
-                <Text style={styles.switchContainerText}>{ASL[state.language]?.savedRecipes}</Text>
+                <Text style={styles.switchContainerText}>
+                  {ASL[state.language]?.savedRecipes}
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity>
-                <Text style={styles.switchContainerText}>{ASL[state.language]?.accountsFollowed}</Text>
+                <Text style={styles.switchContainerText}>
+                  {ASL[state.language]?.accountsFollowed}
+                </Text>
               </TouchableOpacity>
             </>
           ) : null}

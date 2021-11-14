@@ -32,9 +32,9 @@ const IndexScreen: FC = (props: any) => {
         </ScrollView>
       </View>
       <View style={FiltersComponentsStyle.containerRoundFilters}>
-        <SearchButtonComponent/>
+        <SearchButtonComponent />
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {state.homeIcons.iconArray.map((icon: any) => (
+          {state.homeIcons.homeIconArray.map((icon: any) => (
             <RoundFiltersComponents
               id={icon.id}
               name={icon.name}
@@ -44,6 +44,7 @@ const IndexScreen: FC = (props: any) => {
               setupdateOrderButtons={setupdateOrderButtons}
               cookersView={cookersView}
               setcookersView={setcookersView}
+              screen={"IndexScreen"}
             />
           ))}
         </ScrollView>
@@ -71,6 +72,5 @@ const IndexScreen: FC = (props: any) => {
     </>
   );
 };
-
 
 export default IndexScreen;

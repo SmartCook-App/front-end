@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Colors from "../assets/Colors";
 
 const FiltersComponentsStyle = StyleSheet.create({
   mainContainer: {
@@ -8,7 +9,6 @@ const FiltersComponentsStyle = StyleSheet.create({
     flexDirection: "column",
     flex: 0.5,
     justifyContent: "space-evenly",
-    
   },
   headerRowContainer: {
     flexDirection: "row",
@@ -20,9 +20,13 @@ const FiltersComponentsStyle = StyleSheet.create({
     paddingTop: 10,
   },
   filtersContainer: {
+    flexDirection: "row",
     flex: 0.35,
     paddingTop: 10,
     paddingLeft: 30,
+  },
+  addFilterContainer: {
+    flexDirection: "column",
   },
   switchContainer: {
     flex: 0.1,
@@ -45,6 +49,21 @@ const FiltersComponentsStyle = StyleSheet.create({
     alignItems: "center",
     padding: 10,
     alignSelf: "stretch",
+  },
+  addFilterButton: {
+    marginRight: 10,
+    width: 62,
+    height: 62,
+    borderRadius: 50,
+    alignItems: "center",
+    justifyContent: "space-around",
+    backgroundColor: Colors.light.greyOfFilters,
+  },
+  addFilterButtonTitle: {
+    fontFamily: "nunito-light",
+    fontSize: 12,
+    width: 65,
+    textAlign: "center",
   },
 });
 
