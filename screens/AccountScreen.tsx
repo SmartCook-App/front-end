@@ -54,17 +54,23 @@ const AccountScreen: FC = (props: any) => {
           )}
         </View>
         <View style={styles.filtersContainer}>
-          <View style={styles.addFilterContainer}>
-            <TouchableOpacity
-              style={styles.addFilterButton}
-              onPress={addFilter}
-            >
-              <Ionicons name={"add-circle-outline"} size={45} color={"black"} />
-            </TouchableOpacity>
-            <Text style={styles.addFilterButtonTitle}>
-              {ASL[state.language]?.addFilter}
-            </Text>
-          </View>
+          {ownProfile ? (
+            <View style={styles.addFilterContainer}>
+              <TouchableOpacity
+                style={styles.addFilterButton}
+                onPress={addFilter}
+              >
+                <Ionicons
+                  name={"add-circle-outline"}
+                  size={45}
+                  color={"black"}
+                />
+              </TouchableOpacity>
+              <Text style={styles.addFilterButtonTitle}>
+                {ASL[state.language]?.addFilter}
+              </Text>
+            </View>
+          ) : null}
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {state.homeIcons.accountsIconArray.map((icon: any) => (
               <RoundFiltersComponents
