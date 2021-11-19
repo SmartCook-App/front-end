@@ -8,10 +8,10 @@ import IoniconsComponent from "../components/HomeComponents/IoniconsComponent";
 import Colors from "../assets/Colors";
 import {
   RecepiesStackNavigator,
-  // ListStackNavigator,
+  ShoppingListStackNavigator,
   // CalendaryStackNavigator,
   // SearchStackNavigator,
-  ProfileStackNavigator,
+  // ProfileStackNavigator,
 } from "./StackNavigator";
 const Tab = createMaterialBottomTabNavigator();
 export const TabNavigator: FC = () => {
@@ -37,7 +37,7 @@ export const TabNavigator: FC = () => {
       />
       <Tab.Screen
         name="List"
-        component={RecepiesStackNavigator}
+        component={ShoppingListStackNavigator}
         options={{
           tabBarLabel: "Lista",
           tabBarColor: Colors.light.navbarColor,
@@ -53,20 +53,9 @@ export const TabNavigator: FC = () => {
           tabBarIcon: () => <IoniconsComponent name="calendar-outline" />,
         }}
       />
-      {/* <Tab.Screen
-        name="Search"
-        component={RecepiesStackNavigator}
-        options={{
-          tabBarLabel: "Buscador",
-          tabBarColor: Colors.light.navbarColor,
-          tabBarIcon: () => (
-            <IoniconsComponent name="search-outline" />
-          ),
-        }}
-      /> */}
       <Tab.Screen
         name="Profile"
-        component={ProfileStackNavigator}
+        component={RecepiesStackNavigator}
         options={{
           tabBarLabel: "Perfil",
           tabBarColor: Colors.light.navbarColor,

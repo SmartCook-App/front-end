@@ -6,13 +6,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MainLoginRegisterScreen from "../screens/LoginRegister/MainLoginRegisterScreen";
 import LoginRegisterScreen from "../screens/LoginRegister/LoginRegisterScreen";
 import IndexScreen from "../screens/Home/IndexScreen";
-import ConfigProfileScreen from "../screens/Profile/ConfigProfileScreen";
+import ShoppingListScreen from "../screens/ShoppingListScreen";
 
 type RootStackParamList = {
   MainLoginRegisterScreen: undefined;
   LoginRegisterScreen: undefined;
   IndexScreen: undefined;
-  ConfigProfileScreen: undefined;
+  ShoppingListScreen: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -77,24 +77,25 @@ export const RecepiesStackNavigator: FC = () => {
   );
 };
 
-export const ProfileStackNavigator: FC = () => {
+export const ShoppingListStackNavigator: FC = () => {
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
   );
   return (
     <RootStack.Navigator
-      screenOptions={{
-        headerStyle: { backgroundColor: "yellow" },
-        headerTintColor: "white",
-      }}
+      initialRouteName="IndexScreen"
+      // screenOptions={{
+      //   headerStyle: { backgroundColor: Colors.colorPrimary },
+      //   headerTintColor: Colors.textColorPrimary,
+      //   headerTitleStyle: { fontWeight: 'bold' },
+      // }}
     >
       <RootStack.Screen
-        name="IndexScreen"
-        component={ConfigProfileScreen}
-        options={{
-          title: " LRL[lang]?.appName",
-          headerShown: false,
-        }}
+        name="ShoppingListScreen"
+        component={ShoppingListScreen}
+        // options={{
+        //   title: "Shopping List", Parametrizar este texto con Languages.
+        // }}
       />
     </RootStack.Navigator>
   );
