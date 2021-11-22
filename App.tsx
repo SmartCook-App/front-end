@@ -1,24 +1,27 @@
-import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import "react-native-gesture-handler";
+import React, { FC } from "react";
+import useCachedResources from "./hooks/useCachedResources";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import { NavigationContainer } from "@react-navigation/native";
+import { MenuProvider } from "react-native-popup-menu";
+import MainNavigator from "./navigation/MainNavigator";
 
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
-
-export default function App() {
+const App: FC = () => {
   const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
-
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
-      </SafeAreaProvider>
+      <Provider store={store}>
+        <NavigationContainer>
+          <MenuProvider>
+            <MainNavigator />
+          </MenuProvider>
+        </NavigationContainer>
+      </Provider>
     );
   }
-}
+};
+
+export default App;
