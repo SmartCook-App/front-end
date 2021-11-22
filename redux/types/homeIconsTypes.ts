@@ -1,6 +1,7 @@
 
 export interface HomeIconsState {
-  iconArray: HomeIconTypes[];
+  homeIconArray: HomeIconTypes[];
+  accountsIconArray: HomeIconTypes[];
 } 
 export interface HomeIconTypes {
     id: string;

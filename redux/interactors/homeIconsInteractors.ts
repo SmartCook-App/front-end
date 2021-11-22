@@ -9,3 +9,7 @@ import {
 export const reorderFiltersHomeInteractor = buildInteractorDirectAction(
     homeIconsActions.reorderFilters,
 );
+
+export const addFilterHomeInteractor = buildInteractorDirectAction(
+    homeIconsActions.addFilters,
+);

@@ -9,10 +9,10 @@ import IoniconsComponent from '../components/HomeComponents/IoniconsComponent';
 import Colors from '../assets/Colors';
 import {
   RecepiesStackNavigator,
+  AccountStackNavigator
   // ListStackNavigator,
   // CalendaryStackNavigator,
   // SearchStackNavigator,
-  ProfileStackNavigator,
 } from "./StackNavigator";
 const Tab = createMaterialBottomTabNavigator();
 export const TabNavigator: FC = () => {
@@ -66,7 +66,7 @@ export const TabNavigator: FC = () => {
       /> */}
         <Tab.Screen
         name="Profile"
-        component={ProfileStackNavigator}
+        component={AccountStackNavigator}
         options={{
           tabBarLabel: "Perfil",
           tabBarColor: Colors.light.navbarColor,
