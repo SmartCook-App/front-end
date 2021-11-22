@@ -72,6 +72,7 @@ const IndexScreen: FC<Props> = (props: Props) => {
             image={"image"}
             cal={"cal"}
             time={"time"}
+            navigation={navigation}
           />
         </ScrollView>
       )}
