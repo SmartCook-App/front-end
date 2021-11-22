@@ -17,7 +17,7 @@ export function normalizePx(size: number) {
   return Math.round(PixelRatio.roundToNearestPixel(newSize));
 }
 
-# Para usar normalizeFontSize solo tienen que poner normalizeFontSize(número). Este sirve para todo lo que es font 
-# Para todo el resto utilizar normalizePx
-# Estas funciones lo que hacen es adaptar los valores para todo tipo de tamaño de view
+// # Para usar normalizeFontSize solo tienen que poner normalizeFontSize(número). Este sirve para todo lo que es font
+// # Para todo el resto utilizar normalizePx
+// # Estas funciones lo que hacen es adaptar los valores para todo tipo de tamaño de view
 export const pWidth = (p: number) => width * p;

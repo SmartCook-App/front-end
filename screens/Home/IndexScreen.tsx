@@ -1,5 +1,3 @@
-<
-
 import React, { FC, useState } from "react";
 import { View, ScrollView } from "react-native";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
@@ -13,7 +11,7 @@ import CookersRecipiesComponent from "../../components/HomeComponents/CookersRec
 import IngredientsButtonComponent from "../../components/HomeComponents/IngredientsButtonComponent";
 import SearchButtonComponent from "../../components/HomeComponents/SearchButtonComponent";
 import TopNavbar from "../../components/Others/TopNavbar";
-        
+
 interface Props {
   navigation: any;
 }
@@ -32,52 +30,53 @@ const IndexScreen: FC<Props> = (props: Props) => {
           path={"None"}
           navigation={navigation}
         />
-      <View style={FiltersComponentsStyle.container}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {listNamesFilters.map((item: any) => (
-            <OvalFilterComponent item={item} />
-          ))}
-        </ScrollView>
-      </View>
-      <View style={FiltersComponentsStyle.containerRoundFilters}>
-        <SearchButtonComponent />
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {state.homeIcons.homeIconArray.map((icon: any) => (
-            <RoundFiltersComponents
-              id={icon.id}
-              name={icon.name}
-              title={icon.title}
-              isPressed={icon.press}
-              updateOrderButtons={updateOrderButtons}
-              setupdateOrderButtons={setupdateOrderButtons}
-              cookersView={cookersView}
-              setcookersView={setcookersView}
-              screen={"IndexScreen"}
+        <View style={FiltersComponentsStyle.container}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {listNamesFilters.map((item: any) => (
+              <OvalFilterComponent item={item} />
+            ))}
+          </ScrollView>
+        </View>
+        <View style={FiltersComponentsStyle.containerRoundFilters}>
+          <SearchButtonComponent />
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {state.homeIcons.homeIconArray.map((icon: any) => (
+              <RoundFiltersComponents
+                id={icon.id}
+                name={icon.name}
+                title={icon.title}
+                isPressed={icon.press}
+                updateOrderButtons={updateOrderButtons}
+                setupdateOrderButtons={setupdateOrderButtons}
+                cookersView={cookersView}
+                setcookersView={setcookersView}
+                screen={"IndexScreen"}
+              />
+            ))}
+          </ScrollView>
+        </View>
+        {cookersView ? (
+          <ScrollView>
+            <CookersRecipiesComponent
+              name={"name"}
+              image={"image"}
+              cal={"cal"}
+              time={"time"}
             />
-          ))}
-        </ScrollView>
+          </ScrollView>
+        ) : (
+          <ScrollView>
+            <RecipiesComponent
+              name={"name"}
+              image={"image"}
+              cal={"cal"}
+              time={"time"}
+              navigation={navigation}
+            />
+          </ScrollView>
+        )}
+        <IngredientsButtonComponent></IngredientsButtonComponent>
       </View>
-      {cookersView ? (
-        <ScrollView>
-          <CookersRecipiesComponent
-            name={"name"}
-            image={"image"}
-            cal={"cal"}
-            time={"time"}
-          />
-        </ScrollView>
-      ) : (
-        <ScrollView>
-          <RecipiesComponent
-            name={"name"}
-            image={"image"}
-            cal={"cal"}
-            time={"time"}
-            navigation={navigation}
-          />
-        </ScrollView>
-      )}
-      <IngredientsButtonComponent></IngredientsButtonComponent>
     </>
   );
 };
