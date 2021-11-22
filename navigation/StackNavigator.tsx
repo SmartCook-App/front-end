@@ -18,14 +18,14 @@ type RootStackParamList = {
 const RootStack = createStackNavigator<RootStackParamList>();
 
 export const MainPageStackNavigator: FC = () => {
-  const lang = useSelector<RootState, RootState["language"]>(
+  const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
   return (
     <RootStack.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: "yellow" },
-        headerTintColor: "white",
+        headerStyle: { backgroundColor: 'yellow' },
+        headerTintColor: 'white',
       }}
     >
       <RootStack.Screen
@@ -51,11 +51,50 @@ export const MainPageStackNavigator: FC = () => {
           headerShown: false,
         }}
       />
+      <RootStack.Screen
+        name="RecipieHome"
+        component={RecipieHome}
+        options={{
+          title: ' LRL[lang]?.appName',
+          headerShown: false,
+        }}
+      />
     </RootStack.Navigator>
   );
 };
 
 export const RecepiesStackNavigator: FC = () => {
+  const lang = useSelector<RootState, RootState['language']>(
+    (state) => state.language
+  );
+  return (
+    <RootStack.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: 'yellow' },
+        headerTintColor: 'white',
+      }}
+    >
+      <RootStack.Screen
+        name="IndexScreen"
+        component={IndexScreen}
+        options={{
+          title: ' LRL[lang]?.appName',
+          headerShown: false,
+        }}
+      />
+      <RootStack.Screen
+        name="RecipieHome"
+        component={RecipieHome}
+        options={{
+          title: ' LRL[lang]?.appName',
+          headerShown: false,
+        }}
+      />
+    </RootStack.Navigator>
+  );
+};
+
+export const ProfileStackNavigator: FC = () => {
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
   );
@@ -68,7 +107,7 @@ export const RecepiesStackNavigator: FC = () => {
     >
       <RootStack.Screen
         name="IndexScreen"
-        component={IndexScreen}
+        component={ConfigProfileScreen}
         options={{
           title: " LRL[lang]?.appName",
           headerShown: false,
