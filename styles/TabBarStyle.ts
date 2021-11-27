@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Colors from '../assets/Colors';
 
 const TabBarStyle = StyleSheet.create({
   icon: {
@@ -6,11 +7,8 @@ const TabBarStyle = StyleSheet.create({
     alignItems: "center",
     color: "#909090",
   },
-  navBar:{
-  
-  },
-  color:{
-    color: "red"
+  color: {
+    color: Colors.light.yellow
   }
 });
 export default TabBarStyle;

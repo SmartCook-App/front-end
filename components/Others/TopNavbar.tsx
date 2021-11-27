@@ -6,7 +6,6 @@ import {
   View,
   Dimensions,
 } from "react-native";
-import Colors from "../../assets/Colors";
 import TopNavbarStyle from "../../styles/TopNavbarStyle";
 import { Ionicons } from '@expo/vector-icons'; 
 interface Props {
@@ -23,6 +22,10 @@ const SCREEN_WIDTH = width < height ? width : height;
 // h 899
 const TopNavbar: FC<Props> = (props: Props) => {
   const { content, navigation, path } = props;
+
+  const onPressArrow = () => {
+   navigation.navigate(path)
+  };
   return (
     <View>
       {path == "None" ? (
@@ -34,8 +37,8 @@ const TopNavbar: FC<Props> = (props: Props) => {
       ) : (
         <>
         <View style={TopNavbarStyle.container}>
-        <TouchableOpacity onPress={() => navigation.navigate(path)}>
-          <Ionicons name="arrow-undo" style={TopNavbarStyle.goBack} color={Colors.light.yellow}/>   
+          <TouchableOpacity style={TopNavbarStyle.touch} onPress={onPressArrow}>
+            <Text><Ionicons name="arrow-undo" style={TopNavbarStyle.goBack}/></Text> 
           </TouchableOpacity>
           <Text style={TopNavbarStyle.title}>{content}</Text>
         </View>

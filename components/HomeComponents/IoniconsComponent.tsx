@@ -10,9 +10,7 @@ interface Props {
 const IoniconsComponent: FC<Props> = (props: Props) => {
   const { name } = props;
   return (
-    <>
       <Ionicons name={name} style={TabBarStyle.icon} size={36} />
-    </>
   );
 };
 export default IoniconsComponent;

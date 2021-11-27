@@ -55,7 +55,7 @@ const IndexScreen: FC<Props> = (props: Props) => {
       <BackgroundImage>
         <TopNavbar
           content={"PERFIL"}
-          path={"LoginRegisterScreen"}
+          path={"Account"}
           navigation={navigation}
         />
         <View style={ConfigProfileStyle.firstcontainer}>
