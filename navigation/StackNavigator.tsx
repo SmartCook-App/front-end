@@ -9,6 +9,7 @@ import IndexScreen from "../screens/Home/IndexScreen";
 import AccountScreen from "../screens/Profile/AccountScreen";
 import ConfigProfileScreen from "../screens/Profile/ConfigProfileScreen";
 import RecipieHome from "../screens/Home/RecipieHome";
+import StepsRecipiesScreen from "../screens/Home/StepsRecipiesScreen";
 
 type RootStackParamList = {
   MainLoginRegisterScreen: undefined;
@@ -17,6 +18,7 @@ type RootStackParamList = {
   RecipieHome: undefined;
   Account: undefined;
   ConfigProfileScreen: undefined;
+  StepsRecipies: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -89,6 +91,14 @@ export const RecepiesStackNavigator: FC = () => {
       <RootStack.Screen
         name="RecipieHome"
         component={RecipieHome}
+        options={{
+          title: " LRL[lang]?.appName",
+          headerShown: false,
+        }}
+      />
+      <RootStack.Screen
+        name="StepsRecipiesScreen"
+        component={StepsRecipiesScreen}
         options={{
           title: " LRL[lang]?.appName",
           headerShown: false,
