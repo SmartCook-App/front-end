@@ -13,7 +13,8 @@ const TopNavbarStyle = StyleSheet.create({
   title: {
     color: Colors.light.yellow,
     fontSize: normalizeFontSize(18),
-    fontFamily: "nunito-black",
+    fontFamily: "nunito-black",  
+    position: "absolute",
     
   },
   line: {
@@ -23,7 +24,6 @@ const TopNavbarStyle = StyleSheet.create({
     width: normalizePx(420),
   },
   goBack: {
-    marginLeft:-130,
     fontSize: normalizePx(25),
     color: Colors.light.yellow,
     fontFamily: "nunito-black",
@@ -31,5 +31,8 @@ const TopNavbarStyle = StyleSheet.create({
   view: {
     flexDirection: "row",
   },
+  touch:{
+    marginRight: normalizePx(320),
+  }
 });
 export default TopNavbarStyle;

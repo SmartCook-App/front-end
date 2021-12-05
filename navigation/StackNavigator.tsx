@@ -6,7 +6,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MainLoginRegisterScreen from "../screens/LoginRegister/MainLoginRegisterScreen";
 import LoginRegisterScreen from "../screens/LoginRegister/LoginRegisterScreen";
 import IndexScreen from "../screens/Home/IndexScreen";
-import AccountScreen from "../screens/AccountScreen";
+import AccountScreen from "../screens/Profile/AccountScreen";
+import ConfigProfileScreen from "../screens/Profile/ConfigProfileScreen";
 import RecipieHome from "../screens/Home/RecipieHome";
 
 type RootStackParamList = {
@@ -15,6 +16,7 @@ type RootStackParamList = {
   IndexScreen: undefined;
   RecipieHome: undefined;
   Account: undefined;
+  ConfigProfileScreen: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -103,18 +105,22 @@ export const AccountStackNavigator: FC = () => {
   return (
     <RootStack.Navigator
       initialRouteName="IndexScreen"
-      // screenOptions={{
-      //   headerStyle: { backgroundColor: "yellow" }, // parametrizar colores
-      //   headerTintColor: "white",
-      //   headerTitleStyle: { fontWeight: 'bold' },
-      // }}
     >
       <RootStack.Screen
         name="Account"
         component={AccountScreen}
-        // options={{
-        //   title: "Account", // Parametrizar este texto
-        // }}
+        options={{
+          title: " LRL[lang]?.appName",
+          headerShown: false,
+        }}
+      />
+       <RootStack.Screen
+        name="ConfigProfileScreen"
+        component={ConfigProfileScreen}
+        options={{
+          title: " LRL[lang]?.appName",
+          headerShown: false,
+        }}
       />
     </RootStack.Navigator>
   );

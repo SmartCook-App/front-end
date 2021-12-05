@@ -1,22 +1,33 @@
 import React, { FC, useState } from "react";
 import { View, ScrollView, SafeAreaView, TouchableOpacity } from "react-native";
-import RoundFiltersComponents from "../components/HomeComponents/RoundFiltersComponents";
-import ASL from "../assets/Languages/AccountScreenLanguages";
+import RoundFiltersComponents from "../../components/HomeComponents/RoundFiltersComponents";
+import ASL from "../../assets/Languages/AccountScreenLanguages";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import RecipiesComponent from "../components/HomeComponents/recipiesComponent";
+import { RootState } from "../../redux/store";
+import RecipiesComponent from "../../components/HomeComponents/recipiesComponent";
 import { Ionicons } from "@expo/vector-icons";
-import styles from "../styles/AccountScreenStyles";
-import { Text } from "../components/Themed";
-import { addFilterHomeInteractor } from "../redux/interactors/homeIconsInteractors";
-import { HomeIconTypes } from "../redux/types/homeIconsTypes";
+import styles from "../../styles/AccountScreenStyles";
+import { Text } from "../../components/Themed";
+import { addFilterHomeInteractor } from "../../redux/interactors/homeIconsInteractors";
+import { HomeIconTypes } from "../../redux/types/homeIconsTypes";
+import TopNavbar from "../../components/Others/TopNavbar";
 
-const AccountScreen: FC = (props: any) => {
+
+interface Props {
+  navigation: any;
+}
+
+const AccountScreen:  FC<Props> = (props: Props) =>  {
+  const { navigation } = props;
   const state = useSelector((state: RootState) => state);
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
   const [ownProfile, setOwnProfile] = useState(true);
   const dispatch = useDispatch();
+
+  const onPressEditProfile = (item: any) => {
+    navigation.navigate('ConfigProfileScreen');
+  };
 
   const addFilter = () => {
     const newFilter: HomeIconTypes = {
@@ -32,6 +43,11 @@ const AccountScreen: FC = (props: any) => {
   return (
     <>
       <SafeAreaView style={styles.mainContainer}>
+      <TopNavbar
+          content={"PERFIL"}
+          path={"None"}
+          navigation={navigation}
+        />
         <View style={styles.headerContainer}>
           <View style={styles.headerRowContainer}>
             <Ionicons name={"person-circle-outline"} size={80} />
@@ -44,7 +60,7 @@ const AccountScreen: FC = (props: any) => {
             </View>
           </View>
           {ownProfile ? (
-            <TouchableOpacity style={styles.followButton}>
+            <TouchableOpacity style={styles.followButton} onPress={onPressEditProfile}>
               <Text>{ASL[state.language]?.editButton}</Text>
             </TouchableOpacity>
           ) : (
