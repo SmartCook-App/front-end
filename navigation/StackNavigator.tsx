@@ -9,7 +9,7 @@ import IndexScreen from "../screens/Home/IndexScreen";
 import AccountScreen from "../screens/Profile/AccountScreen";
 import ConfigProfileScreen from "../screens/Profile/ConfigProfileScreen";
 import RecipieHome from "../screens/Home/RecipieHome";
-import StepsRecipiesScreen from "../screens/Home/StepsRecipiesScreen";
+import StepsRecipiesScreen from "../screens/Recipies/StepsRecipiesScreen";
 
 type RootStackParamList = {
   MainLoginRegisterScreen: undefined;
