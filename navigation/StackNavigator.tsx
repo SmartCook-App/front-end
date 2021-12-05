@@ -8,6 +8,7 @@ import LoginRegisterScreen from "../screens/LoginRegister/LoginRegisterScreen";
 import IndexScreen from "../screens/Home/IndexScreen";
 import AccountScreen from "../screens/Profile/AccountScreen";
 import ConfigProfileScreen from "../screens/Profile/ConfigProfileScreen";
+import StepsRecipiesScreen from "../screens/Recipies/StepsRecipiesScreen";
 import RecipieHome from "../screens/Home/RecipieHome";
 
 type RootStackParamList = {
@@ -16,6 +17,7 @@ type RootStackParamList = {
   IndexScreen: undefined;
   RecipieHome: undefined;
   Account: undefined;
+  StepsRecipiesScreen: undefined;
   ConfigProfileScreen: undefined;
 };
 
@@ -94,6 +96,14 @@ export const RecepiesStackNavigator: FC = () => {
           headerShown: false,
         }}
       />
+      <RootStack.Screen
+        name="StepsRecipiesScreen"
+        component={StepsRecipiesScreen}
+        options={{
+          title: " LRL[lang]?.appName",
+          headerShown: false,
+        }}
+      />
     </RootStack.Navigator>
   );
 };
@@ -121,6 +131,7 @@ export const AccountStackNavigator: FC = () => {
           title: " LRL[lang]?.appName",
           headerShown: false,
         }}
+
       />
     </RootStack.Navigator>
   );

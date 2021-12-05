@@ -39,8 +39,8 @@ const RecipieHome: FC<Props> = (props: Props) => {
     }
     
   };
-  const doNothing = () => {
-    console.log("hi")
+  const onPressStepsRecipies = () => {
+    navigation.navigate("RecipiesStepsScreens")
   };
   return (
     <View style={RecipieStyle.container}>
@@ -120,7 +120,7 @@ const RecipieHome: FC<Props> = (props: Props) => {
                 <Text style={RecipieStyle.infoText}> 450</Text>
               </View>
             </View>
-            <TouchableHighlight onPress={doNothing}  style={RecipieStyle.seeRecipieDetailButton}>
+            <TouchableHighlight onPress={onPressStepsRecipies}  style={RecipieStyle.seeRecipieDetailButton}>
               <MaterialCommunityIcons
                 name={'pot-steam'}
                 size={55}
@@ -153,12 +153,12 @@ const RecipieHome: FC<Props> = (props: Props) => {
           </View>
           <Subtitle text="Porciones"/>
           <View style={RecipieStyle.portions}>
-            <TouchableHighlight onPress={onPressAddButton} style={RecipieStyle.changePortionButton}>
-            <Text style={RecipieStyle.portionText}>+</Text>
-            </TouchableHighlight>
-            <Text style={RecipieStyle.portionText}>{amountPortions}</Text>
             <TouchableHighlight onPress={onPressSubstractButton} style={RecipieStyle.changePortionButton}>
             <Text style={RecipieStyle.portionText}>-</Text>
+            </TouchableHighlight>
+            <Text style={RecipieStyle.portionText}>{amountPortions}</Text>
+            <TouchableHighlight onPress={onPressAddButton} style={RecipieStyle.changePortionButton}>
+            <Text style={RecipieStyle.portionText}>+</Text>
             </TouchableHighlight>
           </View>
           <Subtitle text="Lo que necesitas" />
