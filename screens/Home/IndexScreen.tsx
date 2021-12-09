@@ -40,7 +40,7 @@ const IndexScreen: FC<Props> = (props: Props) => {
         </ScrollView>
       </View>
       <View style={FiltersComponentsStyle.containerRoundFilters}>
-        <SearchButtonComponent/>
+        <SearchButtonComponent />
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {state.homeIcons.iconArray.map((icon: any) => (
             <RoundFiltersComponents

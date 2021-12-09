@@ -93,9 +93,9 @@ export const ShoppingListStackNavigator: FC = () => {
       <RootStack.Screen
         name="ShoppingListScreen"
         component={ShoppingListScreen}
-        // options={{
-        //   title: "Shopping List", Parametrizar este texto con Languages.
-        // }}
+        options={{
+          headerShown: false,
+        }}
       />
     </RootStack.Navigator>
   );
