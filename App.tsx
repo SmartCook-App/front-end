@@ -6,6 +6,7 @@ import { store } from "./redux/store";
 import { NavigationContainer } from "@react-navigation/native";
 import { MenuProvider } from "react-native-popup-menu";
 import MainNavigator from "./navigation/MainNavigator";
+import { Provider as PaperProvider } from "react-native-paper";
 
 const App: FC = () => {
   const isLoadingComplete = useCachedResources();
@@ -14,11 +15,13 @@ const App: FC = () => {
   } else {
     return (
       <Provider store={store}>
-        <NavigationContainer>
-          <MenuProvider>
-            <MainNavigator />
-          </MenuProvider>
-        </NavigationContainer>
+        <PaperProvider>
+          <NavigationContainer>
+            <MenuProvider>
+              <MainNavigator />
+            </MenuProvider>
+          </NavigationContainer>
+        </PaperProvider>
       </Provider>
     );
   }
