@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react';
-import { View, Text, ImageBackground, ScrollView } from 'react-native';
+import { View, Text, ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
 import TopBar from '../../components/RecipieHomeComponents/TopBar';
 import StepsRecipiesStyle from './StepsRecipiesStyle';
 import CircleButton from '../../components/RecipieHomeComponents/CircleButton';
 import ImageInSteps from '../../components/StepsRecipiesComponent/ImageInSteps';
-import Video from 'react-native-video';
+// import Video from 'react-native-video';
 
 interface Props {
   navigation: any;
@@ -52,18 +52,39 @@ const StepsRecipiesScreen: FC<Props> = (props: Props) => {
             </Text>
           </View>
         </View>
-        <Video
-          source={{
-            uri: 'https://www.youtube.com/watch?v=mpSmBuco6I0',
-            headers: { accept: '*/*' },
-            type: 'mp4',
-          }}
-        />
+        {/* <Video */}
+        {/* source={{ */}
+        {/* uri: 'https://www.youtube.com/watch?v=mpSmBuco6I0', */}
+        {/* type: 'mp4', */}
+        {/* }} */}
+        {/* />  */}
         <View style={StepsRecipiesStyle.containerImages}>
-          <ImageInSteps />
-          <ImageInSteps />
-          <ImageInSteps />
-          <ImageInSteps />
+          <ImageInSteps
+            numberOfStep="1"
+            stepDescription="Corta las verduras bien finas en hileras."
+          />
+          <ImageInSteps
+            numberOfStep="2"
+            stepDescription="Hecha a hervirlas en una olla con 3 litros de agua."
+          />
+          <ImageInSteps
+            numberOfStep="3"
+            stepDescription="Escurre una vez blandas y viertelas en un bowl."
+          />
+          <ImageInSteps
+            numberOfStep="4"
+            stepDescription="Mezcla todo y listo!"
+          />
+        </View>
+        <View style={StepsRecipiesStyle.ButtonContainer}>
+          <TouchableOpacity
+            onPress={() => console.log('marcar como cocinada')}
+            style={StepsRecipiesStyle.markAsCookedButton}
+          >
+            <Text style={StepsRecipiesStyle.markAsCookedButtonText}>
+              Marcar como cocinada
+            </Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </ImageBackground>

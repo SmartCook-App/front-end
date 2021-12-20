@@ -4,15 +4,24 @@ import HomeStyle from '../../styles/HomeStyles';
 import { normalizeFontSize, normalizePx } from '../../styles/normalize';
 import Colors from '../../assets/Colors';
 
-const ImageInSteps: FC = () => {
+interface Props {
+  numberOfStep: string;
+  stepDescription: string;
+}
+
+const ImageInSteps: FC<Props> = (props: Props) => {
+  const { numberOfStep, stepDescription } = props;
   return (
-    <ImageBackground
-      source={require('../../assets/Images/LoginImg/loginBackground.jpeg')}
-      style={ImageInStepsStyle.image}
-      blurRadius={1}
-    >
-      <Text style={ImageInStepsStyle.circle}>01.</Text>
-    </ImageBackground>
+    <View>
+      <ImageBackground
+        source={require('../../assets/Images/LoginImg/loginBackground.jpeg')}
+        style={ImageInStepsStyle.image}
+        blurRadius={1}
+      >
+        <Text style={ImageInStepsStyle.circle}>{numberOfStep}</Text>
+      </ImageBackground>
+      <Text style={ImageInStepsStyle.stepsDescription}>{stepDescription}</Text>
+    </View>
   );
 };
 
@@ -21,7 +30,6 @@ export default ImageInSteps;
 const ImageInStepsStyle = StyleSheet.create({
   image: {
     height: normalizePx(240),
-    marginTop: normalizePx(100),
   },
   circle: {
     backgroundColor: Colors.light.yellow,
@@ -29,7 +37,21 @@ const ImageInStepsStyle = StyleSheet.create({
     width: normalizePx(70),
     borderRadius: normalizePx(35),
     position: 'absolute',
-    top: normalizePx(-50),
-    alignSelf: 'center'
+    top: normalizePx(-35),
+    alignSelf: 'center',
+    textAlign: 'center',
+    paddingVertical: normalizePx(5),
+    color: Colors.light.white,
+    fontWeight: 'bold',
+    fontSize: normalizeFontSize(30),
+  },
+  stepsDescription: {
+    padding: normalizePx(15),
+    fontSize: normalizeFontSize(15),
+    height: normalizePx(100),
+    fontWeight: 'bold',
+    color: Colors.light.white,
+    backgroundColor: Colors.light.transparentBlack,
+    fontFamily: "nunito-semiBold",
   },
 });

@@ -36,7 +36,29 @@ const StepsRecipiesStyle = StyleSheet.create({
     justifyContent: 'space-between',
   },
   containerImages:{
-  
+    marginTop: normalizePx(100),
+  },
+  ButtonContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: Colors.light.transparentBlack,
+  },
+  markAsCookedButton: {
+    backgroundColor: Colors.light.yellow,
+    padding: normalizePx(10),
+    borderRadius: normalizePx(35),
+    height: normalizePx(50),
+    width: normalizePx(275),
+    alignItems: "center",
+    justifyContent: "center",
+    margin: normalizePx(15),
+  },
+  markAsCookedButtonText: {
+    fontSize: normalizeFontSize(15),
+    position: 'absolute',
+    textAlign: 'center',
+    fontFamily: "nunito-semiBold",
+    color: Colors.light.white,
   }
 });
 export default StepsRecipiesStyle;
