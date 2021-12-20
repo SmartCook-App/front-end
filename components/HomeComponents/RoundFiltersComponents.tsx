@@ -15,26 +15,30 @@ interface Props {
   setcookersView: any;
   updateOrderButtons: any;
   setupdateOrderButtons: any;
+  screen: string;
 }
 
 const RoundFiltersComponents: FC<Props> = (props: Props) => {
-  const { id, name, title, setcookersView, isPressed } = props;
+  const { id, name, title, setcookersView, isPressed, screen } = props;
   let { cookersView } = props;
   const dispatch = useDispatch();
 
   const applyFilter = () => {
     // This is from this view
-    if (title == 'cookers') {
+    if (title == "cookers") {
       setcookersView(!cookersView);
     }
-    const updatedFilter: HomeIconTypes = {
-      id: id,
-      name: name,
-      title: title,
-      press: !isPressed,
-      height: 150,
-    }
-    dispatch(reorderFiltersHomeInteractor(updatedFilter));
+    const payload = {
+      screen: screen,
+      filter: {
+        id: id,
+        name: name,
+        title: title,
+        press: !isPressed,
+        height: 150,
+      },
+    };
+    dispatch(reorderFiltersHomeInteractor(payload));
   };
 
   return (

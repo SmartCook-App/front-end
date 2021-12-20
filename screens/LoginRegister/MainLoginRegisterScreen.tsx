@@ -2,13 +2,14 @@ import React, { FC } from "react";
 import { Text, View } from "react-native";
 import HomeStyle from "../../styles/HomeStyles";
 import { useSelector } from "react-redux";
+import { Link } from "@react-navigation/native";
 import { RootState } from "../../redux/store";
 import LRL from "../../assets/Languages/LoginRegisterLanguage";
 import BackgroundImage from "../../components/ImagesComponents/LoginBackgroundImage";
 import ButtonLoginEmail from "../../components/LoginRegisterComponents/ButtonLoginEmail";
 import IconFacebookGoogle from "../../components/LoginRegisterComponents/IconFacebookGoogle";
 import KnowMore from "../../components/LoginRegisterComponents/KnowMore";
- 
+
 interface Props {
   navigation: any;
 }
@@ -26,7 +27,7 @@ const LoginRegister: FC<Props> = (props: Props) => {
           <Text style={HomeStyle.title}>{LRL[lang]?.appName}</Text>
           <Text style={HomeStyle.subtitle}>{LRL[lang]?.slogan}</Text>
           <View>
-            <View style={HomeStyle.carousel}>
+          <View style={HomeStyle.carousel}>
               <KnowMore/>
             </View>
           </View>

@@ -17,7 +17,6 @@ interface Props {
 }
 const IndexScreen: FC<Props> = (props: Props) => {
   const { navigation } = props;
-  // const { icons, lang } = props;
   const state = useSelector((state: RootState) => state);
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
@@ -31,51 +30,53 @@ const IndexScreen: FC<Props> = (props: Props) => {
           path={"None"}
           navigation={navigation}
         />
-      </View>
-      <View style={FiltersComponentsStyle.container}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {listNamesFilters.map((item: any) => (
-            <OvalFilterComponent item={item} />
-          ))}
-        </ScrollView>
-      </View>
-      <View style={FiltersComponentsStyle.containerRoundFilters}>
-        <SearchButtonComponent />
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {state.homeIcons.iconArray.map((icon: any) => (
-            <RoundFiltersComponents
-              id={icon.id}
-              name={icon.name}
-              title={icon.title}
-              isPressed={icon.press}
-              updateOrderButtons={updateOrderButtons}
-              setupdateOrderButtons={setupdateOrderButtons}
-              cookersView={cookersView}
-              setcookersView={setcookersView}
+        <View style={FiltersComponentsStyle.container}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {listNamesFilters.map((item: any) => (
+              <OvalFilterComponent item={item} />
+            ))}
+          </ScrollView>
+        </View>
+        <View style={FiltersComponentsStyle.containerRoundFilters}>
+          <SearchButtonComponent />
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {state.homeIcons.homeIconArray.map((icon: any) => (
+              <RoundFiltersComponents
+                id={icon.id}
+                name={icon.name}
+                title={icon.title}
+                isPressed={icon.press}
+                updateOrderButtons={updateOrderButtons}
+                setupdateOrderButtons={setupdateOrderButtons}
+                cookersView={cookersView}
+                setcookersView={setcookersView}
+                screen={"IndexScreen"}
+              />
+            ))}
+          </ScrollView>
+        </View>
+        {cookersView ? (
+          <ScrollView>
+            <CookersRecipiesComponent
+              name={"name"}
+              image={"image"}
+              cal={"cal"}
+              time={"time"}
             />
-          ))}
-        </ScrollView>
+          </ScrollView>
+        ) : (
+          <ScrollView>
+            <RecipiesComponent
+              name={"name"}
+              image={"image"}
+              cal={"cal"}
+              time={"time"}
+              navigation={navigation}
+            />
+          </ScrollView>
+        )}
+        <IngredientsButtonComponent></IngredientsButtonComponent>
       </View>
-      {cookersView ? (
-        <ScrollView>
-          <CookersRecipiesComponent
-            name={"name"}
-            image={"image"}
-            cal={"cal"}
-            time={"time"}
-          />
-        </ScrollView>
-      ) : (
-        <ScrollView>
-          <RecipiesComponent
-            name={"name"}
-            image={"image"}
-            cal={"cal"}
-            time={"time"}
-          />
-        </ScrollView>
-      )}
-      <IngredientsButtonComponent></IngredientsButtonComponent>
     </>
   );
 };
