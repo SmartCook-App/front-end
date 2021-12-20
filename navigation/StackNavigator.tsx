@@ -1,3 +1,4 @@
+
 import React, { FC } from "react";
 import LRL from "../assets/Languages/LoginRegisterLanguage";
 import { useSelector } from "react-redux";
@@ -10,7 +11,8 @@ import AccountScreen from "../screens/Profile/AccountScreen";
 import ConfigProfileScreen from "../screens/Profile/ConfigProfileScreen";
 import StepsRecipiesScreen from "../screens/Recipies/StepsRecipiesScreen";
 import RecipieHome from "../screens/Home/RecipieHome";
-
+import ShoppingListScreen from "../screens/ShoppingListScreen";
+  
 type RootStackParamList = {
   MainLoginRegisterScreen: undefined;
   LoginRegisterScreen: undefined;
@@ -19,6 +21,7 @@ type RootStackParamList = {
   Account: undefined;
   StepsRecipiesScreen: undefined;
   ConfigProfileScreen: undefined;
+  ShoppingListScreen: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -132,6 +135,30 @@ export const AccountStackNavigator: FC = () => {
           headerShown: false,
         }}
 
+      />
+    </RootStack.Navigator>
+  );
+};
+
+export const ShoppingListStackNavigator: FC = () => {
+  const lang = useSelector<RootState, RootState["language"]>(
+    (state) => state.language
+  );
+  return (
+    <RootStack.Navigator
+      initialRouteName="IndexScreen"
+      // screenOptions={{
+      //   headerStyle: { backgroundColor: Colors.colorPrimary },
+      //   headerTintColor: Colors.textColorPrimary,
+      //   headerTitleStyle: { fontWeight: 'bold' },
+      // }}
+    >
+      <RootStack.Screen
+        name="ShoppingListScreen"
+        component={ShoppingListScreen}
+        options={{
+          headerShown: false,
+        }}
       />
     </RootStack.Navigator>
   );
