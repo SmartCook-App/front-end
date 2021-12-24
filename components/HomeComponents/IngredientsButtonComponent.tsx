@@ -1,23 +1,27 @@
 import React, { FC } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native";
 import IndexScreenStyle from "../../styles/HomeComponentsStyle/IndexScreenStyle";
 
-const IngredientsButtonComponent: FC = () => {
-  // Falta hacer que este boton sea drageable, para luego poder
+interface Props {
+  navigation: any;
+}
+
+const IngredientsButtonComponent: FC<Props> = (props: Props) => {
+  // TODO hacer que este boton sea drageable, para luego poder
   // enviar a la screen correspondiente.
-  const handleClick = () => {
-    console.log("This Is a Dummy");
+  const { navigation } = props;
+  const onPress = () => {
+    navigation.navigate('RecipieHome');
   };
 
   return (
-    <>
     <MaterialCommunityIcons 
       name={"carrot"} 
       style={IndexScreenStyle.ingredientsButton} 
       size={62}
-      onPress={handleClick}
+      onPress={onPress}
     />
-    </>
   );
 };
 export default IngredientsButtonComponent;
