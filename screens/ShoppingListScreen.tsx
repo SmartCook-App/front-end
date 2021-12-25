@@ -14,6 +14,8 @@ import { Searchbar, Divider } from "react-native-paper";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import TopNavbar from "../components/Others/TopNavbar";
 import SLSL from "../assets/Languages/ShoppingListScreenLanguages";
+import SearchbarComponent from '../components//HomeComponents/SearchComponents/SearchbarComponent';
+
 
 interface Props {
   navigation: any;
@@ -113,13 +115,7 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
           style={styles.image}
         >
           <View style={styles.backgroundContainer}>
-            <View style={styles.searchbarContainer}>
-              <Searchbar
-                style={styles.searchbar}
-                placeholder={SLSL[state.language].searchbarPlaceholder}
-                value=""
-              />
-            </View>
+            <SearchbarComponent placeholderText={SLSL[state.language].searchbarPlaceholder} />
             <View style={styles.listContainer}>
               <FlatList
                 data={DATA}
