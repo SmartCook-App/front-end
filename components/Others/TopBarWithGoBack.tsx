@@ -47,7 +47,8 @@ const SearchRecipiesStyle = StyleSheet.create({
     centerText: {
       marginTop: normalizePx(50),
       marginBottom: normalizePx(30),
-      left: normalizePx(70),
+      left: normalizePx(40),
+      textAlign: 'center',
       textTransform: 'uppercase',
       fontSize: normalizeFontSize(18),
       fontFamily: 'nunito-black',
