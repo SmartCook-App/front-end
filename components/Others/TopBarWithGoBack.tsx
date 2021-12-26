@@ -3,6 +3,9 @@ import { Text, View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../../assets/Colors';
 import { normalizeFontSize, normalizePx } from '../../styles/normalize';
+import { Dimensions } from 'react-native';
+
+const width = Dimensions.get('window').width;
 
 interface Props {
   title: any;
@@ -14,7 +17,7 @@ const TopBarWithGoBack: FC<Props> = (props: Props) => {
 
   return (
     <View style={SearchRecipiesStyle.header}>
-      <View style={SearchRecipiesStyle.alignRight}>
+      <View style={SearchRecipiesStyle.alignLeft}>
         <Ionicons
           name="md-arrow-undo-sharp"
           size={27}
@@ -22,9 +25,7 @@ const TopBarWithGoBack: FC<Props> = (props: Props) => {
           onPress={navigation.goBack}
         />
       </View>
-      <Text style={SearchRecipiesStyle.centerText}>
-        {title}
-      </Text>
+      <Text style={SearchRecipiesStyle.centerText}>{title}</Text>
     </View>
   );
 };
@@ -32,26 +33,26 @@ const TopBarWithGoBack: FC<Props> = (props: Props) => {
 export default TopBarWithGoBack;
 
 const SearchRecipiesStyle = StyleSheet.create({
-    header: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      borderBottomWidth: normalizePx(1),
-      borderColor: '#C4C4C4',
-      height: normalizePx(100),
-    },
-    alignRight: {
-      marginTop: normalizePx(50),
-      marginBottom: normalizePx(30),
-      left: normalizePx(20),
-    },
-    centerText: {
-      marginTop: normalizePx(50),
-      marginBottom: normalizePx(30),
-      left: normalizePx(40),
-      textAlign: 'center',
-      textTransform: 'uppercase',
-      fontSize: normalizeFontSize(18),
-      fontFamily: 'nunito-black',
-      color: Colors.light.yellow,
-    },
-  });
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomWidth: normalizePx(1),
+    borderColor: '#C4C4C4',
+    height: normalizePx(100),
+  },
+  alignLeft: {
+    marginTop: normalizePx(50),
+    marginBottom: normalizePx(30),
+    left: normalizePx(20),
+  },
+  centerText: {
+    marginTop: normalizePx(50),
+    marginBottom: normalizePx(30),
+    right: width / 2 - normalizePx(260),
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    fontSize: normalizeFontSize(18),
+    fontFamily: 'nunito-black',
+    color: Colors.light.yellow,
+  },
+});

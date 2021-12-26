@@ -48,22 +48,55 @@ const SearchIngredient: FC<Props> = (props: Props) => {
       </View>
       <View style={SearchIngredientStyle.categoryContainer}>
         <View style={SearchIngredientStyle.categoryRowContainer}>
-          <CategoryGridComponent iconName="food-apple" catgoryName={CL[lang]?.legumes} />
-          <CategoryGridComponent iconName="food-apple" catgoryName={CL[lang]?.vegetables} />
-          <CategoryGridComponent iconName="food-apple" catgoryName={CL[lang]?.cereals} />
-          <CategoryGridComponent iconName="food-apple" catgoryName={CL[lang]?.fat} />
+          <CategoryGridComponent
+            iconName="food-apple"
+            catgoryName={CL[lang]?.legumes}
+          />
+          <CategoryGridComponent
+            iconName="food-apple"
+            catgoryName={CL[lang]?.vegetables}
+          />
+          <CategoryGridComponent
+            iconName="food-apple"
+            catgoryName={CL[lang]?.cereals}
+          />
+          <CategoryGridComponent
+            iconName="food-apple"
+            catgoryName={CL[lang]?.fat}
+          />
         </View>
         <View style={SearchIngredientStyle.categoryRowContainer}>
-          <CategoryGridComponent iconName="cupcake" catgoryName={CL[lang]?.flours} />
-          <CategoryGridComponent iconName="fruit-cherries" catgoryName={CL[lang]?.fruits} />
-          <CategoryGridComponent iconName="peanut" catgoryName={CL[lang]?.driedFruits} />
-          <CategoryGridComponent iconName="food-steak" catgoryName={CL[lang]?.meats} />
+          <CategoryGridComponent
+            iconName="cupcake"
+            catgoryName={CL[lang]?.flours}
+          />
+          <CategoryGridComponent
+            iconName="fruit-cherries"
+            catgoryName={CL[lang]?.fruits}
+          />
+          <CategoryGridComponent
+            iconName="peanut"
+            catgoryName={CL[lang]?.driedFruits}
+          />
+          <CategoryGridComponent
+            iconName="food-steak"
+            catgoryName={CL[lang]?.meats}
+          />
         </View>
         <View style={SearchIngredientStyle.categoryRowContainer}>
           <CategoryGridComponent iconName="fish" catgoryName={CL[lang]?.fish} />
-          <CategoryGridComponent iconName="food-apple" catgoryName={CL[lang]?.dairyProducts} />
-          <CategoryGridComponent iconName="food-apple" catgoryName={CL[lang]?.potatoes} />
-          <CategoryGridComponent iconName="spoon-sugar" catgoryName={CL[lang]?.sugars} />
+          <CategoryGridComponent
+            iconName="food-apple"
+            catgoryName={CL[lang]?.dairyProducts}
+          />
+          <CategoryGridComponent
+            iconName="food-apple"
+            catgoryName={CL[lang]?.potatoes}
+          />
+          <CategoryGridComponent
+            iconName="spoon-sugar"
+            catgoryName={CL[lang]?.sugars}
+          />
         </View>
       </View>
     </>
@@ -92,5 +125,5 @@ const SearchIngredientStyle = StyleSheet.create({
     flex: 4,
     flexDirection: 'row',
     alignItems: 'flex-start',
-  }
+  },
 });
