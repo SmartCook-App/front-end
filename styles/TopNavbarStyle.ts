@@ -12,10 +12,10 @@ const TopNavbarStyle = StyleSheet.create({
   },
   title: {
     color: Colors.light.yellow,
-    fontSize: normalizeFontSize(18),
+    fontSize: normalizeFontSize(16),
     fontFamily: "nunito-black",  
     position: "absolute",
-    
+    textTransform: 'uppercase',
   },
   line: {
     marginTop: 0.5,
@@ -32,7 +32,7 @@ const TopNavbarStyle = StyleSheet.create({
     flexDirection: "row",
   },
   touch:{
-    marginRight: normalizePx(320),
+    marginRight: normalizePx(350),
   }
 });
 export default TopNavbarStyle;

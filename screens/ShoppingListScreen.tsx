@@ -105,8 +105,8 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
     <>
       <SafeAreaView style={styles.mainContainer}>
         <TopNavbar
-          content={"SMARTCOOK"}
-          path={"None"}
+          title={"SMARTCOOK"}
+          goBack={false}
           navigation={navigation}
         />
         <ImageBackground
