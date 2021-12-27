@@ -42,6 +42,13 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
     </View>
   );
 
+  const goToMatchView = () => {
+    console.log('estamos acr')
+    navigation.navigate('Match', {
+      screen: 'Match',
+    });
+  }
+
   return (
     <>
       <TopBar
@@ -74,7 +81,7 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
           keyExtractor={(item) => `${item}`}
         />
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={goToMatchView}>
         <View style={ChooseIngredientStyle.readyButton}>
           <AntDesign name="check" size={35} color="white" />
         </View>
