@@ -20,7 +20,7 @@ const SearchRecipies: FC<Props> = (props: Props) => {
   const state = useSelector((state: RootState) => state);
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
-  );
+        );
   var listNamesFilters = Object.values(FL[state.language]);
   const { navigation } = props;
   return (

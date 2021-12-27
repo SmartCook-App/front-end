@@ -14,6 +14,7 @@ import SearchRecipies from '../screens/Home/SearchRecipies';
 import SearchIngredient from '../screens/Home/SearchIngredient';
 import ChooseIngredient from '../screens/Home/ChooseIngredient';
 import ShoppingListScreen from '../screens/ShoppingListScreen';
+import Match from '../screens/Home/Match';
 
 type RootStackParamList = {
   MainLoginRegisterScreen: undefined;
@@ -27,6 +28,7 @@ type RootStackParamList = {
   ShoppingListScreen: undefined;
   SearchIngredient: undefined;
   ChooseIngredient: undefined;
+  Match: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -131,6 +133,14 @@ export const RecepiesStackNavigator: FC = () => {
       <RootStack.Screen
         name="StepsRecipiesScreen"
         component={StepsRecipiesScreen}
+        options={{
+          title: ' LRL[lang]?.appName',
+          headerShown: false,
+        }}
+      />
+      <RootStack.Screen
+        name="Match"
+        component={Match}
         options={{
           title: ' LRL[lang]?.appName',
           headerShown: false,
