@@ -4,22 +4,32 @@ import Colors from '../../assets/Colors';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { normalizeFontSize, normalizePx } from '../../styles/normalize';
 import { Dimensions } from 'react-native';
+import { Avatar } from 'react-native-paper';
 
 const width = Dimensions.get('window').width;
 
 interface Props {
   iconName: any;
+  image: any;
   catgoryName: any;
+  isImage: any;
 }
 
 const CategoryGridComponent: FC<Props> = (props: Props) => {
-  const { iconName, catgoryName } = props;
+  const { iconName, catgoryName, image, isImage } = props;
 
   return (
     <View style={SearchIngredientStyle.eachCategoryContainer}>
       <TouchableOpacity>
         <View style={SearchIngredientStyle.categoryCircle}>
-          <MaterialCommunityIcons name={iconName} size={35} color="black" />
+          {isImage == false ? (
+            <MaterialCommunityIcons name={iconName} size={35} color="black" />
+          ) : (
+            <Avatar.Image
+              size={65}
+              source={require('../../assets/Images/Ingredients/tomato.jpg')}
+            />
+          )}
         </View>
       </TouchableOpacity>
       <Text style={SearchIngredientStyle.categoryTitle}>{catgoryName}</Text>
@@ -43,7 +53,6 @@ const SearchIngredientStyle = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     left: normalizePx(5),
-
   },
   categoryTitle: {
     fontFamily: 'nunito-light',

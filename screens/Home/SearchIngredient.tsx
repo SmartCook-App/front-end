@@ -52,51 +52,74 @@ const SearchIngredient: FC<Props> = (props: Props) => {
           <CategoryGridComponent
             iconName="food-apple"
             catgoryName={CL[lang]?.legumes}
+            isImage={false}
+            image='None'
           />
           <CategoryGridComponent
             iconName="food-apple"
             catgoryName={CL[lang]?.vegetables}
+            isImage={false}
+            image='None'
           />
           <CategoryGridComponent
             iconName="food-apple"
             catgoryName={CL[lang]?.cereals}
+            isImage={false}
+            image='None'
           />
           <CategoryGridComponent
             iconName="food-apple"
             catgoryName={CL[lang]?.fat}
+            isImage={false}
+            image='None'
           />
         </View>
         <View style={SearchIngredientStyle.categoryRowContainer}>
           <CategoryGridComponent
             iconName="cupcake"
             catgoryName={CL[lang]?.flours}
+            isImage={false}
+            image='None'
           />
           <CategoryGridComponent
             iconName="fruit-cherries"
             catgoryName={CL[lang]?.fruits}
+            isImage={false}
+            image='None'
           />
           <CategoryGridComponent
             iconName="peanut"
             catgoryName={CL[lang]?.driedFruits}
+            isImage={false}
+            image='None'
           />
           <CategoryGridComponent
             iconName="food-steak"
             catgoryName={CL[lang]?.meats}
+            isImage={false}
+            image='None'
           />
         </View>
         <View style={SearchIngredientStyle.categoryRowContainer}>
-          <CategoryGridComponent iconName="fish" catgoryName={CL[lang]?.fish} />
+          <CategoryGridComponent iconName="fish" catgoryName={CL[lang]?.fish}             isImage={false}
+            image='None' />
           <CategoryGridComponent
             iconName="food-apple"
             catgoryName={CL[lang]?.dairyProducts}
+            isImage={false}
+            image='None'
           />
           <CategoryGridComponent
             iconName="food-apple"
             catgoryName={CL[lang]?.potatoes}
+            isImage={false}
+            image='None'
           />
           <CategoryGridComponent
             iconName="spoon-sugar"
             catgoryName={CL[lang]?.sugars}
+            isImage={false}
+            image='None'
           />
         </View>
       </View>

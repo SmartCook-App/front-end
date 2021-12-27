@@ -1,20 +1,20 @@
+import React, { FC } from 'react';
+import LRL from '../assets/Languages/LoginRegisterLanguage';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
+import { createStackNavigator } from '@react-navigation/stack';
+import MainLoginRegisterScreen from '../screens/LoginRegister/MainLoginRegisterScreen';
+import LoginRegisterScreen from '../screens/LoginRegister/LoginRegisterScreen';
+import IndexScreen from '../screens/Home/IndexScreen';
+import AccountScreen from '../screens/Profile/AccountScreen';
+import ConfigProfileScreen from '../screens/Profile/ConfigProfileScreen';
+import StepsRecipiesScreen from '../screens/Recipies/StepsRecipiesScreen';
+import RecipieHome from '../screens/Home/RecipieHome';
+import SearchRecipies from '../screens/Home/SearchRecipies';
+import SearchIngredient from '../screens/Home/SearchIngredient';
+import ChooseIngredient from '../screens/Home/ChooseIngredient';
+import ShoppingListScreen from '../screens/ShoppingListScreen';
 
-import React, { FC } from "react";
-import LRL from "../assets/Languages/LoginRegisterLanguage";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { createStackNavigator } from "@react-navigation/stack";
-import MainLoginRegisterScreen from "../screens/LoginRegister/MainLoginRegisterScreen";
-import LoginRegisterScreen from "../screens/LoginRegister/LoginRegisterScreen";
-import IndexScreen from "../screens/Home/IndexScreen";
-import AccountScreen from "../screens/Profile/AccountScreen";
-import ConfigProfileScreen from "../screens/Profile/ConfigProfileScreen";
-import StepsRecipiesScreen from "../screens/Recipies/StepsRecipiesScreen";
-import RecipieHome from "../screens/Home/RecipieHome";
-import SearchRecipies from "../screens/Home/SearchRecipies";
-import SearchIngredient from "../screens/Home/SearchIngredient";
-import ShoppingListScreen from "../screens/ShoppingListScreen";
-  
 type RootStackParamList = {
   MainLoginRegisterScreen: undefined;
   LoginRegisterScreen: undefined;
@@ -26,19 +26,20 @@ type RootStackParamList = {
   ConfigProfileScreen: undefined;
   ShoppingListScreen: undefined;
   SearchIngredient: undefined;
+  ChooseIngredient: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
 
 export const MainPageStackNavigator: FC = () => {
-  const lang = useSelector<RootState, RootState["language"]>(
+  const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
   return (
     <RootStack.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: "yellow" },
-        headerTintColor: "white",
+        headerStyle: { backgroundColor: 'yellow' },
+        headerTintColor: 'white',
       }}
     >
       <RootStack.Screen
@@ -68,7 +69,7 @@ export const MainPageStackNavigator: FC = () => {
         name="RecipieHome"
         component={RecipieHome}
         options={{
-          title: " LRL[lang]?.appName",
+          title: ' LRL[lang]?.appName',
           headerShown: false,
         }}
       />
@@ -77,21 +78,21 @@ export const MainPageStackNavigator: FC = () => {
 };
 
 export const RecepiesStackNavigator: FC = () => {
-  const lang = useSelector<RootState, RootState["language"]>(
+  const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
   return (
     <RootStack.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: "yellow" },
-        headerTintColor: "white",
+        headerStyle: { backgroundColor: 'yellow' },
+        headerTintColor: 'white',
       }}
     >
       <RootStack.Screen
         name="IndexScreen"
         component={IndexScreen}
         options={{
-          title: " LRL[lang]?.appName",
+          title: ' LRL[lang]?.appName',
           headerShown: false,
         }}
       />
@@ -99,7 +100,7 @@ export const RecepiesStackNavigator: FC = () => {
         name="RecipieHome"
         component={RecipieHome}
         options={{
-          title: " LRL[lang]?.appName",
+          title: ' LRL[lang]?.appName',
           headerShown: false,
         }}
       />
@@ -107,7 +108,7 @@ export const RecepiesStackNavigator: FC = () => {
         name="SearchRecipies"
         component={SearchRecipies}
         options={{
-          title: " LRL[lang]?.appName",
+          title: ' LRL[lang]?.appName',
           headerShown: false,
         }}
       />
@@ -115,53 +116,58 @@ export const RecepiesStackNavigator: FC = () => {
         name="SearchIngredient"
         component={SearchIngredient}
         options={{
-          title: " LRL[lang]?.appName",
+          title: ' LRL[lang]?.appName',
           headerShown: false,
         }}
       />
-        <RootStack.Screen
-          name="StepsRecipiesScreen"
-          component={StepsRecipiesScreen}
-          options={{
-            title: " LRL[lang]?.appName",
-            headerShown: false,
-          }}
+      <RootStack.Screen
+        name="ChooseIngredient"
+        component={ChooseIngredient}
+        options={{
+          title: ' LRL[lang]?.appName',
+          headerShown: false,
+        }}
+      />
+      <RootStack.Screen
+        name="StepsRecipiesScreen"
+        component={StepsRecipiesScreen}
+        options={{
+          title: ' LRL[lang]?.appName',
+          headerShown: false,
+        }}
       />
     </RootStack.Navigator>
   );
 };
 
 export const AccountStackNavigator: FC = () => {
-  const lang = useSelector<RootState, RootState["language"]>(
+  const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
   return (
-    <RootStack.Navigator
-      initialRouteName="IndexScreen"
-    >
+    <RootStack.Navigator initialRouteName="IndexScreen">
       <RootStack.Screen
         name="Account"
         component={AccountScreen}
         options={{
-          title: " LRL[lang]?.appName",
+          title: ' LRL[lang]?.appName',
           headerShown: false,
         }}
       />
-       <RootStack.Screen
+      <RootStack.Screen
         name="ConfigProfileScreen"
         component={ConfigProfileScreen}
         options={{
-          title: " LRL[lang]?.appName",
+          title: ' LRL[lang]?.appName',
           headerShown: false,
         }}
-
       />
     </RootStack.Navigator>
   );
 };
 
 export const ShoppingListStackNavigator: FC = () => {
-  const lang = useSelector<RootState, RootState["language"]>(
+  const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
   return (
