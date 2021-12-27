@@ -9,7 +9,7 @@ import FL from '../../assets/Languages/FiltersLanguages';
 import SL from '../../assets/Languages/SearchLanguages';
 import OvalFilterComponent from '../../components/HomeComponents/OvalFilterComponent';
 import RecentSearchComponent from '../../components/HomeComponents/SearchComponents/RecentSearchComponent';
-import TopBarWithGoBack from '../../components/Others/TopBarWithGoBack';
+import TopBar from '../../components/Others/TopNavbar';
 import SearchbarComponent from '../../components//HomeComponents/SearchComponents/SearchbarComponent';
 
 interface Props {
@@ -25,8 +25,14 @@ const SearchRecipies: FC<Props> = (props: Props) => {
   const { navigation } = props;
   return (
     <>
-      <TopBarWithGoBack title={SL[lang]?.searchRecipiesTitle} navigation={navigation}/>
-      <SearchbarComponent placeholderText={SLSL[state.language].searchbarRecipiePlaceholder} />
+      <TopBar
+        title={SL[lang]?.searchRecipiesTitle}
+        navigation={navigation}
+        goBack={true}
+      />
+      <SearchbarComponent
+        placeholderText={SLSL[state.language].searchbarRecipiePlaceholder}
+      />
       <View style={SearchRecipiesStyle.ovalFiltersContainer}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {listNamesFilters.map((item: any) => (

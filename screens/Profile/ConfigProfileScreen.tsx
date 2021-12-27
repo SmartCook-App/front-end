@@ -54,8 +54,8 @@ const IndexScreen: FC<Props> = (props: Props) => {
     <>
       <BackgroundImage>
         <TopNavbar
-          content={"PERFIL"}
-          path={"Account"}
+          title={"PERFIL"}
+          goBack={true}
           navigation={navigation}
         />
         <View style={ConfigProfileStyle.firstcontainer}>

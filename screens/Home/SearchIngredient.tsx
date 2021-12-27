@@ -9,7 +9,7 @@ import FL from '../../assets/Languages/FiltersLanguages';
 import SL from '../../assets/Languages/SearchLanguages';
 import CL from '../../assets/Languages/CategoryLanguage';
 import RecentSearchComponent from '../../components/HomeComponents/SearchComponents/RecentSearchComponent';
-import TopBarWithGoBack from '../../components/Others/TopBarWithGoBack';
+import TopBar from '../../components/Others/TopNavbar';
 import SearchbarComponent from '../../components/HomeComponents/SearchComponents/SearchbarComponent';
 import CategoryGridComponent from '../../components/HomeComponents/CategoryGridComponent';
 
@@ -26,9 +26,10 @@ const SearchIngredient: FC<Props> = (props: Props) => {
   const { navigation } = props;
   return (
     <>
-      <TopBarWithGoBack
+      <TopBar
         title={SL[lang]?.searchIngredientTitle}
         navigation={navigation}
+        goBack={true}
       />
       <SearchbarComponent
         placeholderText={SLSL[state.language].searchbarPlaceholder}

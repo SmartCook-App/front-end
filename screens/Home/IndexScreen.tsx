@@ -26,8 +26,8 @@ const IndexScreen: FC<Props> = (props: Props) => {
     <>
       <View>
         <TopNavbar
-          content={"SMARTCOOK"}
-          path={"None"}
+          title={"SMARTCOOK"}
+          goBack={false}
           navigation={navigation}
         />
         <View style={FiltersComponentsStyle.container}>
