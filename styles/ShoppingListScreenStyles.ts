@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import Colors from '../assets/Colors';
-import { normalizePx } from '../styles/normalize';
+import { normalizeFontSize, normalizePx } from '../styles/normalize';
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -25,22 +25,25 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     flex: 0.8,
-    paddingBottom: normalizePx(30),
-    paddingTop: normalizePx(30),
+    paddingBottom: normalizePx(10),
+    paddingTop: normalizePx(10),
   },
   itemContainer: {
     flex: 1,
     flexDirection: "row",
+    paddingHorizontal: normalizePx(20),
     paddingTop: normalizePx(20),
-    paddingBottom: normalizePx(20),
-    paddingLeft: normalizePx(20),
-    paddingRight: normalizePx(20),
+    paddingBottom: normalizePx(15),
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   ingredientIcon: {
-    flex: 0.1,
     backgroundColor: "#FAB73D",
     color: "black",
-    borderRadius: normalizePx(30),
+    width: normalizePx(40),
+    height: normalizePx(40),
+    borderRadius: normalizePx(50),
     textAlign: "center",
     textAlignVertical: "center",
   },
@@ -59,40 +62,69 @@ const styles = StyleSheet.create({
     paddingLeft: normalizePx(15),
   },
   divider: {
-    flex: 0.1,
+    flex: 0.01,
     backgroundColor: "gray",
-    marginTop: normalizePx(15),
   },
   quantityContainer: {
     flex: 0.3,
     flexDirection: "row",
   },
+  quantityIconsButton: {
+    flex: 0.3
+  },
   quantityIcons: {
-    flex: 0.3,
+    width: normalizePx(20),
+    height: normalizePx(20),
     backgroundColor: "#FAB73D",
     color: "black",
-    borderRadius: normalizePx(30),
+    borderRadius: normalizePx(10),
     textAlign: "center",
   },
   quantityText: {
     flex: 0.4,
-    paddingLeft: normalizePx(8),
     color: "white",
   },
-  finishedListContainer: {
+  bottomContainer: {
     flex: 0.1,
-    paddingLeft: normalizePx(10),
-    paddingRight: normalizePx(10),
-    alignItems: "stretch",
+    flexDirection: "row",
+    justifyContent:'center',
+    alignItems: 'center'
   },
   finishedListButton: {
-    borderRadius: normalizePx(30),
-    backgroundColor: "#FAB73D",
+    backgroundColor: 'rgba(56, 56, 56, .9)',
     alignItems: "center",
-    height: normalizePx(50),
+    justifyContent: 'center',
+    height: normalizePx(40),
+    width: normalizePx(250),
+    fontFamily: 'nunito-light',
+    borderColor: 'black',
+    borderWidth: 2,
   },
   finishedListText: {
-    paddingTop: 15,
+    padding: 15,
+    color: 'white'
   },
+  addButton: {
+    marginLeft: 20,
+    backgroundColor: Colors.light.yellow,
+    width: normalizePx(50),
+    height: normalizePx(50),
+    borderRadius: normalizePx(30)
+  },
+  addButtonText: {
+    color: 'black',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    fontSize: normalizePx(30)
+  },
+  addItemBar: {
+    backgroundColor: 'white',
+    width: normalizePx(300),
+    height: normalizePx(40),
+    borderRadius: normalizePx(30),
+    paddingLeft: normalizePx(20),
+    fontSize: normalizeFontSize(12),
+    fontFamily: 'nunito-light'
+  }
 });
 export default styles;
