@@ -1,0 +1,31 @@
+const CL: any = {
+  ES: {
+    legumes: 'Legumbres',
+    vegetables: 'Verduras',
+    cereals: 'Cereales',
+    fat: 'Materia grasa',
+    flours: 'Harinas',
+    fruits: 'Frutas',
+    driedFruits: 'Frutos secos',
+    meats: 'Carnes',
+    fish: 'Pescados',
+    dairyProducts: 'Lácteos',
+    potatoes: 'Papas',
+    sugars: 'Azúcares',
+  },
+  EN: {
+    legumes: 'Legumes',
+    vegetables: 'Vegetables',
+    cereals: 'Cereals',
+    fat: 'Fatty matter',
+    flours: 'Flours',
+    fruits: 'Fruits',
+    driedFruits: 'DriedFruits',
+    meats: 'Meats',
+    fish: 'Fish',
+    dairyProducts: 'Dairy Products',
+    potatoes: 'Potatoes',
+    sugars: 'Sugars',
+  },
+};
+export default CL;

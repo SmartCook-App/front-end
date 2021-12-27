@@ -31,7 +31,6 @@ const FiltersComponentsStyle = StyleSheet.create({
   filterOptions: {
     fontSize: 16,
     fontFamily: "nunito-regular",
-    // marginLeft: 12,
     padding: 3,
     flexDirection: "row",
   },
