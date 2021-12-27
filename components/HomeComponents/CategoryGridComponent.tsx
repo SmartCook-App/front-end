@@ -13,22 +13,38 @@ interface Props {
   image: any;
   catgoryName: any;
   isImage: any;
+  isPressed: any;
 }
 
 const CategoryGridComponent: FC<Props> = (props: Props) => {
-  const { iconName, catgoryName, image, isImage } = props;
+  const { iconName, catgoryName, image, isImage, isPressed } = props;
 
   return (
     <View style={SearchIngredientStyle.eachCategoryContainer}>
+        
       <TouchableOpacity>
         <View style={SearchIngredientStyle.categoryCircle}>
           {isImage == false ? (
             <MaterialCommunityIcons name={iconName} size={35} color="black" />
           ) : (
-            <Avatar.Image
-              size={65}
-              source={require('../../assets/Images/Ingredients/tomato.jpg')}
-            />
+            <View
+              style={
+                isPressed
+                  ? [
+                    SearchIngredientStyle.categoryCircle,
+                    SearchIngredientStyle.circlePress,
+                    ]
+                  : [
+                    SearchIngredientStyle.categoryCircle,
+                    SearchIngredientStyle.circleNotPress,
+                    ]
+              }
+            >
+              <Avatar.Image
+                size={60}
+                source={require('../../assets/Images/Ingredients/tomato.jpg')}
+              />
+            </View>
           )}
         </View>
       </TouchableOpacity>
@@ -59,5 +75,11 @@ const SearchIngredientStyle = StyleSheet.create({
     fontSize: normalizeFontSize(10),
     width: width / 4,
     textAlign: 'center',
+  },
+  circlePress: {
+    backgroundColor: Colors.light.yellow,
+  },
+  circleNotPress: {
+    backgroundColor: Colors.light.greyOfFilters,
   },
 });

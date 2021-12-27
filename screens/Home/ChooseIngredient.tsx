@@ -1,16 +1,23 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import Colors from '../../assets/Colors';
 import { normalizeFontSize, normalizePx } from '../../styles/normalize';
-import { View, StyleSheet, ScrollView, FlatList, Text } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  FlatList,
+  Text,
+} from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import SLSL from '../../assets/Languages/ShoppingListScreenLanguages';
-import FL from '../../assets/Languages/FiltersLanguages';
 import SL from '../../assets/Languages/SearchLanguages';
 import TopBar from '../../components/Others/TopNavbar';
 import SearchbarComponent from '../../components//HomeComponents/SearchComponents/SearchbarComponent';
 import CategoryGridComponent from '../../components/HomeComponents/CategoryGridComponent';
 import { Ingredients } from '../../data/IngredientsData';
+import IoniconsIcon from 'react-native-vector-icons/Ionicons';
+import { AntDesign } from '@expo/vector-icons';
 
 interface Props {
   navigation: any;
@@ -18,6 +25,7 @@ interface Props {
 
 const ChooseIngredient: FC<Props> = (props: Props) => {
   const state = useSelector((state: RootState) => state);
+  const [isPressed, setIsPressed] = useState(false);
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
@@ -29,6 +37,7 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
         image={ingredient.item.image}
         catgoryName={ingredient.item.title}
         isImage={true}
+        isPressed={isPressed}
       />
     </View>
   );
@@ -48,9 +57,14 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
           {SL[lang]?.searchIngredientSubTitleNormal}
         </Text>
       </View>
-      <SearchbarComponent
-        placeholderText={SLSL[state.language].searchbarPlaceholder}
-      />
+      <TouchableOpacity onPress={() => navigation.navigate('SearchIngredient')}>
+        <View style={ChooseIngredientStyle.searchIngredientButton}>
+          <IoniconsIcon name={'search-outline'} color={'white'} size={25} />
+          <Text style={ChooseIngredientStyle.searchIngredientButtonText}>
+            {SLSL[state.language].searchbarPlaceholder}
+          </Text>
+        </View>
+      </TouchableOpacity>
       <View style={ChooseIngredientStyle.ingredientsContainer}>
         <FlatList
           showsVerticalScrollIndicator={false}
@@ -60,6 +74,11 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
           keyExtractor={(item) => `${item}`}
         />
       </View>
+      <TouchableOpacity>
+        <View style={ChooseIngredientStyle.readyButton}>
+          <AntDesign name="check" size={35} color="white" />
+        </View>
+      </TouchableOpacity>
     </>
   );
 };
@@ -71,7 +90,7 @@ const ChooseIngredientStyle = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    marginVertical: normalizePx(10),
+    marginVertical: normalizePx(15),
   },
   capitalizedSubtext: {
     textTransform: 'uppercase',
@@ -83,9 +102,36 @@ const ChooseIngredientStyle = StyleSheet.create({
   ingredientsContainer: {
     flex: 1,
     flexDirection: 'column',
-    marginVertical: normalizePx(50),
+    marginTop: normalizePx(30),
   },
   ingredientRowContainer: {
     marginVertical: normalizePx(20),
+  },
+  searchIngredientButton: {
+    flexDirection: 'row',
+    paddingTop: normalizePx(8),
+    width: normalizePx(200),
+    height: normalizePx(40),
+    borderRadius: normalizePx(40),
+    backgroundColor: Colors.light.transparentYellow,
+    alignSelf: 'center',
+    justifyContent: 'center',
+  },
+  searchIngredientButtonText: {
+    color: Colors.light.white,
+    paddingLeft: normalizePx(7),
+    fontFamily: 'nunito-bold',
+  },
+  readyButton: {
+    marginRight: normalizePx(10),
+    width: normalizePx(65),
+    height: normalizePx(65),
+    borderRadius: normalizePx(40),
+    backgroundColor: Colors.light.yellow,
+    alignItems: 'center',
+    justifyContent: 'center',
+    right: normalizePx(15),
+    bottom: normalizePx(20),
+    alignSelf: 'flex-end',
   },
 });
