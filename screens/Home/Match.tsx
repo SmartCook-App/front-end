@@ -24,9 +24,8 @@ const Match: FC<Props> = (props: Props) => {
                 navigation={navigation}
                 goBack={true}
             />
-            <View style={styles.containerView}>
-                <Text style={styles.matchText}>{MSL[lang]?.match}</Text>
-                <ScrollView style={styles.containerRecipies}>
+            <Text style={styles.matchText}>{MSL[lang]?.match}</Text>
+            <ScrollView style={styles.containerRecipies}>
                     <RecipiesComponent
                         name={"name"}
                         image={"image"}
@@ -34,8 +33,7 @@ const Match: FC<Props> = (props: Props) => {
                         time={"time"}
                         navigation={navigation}
                     />
-                </ScrollView>
-            </View>
+            </ScrollView>
         </View>
     );
 };

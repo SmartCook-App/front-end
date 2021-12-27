@@ -7,10 +7,7 @@ const MatchStyle = StyleSheet.create({
         fontSize: normalizeFontSize(20),
         fontFamily: 'nunito-semiBold',
         marginTop: normalizePx(40),
-    },
-    containerView: {
-        alignItems: 'center',
-        alignContent: 'center',
+        alignSelf: 'center'
     },
     containerRecipies: {
         marginRight: normalizePx(20)
