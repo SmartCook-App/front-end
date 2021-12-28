@@ -6,7 +6,9 @@ import {
   TouchableOpacity,
   ImageBackground,
   Alert,
-  TextInput
+  TextInput,
+  TouchableWithoutFeedback,
+  Keyboard 
 } from "react-native";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
@@ -24,6 +26,7 @@ interface Props {
 
 const ShoppingListScreen: FC<Props> = (props: Props) => {
   const state = useSelector((state: RootState) => state);
+  
   const { navigation } = props;
   const [visibleShowAddItem, setVisibleShowAddItem] = useState(false);
   const DATA = [
@@ -64,11 +67,23 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
       title: "Sal",
     },
   ];
+
+  useEffect(() => {
+    const hideKeyboard = Keyboard.addListener("keyboardDidHide", () => {
+      setVisibleShowAddItem(false);
+    });
+
+    return () => {
+      hideKeyboard.remove();
+    };
+  }, []);
   
   const showItemToList = () => {
     setVisibleShowAddItem(!visibleShowAddItem)
   }
-
+  const addItemToList = () => {
+    console.log('AGREGAR ITEMS')
+  }
   const notWorkingYet = () => 
     Alert.alert(
       "Esta opción todavía no está disponible",
@@ -116,7 +131,6 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
   );
 
   const renderItem = (item: any) => <Item title={item.item['title']} />;
-
   return (
     <>
       <SafeAreaView style={styles.mainContainer}>
@@ -127,8 +141,8 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
         >
           <View style={styles.backgroundContainer}>
             <TopNavbar
-              content={"LISTA DE COMPRAS"}
-              path={"None"}
+              title={"LISTA DE COMPRAS"}
+              goBack={false}
               navigation={navigation}
             />
             <SearchbarComponent placeholderText={SLSL[state.language].searchbarPlaceholder} />
@@ -141,23 +155,33 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
             </View>
             <View style={styles.bottomContainer}>
             {visibleShowAddItem ? (
+              <View style={styles.bottomContainer}>
               <TextInput 
+                autoFocus={true}
                 style= {styles.addItemBar}
                 placeholder="¿Qué deseas agregar?"
-              />
+                />
+                <TouchableOpacity style={styles.addButton} onPress={addItemToList}>
+                <Text style={styles.addButtonText}>
+                  +
+                </Text>
+              </TouchableOpacity>
+              </View>
             ) : (
+              <>
               <TouchableOpacity style={styles.finishedListButton} onPress={notWorkingYet}>
                 <Text style={styles.finishedListText}>
                   {SLSL[state.language].finishButtonLabel}
                 </Text>
               </TouchableOpacity>
-              )}
               
               <TouchableOpacity style={styles.addButton} onPress={showItemToList}>
                 <Text style={styles.addButtonText}>
                   +
                 </Text>
               </TouchableOpacity>
+              </>
+                )}
             </View>
           </View>
         </ImageBackground>

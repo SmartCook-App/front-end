@@ -6,14 +6,18 @@ import Colors from '../../assets/Colors';
 
 interface Props {
   text: string;
+  rightText: string;
 }
 
 const Subtitle: FC<Props> = (props: Props) => {
-  const { text } = props;
+  const { text, rightText } = props;
 
   return (
     <View style={RecipieSubtitleStyle.subtitleContainer}>
       <Text style={RecipieSubtitleStyle.subtitle}>{text}</Text>
+      {rightText? (
+      <Text style={RecipieSubtitleStyle.addButtom}>{rightText}</Text>
+      ):(null)}
     </View>
   );
 };
@@ -31,4 +35,9 @@ const RecipieSubtitleStyle = StyleSheet.create({
     left: normalizePx(20),
     textTransform: 'uppercase',
   },
+  addButtom: {
+    fontSize: normalizeFontSize(10),
+    color: Colors.light.white,
+
+  }
 });

@@ -25,7 +25,7 @@ interface Props {
 
 const ChooseIngredient: FC<Props> = (props: Props) => {
   const state = useSelector((state: RootState) => state);
-  const [isPressed, setIsPressed] = useState(false);
+  // const [isPressed, setIsPressed] = useState(false);
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
@@ -33,11 +33,12 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
   const renderIngredient = (ingredient: any) => (
     <View style={ChooseIngredientStyle.ingredientRowContainer}>
       <CategoryGridComponent
-        iconName="food-apple"
+        ingredientId={ingredient.item.ingredientId}
+        name={ingredient.item.name}
+        iconName="None"
         image={ingredient.item.image}
-        catgoryName={ingredient.item.title}
         isImage={true}
-        isPressed={isPressed}
+        isPressed={ingredient.item.press}
       />
     </View>
   );
@@ -69,7 +70,7 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
         <FlatList
           showsVerticalScrollIndicator={false}
           numColumns={4}
-          data={Ingredients}
+          data={state.paintChooseIngredient.ingredientsArray}
           renderItem={renderIngredient}
           keyExtractor={(item) => `${item}`}
         />

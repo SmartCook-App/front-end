@@ -22,6 +22,7 @@ import Subtitle from '../../components/RecipieHomeComponents/Subtitle';
 import NutritionCircles from '../../components/RecipieHomeComponents/NutritionCircles';
 import TopBar from '../../components/RecipieHomeComponents/TopBar';
 import CircleButton from '../../components/RecipieHomeComponents/CircleButton';
+import styles from '../../styles/ShoppingListScreenStyles';
 
 interface Props {
   navigation: any;
@@ -118,13 +119,13 @@ const RecipieHome: FC<Props> = (props: Props) => {
               </Text>
             </View>
           </View>
-          <Subtitle text="Porciones"/>
+          <Subtitle text="Porciones" rightText=''/>
           <View style={RecipieStyle.portions}>
             <CircleButton text={"-"} OnPressfunction={"sub"} setAmountPortions={setAmountPortions} amountPortions={amountPortions}/>
             <Text style={RecipieStyle.portionText}>{amountPortions}</Text>
             <CircleButton text={"+"} OnPressfunction={"add"} setAmountPortions={setAmountPortions} amountPortions={amountPortions}/>
           </View>
-          <Subtitle text="Lo que necesitas" />
+          <Subtitle text="Lo que necesitas" rightText=''/>
           <View style={RecipieStyle.whatYouNeedContainer}>
             <FlatList
               data={data}
@@ -143,11 +144,13 @@ const RecipieHome: FC<Props> = (props: Props) => {
             />
            
           </View>
+          <Subtitle text="Mis notas" rightText=''/>
+          <View style={RecipieStyle.myNotesContainer}>
 
-          <Subtitle text="Información nutricional" />
+          </View>
+          <Subtitle text="Información nutricional" rightText='añadir'/>
           <View style={RecipieStyle.nutriCirclesContainer}>
             <NutritionCircles calories="140" proteins="14" fat="16" carbs="86" />
-
           </View>
         </ScrollView>
       </ImageBackground>
@@ -309,4 +312,8 @@ const RecipieStyle = StyleSheet.create({
     color: Colors.light.yellow,
     fontWeight: 'bold',
   },
+  myNotesContainer: {
+    flex: 1,
+    minHeight: normalizePx(50)
+  }
 });

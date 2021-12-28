@@ -8,8 +8,6 @@ interface Props {
 }
 const PopUp= (props: Props) => {
   const { title, message, text } = props;
-
-  return
     Alert.alert(
       title,
       message,
