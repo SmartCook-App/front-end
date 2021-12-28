@@ -36,6 +36,8 @@ const LRL: any = {
     slideTitle4: "Sigue y dale like",
     slideDescription4:
       "Crea una red de amigos para poder ver sus recetas y comentarios!",
+    birthday: 'Fecha nacimiento',
+    gender: 'Género',
   },
   EN: {
     appName: "SmartCook",
@@ -73,6 +75,9 @@ const LRL: any = {
     slideTitle4: "Follow and like",
     slideDescription4:
       "Create a network of friends so you can see their recipes and comments!",
+    birthday: 'Date of birth',
+    gender: 'Gender'
+
   },
 };
 export default LRL;
