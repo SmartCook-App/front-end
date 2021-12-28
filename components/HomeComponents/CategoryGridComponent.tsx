@@ -3,16 +3,16 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Colors from '../../assets/Colors';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { normalizeFontSize, normalizePx } from '../../styles/normalize';
-import { paintChooseIngredientInteractor } from "../../redux/interactors/paintChooseIngredientInteractors";
+import { paintChooseIngredientInteractor } from '../../redux/interactors/paintChooseIngredientInteractors';
 import { Dimensions } from 'react-native';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 import { Avatar } from 'react-native-paper';
 
 const width = Dimensions.get('window').width;
 
 interface Props {
-  ingredientId: any,
-  name: any,
+  ingredientId: any;
+  name: any;
   image: any;
   iconName: any;
   isPressed: any;
@@ -23,7 +23,7 @@ const CategoryGridComponent: FC<Props> = (props: Props) => {
   const { ingredientId, name, iconName, image, isImage, isPressed } = props;
   const dispatch = useDispatch();
 
-  const applyFilter = () => {
+  const pressIngredient = () => {
     const payload = {
       changeIsPressed: {
         ingredientId: ingredientId,
@@ -37,8 +37,6 @@ const CategoryGridComponent: FC<Props> = (props: Props) => {
 
   return (
     <View style={SearchIngredientStyle.eachCategoryContainer}>
-      {console.log('isPressed')}
-      {console.log(isPressed)}
       <TouchableOpacity>
         <View style={SearchIngredientStyle.categoryCircle}>
           {isImage == false ? (
@@ -48,22 +46,21 @@ const CategoryGridComponent: FC<Props> = (props: Props) => {
               style={
                 isPressed
                   ? [
-                    SearchIngredientStyle.categoryCircle,
-                    SearchIngredientStyle.circlePress,
+                      SearchIngredientStyle.categoryCircle,
+                      SearchIngredientStyle.circlePress,
                     ]
                   : [
-                    SearchIngredientStyle.categoryCircle,
-                    SearchIngredientStyle.circleNotPress,
+                      SearchIngredientStyle.categoryCircle,
+                      SearchIngredientStyle.circleNotPress,
                     ]
               }
             >
-            <TouchableOpacity onPress={applyFilter}>
-              <Avatar.Image
-                size={60}
-                source={require('../../assets/Images/Ingredients/tomato.jpg')}
-              />
-            </TouchableOpacity>
-
+              <TouchableOpacity onPress={pressIngredient}>
+                <Avatar.Image
+                  size={55}
+                  source={require('../../assets/Images/Ingredients/tomato.jpg')}
+                />
+              </TouchableOpacity>
             </View>
           )}
         </View>
@@ -97,7 +94,7 @@ const SearchIngredientStyle = StyleSheet.create({
     textAlign: 'center',
   },
   circlePress: {
-    backgroundColor: Colors.light.yellow,
+    backgroundColor: Colors.light.yellowRecipieIcons,
   },
   circleNotPress: {
     backgroundColor: Colors.light.greyOfFilters,

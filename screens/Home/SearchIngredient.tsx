@@ -50,76 +50,104 @@ const SearchIngredient: FC<Props> = (props: Props) => {
       <View style={SearchIngredientStyle.categoryContainer}>
         <View style={SearchIngredientStyle.categoryRowContainer}>
           <CategoryGridComponent
+            ingredientId="None"
+            isPressed="None"
             iconName="food-apple"
-            catgoryName={CL[lang]?.legumes}
+            name={CL[lang]?.legumes}
             isImage={false}
-            image='None'
+            image="None"
           />
           <CategoryGridComponent
+            ingredientId="None"
+            isPressed="None"
             iconName="food-apple"
-            catgoryName={CL[lang]?.vegetables}
+            name={CL[lang]?.vegetables}
             isImage={false}
-            image='None'
+            image="None"
           />
           <CategoryGridComponent
+            ingredientId="None"
+            isPressed="None"
             iconName="food-apple"
-            catgoryName={CL[lang]?.cereals}
+            name={CL[lang]?.cereals}
             isImage={false}
-            image='None'
+            image="None"
           />
           <CategoryGridComponent
+            ingredientId="None"
+            isPressed="None"
             iconName="food-apple"
-            catgoryName={CL[lang]?.fat}
+            name={CL[lang]?.fat}
             isImage={false}
-            image='None'
+            image="None"
           />
         </View>
         <View style={SearchIngredientStyle.categoryRowContainer}>
           <CategoryGridComponent
+            ingredientId="None"
+            isPressed="None"
             iconName="cupcake"
-            catgoryName={CL[lang]?.flours}
+            name={CL[lang]?.flours}
             isImage={false}
-            image='None'
+            image="None"
           />
           <CategoryGridComponent
+            ingredientId="None"
+            isPressed="None"
             iconName="fruit-cherries"
-            catgoryName={CL[lang]?.fruits}
+            name={CL[lang]?.fruits}
             isImage={false}
-            image='None'
+            image="None"
           />
           <CategoryGridComponent
+            ingredientId="None"
+            isPressed="None"
             iconName="peanut"
-            catgoryName={CL[lang]?.driedFruits}
+            name={CL[lang]?.driedFruits}
             isImage={false}
-            image='None'
+            image="None"
           />
           <CategoryGridComponent
+            ingredientId="None"
+            isPressed="None"
             iconName="food-steak"
-            catgoryName={CL[lang]?.meats}
+            name={CL[lang]?.meats}
             isImage={false}
-            image='None'
+            image="None"
           />
         </View>
         <View style={SearchIngredientStyle.categoryRowContainer}>
-          <CategoryGridComponent iconName="fish" catgoryName={CL[lang]?.fish}             isImage={false}
-            image='None' />
           <CategoryGridComponent
-            iconName="food-apple"
-            catgoryName={CL[lang]?.dairyProducts}
+            ingredientId="None"
+            isPressed="None"
+            iconName="fish"
+            name={CL[lang]?.fish}
             isImage={false}
-            image='None'
+            image="None"
           />
           <CategoryGridComponent
+            ingredientId="None"
+            isPressed="None"
             iconName="food-apple"
-            catgoryName={CL[lang]?.potatoes}
+            name={CL[lang]?.dairyProducts}
             isImage={false}
-            image='None'
+            image="None"
           />
           <CategoryGridComponent
+            ingredientId="None"
+            isPressed="None"
+            iconName="food-apple"
+            name={CL[lang]?.potatoes}
+            isImage={false}
+            image="None"
+          />
+          <CategoryGridComponent
+            ingredientId="None"
+            isPressed="None"
             iconName="spoon-sugar"
-            catgoryName={CL[lang]?.sugars}
+            name={CL[lang]?.sugars}
             isImage={false}
-            image='None'
+            image="None"
           />
         </View>
       </View>
