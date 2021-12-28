@@ -34,6 +34,7 @@ const RecipieHome: FC<Props> = (props: Props) => {
 
   // TODO: eliminar esta data cuando tengamos la base de datos
   const data = ["1", "2", "3", "4", "5", "6"]
+  const [inputValue, setInputValue] = useState("");
 
   const onPressStepsRecipies = () => {
     navigation.navigate("StepsRecipiesScreen")
@@ -144,11 +145,11 @@ const RecipieHome: FC<Props> = (props: Props) => {
             />
            
           </View>
-          <Subtitle text="Mis notas" rightText=''/>
+          <Subtitle text="Mis notas" rightText='añadir' inputValue={inputValue} setInputValue={setInputValue}/>
           <View style={RecipieStyle.myNotesContainer}>
-
+            <Text style={RecipieStyle.myNoteText}>{inputValue}</Text>
           </View>
-          <Subtitle text="Información nutricional" rightText='añadir'/>
+          <Subtitle text="Información nutricional" rightText=''/>
           <View style={RecipieStyle.nutriCirclesContainer}>
             <NutritionCircles calories="140" proteins="14" fat="16" carbs="86" />
           </View>
@@ -314,6 +315,11 @@ const RecipieStyle = StyleSheet.create({
   },
   myNotesContainer: {
     flex: 1,
-    minHeight: normalizePx(50)
+    minHeight: normalizePx(50),
+    padding: normalizePx(15),
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  },
+  myNoteText: {
+    color: 'white'
   }
 });

@@ -1,3 +1,4 @@
+
 import { HomeIconTypes } from "../redux/types/homeIconsTypes";
 
 export const updateFilters = (iconsArray: HomeIconTypes[], updatedFilter: HomeIconTypes): HomeIconTypes[] => {
