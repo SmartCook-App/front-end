@@ -34,6 +34,7 @@ const RecipieHome: FC<Props> = (props: Props) => {
 
   // TODO: eliminar esta data cuando tengamos la base de datos
   const data = ["1", "2", "3", "4", "5", "6"]
+  const [inputValue, setInputValue] = useState("");
 
   const onPressStepsRecipies = () => {
     navigation.navigate("StepsRecipiesScreen")
@@ -119,13 +120,13 @@ const RecipieHome: FC<Props> = (props: Props) => {
               </Text>
             </View>
           </View>
-          <Subtitle text="Porciones" rightText=''/>
+          <Subtitle text="Porciones" rightText='' inputValue={'none'} setInputValue={'none'}/>
           <View style={RecipieStyle.portions}>
             <CircleButton text={"-"} OnPressfunction={"sub"} setAmountPortions={setAmountPortions} amountPortions={amountPortions}/>
             <Text style={RecipieStyle.portionText}>{amountPortions}</Text>
             <CircleButton text={"+"} OnPressfunction={"add"} setAmountPortions={setAmountPortions} amountPortions={amountPortions}/>
           </View>
-          <Subtitle text="Lo que necesitas" rightText=''/>
+          <Subtitle text="Lo que necesitas" rightText='' inputValue={'none'} setInputValue={'none'}/>
           <View style={RecipieStyle.whatYouNeedContainer}>
             <FlatList
               data={data}
@@ -144,11 +145,11 @@ const RecipieHome: FC<Props> = (props: Props) => {
             />
            
           </View>
-          <Subtitle text="Mis notas" rightText=''/>
+          <Subtitle text="Mis notas" rightText='añadir' inputValue={inputValue} setInputValue={setInputValue}/>
           <View style={RecipieStyle.myNotesContainer}>
-
+            <Text style={RecipieStyle.myNoteText}>{inputValue}</Text>
           </View>
-          <Subtitle text="Información nutricional" rightText='añadir'/>
+          <Subtitle text="Información nutricional" rightText='' inputValue={'none'} setInputValue={'none'}/>
           <View style={RecipieStyle.nutriCirclesContainer}>
             <NutritionCircles calories="140" proteins="14" fat="16" carbs="86" />
           </View>
@@ -314,6 +315,11 @@ const RecipieStyle = StyleSheet.create({
   },
   myNotesContainer: {
     flex: 1,
-    minHeight: normalizePx(50)
+    minHeight: normalizePx(50),
+    padding: normalizePx(15),
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  },
+  myNoteText: {
+    color: 'white'
   }
 });

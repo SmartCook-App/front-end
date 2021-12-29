@@ -151,3 +151,4 @@ const paintChooseIngredientSlice = createSlice({
 
 export const paintChooseIngredientReducer = paintChooseIngredientSlice.reducer;
 export const paintChooseIngredientActions = paintChooseIngredientSlice.actions;
+
