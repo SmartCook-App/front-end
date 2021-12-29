@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     borderRadius: normalizePx(30),
   },
   listContainer: {
-    flex: 0.8,
+    flex: 1,
     paddingBottom: normalizePx(10),
     paddingTop: normalizePx(10),
   },
@@ -125,6 +125,18 @@ const styles = StyleSheet.create({
     paddingLeft: normalizePx(20),
     fontSize: normalizeFontSize(12),
     fontFamily: 'nunito-light'
-  }
+  },
+  // SWIPE
+  rightActions: {
+    backgroundColor: '#E54C4C',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    borderRadius: normalizePx(4)
+  },
+  actionText: {
+    color: '#fff',
+    fontWeight: '600',
+    padding: normalizePx(20)
+  },
 });
 export default styles;
