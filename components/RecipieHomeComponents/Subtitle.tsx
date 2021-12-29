@@ -59,8 +59,6 @@ const Subtitle: FC<Props> = (props: Props) => {
           </>
         ):(null)}
     </View>
-       
-       
   );
 };
 
