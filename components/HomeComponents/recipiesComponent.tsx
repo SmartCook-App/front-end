@@ -11,6 +11,7 @@ import {
 import RecipiesComponentStyle from '../../styles/HomeComponentsStyle/RecipiesComponentStyle';
 import { recipes } from '../../screens/Home/recipiesDataArray';
 import { Feather, MaterialIcons } from '@expo/vector-icons';
+import RecipeAbstractComponent from '../HomeComponents/RecipeAbstactComponent';
 
 interface Props {
   navigation: any;
@@ -28,26 +29,12 @@ const RecipiesComponent: FC<Props> = (props: Props) => {
   };
 
   const renderRecipes = (item: any) => (
-    <>
-      <TouchableOpacity onPress={onPressRecipe}>
-        <View style={RecipiesComponentStyle.container}>
-          <ImageBackground
-            source={require('../../assets/Images/ensalada.jpg')}
-            style={RecipiesComponentStyle.photo}
-          >
-            <Text style={RecipiesComponentStyle.timeOval}>
-              <MaterialIcons name="access-time" color="white" /> 30 min
-            </Text>
-            <Text style={RecipiesComponentStyle.likesOval}>
-              <Feather name="heart" color="black" /> 90
-            </Text>
-          </ImageBackground>
-          <Text style={RecipiesComponentStyle.title}>
-            Sopa Tailandesa con dientes de ajo
-          </Text>
-        </View>
-      </TouchableOpacity>
-    </>
+    <RecipeAbstractComponent
+      navigation={navigation}
+      time={item.item.time}
+      likes={item.item.likes}
+      title={item.item.title}
+    />
   );
 
   return (
