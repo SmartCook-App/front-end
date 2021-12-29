@@ -3,25 +3,42 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Colors from '../../assets/Colors';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { normalizeFontSize, normalizePx } from '../../styles/normalize';
+import { paintChooseIngredientInteractor } from "../../redux/interactors/paintChooseIngredientInteractors";
 import { Dimensions } from 'react-native';
+import { useDispatch } from "react-redux";
 import { Avatar } from 'react-native-paper';
 
 const width = Dimensions.get('window').width;
 
 interface Props {
-  iconName: any;
+  ingredientId: any,
+  name: any,
   image: any;
-  catgoryName: any;
-  isImage: any;
+  iconName: any;
   isPressed: any;
+  isImage: any;
 }
 
 const CategoryGridComponent: FC<Props> = (props: Props) => {
-  const { iconName, catgoryName, image, isImage, isPressed } = props;
+  const { ingredientId, name, iconName, image, isImage, isPressed } = props;
+  const dispatch = useDispatch();
+
+  const applyFilter = () => {
+    const payload = {
+      changeIsPressed: {
+        ingredientId: ingredientId,
+        name: name,
+        image: image,
+        press: !isPressed,
+      },
+    };
+    dispatch(paintChooseIngredientInteractor(payload));
+  };
 
   return (
     <View style={SearchIngredientStyle.eachCategoryContainer}>
-        
+      {console.log('isPressed')}
+      {console.log(isPressed)}
       <TouchableOpacity>
         <View style={SearchIngredientStyle.categoryCircle}>
           {isImage == false ? (
@@ -40,15 +57,18 @@ const CategoryGridComponent: FC<Props> = (props: Props) => {
                     ]
               }
             >
+            <TouchableOpacity onPress={applyFilter}>
               <Avatar.Image
                 size={60}
                 source={require('../../assets/Images/Ingredients/tomato.jpg')}
               />
+            </TouchableOpacity>
+
             </View>
           )}
         </View>
       </TouchableOpacity>
-      <Text style={SearchIngredientStyle.categoryTitle}>{catgoryName}</Text>
+      <Text style={SearchIngredientStyle.categoryTitle}>{name}</Text>
     </View>
   );
 };

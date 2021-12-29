@@ -71,7 +71,7 @@ export const MainPageStackNavigator: FC = () => {
         name="RecipieHome"
         component={RecipieHome}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: 'LRL[lang]?.appName',
           headerShown: false,
         }}
       />

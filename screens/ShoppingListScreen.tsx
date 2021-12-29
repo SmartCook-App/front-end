@@ -1,10 +1,14 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import {
   View,
   FlatList,
   SafeAreaView,
   TouchableOpacity,
   ImageBackground,
+  Alert,
+  TextInput,
+  TouchableWithoutFeedback,
+  Keyboard 
 } from "react-native";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
@@ -14,8 +18,7 @@ import { Searchbar, Divider } from "react-native-paper";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import TopNavbar from "../components/Others/TopNavbar";
 import SLSL from "../assets/Languages/ShoppingListScreenLanguages";
-import SearchbarComponent from '../components//HomeComponents/SearchComponents/SearchbarComponent';
-
+import SearchbarComponent from '../components/HomeComponents/SearchComponents/SearchbarComponent';
 
 interface Props {
   navigation: any;
@@ -23,8 +26,9 @@ interface Props {
 
 const ShoppingListScreen: FC<Props> = (props: Props) => {
   const state = useSelector((state: RootState) => state);
+  
   const { navigation } = props;
-
+  const [visibleShowAddItem, setVisibleShowAddItem] = useState(false);
   const DATA = [
     {
       id: "1",
@@ -64,7 +68,34 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
     },
   ];
 
-  const Item = ({ title }) => (
+  useEffect(() => {
+    const hideKeyboard = Keyboard.addListener("keyboardDidHide", () => {
+      setVisibleShowAddItem(false);
+    });
+
+    return () => {
+      hideKeyboard.remove();
+    };
+  }, []);
+  
+  const showItemToList = () => {
+    setVisibleShowAddItem(!visibleShowAddItem)
+  }
+  const addItemToList = () => {
+    console.log('AGREGAR ITEMS')
+  }
+  const notWorkingYet = () => 
+    Alert.alert(
+      "Esta opción todavía no está disponible",
+      "¿Estas segur@ que deseas marcar la lista como completada?",
+      [
+        {
+          text: "Ok",
+          onPress: () => console.log("OK")
+        }
+      ]
+  )
+  const Item = (title: any ) => (
     <View style={styles.itemContainer}>
       <IoniconsIcon
         name="pizza-outline"
@@ -73,9 +104,9 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
       />
       <View style={styles.ingredientContainer}>
         <View style={styles.textAndQuantityContainer}>
-          <Text style={styles.ingredientText}>{title}</Text>
+          <Text style={styles.ingredientText}>{title.title}</Text>
           <View style={styles.quantityContainer}>
-            <TouchableOpacity style={styles.quantityIcons}>
+            <TouchableOpacity style={styles.quantityIconsButton}>
               <IoniconsIcon
                 name="remove-outline"
                 style={styles.quantityIcons}
@@ -83,9 +114,9 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
               />
             </TouchableOpacity>
             <Text style={styles.quantityText}>
-              {0} {SLSL[state.language].units}
+              {1} {SLSL[state.language].units}
             </Text>
-            <TouchableOpacity style={styles.quantityIcons}>
+            <TouchableOpacity style={styles.quantityIconsButton}>
               <IoniconsIcon
                 name="add-outline"
                 style={styles.quantityIcons}
@@ -99,22 +130,21 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
     </View>
   );
 
-  const renderItem = ({ item }) => <Item title={item.title} />;
-
+  const renderItem = (item: any) => <Item title={item.item['title']} />;
   return (
     <>
       <SafeAreaView style={styles.mainContainer}>
-        <TopNavbar
-          title={"SMARTCOOK"}
-          goBack={false}
-          navigation={navigation}
-        />
         <ImageBackground
           source={require("../assets/Images/LoginImg/loginBackground.jpeg")}
           resizeMode="cover"
           style={styles.image}
         >
           <View style={styles.backgroundContainer}>
+            <TopNavbar
+              title={"LISTA DE COMPRAS"}
+              goBack={false}
+              navigation={navigation}
+            />
             <SearchbarComponent placeholderText={SLSL[state.language].searchbarPlaceholder} />
             <View style={styles.listContainer}>
               <FlatList
@@ -123,12 +153,35 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
                 keyExtractor={(item) => item.id}
               />
             </View>
-            <View style={styles.finishedListContainer}>
-              <TouchableOpacity style={styles.finishedListButton}>
+            <View style={styles.bottomContainer}>
+            {visibleShowAddItem ? (
+              <View style={styles.bottomContainer}>
+              <TextInput 
+                autoFocus={true}
+                style= {styles.addItemBar}
+                placeholder="¿Qué deseas agregar?"
+                />
+                <TouchableOpacity style={styles.addButton} onPress={addItemToList}>
+                <Text style={styles.addButtonText}>
+                  +
+                </Text>
+              </TouchableOpacity>
+              </View>
+            ) : (
+              <>
+              <TouchableOpacity style={styles.finishedListButton} onPress={notWorkingYet}>
                 <Text style={styles.finishedListText}>
                   {SLSL[state.language].finishButtonLabel}
                 </Text>
               </TouchableOpacity>
+              
+              <TouchableOpacity style={styles.addButton} onPress={showItemToList}>
+                <Text style={styles.addButtonText}>
+                  +
+                </Text>
+              </TouchableOpacity>
+              </>
+                )}
             </View>
           </View>
         </ImageBackground>
