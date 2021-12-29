@@ -120,13 +120,13 @@ const RecipieHome: FC<Props> = (props: Props) => {
               </Text>
             </View>
           </View>
-          <Subtitle text="Porciones" rightText=''/>
+          <Subtitle text="Porciones" rightText='' inputValue={'none'} setInputValue={'none'}/>
           <View style={RecipieStyle.portions}>
             <CircleButton text={"-"} OnPressfunction={"sub"} setAmountPortions={setAmountPortions} amountPortions={amountPortions}/>
             <Text style={RecipieStyle.portionText}>{amountPortions}</Text>
             <CircleButton text={"+"} OnPressfunction={"add"} setAmountPortions={setAmountPortions} amountPortions={amountPortions}/>
           </View>
-          <Subtitle text="Lo que necesitas" rightText=''/>
+          <Subtitle text="Lo que necesitas" rightText='' inputValue={'none'} setInputValue={'none'}/>
           <View style={RecipieStyle.whatYouNeedContainer}>
             <FlatList
               data={data}
@@ -149,7 +149,7 @@ const RecipieHome: FC<Props> = (props: Props) => {
           <View style={RecipieStyle.myNotesContainer}>
             <Text style={RecipieStyle.myNoteText}>{inputValue}</Text>
           </View>
-          <Subtitle text="Información nutricional" rightText=''/>
+          <Subtitle text="Información nutricional" rightText='' inputValue={'none'} setInputValue={'none'}/>
           <View style={RecipieStyle.nutriCirclesContainer}>
             <NutritionCircles calories="140" proteins="14" fat="16" carbs="86" />
           </View>

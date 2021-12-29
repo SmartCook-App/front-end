@@ -43,7 +43,8 @@ const Subtitle: FC<Props> = (props: Props) => {
                 presentationStyle="overFullScreen" 
                 onDismiss={toggleModalVisibility}>
              <View style={RecipieSubtitleStyle.viewWrapper}>
-                 <View style={RecipieSubtitleStyle.modalView}>
+                <View style={RecipieSubtitleStyle.modalView}>
+                  <Text style={RecipieSubtitleStyle.myNotesTitle}>Mis Notas</Text>
                      <TextInput placeholder="Enter something..." 
                                 multiline= {true}
                                 value={inputValue} style={RecipieSubtitleStyle.textInput} 
@@ -70,7 +71,8 @@ const RecipieSubtitleStyle = StyleSheet.create({
     backgroundColor: Colors.light.transparentBlack,
     padding: normalizePx(15),
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    fontFamily: 'nunito-light'
   },
   subtitle: {
     color: Colors.light.white,
@@ -105,30 +107,33 @@ const RecipieSubtitleStyle = StyleSheet.create({
       position: "absolute",
       top: "50%",
       left: "50%",
-      elevation: 5,
+      elevation: normalizePx(5),
       transform: [{ translateX: -(400 * 0.4) }, 
                   { translateY: -90 }],
-      height: 250,
-      width: 400 * 0.8,
+      height: normalizePx(250),
+      width: normalizePx(400*0.8),
       backgroundColor: "#fff",
-      borderRadius: 7,
+      borderRadius: normalizePx(7),
   },
   textInput: {
       width: "80%",
       height: "70%",
-      borderRadius: 5,
-      paddingVertical: 8,
-      paddingHorizontal: 16,
+      borderRadius: normalizePx(5),
+      paddingVertical: normalizePx(8),
+      paddingHorizontal: normalizePx(16),
       borderColor: "rgba(0, 0, 0, 0.2)",
-      borderWidth: 1,
-      marginBottom: 8,
+      borderWidth: normalizePx(1),
+      marginBottom: normalizePx(8),
       textAlignVertical: 'top'
   },
   uploadButtonContainer: {
     backgroundColor: 'black',
-    height: 30,
-    width: 80,
+    height: normalizePx(30),
+    width: normalizePx(80),
     justifyContent: 'center',
-    borderRadius: 20
+    borderRadius: normalizePx(20)
+  },
+  myNotesTitle: {
+    fontSize: normalizePx(20)
   }
 });
