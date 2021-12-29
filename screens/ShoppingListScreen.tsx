@@ -7,8 +7,8 @@ import {
   ImageBackground,
   Alert,
   TextInput,
-  TouchableWithoutFeedback,
-  Keyboard 
+  Keyboard,
+  Animated,
 } from "react-native";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
@@ -19,6 +19,7 @@ import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import TopNavbar from "../components/Others/TopNavbar";
 import SLSL from "../assets/Languages/ShoppingListScreenLanguages";
 import SearchbarComponent from '../components/HomeComponents/SearchComponents/SearchbarComponent';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 interface Props {
   navigation: any;
@@ -95,42 +96,61 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
         }
       ]
   )
-  const Item = (title: any ) => (
-    <View style={styles.itemContainer}>
-      <IoniconsIcon
-        name="pizza-outline"
-        style={styles.ingredientIcon}
-        size={30}
-      />
-      <View style={styles.ingredientContainer}>
-        <View style={styles.textAndQuantityContainer}>
-          <Text style={styles.ingredientText}>{title.title}</Text>
-          <View style={styles.quantityContainer}>
-            <TouchableOpacity style={styles.quantityIconsButton}>
-              <IoniconsIcon
-                name="remove-outline"
-                style={styles.quantityIcons}
-                size={20}
-              />
-            </TouchableOpacity>
-            <Text style={styles.quantityText}>
-              {1} {SLSL[state.language].units}
-            </Text>
-            <TouchableOpacity style={styles.quantityIconsButton}>
-              <IoniconsIcon
-                name="add-outline"
-                style={styles.quantityIcons}
-                size={20}
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
-        <Divider style={styles.divider} />
-      </View>
-    </View>
-  );
 
-  const renderItem = (item: any) => <Item title={item.item['title']} />;
+  const deleteButton = () => {
+    console.log('delete')
+  }
+  const RenderRight = (progress: any, dragX: any) => {
+    return (
+      <TouchableOpacity onPress={deleteButton}>
+        <View style={styles.rightActions}>
+          <Text style={[styles.actionText]}>Delete</Text>
+        </View>
+      </TouchableOpacity>
+    )
+  }
+  const Item = (title: any ) => {
+    return (
+      <Swipeable 
+        renderRightActions={RenderRight}
+      >
+      <View style={styles.itemContainer}>
+        <IoniconsIcon
+          name="pizza-outline"
+          style={styles.ingredientIcon}
+          size={30}
+        />
+        <View style={styles.ingredientContainer}>
+          <View style={styles.textAndQuantityContainer}>
+            <Text style={styles.ingredientText}>{title.title}</Text>
+            <View style={styles.quantityContainer}>
+              <TouchableOpacity style={styles.quantityIconsButton}>
+                <IoniconsIcon
+                  name="remove-outline"
+                  style={styles.quantityIcons}
+                  size={20}
+                />
+              </TouchableOpacity>
+              <Text style={styles.quantityText}>
+                {1} {SLSL[state.language].units}
+              </Text>
+              <TouchableOpacity style={styles.quantityIconsButton}>
+                <IoniconsIcon
+                  name="add-outline"
+                  style={styles.quantityIcons}
+                  size={20}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <Divider style={styles.divider} />
+        </View>
+      </View>
+      </Swipeable>
+  )};
+
+  const renderItem = (item: any) => <Item title={item.item['title']}/>;
+
   return (
     <>
       <SafeAreaView style={styles.mainContainer}>
@@ -146,12 +166,12 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
               navigation={navigation}
             />
             <SearchbarComponent placeholderText={SLSL[state.language].searchbarPlaceholder} />
-            <View style={styles.listContainer}>
-              <FlatList
-                data={DATA}
-                renderItem={renderItem}
-                keyExtractor={(item) => item.id}
-              />
+            <View style={styles.listContainer}>       
+                <FlatList
+                  data={DATA}
+                  renderItem={renderItem}
+                  keyExtractor={(item) => item.id}
+                  />
             </View>
             <View style={styles.bottomContainer}>
             {visibleShowAddItem ? (
