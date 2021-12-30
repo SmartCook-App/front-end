@@ -14,6 +14,7 @@ import SearchRecipies from '../screens/Home/SearchRecipies';
 import SearchIngredient from '../screens/Home/SearchIngredient';
 import ChooseIngredient from '../screens/Home/ChooseIngredient';
 import ShoppingListScreen from '../screens/ShoppingListScreen';
+import CalendarScreen from '../screens/Calendar/CalendarScreen';
 import Match from '../screens/Home/Match';
 
 type RootStackParamList = {
@@ -27,6 +28,7 @@ type RootStackParamList = {
   ConfigProfileScreen: undefined;
   ShoppingListScreen: undefined;
   SearchIngredient: undefined;
+  CalendarScreen: undefined;
   ChooseIngredient: undefined;
   Match: undefined;
 };
@@ -192,6 +194,29 @@ export const ShoppingListStackNavigator: FC = () => {
       <RootStack.Screen
         name="ShoppingListScreen"
         component={ShoppingListScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+    </RootStack.Navigator>
+  );
+};
+
+export const CalendarStackNavigator: FC = () => {
+  const lang = useSelector<RootState, RootState['language']>(
+    (state) => state.language
+  );
+  return (
+    <RootStack.Navigator
+      initialRouteName="CalendarScreen"
+      screenOptions={{
+        headerStyle: { backgroundColor: 'yellow' },
+        headerTintColor: 'white',
+      }}
+    >
+      <RootStack.Screen
+        name="CalendarScreen"
+        component={CalendarScreen}
         options={{
           headerShown: false,
         }}

@@ -12,6 +12,7 @@ import {
   RecepiesStackNavigator,
   AccountStackNavigator,
   ShoppingListStackNavigator,
+  CalendarStackNavigator,
 } from "./StackNavigator";
 
 const Tab = createMaterialBottomTabNavigator();
@@ -48,7 +49,7 @@ export const TabNavigator: FC = () => {
       />
       <Tab.Screen
         name="Calendary"
-        component={RecepiesStackNavigator}
+        component={CalendarStackNavigator}
         options={{
           tabBarLabel: 'Calendario',
           tabBarIcon: () => <IoniconsComponent name="calendar-outline" />,

@@ -3,6 +3,7 @@ const tintColorDark = '#fff';
 
 export default {
   light: {
+    black: '#000000',
     text: '#000',
     background: '#fff',
     white: 'white',
