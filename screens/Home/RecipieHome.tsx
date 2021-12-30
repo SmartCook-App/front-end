@@ -20,6 +20,9 @@ import { Avatar } from 'react-native-elements';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Subtitle from '../../components/RecipieHomeComponents/Subtitle';
 import NutritionCircles from '../../components/RecipieHomeComponents/NutritionCircles';
+import TopBar from '../../components/RecipieHomeComponents/TopBar';
+import CircleButton from '../../components/RecipieHomeComponents/CircleButton';
+import styles from '../../styles/ShoppingListScreenStyles';
 
 interface Props {
   navigation: any;
@@ -27,20 +30,14 @@ interface Props {
 
 const RecipieHome: FC<Props> = (props: Props) => {
   const { navigation } = props;
-  const [amountPortions, setamountPortions] = useState(0);
-  const onPressAddButton = () => {
-    setamountPortions(amountPortions+1)
-  };
+  const [amountPortions, setAmountPortions] = useState(1);
+
   // TODO: eliminar esta data cuando tengamos la base de datos
   const data = ["1", "2", "3", "4", "5", "6"]
-  const onPressSubstractButton = () => {
-    if (amountPortions >0){
-      setamountPortions(amountPortions-1)
-    }
-    
-  };
-  const doNothing = () => {
-    console.log("hi")
+  const [inputValue, setInputValue] = useState("");
+
+  const onPressStepsRecipies = () => {
+    navigation.navigate("StepsRecipiesScreen")
   };
   return (
     <View style={RecipieStyle.container}>
@@ -49,40 +46,12 @@ const RecipieHome: FC<Props> = (props: Props) => {
         style={RecipieStyle.photo}
       >
         <ScrollView>
-          <View style={RecipieStyle.blackRectangule}>
-            <View style={RecipieStyle.header}>
-              <View style={RecipieStyle.alignRight}>
-                <Ionicons
-                  name="md-arrow-undo-sharp"
-                  size={27}
-                  color={Colors.light.transparentYellow}
-                  onPress={navigation.goBack}
-                />
-              </View>
-              <View style={RecipieStyle.alignLeft}>
-                <View style={RecipieStyle.iconsContainer}>
-                  <AntDesign
-                    name="hearto"
-                    size={25}
-                    color={Colors.light.yellow}
-                  />
-                  <Ionicons
-                    name="share-social-outline"
-                    size={25}
-                    color={Colors.light.yellow}
-                  />
-                  <MaterialIcons
-                    name="playlist-add"
-                    size={30}
-                    color={Colors.light.yellow}
-                  />
-                </View>
-              </View>
-            </View>
+        <View style={RecipieStyle.blackRectangule}>
+          <TopBar navigation={navigation}/>
             <View style={RecipieStyle.centerText}>
-            <Text style={RecipieStyle.title}>
-              Tallarines con Pesto y otras salsas
-            </Text>
+              <Text style={RecipieStyle.title}>
+                Tallarines con Pesto y otras salsas
+              </Text>
             </View>
           </View>
           <View style={RecipieStyle.bottom}>
@@ -120,7 +89,7 @@ const RecipieHome: FC<Props> = (props: Props) => {
                 <Text style={RecipieStyle.infoText}> 450</Text>
               </View>
             </View>
-            <TouchableHighlight onPress={doNothing}  style={RecipieStyle.seeRecipieDetailButton}>
+            <TouchableHighlight onPress={onPressStepsRecipies}  style={RecipieStyle.seeRecipieDetailButton}>
               <MaterialCommunityIcons
                 name={'pot-steam'}
                 size={55}
@@ -151,17 +120,13 @@ const RecipieHome: FC<Props> = (props: Props) => {
               </Text>
             </View>
           </View>
-          <Subtitle text="Porciones"/>
+          <Subtitle text="Porciones" rightText='' inputValue={'none'} setInputValue={'none'}/>
           <View style={RecipieStyle.portions}>
-            <TouchableHighlight onPress={onPressAddButton} style={RecipieStyle.changePortionButton}>
-            <Text style={RecipieStyle.portionText}>+</Text>
-            </TouchableHighlight>
+            <CircleButton text={"-"} OnPressfunction={"sub"} setAmountPortions={setAmountPortions} amountPortions={amountPortions}/>
             <Text style={RecipieStyle.portionText}>{amountPortions}</Text>
-            <TouchableHighlight onPress={onPressSubstractButton} style={RecipieStyle.changePortionButton}>
-            <Text style={RecipieStyle.portionText}>-</Text>
-            </TouchableHighlight>
+            <CircleButton text={"+"} OnPressfunction={"add"} setAmountPortions={setAmountPortions} amountPortions={amountPortions}/>
           </View>
-          <Subtitle text="Lo que necesitas" />
+          <Subtitle text="Lo que necesitas" rightText='' inputValue={'none'} setInputValue={'none'}/>
           <View style={RecipieStyle.whatYouNeedContainer}>
             <FlatList
               data={data}
@@ -180,11 +145,13 @@ const RecipieHome: FC<Props> = (props: Props) => {
             />
            
           </View>
-
-          <Subtitle text="Información nutricional" />
+          <Subtitle text="Mis notas" rightText='añadir' inputValue={inputValue} setInputValue={setInputValue}/>
+          <View style={RecipieStyle.myNotesContainer}>
+            <Text style={RecipieStyle.myNoteText}>{inputValue}</Text>
+          </View>
+          <Subtitle text="Información nutricional" rightText='' inputValue={'none'} setInputValue={'none'}/>
           <View style={RecipieStyle.nutriCirclesContainer}>
             <NutritionCircles calories="140" proteins="14" fat="16" carbs="86" />
-
           </View>
         </ScrollView>
       </ImageBackground>
@@ -346,4 +313,13 @@ const RecipieStyle = StyleSheet.create({
     color: Colors.light.yellow,
     fontWeight: 'bold',
   },
+  myNotesContainer: {
+    flex: 1,
+    minHeight: normalizePx(50),
+    padding: normalizePx(15),
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  },
+  myNoteText: {
+    color: 'white'
+  }
 });

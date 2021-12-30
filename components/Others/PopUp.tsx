@@ -1,16 +1,22 @@
+import React, { FC } from 'react';
 import { Alert} from "react-native";
 
-
-const PopUp = () => {
+interface Props {
+  title: any;
+  text: any;
+  message: any;
+}
+const PopUp= (props: Props) => {
+  const { title, message, text } = props;
     Alert.alert(
-      "Alert title",
-      "My alert Message",
+      title,
+      message,
       [
         {
-          text: "Ok",
+          text: text,
           onPress: () => console.log("OK")
         }
       ]
     )
-    }
+};
 export default PopUp;

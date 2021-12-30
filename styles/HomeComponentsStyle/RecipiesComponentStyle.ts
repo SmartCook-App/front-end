@@ -15,7 +15,7 @@ const RecipiesComponentStyle = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#E9E9E9',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     marginLeft: RECIPE_ITEM_MARGIN,
     marginTop: 25,

@@ -2,42 +2,39 @@ import React, { FC } from "react";
 import {
   TouchableOpacity,
   Text,
-  StyleSheet,
   View,
   Dimensions,
 } from "react-native";
-import Colors from "../../assets/Colors";
 import TopNavbarStyle from "../../styles/TopNavbarStyle";
 import { Ionicons } from '@expo/vector-icons'; 
 interface Props {
   navigation: any;
-  content: any;
-  path: any;
+  title: any;
+  goBack: any;
 }
 // screen sizing
 const { width, height } = Dimensions.get("window");
 // orientation must fixed
 const SCREEN_WIDTH = width < height ? width : height;
 
-// w 411
-// h 899
 const TopNavbar: FC<Props> = (props: Props) => {
-  const { content, navigation, path } = props;
+  const { title, navigation, goBack } = props;
+
   return (
     <View>
-      {path == "None" ? (
+      {goBack == false ? (
         <>
         <View style={TopNavbarStyle.container}>
-          <Text style={TopNavbarStyle.title}>{content}</Text>
+          <Text style={TopNavbarStyle.title}>{title}</Text>
         </View>
         </>
       ) : (
         <>
         <View style={TopNavbarStyle.container}>
-        <TouchableOpacity onPress={() => navigation.navigate(path)}>
-          <Ionicons name="arrow-undo" style={TopNavbarStyle.goBack} color={Colors.light.yellow}/>   
+          <TouchableOpacity style={TopNavbarStyle.touch}>
+            <Text><Ionicons name="arrow-undo" style={TopNavbarStyle.goBack} onPress={navigation.goBack}/></Text> 
           </TouchableOpacity>
-          <Text style={TopNavbarStyle.title}>{content}</Text>
+          <Text style={TopNavbarStyle.title}>{title}</Text>
         </View>
         </>
 

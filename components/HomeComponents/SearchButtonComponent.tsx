@@ -3,11 +3,14 @@ import { Text, View, TouchableOpacity } from "react-native";
 import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 
-const SearchButtonComponent: FC = () => {
+interface Props {
+  navigation: any;
+}
 
+const SearchButtonComponent: FC<Props> = (props: Props) => {
+  const { navigation } = props;
   const pressButton = () => {
-    // This is from this view
-    console.log("Dummy Search Button")
+    navigation.navigate('SearchRecipies');
   };
 
   return (

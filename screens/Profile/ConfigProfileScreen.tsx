@@ -22,9 +22,11 @@ const IndexScreen: FC<Props> = (props: Props) => {
   const initialValues = {
     name: "Florencia",
     lastName: "Valdivia",
-    phoneNumber: "56988002548",
+    phoneNumber: "",
     email: "fivaldivi@gmail.com",
     password: "1234567890",
+    birthday: '',
+    gender: '',
   };
   const state = useSelector((state: RootState) => state);
   const lang = useSelector<RootState, RootState["language"]>(
@@ -54,8 +56,8 @@ const IndexScreen: FC<Props> = (props: Props) => {
     <>
       <BackgroundImage>
         <TopNavbar
-          content={"PERFIL"}
-          path={"LoginRegisterScreen"}
+          title={"PERFIL"}
+          goBack={true}
           navigation={navigation}
         />
         <View style={ConfigProfileStyle.firstcontainer}>
@@ -70,15 +72,6 @@ const IndexScreen: FC<Props> = (props: Props) => {
               email: Yup.string()
                 .email(LRL[lang]?.formErrorEmail)
                 .required(LRL[lang]?.formErrorRequired),
-             // password: Yup.string()
-              //   .min(
-              //     5,
-              //     ({ min }) =>
-              //       LRL[lang]?.formErrorPassword1 +
-              //       `${min}` +
-              //       LRL[lang]?.formErrorPassword2
-              //   )
-              //   .required(LRL[lang]?.formErrorRequired),
             })}
             onSubmit={(values, actions) => {
               handleSubmit();
@@ -163,6 +156,21 @@ const IndexScreen: FC<Props> = (props: Props) => {
                 </View>
                 <View style={ConfigProfileStyle.viewInput}>
                   <Feather
+                    name="mail"
+                    size={23}
+                    style={ConfigProfileStyle.icon}
+                  />
+                  <TextInput
+                    placeholderTextColor="white"
+                    style={ConfigProfileStyle.textInput}
+                    placeholder={LRL[lang]?.email}
+                    onChangeText={handleChange("email")}
+                    onBlur={handleBlur("email")}
+                    value={values.email}
+                  />
+                </View>
+                <View style={ConfigProfileStyle.viewInput}>
+                  <Feather
                     name="phone"
                     size={23}
                     style={ConfigProfileStyle.icon}
@@ -176,6 +184,7 @@ const IndexScreen: FC<Props> = (props: Props) => {
                     value={values.phoneNumber}
                   />
                 </View>
+                
                 <View style={ConfigProfileStyle.viewInput}>
                   <Feather
                     name="mail"
@@ -185,10 +194,25 @@ const IndexScreen: FC<Props> = (props: Props) => {
                   <TextInput
                     placeholderTextColor="white"
                     style={ConfigProfileStyle.textInput}
-                    placeholder={LRL[lang]?.email}
-                    onChangeText={handleChange("email")}
-                    onBlur={handleBlur("email")}
-                    value={values.email}
+                    placeholder={LRL[lang]?.birthday}
+                    onChangeText={handleChange("birthday")}
+                    onBlur={handleBlur("birthday")}
+                    value={values.birthday}
+                  />
+                </View>
+                <View style={ConfigProfileStyle.viewInput}>
+                  <Feather
+                    name="mail"
+                    size={23}
+                    style={ConfigProfileStyle.icon}
+                  />
+                  <TextInput
+                    placeholderTextColor="white"
+                    style={ConfigProfileStyle.textInput}
+                    placeholder={LRL[lang]?.gender}
+                    onChangeText={handleChange("gender")}
+                    onBlur={handleBlur("gender")}
+                    value={values.gender}
                   />
                 </View>
                 <View>
