@@ -33,6 +33,11 @@ const TopNavbarStyle = StyleSheet.create({
   },
   touch:{
     marginRight: normalizePx(350),
+  },
+  kababMenu:{
+    fontSize: normalizePx(30),
+    transform: [{ rotate: '90deg'}],
+    color: Colors.light.yellow
   }
 });
 export default TopNavbarStyle;
