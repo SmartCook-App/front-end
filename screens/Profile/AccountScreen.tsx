@@ -77,7 +77,7 @@ const AccountScreen:  FC<Props> = (props: Props) =>  {
                 onPress={addFilter}
               >
                 <Ionicons
-                  name={"add-circle-outline"}
+                  name={"add"}
                   size={45}
                   color={"black"}
                 />
