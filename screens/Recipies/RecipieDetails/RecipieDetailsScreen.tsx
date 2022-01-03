@@ -39,7 +39,7 @@ const RecipieHome: FC<Props> = (props: Props) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../../assets/Images/ensalada.jpg')}
+        source={require('../../../assets/Images/Eliminar/ensalada.jpg')}
         style={styles.photo}
       >
         <ScrollView>
@@ -136,7 +136,7 @@ const RecipieHome: FC<Props> = (props: Props) => {
                 icon={{ name: 'user', type: 'font-awesome' }}
                 activeOpacity={1}
                 containerStyle={styles.cookerAvatar}
-                source={require('../../assets/Images/ensalada.jpg')}
+                source={require('../../assets/Images/Eliminar/ensalada.jpg')}
               />
             }
             />

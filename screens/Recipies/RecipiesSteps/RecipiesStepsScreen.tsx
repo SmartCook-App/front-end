@@ -16,7 +16,7 @@ const RecipiesStepsScreen: FC<Props> = (props: Props) => {
 
   return (
     <ImageBackground
-      source={require('../../assets/Images/ensalada.jpg')}
+      source={require('../../../assets/Images/Eliminar/ensalada.jpg')}
       style={StepsRecipiesStyle.backgroundImage}
     >
       <ScrollView>

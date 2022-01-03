@@ -155,7 +155,7 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
     <>
       <SafeAreaView style={styles.mainContainer}>
         <ImageBackground
-          source={require("../assets/Images/LoginImg/loginBackground.jpeg")}
+          source={require("../../assets/Images/LoginImg/loginBackground.jpeg")}
           resizeMode="cover"
           style={styles.image}
         >

@@ -92,7 +92,7 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
                     <TouchableOpacity onPress={toggleModal}>
                       <Image
                         style={styles.pictureUploadPicture}
-                        source={require("../../assets/Images/ProfileIcons/user.png")}
+                        source={require("../../../assets/Images/ProfileIcons/user.png")}
                       />
                     </TouchableOpacity>
                   </View>
