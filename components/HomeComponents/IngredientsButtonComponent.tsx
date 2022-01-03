@@ -12,7 +12,7 @@ const IngredientsButtonComponent: FC<Props> = (props: Props) => {
   // enviar a la screen correspondiente.
   const { navigation } = props;
   const onPress = () => {
-    navigation.navigate('ChooseIngredient');
+    navigation.navigate('ChooseIngredientScreen');
   };
 
   return (
