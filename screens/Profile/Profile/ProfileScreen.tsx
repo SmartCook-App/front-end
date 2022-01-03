@@ -1,10 +1,10 @@
 import React, { FC, useState } from "react";
 import { View, ScrollView, SafeAreaView, TouchableOpacity } from "react-native";
-import RoundFiltersComponents from "../../../components/HomeComponents/RoundFiltersComponents";
+import RoundFiltersComponents from "../../../components/RoundFilters/RoundFiltersComponents";
 import PSL from "./ProfileLanguages";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import RecipesComponent from "../../../components/HomeComponents/RecipesComponent";
+import RecipesComponent from "../../../components/ShowAllRecipes/ShowAllRecipesComponent";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./ProfileStyles";
 import { Text } from "../../../components/Themed";

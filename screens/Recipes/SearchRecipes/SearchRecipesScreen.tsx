@@ -5,10 +5,10 @@ import { RootState } from '../../../redux/store';
 import SLL from '../../ShoppingList/ShoppingListLanguages';
 import FL from '../../../assets/Languages/Recipes/RecipeFiltersHomeLanguages';
 import SL from '../../../assets/Languages/Recipes/SearchLanguages';
-import OvalFilterComponent from '../../../components/HomeComponents/OvalFilterComponent';
-import RecentSearchComponent from '../../../components/HomeComponents/SearchComponents/RecentSearchComponent';
+import OvalFilterComponent from '../../../components/Recipes/OvalFilter/OvalFilterComponent';
+import RecentSearchComponent from '../../../components/Recipes/RecentSearch/RecentSearchComponent';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
-import SearchbarComponent from '../../../components/HomeComponents/SearchComponents/SearchbarComponent';
+import SearchbarComponent from '../../../components/Searchbar/SearchbarComponent';
 import styles from './SearchRecipesStyles';
 
 interface Props {

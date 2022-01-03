@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import Colors from '../../assets/Colors';
+import Colors from '../../../assets/Colors';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
-import { normalizeFontSize, normalizePx } from '../../styles/normalize';
-import { paintChooseIngredientInteractor } from '../../redux/interactors/paintChooseIngredientInteractors';
+import { normalizeFontSize, normalizePx } from '../../../styles/normalize';
+import { paintChooseIngredientInteractor } from '../../../redux/interactors/paintChooseIngredientInteractors';
 import { Dimensions } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { Avatar } from 'react-native-paper';

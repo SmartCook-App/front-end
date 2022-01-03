@@ -10,9 +10,7 @@ import { RootState } from '../../../redux/store';
 import SLL from '../../ShoppingList/ShoppingListLanguages';
 import SL from '../../../assets/Languages/Recipes/SearchLanguages';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
-import SearchbarComponent from '../../../components/HomeComponents/SearchComponents/SearchbarComponent';
-import CategoryGridComponent from '../../../components/HomeComponents/CategoryGridComponent';
-import { Ingredients } from '../../../data/IngredientsData';
+import IngredientCategoryComponent from '../../../components/Recipes/IngredientCategory/IngredientCategoryComponent';
 import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 import { AntDesign } from '@expo/vector-icons';
 import styles from './ChooseIngredientStyles';
@@ -30,7 +28,7 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
   const { navigation } = props;
   const renderIngredient = (ingredient: any) => (
     <View style={styles.ingredientRowContainer}>
-      <CategoryGridComponent
+      <IngredientCategoryComponent
         ingredientId={ingredient.item.ingredientId}
         name={ingredient.item.name}
         iconName="None"

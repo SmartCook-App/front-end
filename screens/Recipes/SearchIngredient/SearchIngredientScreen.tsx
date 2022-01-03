@@ -6,10 +6,10 @@ import SLL from '../../ShoppingList/ShoppingListLanguages';
 import FL from '../../../assets/Languages/Recipes/RecipeFiltersHomeLanguages';
 import SL from '../../../assets/Languages/Recipes/SearchLanguages';
 import SISL from './SearchIngredientLanguages';
-import RecentSearchComponent from '../../../components/HomeComponents/SearchComponents/RecentSearchComponent';
+import RecentSearchComponent from '../../../components/Recipes/RecentSearch/RecentSearchComponent';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
-import SearchbarComponent from '../../../components/HomeComponents/SearchComponents/SearchbarComponent';
-import CategoryGridComponent from '../../../components/HomeComponents/CategoryGridComponent';
+import SearchbarComponent from '../../../components/Searchbar/SearchbarComponent';
+import IngredientCategoryComponent from '../../../components/Recipes/IngredientCategory/IngredientCategoryComponent';
 import styles from './SearchIngredientStyle';
 
 interface Props {
@@ -48,7 +48,7 @@ const SearchIngredient: FC<Props> = (props: Props) => {
       </View>
       <View style={styles.categoryContainer}>
         <View style={styles.categoryRowContainer}>
-          <CategoryGridComponent
+          <IngredientCategoryComponent
             ingredientId="None"
             isPressed="None"
             iconName="food-apple"
@@ -56,7 +56,7 @@ const SearchIngredient: FC<Props> = (props: Props) => {
             isImage={false}
             image="None"
           />
-          <CategoryGridComponent
+          <IngredientCategoryComponent
             ingredientId="None"
             isPressed="None"
             iconName="food-apple"
@@ -64,7 +64,7 @@ const SearchIngredient: FC<Props> = (props: Props) => {
             isImage={false}
             image="None"
           />
-          <CategoryGridComponent
+          <IngredientCategoryComponent
             ingredientId="None"
             isPressed="None"
             iconName="food-apple"
@@ -72,7 +72,7 @@ const SearchIngredient: FC<Props> = (props: Props) => {
             isImage={false}
             image="None"
           />
-          <CategoryGridComponent
+          <IngredientCategoryComponent
             ingredientId="None"
             isPressed="None"
             iconName="food-apple"
@@ -82,7 +82,7 @@ const SearchIngredient: FC<Props> = (props: Props) => {
           />
         </View>
         <View style={styles.categoryRowContainer}>
-          <CategoryGridComponent
+          <IngredientCategoryComponent
             ingredientId="None"
             isPressed="None"
             iconName="cupcake"
@@ -90,7 +90,7 @@ const SearchIngredient: FC<Props> = (props: Props) => {
             isImage={false}
             image="None"
           />
-          <CategoryGridComponent
+          <IngredientCategoryComponent
             ingredientId="None"
             isPressed="None"
             iconName="fruit-cherries"
@@ -98,7 +98,7 @@ const SearchIngredient: FC<Props> = (props: Props) => {
             isImage={false}
             image="None"
           />
-          <CategoryGridComponent
+          <IngredientCategoryComponent
             ingredientId="None"
             isPressed="None"
             iconName="peanut"
@@ -106,7 +106,7 @@ const SearchIngredient: FC<Props> = (props: Props) => {
             isImage={false}
             image="None"
           />
-          <CategoryGridComponent
+          <IngredientCategoryComponent
             ingredientId="None"
             isPressed="None"
             iconName="food-steak"
@@ -116,7 +116,7 @@ const SearchIngredient: FC<Props> = (props: Props) => {
           />
         </View>
         <View style={styles.categoryRowContainer}>
-          <CategoryGridComponent
+          <IngredientCategoryComponent
             ingredientId="None"
             isPressed="None"
             iconName="fish"
@@ -124,7 +124,7 @@ const SearchIngredient: FC<Props> = (props: Props) => {
             isImage={false}
             image="None"
           />
-          <CategoryGridComponent
+          <IngredientCategoryComponent
             ingredientId="None"
             isPressed="None"
             iconName="food-apple"
@@ -132,7 +132,7 @@ const SearchIngredient: FC<Props> = (props: Props) => {
             isImage={false}
             image="None"
           />
-          <CategoryGridComponent
+          <IngredientCategoryComponent
             ingredientId="None"
             isPressed="None"
             iconName="food-apple"
@@ -140,7 +140,7 @@ const SearchIngredient: FC<Props> = (props: Props) => {
             isImage={false}
             image="None"
           />
-          <CategoryGridComponent
+          <IngredientCategoryComponent
             ingredientId="None"
             isPressed="None"
             iconName="spoon-sugar"

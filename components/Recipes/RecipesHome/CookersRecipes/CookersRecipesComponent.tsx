@@ -7,8 +7,8 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
-import CookersRecipesComponentStyle from "../../styles/HomeComponentsStyle/CookersRecipesComponentStyle";
-import { Cookers } from "../../screens/Recipes/CookersDataArray";
+import CookersRecipesComponentStyle from "../../../../styles/HomeComponentsStyle/CookersRecipesComponentStyle";
+import { Cookers } from "../../../../screens/Recipes/CookersDataArray";
 import { Feather, MaterialIcons } from "@expo/vector-icons";
 
 interface Props {

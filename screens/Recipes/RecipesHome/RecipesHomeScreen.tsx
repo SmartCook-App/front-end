@@ -1,15 +1,15 @@
 import React, { FC, useState } from "react";
 import { View, ScrollView } from "react-native";
 import styles from "./RecipesHomeStyles";
-import OvalFilterComponent from "../../../components/HomeComponents/OvalFilterComponent";
-import RoundFiltersComponents from "../../../components/HomeComponents/RoundFiltersComponents";
+import OvalFilterComponent from "../../../components/Recipes/OvalFilter/OvalFilterComponent";
+import RoundFiltersComponents from "../../../components/RoundFilters/RoundFiltersComponents";
 import FL from "../../../assets/Languages/Recipes/RecipeFiltersHomeLanguages";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import RecipesComponent from "../../../components/HomeComponents/RecipesComponent";
-import CookersRecipesComponent from "../../../components/HomeComponents/CookersRecipesComponent";
-import IngredientsButtonComponent from "../../../components/HomeComponents/IngredientsButtonComponent";
-import SearchButtonComponent from "../../../components/HomeComponents/SearchButtonComponent";
+import RecipesComponent from "../../../components/ShowAllRecipes/ShowAllRecipesComponent";
+import CookersRecipesComponent from "../../../components/Recipes/RecipesHome/CookersRecipes/CookersRecipesComponent";
+import IngredientsButtonComponent from "../../../components/Recipes/RecipesHome/IngredientsButton/IngredientsButtonComponent";
+import SearchButtonComponent from "../../../components/Recipes/RecipesHome/SearchButton/SearchButtonComponent";
 import TopNavbar from "../../../components/TopNavbar/TopNavbarComponent";
 
 interface Props {

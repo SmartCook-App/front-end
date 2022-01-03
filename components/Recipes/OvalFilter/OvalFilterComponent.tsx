@@ -1,15 +1,15 @@
-import React, { FC, useState } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
-import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FilterComponentStyle";
-import IoniconsIcon from "react-native-vector-icons/Ionicons";
-import SwipePickerComponent from "./SwipePickerComponent";
-import DietTypeFilter from "./DietTypeFilter";
-import Modal from "react-native-modal";
+import React, { FC, useState } from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
+import FiltersComponentsStyle from '../../../styles/HomeComponentsStyle/FilterComponentStyle';
+import IoniconsIcon from 'react-native-vector-icons/Ionicons';
+import SwipePickerComponent from './SwipePickerComponent';
+import DietTypeFilter from './DietTypeFilter';
+import Modal from 'react-native-modal';
 import {
   Entypo,
   FontAwesome,
   MaterialCommunityIcons,
-} from "@expo/vector-icons";
+} from '@expo/vector-icons';
 
 interface Props {
   item: any;
@@ -28,7 +28,7 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
           <Text style={FiltersComponentsStyle.letter}>{item.name}</Text>
           <IoniconsIcon
             name="chevron-down-outline"
-            color={"black"}
+            color={'black'}
             size={14}
             style={FiltersComponentsStyle.arrow}
           />
@@ -49,10 +49,10 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
             </Text>
             {item.values.map((itemValue: any) => (
               <>
-                {item.name === "Tipo dieta" ? (
+                {item.name === 'Tipo dieta' ? (
                   <DietTypeFilter itemValue={itemValue} />
                 ) : null}
-                {item.name === "Time" ? (
+                {item.name === 'Time' ? (
                   <View
                     style={FiltersComponentsStyle.directionIconAndFilterText}
                   >
@@ -61,10 +61,10 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
                       size={35}
                       style={FiltersComponentsStyle.iconFilterOptions}
                     />
-                    <SwipePickerComponent value={"time"} text={"minutos"} />
+                    <SwipePickerComponent value={'time'} text={'minutos'} />
                   </View>
                 ) : null}
-                {item.name === "Calorías" ? (
+                {item.name === 'Calorías' ? (
                   <View
                     style={FiltersComponentsStyle.directionIconAndFilterText}
                   >
@@ -74,8 +74,8 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
                       style={FiltersComponentsStyle.iconFilterOptions}
                     />
                     <SwipePickerComponent
-                      value={"calories"}
-                      text={"calorías"}
+                      value={'calories'}
+                      text={'calorías'}
                     />
                   </View>
                 ) : null}

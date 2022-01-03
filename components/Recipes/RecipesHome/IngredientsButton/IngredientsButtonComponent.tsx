@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
-import IndexScreenStyle from "../../styles/HomeComponentsStyle/IndexScreenStyle";
+import IndexScreenStyle from "../../../../styles/HomeComponentsStyle/IndexScreenStyle";
 
 interface Props {
   navigation: any;

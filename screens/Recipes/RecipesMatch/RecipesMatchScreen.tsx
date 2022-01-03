@@ -5,7 +5,7 @@ import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
 import ML from './RecipesMatchLanguages';
 import { RootState } from '../../../redux/store';
-import RecipesComponent from "../../../components/HomeComponents/RecipesComponent";
+import RecipesComponent from "../../../components/ShowAllRecipes/ShowAllRecipesComponent";
 import styles from './RecipesMatchStyle';
 
 interface Props {

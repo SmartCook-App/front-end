@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
-import Colors from '../../../assets/Colors';
-import { normalizePx } from '../../../styles/normalize';
+import Colors from '../../assets/Colors';
+import { normalizePx } from '../../styles/normalize';
 import { Searchbar } from 'react-native-paper';
 
 interface Props {

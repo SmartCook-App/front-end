@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { Text, View } from "react-native";
 // import SwipePicker from "react-native-swipe-picker";
 import { Picker } from "@react-native-community/picker";
-import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FilterComponentStyle";
+import FiltersComponentsStyle from "../../../styles/HomeComponentsStyle/FilterComponentStyle";
 
 interface Props {
   value: any;
