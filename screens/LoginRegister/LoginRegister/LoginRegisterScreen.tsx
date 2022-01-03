@@ -11,9 +11,9 @@ import LRL from "./LogInRegisterLanguages";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import styles from "./LoginRegisterStyles";
-import BackgroundImage from "../../../components/ImagesComponents/LoginBackgroundImage";
-import RegisterComponent from "../../../components/LoginRegisterComponents/RegisterComponent";
-import LoginComponent from "../../../components/LoginRegisterComponents/LoginComponent";
+import BackgroundImage from "../../../components/LoginRegister/BackgroundImage/BackgroundImageComponent";
+import RegisterComponent from "../../../components/LoginRegister/LoginRegister/Register/RegisterComponent";
+import LoginComponent from "../../../components/LoginRegister/LoginRegister/Login/LoginComponent";
 import { Entypo } from "@expo/vector-icons";
 
 interface Props {
@@ -22,7 +22,7 @@ interface Props {
 
 const Login: FC<Props> = (props: Props) => {
   const { navigation } = props;
-  const [showRegister, setShowRegister] = useState(true);
+  const [showRegister, setShowRegister] = useState(false);
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
   );

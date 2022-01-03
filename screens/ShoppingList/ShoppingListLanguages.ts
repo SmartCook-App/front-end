@@ -2,13 +2,13 @@ const SLL: any = {
   ES: {
     units: "un",
     searchbarPlaceholder: "Buscar ingredientes",
-    searchbarRecipiePlaceholder: "Buscar recetas",
+    searchbarRecipePlaceholder: "Buscar recetas o buscar cocineros",
     finishButtonLabel: "Marcar lista como completada",
   },
   EN: {
     units: "un",
     searchbarPlaceholder: "Search ingredients",
-    searchbarRecipiePlaceholder: "Search recipies",
+    searchbarRecipePlaceholder: "Search recipes or search cookers",
     finishButtonLabel: "Finish list",
   },
 };

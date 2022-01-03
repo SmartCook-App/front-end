@@ -22,7 +22,7 @@ const CalendarStyle = StyleSheet.create({
       fontFamily: 'nunito-semiBold',
       marginVertical: normalizePx(10),
     },
-    savedRecipies: {
+    savedRecipes: {
       flex: 1,
       marginHorizontal: normalizePx(10),
     },

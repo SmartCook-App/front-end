@@ -12,9 +12,9 @@ const SearchbarComponent: FC<Props> = (props: Props) => {
   const { placeholderText } = props;
 
   return (
-    <View style={SearchRecipiesStyle.searchbarContainer}>
+    <View style={SearchRecipesStyle.searchbarContainer}>
       <Searchbar
-        style={SearchRecipiesStyle.searchbar}
+        style={SearchRecipesStyle.searchbar}
         placeholder={placeholderText}
         value=""
         iconColor={Colors.light.yellow}
@@ -25,7 +25,7 @@ const SearchbarComponent: FC<Props> = (props: Props) => {
 
 export default SearchbarComponent;
 
-const SearchRecipiesStyle = StyleSheet.create({
+const SearchRecipesStyle = StyleSheet.create({
   searchbarContainer: {
     flex: 0.1,
     paddingTop: normalizePx(20),

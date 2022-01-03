@@ -8,7 +8,7 @@ export default {
     background: '#fff',
     white: 'white',
     yellow: '#FAB73D',
-    yellowRecipieIcons: '#FED049',
+    yellowRecipeIcons: '#FED049',
     transparentYellow: 'rgba(250, 183, 61, 0.7)',
     transparentBlack: 'rgba(30, 24, 24, 0.62)',
     tint: tintColorLight,

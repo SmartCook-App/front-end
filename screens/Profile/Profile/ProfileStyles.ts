@@ -65,6 +65,9 @@ const ProfileStyles = StyleSheet.create({
     width: 65,
     textAlign: "center",
   },
+  textProfile: {
+    color: 'black',
+  },
 });
 
 export default ProfileStyles;

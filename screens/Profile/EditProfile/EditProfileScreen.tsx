@@ -6,11 +6,11 @@ import styles from "./EditProfileStyles";
 import { FontAwesome5, Feather, MaterialIcons } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import BackgroundImage from "../../../components/ImagesComponents/LoginBackgroundImage";
+import BackgroundImage from "../../../components/LoginRegister/BackgroundImage/BackgroundImageComponent";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Image } from "react-native-animatable";
-import TopNavbar from "../../../components/Others/TopNavbar";
+import TopNavbar from "../../../components/TopNavbar/TopNavbarComponent";
 
 interface Props {
   navigation: any;
@@ -28,7 +28,6 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
     birthday: '',
     gender: '',
   };
-  const state = useSelector((state: RootState) => state);
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
   );
@@ -241,7 +240,7 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
             )}
           </Formik>
           <Text style={styles.deleteButton}>
-            {EPL[lang]?.deleteAccount}
+            {EPL[lang]?.changePassword}
           </Text>
         </View>
       </BackgroundImage>

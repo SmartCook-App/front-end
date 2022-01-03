@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
+import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FilterComponentStyle";
 import {
   FontAwesome,
   MaterialCommunityIcons,

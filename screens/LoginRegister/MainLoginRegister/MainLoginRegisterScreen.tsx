@@ -5,10 +5,10 @@ import { useSelector } from "react-redux";
 import { Link } from "@react-navigation/native";
 import { RootState } from "../../../redux/store";
 import MLRL from "./MainLoginRegisterLanguages";
-import BackgroundImage from "../../../components/ImagesComponents/LoginBackgroundImage";
-import ButtonLoginEmail from "../../../components/LoginRegisterComponents/ButtonLoginEmail";
-import IconFacebookGoogle from "../../../components/LoginRegisterComponents/IconFacebookGoogle";
-import KnowMore from "../../../components/LoginRegisterComponents/KnowMore";
+import BackgroundImage from "../../../components/LoginRegister/BackgroundImage/BackgroundImageComponent";
+import ButtonLoginEmail from "../../../components/LoginRegister/MainLoginRegister/ButtonLoginEmail/ButtonLoginEmailComponent";
+import IconFacebookGoogle from "../../../components/LoginRegister/MainLoginRegister/IconFacebookGoogle/IconFacebookGoogleComponent";
+import KnowMore from "../../../components/LoginRegister/MainLoginRegister/KnowMore/KnowMoreComponent";
 
 interface Props {
   navigation: any;
@@ -52,7 +52,7 @@ const LoginRegister: FC<Props> = (props: Props) => {
           </View>
           <Text
             style={[styles.textFooter, styles.textLater]}
-            onPress={() => navigation.navigate("RecipieHomeScreen")}
+            onPress={() => navigation.navigate("RecipesHomeScreen")}
           >
             {MLRL[lang]?.signInLater}
           </Text>

@@ -1,14 +1,14 @@
 import React, { FC, useState } from 'react';
 import Colors from '../../../assets/Colors';
 import CalendarPicker from 'react-native-calendar-picker';
-import ScheduledRecipeComponent from '../../../components/CalendarComponents/ScheduledRecipe';
+import ScheduledRecipeComponent from '../../../components/Calendar/ScheduledRecipe/ScheduledRecipeComponent';
 import { View, Text } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
 import { MaterialIcons } from '@expo/vector-icons';
 // DOC: https://github.com/stephy/CalendarPicker
 import CL from './CalendarLanguages';
-import TopBar from '../../../components/Others/TopNavbar';
+import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
 import { ScrollView } from 'react-native-gesture-handler';
 import CalendarStyle from './CalendarStyles';
 
@@ -31,7 +31,7 @@ const Calendar: FC<Props> = (props: Props) => {
 
   return (
     <View style={CalendarStyle.container}>
-      <TopBar title={CL[lang]?.topBarTitle} navigation="None" goBack={false} />
+      <TopNavbar title={CL[lang]?.topBarTitle} navigation="None" goBack={false} />
       <View style={CalendarStyle.calendarContainer}>
         <CalendarPicker
           startFromMonday={true}
@@ -50,7 +50,7 @@ const Calendar: FC<Props> = (props: Props) => {
           textStyle={CalendarStyle.calendarText}
         />
       </View>
-      <ScrollView style={CalendarStyle.savedRecipies}>
+      <ScrollView style={CalendarStyle.savedRecipes}>
         <Text style={CalendarStyle.selectedDateText}>{selectedDate}</Text>
         <ScheduledRecipeComponent
           navigation={navigation}

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Text, View } from "react-native";
-import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
+import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FilterComponentStyle";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import { reorderFiltersHomeInteractor } from "../../redux/interactors/homeIconsInteractors";
 import { useDispatch } from "react-redux";

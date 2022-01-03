@@ -16,7 +16,7 @@ import { Text } from "react-native-animatable";
 import styles from "./ShoppingListStyles";
 import { Searchbar, Divider } from "react-native-paper";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
-import TopNavbar from "../../components/Others/TopNavbar";
+import TopNavbar from "../../components/TopNavbar/TopNavbarComponent";
 import SLL from "./ShoppingListLanguages";
 import SearchbarComponent from '../../components/HomeComponents/SearchComponents/SearchbarComponent';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
@@ -85,14 +85,18 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
   const addItemToList = () => {
     console.log('AGREGAR ITEMS')
   }
-  const notWorkingYet = () => 
+  const finishButtonLabel = () => 
     Alert.alert(
-      "Esta opción todavía no está disponible",
       "¿Estas segur@ que deseas marcar la lista como completada?",
+      "Al realizar esta acción se te eliminaran todos los productos",
       [
         {
-          text: "Ok",
-          onPress: () => console.log("OK")
+          text: "Sí",
+          onPress: () => console.log("Sí")
+        },
+        {
+          text: "No",
+          onPress: () => console.log("No")
         }
       ]
   )
@@ -189,7 +193,7 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
               </View>
             ) : (
               <>
-              <TouchableOpacity style={styles.finishedListButton} onPress={notWorkingYet}>
+              <TouchableOpacity style={styles.finishedListButton} onPress={confirmDelete}>
                 <Text style={styles.finishedListText}>
                   {SLL[state.language].finishButtonLabel}
                 </Text>

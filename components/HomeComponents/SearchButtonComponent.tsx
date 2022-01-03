@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
+import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FilterComponentStyle";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 const SearchButtonComponent: FC<Props> = (props: Props) => {
   const { navigation } = props;
   const pressButton = () => {
-    navigation.navigate('SearchRecipies');
+    navigation.navigate('SearchRecipes');
   };
 
   return (

@@ -94,7 +94,7 @@ const SearchIngredientStyle = StyleSheet.create({
     textAlign: 'center',
   },
   circlePress: {
-    backgroundColor: Colors.light.yellowRecipieIcons,
+    backgroundColor: Colors.light.yellowRecipeIcons,
   },
   circleNotPress: {
     backgroundColor: Colors.light.greyOfFilters,

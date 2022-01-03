@@ -4,13 +4,13 @@ import RoundFiltersComponents from "../../../components/HomeComponents/RoundFilt
 import PSL from "./ProfileLanguages";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import RecipiesComponent from "../../../components/HomeComponents/recipiesComponent";
+import RecipesComponent from "../../../components/HomeComponents/RecipesComponent";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./ProfileStyles";
 import { Text } from "../../../components/Themed";
 import { addFilterHomeInteractor } from "../../../redux/interactors/homeIconsInteractors";
 import { HomeIconTypes } from "../../../redux/types/homeIconsTypes";
-import TopNavbar from "../../../components/Others/TopNavbar";
+import TopNavbarWithKebabComponent from '../../../components/Profile/EditProfile/TopNavbarWithKebab/TopNavbarWithKebabComponent';
 
 
 interface Props {
@@ -26,7 +26,7 @@ const AccountScreen:  FC<Props> = (props: Props) =>  {
   const dispatch = useDispatch();
 
   const onPressEditProfile = (item: any) => {
-    navigation.navigate('ConfigProfileScreen');
+    navigation.navigate('EditProfileScreen');
   };
 
   const addFilter = () => {
@@ -43,20 +43,20 @@ const AccountScreen:  FC<Props> = (props: Props) =>  {
   return (
     <>
       <SafeAreaView style={styles.mainContainer}>
-      <TopNavbar
+      <TopNavbarWithKebabComponent
           title={"PERFIL"}
-          goBack={false}
+          goBack={true}
           navigation={navigation}
         />
         <View style={styles.headerContainer}>
           <View style={styles.headerRowContainer}>
             <Ionicons name={"person-circle-outline"} size={80} />
             <View style={styles.headerTextContainer}>
-              <Text>Nombre</Text>
+              <Text style={styles.textProfile}>Nombre</Text>
               {/* Aca hay que reemplazar con la informacion del usuario cuando */}
-              <Text>Link Pagina</Text>
+              <Text style={styles.textProfile}>Link Página</Text>
               {/* tengamos la data. */}
-              <Text>Descripcion</Text>
+              <Text style={styles.textProfile}>Descripcion</Text>
             </View>
           </View>
           {ownProfile ? (
@@ -120,7 +120,7 @@ const AccountScreen:  FC<Props> = (props: Props) =>  {
           ) : null}
         </View>
         <ScrollView style={styles.recipesContainer}>
-          <RecipiesComponent
+          <RecipesComponent
             name={"name"}
             image={"image"}
             cal={"cal"}
