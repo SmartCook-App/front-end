@@ -52,11 +52,11 @@ const AccountScreen:  FC<Props> = (props: Props) =>  {
           <View style={styles.headerRowContainer}>
             <Ionicons name={"person-circle-outline"} size={80} />
             <View style={styles.headerTextContainer}>
-              <Text>Nombre</Text>
+              <Text style={styles.textProfile}>Nombre</Text>
               {/* Aca hay que reemplazar con la informacion del usuario cuando */}
-              <Text>Link Pagina</Text>
+              <Text style={styles.textProfile}>Link Página</Text>
               {/* tengamos la data. */}
-              <Text>Descripcion</Text>
+              <Text style={styles.textProfile}>Descripcion</Text>
             </View>
           </View>
           {ownProfile ? (
@@ -77,7 +77,7 @@ const AccountScreen:  FC<Props> = (props: Props) =>  {
                 onPress={addFilter}
               >
                 <Ionicons
-                  name={"add-circle-outline"}
+                  name={"add"}
                   size={45}
                   color={"black"}
                 />
