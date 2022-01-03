@@ -39,7 +39,7 @@ const RecipieHome: FC<Props> = (props: Props) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../../../assets/Images/Eliminar/ensalada.jpg')}
+        source={require("../../../assets/Images/Eliminar/ensalada.jpg")}
         style={styles.photo}
       >
         <ScrollView>

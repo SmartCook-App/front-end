@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FiltersComponentsStyle";
+import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FilterComponentStyle";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import SwipePickerComponent from "./SwipePickerComponent";
 import DietTypeFilter from "./DietTypeFilter";
