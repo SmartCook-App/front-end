@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { Image, Text, View, TextInput, TouchableOpacity } from "react-native";
-import loginRegisterStyle from "../../styles/LoginRegisterStyles";
-import LRL from "../../assets/Languages/LoginRegisterLanguage";
+import loginRegisterStyle from "../../screens/LoginRegister/LoginRegister/LoginRegisterStyles";
+import LRL from "../../screens/LoginRegister/LoginRegister/LogInRegisterLanguages";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { Feather, MaterialIcons } from '@expo/vector-icons'; 

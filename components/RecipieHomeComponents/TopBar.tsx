@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import styles from '../../styles/HomeStyles';
+import styles from '../../screens/LoginRegister/MainLoginRegister/MainLoginRegisterStyles';
 import { normalizeFontSize, normalizePx } from '../../styles/normalize';
 import Colors from '../../assets/Colors';
 import {

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
-import HomeStyle from '../../styles/HomeStyles';
+import HomeStyle from '../../screens/LoginRegister/MainLoginRegister/MainLoginRegisterStyles';
 import { FontAwesome5 } from '@expo/vector-icons'; 
 
 interface Props {

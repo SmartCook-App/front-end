@@ -1,12 +1,12 @@
 import React, { FC, useState} from 'react';
 import { View, Text, StyleSheet, TouchableWithoutFeedback, Button, Modal, TextInput} from 'react-native';
-import styles from '../../styles/HomeStyles';
+import styles from '../../screens/LoginRegister/MainLoginRegister/MainLoginRegisterStyles';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { normalizeFontSize, normalizePx } from '../../styles/normalize';
 import Colors from '../../assets/Colors';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import SCL from '../../assets/Languages/SubtitleComponentLanguage'
+import RDL from '../../screens/Recipies/RecipieDetails/RecipieDetailsLanguages'
 
 interface Props {
   text: string;
@@ -20,7 +20,7 @@ const Subtitle: FC<Props> = (props: Props) => {
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
-  // SCL[lang]?.appName
+
   // This is to manage Modal State
   const [isModalVisible, setModalVisible] = useState(false);
 
@@ -51,7 +51,7 @@ const Subtitle: FC<Props> = (props: Props) => {
                                 onChangeText={(value) => setInputValue(value)} />
                      {/** This button is responsible to close the modal */}
                      <TouchableOpacity style={RecipieSubtitleStyle.uploadButtonContainer} >
-                        <Text onPress={toggleModalVisibility} style={RecipieSubtitleStyle.uploadButton}>{SCL[lang]?.saveButton}</Text>
+                        <Text onPress={toggleModalVisibility} style={RecipieSubtitleStyle.uploadButton}>{RDL[lang]?.saveButton}</Text>
                       </TouchableOpacity>
                  </View>
              </View>

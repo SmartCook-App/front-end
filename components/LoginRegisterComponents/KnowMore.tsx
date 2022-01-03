@@ -3,8 +3,8 @@ import { Text, View } from "react-native";
 import Carousel from "react-native-snap-carousel";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
-import LRL from "../../assets/Languages/LoginRegisterLanguage";
-import HomeStyle from "../../styles/HomeStyles";
+import MLRL from "../../screens/LoginRegister/MainLoginRegister/MainLoginRegisterLanguages";
+import HomeStyle from "../../screens/LoginRegister/MainLoginRegister/MainLoginRegisterStyles";
 
 const KnowMore: FC = () => {
   const lang = useSelector<RootState, RootState["language"]>(
@@ -13,20 +13,20 @@ const KnowMore: FC = () => {
 
   const carouselItems = [
       {
-        title: LRL[lang]?.slideTitle1,
-        text: LRL[lang]?.slideDescription1,
+        title: MLRL[lang]?.slideTitle1,
+        text: MLRL[lang]?.slideDescription1,
       },
       {
-        title: LRL[lang]?.slideTitle2,
-        text: LRL[lang]?.slideDescription2,
+        title: MLRL[lang]?.slideTitle2,
+        text: MLRL[lang]?.slideDescription2,
       },
       {
-        title: LRL[lang]?.slideTitle3,
-        text: LRL[lang]?.slideDescription3,
+        title: MLRL[lang]?.slideTitle3,
+        text: MLRL[lang]?.slideDescription3,
       },
       {
-        title: LRL[lang]?.slideTitle4,
-        text: LRL[lang]?.slideDescription4,
+        title: MLRL[lang]?.slideTitle4,
+        text: MLRL[lang]?.slideDescription4,
       },
   ]
 

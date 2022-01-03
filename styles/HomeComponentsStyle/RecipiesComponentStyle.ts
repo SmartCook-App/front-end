@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
-
+import { normalizeFontSize, normalizePx } from "../normalize";
 // screen sizing
 const { width, height } = Dimensions.get("window");
 // orientation must fixed
@@ -38,18 +38,18 @@ const RecipiesComponentStyle = StyleSheet.create({
   },
   title: {
     flex: 1,
-    fontSize: 12,
+    fontSize: normalizeFontSize(12),
     fontFamily: "nunito-regular",
     textAlign: 'center',
     color: '#000000',
-    marginRight: 6,
-    marginLeft: 6,
+    marginRight: normalizePx(6),
+    marginLeft: normalizePx(6),
   },
   likesOval: {
     alignItems: 'center',
-    width: 45,
-    height: 16,
-    fontSize: 10,
+    width: normalizePx(45),
+    height: normalizePx(16),
+    fontSize: normalizeFontSize(10),
     textAlign: 'center',
     borderRadius: 50,
     backgroundColor: "#FAB73D",
@@ -60,15 +60,21 @@ const RecipiesComponentStyle = StyleSheet.create({
   },
   timeOval: {
     alignItems: 'center', 
-    width: 60,
-    height: 16,
+    width: normalizePx(60),
+    height: normalizePx(16),
     textAlign: 'center',
     borderRadius: 50,
     backgroundColor: 'rgba(0, 0, 0, 0.35)',
     color: '#ffffff',
-    left: 12,
-    top: 5,
-    fontSize: 10,
+    left: normalizePx(12),
+    top: normalizePx(5),
+    fontSize: normalizePx(10),
   },
+  deleteButton: {
+    height: normalizePx(30),
+    width: normalizePx(30),
+    alignSelf: 'flex-end',
+    top: -10,
+  }
 });
 export default RecipiesComponentStyle;

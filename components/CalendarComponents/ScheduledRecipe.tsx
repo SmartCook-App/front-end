@@ -4,8 +4,8 @@ import Colors from '../../assets/Colors';
 import { View, StyleSheet, Text } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import CL from '../../assets/Languages/CalendarLanguage';
-import RecipeAbstractComponent from '../../components/HomeComponents/RecipeAbstactComponent';
+import CL from '../../screens/Calendar/CalendarIndexScreen.tsx/CalendarLanguages';
+import RecipeAbstractCalendarComponent from '../../components/CalendarComponents/RecipeAbstractCalendarComponent';
 
 interface Props {
   navigation: any;
@@ -32,7 +32,7 @@ const ScheduledRecipeComponent: FC<Props> = (props: Props) => {
       <View style={CalendarStyle.timeOfDayRecipieContainer}>
         {isRecipeSaved ? (
           <View style={CalendarStyle.savedRecipeContainer}>
-            <RecipeAbstractComponent
+            <RecipeAbstractCalendarComponent
               navigation={navigation}
               time="30"
               likes="10"

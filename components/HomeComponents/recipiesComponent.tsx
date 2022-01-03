@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import RecipiesComponentStyle from '../../styles/HomeComponentsStyle/RecipiesComponentStyle';
-import { recipes } from '../../screens/Home/recipiesDataArray';
+import { recipes } from '../../screens/Recipies/recipiesDataArray';
 import { Feather, MaterialIcons } from '@expo/vector-icons';
 import RecipeAbstractComponent from '../HomeComponents/RecipeAbstactComponent';
 

@@ -1,36 +1,36 @@
 import React, { FC } from 'react';
-import LRL from '../assets/Languages/LoginRegisterLanguage';
+import MLRL from '../screens/LoginRegister/MainLoginRegister/MainLoginRegisterLanguages';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import { createStackNavigator } from '@react-navigation/stack';
-import MainLoginRegisterScreen from '../screens/LoginRegister/MainLoginRegisterScreen';
-import LoginRegisterScreen from '../screens/LoginRegister/LoginRegisterScreen';
-import IndexScreen from '../screens/Home/IndexScreen';
-import AccountScreen from '../screens/Profile/AccountScreen';
-import ConfigProfileScreen from '../screens/Profile/ConfigProfileScreen';
-import StepsRecipiesScreen from '../screens/Recipies/StepsRecipiesScreen';
-import RecipieHome from '../screens/Home/RecipieHome';
-import SearchRecipies from '../screens/Home/SearchRecipies';
-import SearchIngredient from '../screens/Home/SearchIngredient';
-import ChooseIngredient from '../screens/Home/ChooseIngredient';
-import ShoppingListScreen from '../screens/ShoppingListScreen';
-import CalendarScreen from '../screens/Calendar/CalendarScreen';
-import Match from '../screens/Home/Match';
+import MainLoginRegisterScreen from '../screens/LoginRegister/MainLoginRegister/MainLoginRegisterScreen';
+import LoginRegisterScreen from '../screens/LoginRegister/LoginRegister/LoginRegisterScreen';
+import RecipieHomeScreen from '../screens/Recipies/RecipieHome/RecipieHomeScreen';
+import ProfileScreen from '../screens/Profile/Profile/ProfileScreen';
+import ConfigProfileScreen from '../screens/Profile/EditProfile/EditProfileScreen';
+import StepsRecipiesScreen from '../screens/Recipies/RecipiesSteps/RecipiesStepsScreen';
+import RecipieDetailsScreen from '../screens/Recipies/RecipieDetails/RecipieDetailsScreen';
+import SearchRecipiesScreen from '../screens/Recipies/SearchRecipies/SearchRecipiesScreen';
+import SearchIngredientScreen from '../screens/Recipies/SearchIngredient/SearchIngredientScreen';
+import ChooseIngredientScreen from '../screens/Recipies/ChooseIngredient/ChooseIngredientScreen';
+import ShoppingListScreen from '../screens/ShoppingList/ShoppingListScreen';
+import CalendarScreen from '../screens/Calendar/CalendarIndexScreen.tsx/CalendarScreen';
+import RecipieMatchScreen from '../screens/Recipies/RecipieMatch/RecipieMatchScreen';
 
 type RootStackParamList = {
   MainLoginRegisterScreen: undefined;
   LoginRegisterScreen: undefined;
-  IndexScreen: undefined;
-  RecipieHome: undefined;
-  SearchRecipies: undefined;
-  Account: undefined;
+  RecipieHomeScreen: undefined;
+  RecipieDetailsScreen: undefined;
+  SearchRecipiesScreen: undefined;
+  ProfileScreen: undefined;
   StepsRecipiesScreen: undefined;
   ConfigProfileScreen: undefined;
   ShoppingListScreen: undefined;
-  SearchIngredient: undefined;
+  SearchIngredientScreen: undefined;
   CalendarScreen: undefined;
-  ChooseIngredient: undefined;
-  Match: undefined;
+  ChooseIngredientScreen: undefined;
+  RecipieMatchScreen: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -50,7 +50,7 @@ export const MainPageStackNavigator: FC = () => {
         name="MainLoginRegisterScreen"
         component={MainLoginRegisterScreen}
         options={{
-          title: LRL[lang]?.appName,
+          title: MLRL[lang]?.appName,
           headerShown: false,
         }}
       />
@@ -58,22 +58,22 @@ export const MainPageStackNavigator: FC = () => {
         name="LoginRegisterScreen"
         component={LoginRegisterScreen}
         options={{
-          title: LRL[lang]?.appName,
+          title: MLRL[lang]?.appName,
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="IndexScreen"
-        component={IndexScreen}
+        name="RecipieHomeScreen"
+        component={RecipieHomeScreen}
         options={{
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="RecipieHome"
-        component={RecipieHome}
+        name="RecipieDetailsScreen"
+        component={RecipieDetailsScreen}
         options={{
-          title: 'LRL[lang]?.appName',
+          title: 'MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
@@ -93,42 +93,42 @@ export const RecepiesStackNavigator: FC = () => {
       }}
     >
       <RootStack.Screen
-        name="IndexScreen"
-        component={IndexScreen}
+        name="RecipieHomeScreen"
+        component={RecipieHomeScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="RecipieHome"
-        component={RecipieHome}
+        name="RecipieDetailsScreen"
+        component={RecipieDetailsScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="SearchRecipies"
-        component={SearchRecipies}
+        name="SearchRecipiesScreen"
+        component={SearchRecipiesScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="SearchIngredient"
-        component={SearchIngredient}
+        name="SearchIngredientScreen"
+        component={SearchIngredientScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="ChooseIngredient"
-        component={ChooseIngredient}
+        name="ChooseIngredientScreen"
+        component={ChooseIngredientScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
@@ -136,15 +136,15 @@ export const RecepiesStackNavigator: FC = () => {
         name="StepsRecipiesScreen"
         component={StepsRecipiesScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="Match"
-        component={Match}
+        name="RecipieMatchScreen"
+        component={RecipieMatchScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
@@ -157,12 +157,12 @@ export const AccountStackNavigator: FC = () => {
     (state) => state.language
   );
   return (
-    <RootStack.Navigator initialRouteName="IndexScreen">
+    <RootStack.Navigator initialRouteName="RecipieHomeScreen">
       <RootStack.Screen
-        name="Account"
-        component={AccountScreen}
+        name="ProfileScreen"
+        component={ProfileScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
@@ -170,7 +170,7 @@ export const AccountStackNavigator: FC = () => {
         name="ConfigProfileScreen"
         component={ConfigProfileScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
@@ -184,7 +184,7 @@ export const ShoppingListStackNavigator: FC = () => {
   );
   return (
     <RootStack.Navigator
-      initialRouteName="IndexScreen"
+      initialRouteName="RecipieHomeScreen"
       // screenOptions={{
       //   headerStyle: { backgroundColor: Colors.colorPrimary },
       //   headerTintColor: Colors.textColorPrimary,

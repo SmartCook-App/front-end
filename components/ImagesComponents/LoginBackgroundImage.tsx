@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { ImageBackground, View } from "react-native";
-import HomeStyle from "../../styles/HomeStyles";
+import HomeStyle from "../../screens/LoginRegister/MainLoginRegister/MainLoginRegisterStyles";
 
 interface Props {
   children: any;

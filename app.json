@@ -4,11 +4,11 @@
     "slug": "front-end",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/Images/icon.png",
+    "icon": "./assets/Images/ReactNativeImages/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/Images/splash.png",
+      "image": "./assets/Images/ReactNativeImages/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -23,12 +23,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/Images/adaptive-icon.png",
+        "foregroundImage": "./assets/Images/ReactNativeImages/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/Images/favicon.png"
+      "favicon": "./assets/Images/ReactNativeImages/favicon.png"
     }
   }
 }

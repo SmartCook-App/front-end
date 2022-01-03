@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Text, View, TextInput, TouchableOpacity, Switch} from 'react-native';
-import loginRegisterStyle from '../../styles/LoginRegisterStyles';
-import LRL from "../../assets/Languages/LoginRegisterLanguage";
+import loginRegisterStyle from '../../screens/LoginRegister/LoginRegister/LoginRegisterStyles';
+import LRL from "../../screens/LoginRegister/LoginRegister/LogInRegisterLanguages";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { FontAwesome5, Feather , MaterialIcons } from '@expo/vector-icons';

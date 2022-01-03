@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { TouchableOpacity, Text, StyleSheet, Image } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import styles from "../../styles/HomeStyles";
+import styles from "../../screens/LoginRegister/MainLoginRegister/MainLoginRegisterStyles";
 
 interface Props {
   navigation: any;
