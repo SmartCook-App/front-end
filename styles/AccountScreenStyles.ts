@@ -64,7 +64,11 @@ const FiltersComponentsStyle = StyleSheet.create({
     fontSize: 12,
     width: 65,
     textAlign: "center",
+    color: 'black'
   },
+  textProfile: {
+    color: 'black',
+  }
 });
 
 export default FiltersComponentsStyle;

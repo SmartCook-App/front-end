@@ -22,7 +22,7 @@ interface Props {
 
 const Login: FC<Props> = (props: Props) => {
   const { navigation } = props;
-  const [showRegister, setShowRegister] = useState(true);
+  const [showRegister, setShowRegister] = useState(false);
   const lang = useSelector<RootState, RootState["language"]>(
     (state) => state.language
   );
