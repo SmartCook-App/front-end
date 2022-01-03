@@ -10,7 +10,7 @@ import BackgroundImage from "../../components/ImagesComponents/LoginBackgroundIm
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Image } from "react-native-animatable";
-import TopNavbar from "../../components/Others/TopNavbar";
+import TopNavbarWithKebab from "../../components/Others/TopNavbarWithKebab";
 
 interface Props {
   navigation: any;
@@ -55,7 +55,7 @@ const IndexScreen: FC<Props> = (props: Props) => {
   return (
     <>
       <BackgroundImage>
-        <TopNavbar
+        <TopNavbarWithKebab
           title={"PERFIL"}
           goBack={true}
           navigation={navigation}
@@ -241,7 +241,7 @@ const IndexScreen: FC<Props> = (props: Props) => {
             )}
           </Formik>
           <Text style={ConfigProfileStyle.deleteButton}>
-            {PL[lang]?.deleteAccount}
+            {PL[lang]?.changePassword}
           </Text>
         </View>
       </BackgroundImage>
