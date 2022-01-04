@@ -1,36 +1,36 @@
 import React, { FC } from 'react';
-import LRL from '../assets/Languages/LoginRegisterLanguage';
+import MLRL from '../screens/LoginRegister/MainLoginRegister/MainLoginRegisterLanguages';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import { createStackNavigator } from '@react-navigation/stack';
-import MainLoginRegisterScreen from '../screens/LoginRegister/MainLoginRegisterScreen';
-import LoginRegisterScreen from '../screens/LoginRegister/LoginRegisterScreen';
-import IndexScreen from '../screens/Home/IndexScreen';
-import AccountScreen from '../screens/Profile/AccountScreen';
-import ConfigProfileScreen from '../screens/Profile/ConfigProfileScreen';
-import StepsRecipiesScreen from '../screens/Recipies/StepsRecipiesScreen';
-import RecipieHome from '../screens/Home/RecipieHome';
-import SearchRecipies from '../screens/Home/SearchRecipies';
-import SearchIngredient from '../screens/Home/SearchIngredient';
-import ChooseIngredient from '../screens/Home/ChooseIngredient';
-import ShoppingListScreen from '../screens/ShoppingListScreen';
-import CalendarScreen from '../screens/Calendar/CalendarScreen';
-import Match from '../screens/Home/Match';
+import MainLoginRegisterScreen from '../screens/LoginRegister/MainLoginRegister/MainLoginRegisterScreen';
+import LoginRegisterScreen from '../screens/LoginRegister/LoginRegister/LoginRegisterScreen';
+import RecipesHomeScreen from '../screens/Recipes/RecipesHome/RecipesHomeScreen';
+import ProfileScreen from '../screens/Profile/Profile/ProfileScreen';
+import EditProfileScreen from '../screens/Profile/EditProfile/EditProfileScreen';
+import StepsRecipesScreen from '../screens/Recipes/RecipesSteps/RecipesStepsScreen';
+import RecipeDetailsScreen from '../screens/Recipes/RecipeDetails/RecipeDetailsScreen';
+import SearchRecipesScreen from '../screens/Recipes/SearchRecipes/SearchRecipesScreen';
+import SearchIngredientScreen from '../screens/Recipes/SearchIngredient/SearchIngredientScreen';
+import ChooseIngredientScreen from '../screens/Recipes/ChooseIngredient/ChooseIngredientScreen';
+import ShoppingListScreen from '../screens/ShoppingList/ShoppingListScreen';
+import CalendarScreen from '../screens/Calendar/CalendarIndexScreen.tsx/CalendarScreen';
+import RecipeMatchScreen from '../screens/Recipes/RecipesMatch/RecipesMatchScreen';
 
 type RootStackParamList = {
   MainLoginRegisterScreen: undefined;
   LoginRegisterScreen: undefined;
-  IndexScreen: undefined;
-  RecipieHome: undefined;
-  SearchRecipies: undefined;
-  Account: undefined;
-  StepsRecipiesScreen: undefined;
-  ConfigProfileScreen: undefined;
+  RecipesHomeScreen: undefined;
+  RecipeDetailsScreen: undefined;
+  SearchRecipesScreen: undefined;
+  ProfileScreen: undefined;
+  StepsRecipesScreen: undefined;
+  EditProfileScreen: undefined;
   ShoppingListScreen: undefined;
-  SearchIngredient: undefined;
+  SearchIngredientScreen: undefined;
   CalendarScreen: undefined;
-  ChooseIngredient: undefined;
-  Match: undefined;
+  ChooseIngredientScreen: undefined;
+  RecipeMatchScreen: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -50,7 +50,7 @@ export const MainPageStackNavigator: FC = () => {
         name="MainLoginRegisterScreen"
         component={MainLoginRegisterScreen}
         options={{
-          title: LRL[lang]?.appName,
+          title: MLRL[lang]?.appName,
           headerShown: false,
         }}
       />
@@ -58,22 +58,22 @@ export const MainPageStackNavigator: FC = () => {
         name="LoginRegisterScreen"
         component={LoginRegisterScreen}
         options={{
-          title: LRL[lang]?.appName,
+          title: MLRL[lang]?.appName,
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="IndexScreen"
-        component={IndexScreen}
+        name="RecipesHomeScreen"
+        component={RecipesHomeScreen}
         options={{
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="RecipieHome"
-        component={RecipieHome}
+        name="RecipeDetailsScreen"
+        component={RecipeDetailsScreen}
         options={{
-          title: 'LRL[lang]?.appName',
+          title: 'MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
@@ -93,58 +93,58 @@ export const RecepiesStackNavigator: FC = () => {
       }}
     >
       <RootStack.Screen
-        name="IndexScreen"
-        component={IndexScreen}
+        name="RecipesHomeScreen"
+        component={RecipesHomeScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="RecipieHome"
-        component={RecipieHome}
+        name="RecipeDetailsScreen"
+        component={RecipeDetailsScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="SearchRecipies"
-        component={SearchRecipies}
+        name="SearchRecipesScreen"
+        component={SearchRecipesScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="SearchIngredient"
-        component={SearchIngredient}
+        name="SearchIngredientScreen"
+        component={SearchIngredientScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="ChooseIngredient"
-        component={ChooseIngredient}
+        name="ChooseIngredientScreen"
+        component={ChooseIngredientScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="StepsRecipiesScreen"
-        component={StepsRecipiesScreen}
+        name="StepsRecipesScreen"
+        component={StepsRecipesScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="Match"
-        component={Match}
+        name="RecipeMatchScreen"
+        component={RecipeMatchScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
@@ -157,20 +157,20 @@ export const AccountStackNavigator: FC = () => {
     (state) => state.language
   );
   return (
-    <RootStack.Navigator initialRouteName="IndexScreen">
+    <RootStack.Navigator initialRouteName="RecipesHomeScreen">
       <RootStack.Screen
-        name="Account"
-        component={AccountScreen}
+        name="ProfileScreen"
+        component={ProfileScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
       <RootStack.Screen
-        name="ConfigProfileScreen"
-        component={ConfigProfileScreen}
+        name="EditProfileScreen"
+        component={EditProfileScreen}
         options={{
-          title: ' LRL[lang]?.appName',
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
@@ -184,7 +184,7 @@ export const ShoppingListStackNavigator: FC = () => {
   );
   return (
     <RootStack.Navigator
-      initialRouteName="IndexScreen"
+      initialRouteName="ShoppingListScreen"
       // screenOptions={{
       //   headerStyle: { backgroundColor: Colors.colorPrimary },
       //   headerTintColor: Colors.textColorPrimary,

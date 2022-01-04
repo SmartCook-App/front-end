@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { RootState } from "../redux/store";
 import { connect } from "react-redux";
 import { Text, View, ScrollView, SafeAreaView, StyleSheet } from "react-native";
-import ChangeLanguage from "../components/SettingScreenComponents/ChangeLanguageComponent";
+import ChangeLanguage from "../components/Profile/EditProfile/ChangeLanguage/ChangeLanguageComponent";
 
 interface StateProps {
   lang: string;
