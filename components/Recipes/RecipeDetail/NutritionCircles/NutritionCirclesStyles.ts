@@ -1,23 +1,15 @@
-import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { normalizePx } from '../../../../styles/normalize';
 import Colors from '../../../../assets/Colors';
 
-
 const NutritionCircleStyle = StyleSheet.create({
-  nutriCirclesContainer: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    paddingHorizontal: normalizePx(40),
-    paddingVertical: normalizePx(30),
-    justifyContent: 'space-between',
-  },
   nutriCircles: {
     borderRadius: normalizePx(50),
     width: normalizePx(70),
     height: normalizePx(70),
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: '#C4C4C4',
+    borderColor: Colors.light.lightGrey1,
     borderWidth: normalizePx(2),
   },
   nutriCirclesText: {
@@ -29,4 +21,3 @@ const NutritionCircleStyle = StyleSheet.create({
   },
 });
 export default NutritionCircleStyle;
-

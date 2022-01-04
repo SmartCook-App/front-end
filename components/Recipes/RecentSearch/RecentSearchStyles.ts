@@ -1,5 +1,6 @@
 import { normalizeFontSize, normalizePx } from '../../../styles/normalize';
 import { StyleSheet } from 'react-native';
+import Colors from '../../../assets/Colors';
 
 const RecentSearchStyle = StyleSheet.create({
     recentSearchElement: {
@@ -7,7 +8,7 @@ const RecentSearchStyle = StyleSheet.create({
       paddingBottom: normalizePx(10),
       flexDirection: 'row',
       borderBottomWidth: normalizePx(1),
-      borderColor: '#C4C4C4',
+      borderColor: Colors.light.lightGrey1,
     },
     recentSearchElementText: {
       fontFamily: 'nunito-light',

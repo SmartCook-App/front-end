@@ -4,7 +4,6 @@ import style from './OvalFilterStyles';
 import {
   FontAwesome,
   MaterialCommunityIcons,
-  Entypo,
 } from '@expo/vector-icons';
 
 interface Props {

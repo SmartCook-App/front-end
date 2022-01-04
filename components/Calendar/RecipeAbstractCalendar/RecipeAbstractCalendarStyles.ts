@@ -1,7 +1,8 @@
-import { StyleSheet, Dimensions } from "react-native";
-import { normalizeFontSize, normalizePx } from "../../../styles/normalize";
+import { StyleSheet, Dimensions } from 'react-native';
+import { normalizeFontSize, normalizePx } from '../../../styles/normalize';
+import Colors from '../../../assets/Colors';
 // screen sizing
-const { width, height } = Dimensions.get("window");
+const { width, height } = Dimensions.get('window');
 // orientation must fixed
 const SCREEN_WIDTH = width < height ? width : height;
 
@@ -14,34 +15,35 @@ const BORDER_RADIUS = 15;
 const RecipeAbstractCalendar = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E9E9E9',
+    backgroundColor: Colors.light.greyOfFilters,
     justifyContent: 'space-between',
     alignItems: 'center',
     marginLeft: RECIPE_ITEM_MARGIN,
-    marginTop: 25,
+    marginTop: normalizeFontSize(25),
     width:
       (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) /
       recipeNumColums,
     height: RECIPE_ITEM_HEIGHT,
-    borderColor: "#E9E9E9",
-    borderWidth: 0.5,
+    borderColor: Colors.light.greyOfFilters,
+    borderWidth: normalizeFontSize(0.5),
     borderRadius: BORDER_RADIUS,
   },
   photo: {
-    width: (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) / recipeNumColums,
-    height: RECIPE_ITEM_HEIGHT - 21,
-    borderRadius: BORDER_RADIUS, 
+    width:
+      (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) /
+      recipeNumColums,
+    height: RECIPE_ITEM_HEIGHT - normalizeFontSize(21),
+    borderRadius: BORDER_RADIUS,
     overflow: 'hidden',
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0
-
+    borderBottomLeftRadius: normalizeFontSize(0),
+    borderBottomRightRadius: normalizeFontSize(0),
   },
   title: {
     flex: 1,
     fontSize: normalizeFontSize(12),
-    fontFamily: "nunito-regular",
+    fontFamily: 'nunito-regular',
     textAlign: 'center',
-    color: '#000000',
+    color: Colors.light.black,
     marginRight: normalizePx(6),
     marginLeft: normalizePx(6),
   },
@@ -51,21 +53,24 @@ const RecipeAbstractCalendar = StyleSheet.create({
     height: normalizePx(16),
     fontSize: normalizeFontSize(10),
     textAlign: 'center',
-    borderRadius: 50,
-    backgroundColor: "#FAB73D",
+    borderRadius: normalizePx(50),
+    backgroundColor: Colors.light.yellow,
     transform: [{ scaleX: 1 }],
     alignSelf: 'flex-end',
-    right: (SCREEN_WIDTH - (recipeNumColums + 20) * RECIPE_ITEM_MARGIN) / recipeNumColums,
-    top: RECIPE_ITEM_HEIGHT - 60
+    right:
+      (SCREEN_WIDTH -
+        (recipeNumColums + normalizeFontSize(20)) * RECIPE_ITEM_MARGIN) /
+      recipeNumColums,
+    top: RECIPE_ITEM_HEIGHT - normalizeFontSize(60),
   },
   timeOval: {
-    alignItems: 'center', 
+    alignItems: 'center',
     width: normalizePx(60),
     height: normalizePx(16),
     textAlign: 'center',
-    borderRadius: 50,
+    borderRadius: normalizeFontSize(50),
     backgroundColor: 'rgba(0, 0, 0, 0.35)',
-    color: '#ffffff',
+    color: Colors.light.background,
     left: normalizePx(12),
     top: normalizePx(5),
     fontSize: normalizePx(10),
@@ -74,7 +79,7 @@ const RecipeAbstractCalendar = StyleSheet.create({
     height: normalizePx(30),
     width: normalizePx(30),
     alignSelf: 'flex-end',
-    top: -10,
-  }
+    top: normalizeFontSize(-10),
+  },
 });
 export default RecipeAbstractCalendar;

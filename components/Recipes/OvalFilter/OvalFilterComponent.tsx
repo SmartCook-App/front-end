@@ -5,6 +5,10 @@ import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 import SwipePickerComponent from './SwipePickerComponent';
 import DietTypeFilter from './DietTypeFilter';
 import Modal from 'react-native-modal';
+import Colors from '../../../assets/Colors';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
+import OFL from './OvalFilterLanguage';
 import {
   Entypo,
   FontAwesome,
@@ -17,6 +21,9 @@ interface Props {
 const OvalFilterComponent: FC<Props> = (props: Props) => {
   const { item } = props;
   const [isModalVisible, setModalVisible] = useState(false);
+  const lang = useSelector<RootState, RootState['language']>(
+    (state) => state.language
+  );
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -28,7 +35,7 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
           <Text style={style.letter}>{item.name}</Text>
           <IoniconsIcon
             name="chevron-down-outline"
-            color={'black'}
+            color={Colors.light.black}
             size={14}
             style={style.arrow}
           />
@@ -74,7 +81,7 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
 
             <View style={style.buttonApply}>
               <TouchableOpacity>
-                <Text style={style.buttonText}>Aplicar</Text>
+                <Text style={style.buttonText}>{OFL[lang]?.apply}</Text>
               </TouchableOpacity>
             </View>
           </View>
