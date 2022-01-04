@@ -48,7 +48,7 @@ const CategoryGridComponent: FC<Props> = (props: Props) => {
               <TouchableOpacity onPress={pressIngredient}>
                 <Avatar.Image
                   size={55}
-                  source={require('../../assets/Images/Ingredients/tomato.jpg')}
+                  source={{ uri: 'https://reactjs.org/logo-og.png' }}
                 />
               </TouchableOpacity>
             </View>

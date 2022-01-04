@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { normalizeFontSize, normalizePx } from '../../../styles/normalize';
 import Colors from '../../../assets/Colors';
 
 const logInRegisterStyle = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         flexDirection:'column',
         alignItems:'center',
         justifyContent:'center',
@@ -16,90 +17,24 @@ const logInRegisterStyle = StyleSheet.create({
         marginTop: '20%'
     },
     registerLoginButtonText: {
-        fontSize: 22,
+        fontSize: normalizeFontSize(22),
         fontFamily: 'nunito-semiBold',
-        color: 'white',
+        color: Colors.light.white,
     },
     crossButton: {
-        color: 'white',
+        color: Colors.light.white,
         marginTop: '15%',
         marginLeft: '5%',
     },
     buttonTextOpacity: {
-        color: 'rgba(255, 255, 255, 0.53)',
+        color: Colors.light.white,
+        opacity: 0.53,
     },
     line: {
-        backgroundColor: 'white',
-        height: 2,
+        backgroundColor: Colors.light.white,
+        height: normalizePx(2),
         width: '100%'
     },
-    button: {
-        backgroundColor: "white",
-        padding: 20,
-        marginTop: '7%',
-        borderRadius: 20,
-        width: 300,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    buttonLogIn: {
-        backgroundColor: "white",
-        padding: 20,
-        marginTop: '40.5%',
-        borderRadius: 20,
-        width: 300,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    buttonText: {
-        fontSize: 14,
-        position: 'relative',
-        color: '#000000',
-        textTransform: 'uppercase',
-    },
-    textInput: {
-        borderBottomColor: '#ffffff',
-        borderBottomWidth: 1,
-        width: 300,
-        color: 'white',
-        padding: 5,
-        margin: 15,
-    },
-    errorText: {
-        fontSize: 14,
-        color: Colors.light.error,
-        width: 300,
-    },
-    icon: {
-        color: "white",
-        resizeMode: 'contain',
-        left: -13,
-        position: 'absolute',
-    },
-    passwordIcon: {
-        color: "white",
-        resizeMode: 'contain',
-        right: 18,
-        position: 'absolute',
-    },
-    viewInput: {
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    subContainer: {
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    footerText: {
-        marginTop: 40,
-        color: 'white',
-        fontFamily: 'nunito-light',
-        textAlign: 'center'
-    },
-    footerTextBold: {
-        fontFamily: 'nunito-semiBold',
-        textAlign: 'center'
-    }
   });
 
 export default logInRegisterStyle;

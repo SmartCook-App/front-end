@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { normalizeFontSize, normalizePx } from '../../../styles/normalize';
+import { normalizePx } from '../../../styles/normalize';
 import Colors from '../../../assets/Colors';
 
 const ChooseIngredientStyles = StyleSheet.create({

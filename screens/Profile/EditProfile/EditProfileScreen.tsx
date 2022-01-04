@@ -1,9 +1,9 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import LRL from '../../LoginRegister/LoginRegister/LogInRegisterLanguages';
 import EPL from './EditProfilesLanguages';
 import styles from './EditProfileStyles';
-import { FontAwesome5, Feather, MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome5, Feather } from '@expo/vector-icons';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
 import BackgroundImage from '../../../components/LoginRegister/BackgroundImage/BackgroundImageComponent';
@@ -11,6 +11,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Image } from 'react-native-animatable';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
+import Colors from '../../../assets/Colors';
 
 interface Props {
   navigation: any;
@@ -110,7 +111,7 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
                     style={styles.icon}
                   />
                   <TextInput
-                    placeholderTextColor="white"
+                    placeholderTextColor={Colors.light.white}
                     style={styles.textInput}
                     placeholder={LRL[lang]?.name}
                     onChangeText={handleChange('name')}
@@ -125,7 +126,7 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
                 </View>
                 <View style={styles.viewInput}>
                   <TextInput
-                    placeholderTextColor="white"
+                    placeholderTextColor={Colors.light.white}
                     style={styles.textInput}
                     placeholder={LRL[lang]?.lastName}
                     onChangeText={handleChange('lastName')}
@@ -141,7 +142,7 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
                 <View style={styles.viewInput}>
                   <Feather name="mail" size={23} style={styles.icon} />
                   <TextInput
-                    placeholderTextColor="white"
+                    placeholderTextColor={Colors.light.white}
                     style={styles.textInput}
                     placeholder={LRL[lang]?.email}
                     onChangeText={handleChange('email')}
@@ -152,7 +153,7 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
                 <View style={styles.viewInput}>
                   <Feather name="phone" size={23} style={styles.icon} />
                   <TextInput
-                    placeholderTextColor="white"
+                    placeholderTextColor={Colors.light.white}
                     style={styles.textInput}
                     placeholder={LRL[lang]?.phone}
                     onChangeText={handleChange('phoneNumber')}
@@ -164,7 +165,7 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
                 <View style={styles.viewInput}>
                   <Feather name="mail" size={23} style={styles.icon} />
                   <TextInput
-                    placeholderTextColor="white"
+                    placeholderTextColor={Colors.light.white}
                     style={styles.textInput}
                     placeholder={LRL[lang]?.birthday}
                     onChangeText={handleChange('birthday')}
@@ -175,7 +176,7 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
                 <View style={styles.viewInput}>
                   <Feather name="mail" size={23} style={styles.icon} />
                   <TextInput
-                    placeholderTextColor="white"
+                    placeholderTextColor={Colors.light.white}
                     style={styles.textInput}
                     placeholder={LRL[lang]?.gender}
                     onChangeText={handleChange('gender')}
@@ -189,19 +190,6 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
                   ) : null}
                 </View>
                 <View style={styles.viewInput}>
-                  {/* <MaterialIcons
-                  name="vpn-key"
-                  size={23}
-                  style={styles.icon}
-                /> */}
-                  {/* <TextInput
-                  placeholderTextColor="white"
-                  style={styles.textInput}
-                  placeholder={LRL[lang]?.password}
-                  onChangeText={handleChange("password")}
-                  onBlur={handleBlur("password")}
-                  value={values.password}
-                /> */}
                 </View>
               </>
             )}

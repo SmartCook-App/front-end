@@ -7,14 +7,13 @@ import {
   ImageBackground,
   Alert,
   TextInput,
-  Keyboard,
-  Animated,
+  Keyboard
 } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { Text } from 'react-native-animatable';
 import styles from './ShoppingListStyles';
-import { Searchbar, Divider } from 'react-native-paper';
+import { Divider } from 'react-native-paper';
 import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 import TopNavbar from '../../components/TopNavbar/TopNavbarComponent';
 import SLL from './ShoppingListLanguages';
@@ -85,17 +84,17 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
   const addItemToList = () => {
     console.log('AGREGAR ITEMS');
   };
-  const finishButtonLabel = () =>
+  const confirmDelete = () =>
     Alert.alert(
-      '¿Estas segur@ que deseas marcar la lista como completada?',
-      'Al realizar esta acción se te eliminaran todos los productos',
+      SLL[state.language].confirmMarkListCompleted,
+      SLL[state.language].whatHappensWhenMarkingListCompleted,
       [
         {
-          text: 'Sí',
+          text: SLL[state.language].yes,
           onPress: () => console.log('Sí'),
         },
         {
-          text: 'No',
+          text: SLL[state.language].no,
           onPress: () => console.log('No'),
         },
       ]
@@ -158,7 +157,7 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
     <>
       <SafeAreaView style={styles.mainContainer}>
         <ImageBackground
-          source={require('../../assets/Images/LoginImg/loginBackground.jpeg')}
+          source={{ uri: 'https://reactjs.org/logo-og.png' }}
           resizeMode="cover"
           style={styles.image}
         >
@@ -184,7 +183,7 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
                   <TextInput
                     autoFocus={true}
                     style={styles.addItemBar}
-                    placeholder="¿Qué deseas agregar?"
+                    placeholder={SLL[state.language].whatDoYouNeedToAdd}
                   />
                   <TouchableOpacity
                     style={styles.addButton}

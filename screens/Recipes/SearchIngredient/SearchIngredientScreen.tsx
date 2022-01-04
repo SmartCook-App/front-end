@@ -21,7 +21,6 @@ const SearchIngredient: FC<Props> = (props: Props) => {
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
-  var listNamesFilters = Object.values(FL[state.language]);
   const { navigation } = props;
   return (
     <>

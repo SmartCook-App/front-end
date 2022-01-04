@@ -20,6 +20,9 @@ import NutritionCircles from '../../../components/Recipes/RecipeDetail/Nutrition
 import TopBar from '../../../components/Recipes/RecipeDetail/TopBar/TopBarComponent';
 import AddSubButton from '../../../components/Recipes/AddSubButton/AddSubButtonComponent';
 import styles from './RecipeDetailsStyles';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
+import RDL from './RecipeDetailsLanguages';
 
 interface Props {
   navigation: any;
@@ -31,14 +34,16 @@ const RecipeDetailsScreen: FC<Props> = (props: Props) => {
   // TODO: eliminar esta data cuando tengamos la base de datos
   const data = ["1", "2", "3", "4", "5", "6"]
   const [inputValue, setInputValue] = useState("");
-
+  const lang = useSelector<RootState, RootState['language']>(
+    (state) => state.language
+  );
   const onPressStepsRecipes = () => {
     navigation.navigate("StepsRecipesScreen")
   };
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require(`../../../assets/Images/Eliminar/ensalada.jpg`)}
+        source={{ uri: 'https://reactjs.org/logo-og.png' }}
         style={styles.photo}
       >
         <ScrollView>
@@ -89,7 +94,7 @@ const RecipeDetailsScreen: FC<Props> = (props: Props) => {
               <MaterialCommunityIcons
                 name={'pot-steam'}
                 size={55}
-                color="white"
+                color={Colors.light.white}
               />
               </TouchableHighlight>
             <View style={styles.goDownArrow}>
@@ -116,13 +121,13 @@ const RecipeDetailsScreen: FC<Props> = (props: Props) => {
               </Text>
             </View>
           </View>
-          <Subtitle text="Porciones" rightText='' inputValue={'none'} setInputValue={'none'}/>
+          <Subtitle text={RDL[lang]?.portions} rightText='' inputValue={'none'} setInputValue={'none'}/>
           <View style={styles.portions}>
             <AddSubButton text={"-"} OnPressfunction={"sub"} setAmountPortions={setAmountPortions} amountPortions={amountPortions}/>
             <Text style={styles.portionText}>{amountPortions}</Text>
             <AddSubButton text={"+"} OnPressfunction={"add"} setAmountPortions={setAmountPortions} amountPortions={amountPortions}/>
           </View>
-          <Subtitle text="Lo que necesitas" rightText='' inputValue={'none'} setInputValue={'none'}/>
+          <Subtitle text={RDL[lang]?.whatYouNeed} rightText='' inputValue={'none'} setInputValue={'none'}/>
           <View style={styles.whatYouNeedContainer}>
             <FlatList
               data={data}
@@ -135,18 +140,18 @@ const RecipeDetailsScreen: FC<Props> = (props: Props) => {
                 icon={{ name: 'user', type: 'font-awesome' }}
                 activeOpacity={1}
                 containerStyle={styles.cookerAvatar}
-                source={require(`../../../assets/Images/Eliminar/ensalada.jpg`)}
+                source={{ uri: 'https://reactjs.org/logo-og.png' }}
                 
               />
             }
             />
            
           </View>
-          <Subtitle text="Mis notas" rightText='añadir' inputValue={inputValue} setInputValue={setInputValue}/>
+          <Subtitle text={RDL[lang]?.myNotes} rightText={RDL[lang]?.add} inputValue={inputValue} setInputValue={setInputValue}/>
           <View style={styles.myNotesContainer}>
             <Text style={styles.myNoteText}>{inputValue}</Text>
           </View>
-          <Subtitle text="Información nutricional" rightText='' inputValue={'none'} setInputValue={'none'}/>
+          <Subtitle text={RDL[lang]?.nutritionInfo} rightText='' inputValue={'none'} setInputValue={'none'}/>
           <View style={styles.nutriCirclesContainer}>
             <NutritionCircles calories="140" proteins="14" fat="16" carbs="86" />
           </View>
