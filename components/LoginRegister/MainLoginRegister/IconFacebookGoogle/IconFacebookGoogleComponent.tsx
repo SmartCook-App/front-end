@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
-import HomeStyle from '../../../../screens/LoginRegister/MainLoginRegister/MainLoginRegisterStyles';
-import { FontAwesome5 } from '@expo/vector-icons'; 
+import style from './IconFacebookGoogleStyles';
 
 interface Props {
     navigation: any;
@@ -14,11 +13,11 @@ const IconFacebookGoogle : FC<Props> = (props: Props) => {
     return (
         <TouchableOpacity
             onPress={() => navigation.navigate('Slide')}
-            style={HomeStyle.icons}>
+            style={style.icons}>
             {imageIcon === 'facebook' ? (
-                <Image source={require('../../assets/Images/LoginImg/facebook.png')} style={HomeStyle.imageButtonFacebook} />
+                <Image source={require('../../assets/Images/LoginImg/facebook.png')} style={style.imageButtonFacebook} />
             ) : (
-                <Image source={require(`../../assets/Images/LoginImg/google.png`)} style={HomeStyle.imageButtonGoogle} />
+                <Image source={require(`../../assets/Images/LoginImg/google.png`)} style={style.imageButtonGoogle} />
             )}
 
         </TouchableOpacity>

@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { ImageBackground, View } from "react-native";
-import styles from '../../../screens/LoginRegister/MainLoginRegister/MainLoginRegisterStyles';
+import React, { FC } from 'react';
+import { ImageBackground, View } from 'react-native';
+import style from './BackgroundImageStyles';
 
 interface Props {
   children: any;
@@ -9,12 +9,12 @@ interface Props {
 const BackgroundImage: FC<Props> = (props: Props) => {
   return (
     <ImageBackground
-      source={require("../../assets/Images/LoginImg/loginBackground.jpeg")}
-      style={styles.image}
+      source={require('../../assets/Images/LoginImg/loginBackground.jpeg')}
+      style={style.image}
       blurRadius={1}
     >
-      <View style={styles.child}>
-        <View style={styles.childtwo}>{props.children}</View>
+      <View style={style.child}>
+        <View style={style.childtwo}>{props.children}</View>
       </View>
     </ImageBackground>
   );
