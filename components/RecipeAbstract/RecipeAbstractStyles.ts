@@ -1,7 +1,7 @@
-import { StyleSheet, Dimensions } from "react-native";
-import { normalizeFontSize, normalizePx } from "../normalize";
+import { StyleSheet, Dimensions } from 'react-native';
+import { normalizeFontSize, normalizePx } from '../../styles/normalize';
 // screen sizing
-const { width, height } = Dimensions.get("window");
+const { width, height } = Dimensions.get('window');
 // orientation must fixed
 const SCREEN_WIDTH = width < height ? width : height;
 
@@ -11,7 +11,7 @@ const RECIPE_ITEM_HEIGHT = 131;
 const RECIPE_ITEM_MARGIN = 18;
 const BORDER_RADIUS = 15;
 
-const RecipesComponentStyle = StyleSheet.create({
+const RecipeAbstractStyle = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#E9E9E9',
@@ -23,23 +23,24 @@ const RecipesComponentStyle = StyleSheet.create({
       (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) /
       recipeNumColums,
     height: RECIPE_ITEM_HEIGHT,
-    borderColor: "#E9E9E9",
+    borderColor: '#E9E9E9',
     borderWidth: 0.5,
     borderRadius: BORDER_RADIUS,
   },
   photo: {
-    width: (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) / recipeNumColums,
+    width:
+      (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) /
+      recipeNumColums,
     height: RECIPE_ITEM_HEIGHT - 21,
-    borderRadius: BORDER_RADIUS, 
+    borderRadius: BORDER_RADIUS,
     overflow: 'hidden',
     borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0
-
+    borderBottomRightRadius: 0,
   },
   title: {
     flex: 1,
     fontSize: normalizeFontSize(12),
-    fontFamily: "nunito-regular",
+    fontFamily: 'nunito-regular',
     textAlign: 'center',
     color: '#000000',
     marginRight: normalizePx(6),
@@ -52,14 +53,16 @@ const RecipesComponentStyle = StyleSheet.create({
     fontSize: normalizeFontSize(10),
     textAlign: 'center',
     borderRadius: 50,
-    backgroundColor: "#FAB73D",
+    backgroundColor: '#FAB73D',
     transform: [{ scaleX: 1 }],
     alignSelf: 'flex-end',
-    right: (SCREEN_WIDTH - (recipeNumColums + 20) * RECIPE_ITEM_MARGIN) / recipeNumColums,
-    top: RECIPE_ITEM_HEIGHT - 60
+    right:
+      (SCREEN_WIDTH - (recipeNumColums + 20) * RECIPE_ITEM_MARGIN) /
+      recipeNumColums,
+    top: RECIPE_ITEM_HEIGHT - 60,
   },
   timeOval: {
-    alignItems: 'center', 
+    alignItems: 'center',
     width: normalizePx(60),
     height: normalizePx(16),
     textAlign: 'center',
@@ -75,6 +78,6 @@ const RecipesComponentStyle = StyleSheet.create({
     width: normalizePx(30),
     alignSelf: 'flex-end',
     top: -10,
-  }
+  },
 });
-export default RecipesComponentStyle;
+export default RecipeAbstractStyle;

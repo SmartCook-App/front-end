@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { View, ScrollView } from "react-native";
 import styles from "./RecipesHomeStyles";
 import OvalFilterComponent from "../../../components/Recipes/OvalFilter/OvalFilterComponent";
-import RoundFiltersComponents from "../../../components/RoundFilters/RoundFiltersComponents";
+import RoundFiltersComponents from "../../../components/RoundFilters/RoundFiltersComponent";
 import FL from "../../../assets/Languages/Recipes/RecipeFiltersHomeLanguages";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";

@@ -1,6 +1,6 @@
 import { StyleSheet, Platform, Dimensions } from "react-native";
-import Colors from "../assets/Colors";
-import { normalizeFontSize, normalizePx } from "./normalize";
+import Colors from "../../assets/Colors";
+import { normalizeFontSize, normalizePx } from "../../styles/normalize";
 
 const TopNavbarStyle = StyleSheet.create({
   container: {

@@ -1,7 +1,6 @@
-import React, { FC } from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native";
-import IndexScreenStyle from "../../../../styles/HomeComponentsStyle/IndexScreenStyle";
+import React, { FC } from 'react';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import style from './IngredientsButtonStyles';
 
 interface Props {
   navigation: any;
@@ -16,9 +15,9 @@ const IngredientsButtonComponent: FC<Props> = (props: Props) => {
   };
 
   return (
-    <MaterialCommunityIcons 
-      name={"carrot"} 
-      style={IndexScreenStyle.ingredientsButton} 
+    <MaterialCommunityIcons
+      name={'carrot'}
+      style={style.ingredientsButton}
       size={62}
       onPress={onPress}
     />

@@ -1,11 +1,11 @@
-import React, { FC, useState } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
-import FiltersComponentsStyle from "../../../styles/HomeComponentsStyle/FilterComponentStyle";
+import React, { FC, useState } from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
+import style from './OvalFilterStyles';
 import {
   FontAwesome,
   MaterialCommunityIcons,
   Entypo,
-} from "@expo/vector-icons";
+} from '@expo/vector-icons';
 
 interface Props {
   itemValue: any;
@@ -21,36 +21,28 @@ const DietTypeFilter: FC<Props> = (props: Props) => {
 
   return (
     <TouchableOpacity onPress={changeToPress}>
-      <View style={FiltersComponentsStyle.directionIconAndFilterText}>
-        {Object.keys(itemValue) == "Sin gluten" ? (
+      <View style={style.directionIconAndFilterText}>
+        {Object.keys(itemValue) == 'Sin gluten' ? (
           <>
             <MaterialCommunityIcons
               name={itemValue[Object.keys(itemValue)]}
               size={30}
-              style={FiltersComponentsStyle.iconFilterOptions}
+              style={style.iconFilterOptions}
             />
-            <Text style={FiltersComponentsStyle.filterOptions}>
-              {Object.keys(itemValue)}
-            </Text>
+            <Text style={style.filterOptions}>{Object.keys(itemValue)}</Text>
           </>
         ) : (
           <>
             <FontAwesome
               name={itemValue[Object.keys(itemValue)]}
               size={30}
-              style={FiltersComponentsStyle.iconFilterOptions}
+              style={style.iconFilterOptions}
             />
-            <Text style={FiltersComponentsStyle.filterOptions}>
-              {Object.keys(itemValue)}
-            </Text>
+            <Text style={style.filterOptions}>{Object.keys(itemValue)}</Text>
           </>
         )}
         {press ? (
-          <FontAwesome
-            name={"check"}
-            size={30}
-            style={FiltersComponentsStyle.check}
-          />
+          <FontAwesome name={'check'} size={30} style={style.check} />
         ) : null}
       </View>
     </TouchableOpacity>

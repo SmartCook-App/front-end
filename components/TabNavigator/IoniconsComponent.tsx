@@ -1,7 +1,6 @@
-import React, { FC } from "react";
-import { Text, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import TabBarStyle from "../../styles/TabBarStyle";
+import React, { FC } from 'react';
+import { Ionicons } from '@expo/vector-icons';
+import style from './IoniconsStyles';
 
 interface Props {
   name: any;
@@ -9,8 +8,6 @@ interface Props {
 
 const IoniconsComponent: FC<Props> = (props: Props) => {
   const { name } = props;
-  return (
-      <Ionicons name={name} style={TabBarStyle.icon} size={36} />
-  );
+  return <Ionicons name={name} style={style.icon} size={36} />;
 };
 export default IoniconsComponent;

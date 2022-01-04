@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
-import FiltersComponentsStyle from '../../../styles/HomeComponentsStyle/FilterComponentStyle';
+import style from './OvalFilterStyles';
 import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 import SwipePickerComponent from './SwipePickerComponent';
 import DietTypeFilter from './DietTypeFilter';
@@ -22,56 +22,46 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
     setModalVisible(!isModalVisible);
   };
   return (
-    <View style={FiltersComponentsStyle.oval}>
+    <View style={style.oval}>
       <TouchableOpacity onPress={toggleModal}>
-        <View style={FiltersComponentsStyle.oval}>
-          <Text style={FiltersComponentsStyle.letter}>{item.name}</Text>
+        <View style={style.oval}>
+          <Text style={style.letter}>{item.name}</Text>
           <IoniconsIcon
             name="chevron-down-outline"
             color={'black'}
             size={14}
-            style={FiltersComponentsStyle.arrow}
+            style={style.arrow}
           />
         </View>
       </TouchableOpacity>
       <Modal isVisible={isModalVisible}>
         <View style={{ flex: 1 }}>
-          <View style={FiltersComponentsStyle.bottomPopUp}>
+          <View style={style.bottomPopUp}>
             <TouchableOpacity onPress={toggleModal}>
-              <Entypo
-                name="cross"
-                size={30}
-                style={FiltersComponentsStyle.crossButton}
-              />
+              <Entypo name="cross" size={30} style={style.crossButton} />
             </TouchableOpacity>
-            <Text style={FiltersComponentsStyle.titleItemFilter}>
-              {item.name}
-            </Text>
+            <Text style={style.titleItemFilter}>{item.name}</Text>
             {item.values.map((itemValue: any) => (
               <>
                 {item.name === 'Tipo dieta' ? (
                   <DietTypeFilter itemValue={itemValue} />
                 ) : null}
                 {item.name === 'Time' ? (
-                  <View
-                    style={FiltersComponentsStyle.directionIconAndFilterText}
-                  >
+                  <View style={style.directionIconAndFilterText}>
                     <FontAwesome
                       name={itemValue[Object.keys(itemValue)]}
                       size={35}
-                      style={FiltersComponentsStyle.iconFilterOptions}
+                      style={style.iconFilterOptions}
                     />
                     <SwipePickerComponent value={'time'} text={'minutos'} />
                   </View>
                 ) : null}
                 {item.name === 'Calorías' ? (
-                  <View
-                    style={FiltersComponentsStyle.directionIconAndFilterText}
-                  >
+                  <View style={style.directionIconAndFilterText}>
                     <MaterialCommunityIcons
                       name={itemValue[Object.keys(itemValue)]}
                       size={35}
-                      style={FiltersComponentsStyle.iconFilterOptions}
+                      style={style.iconFilterOptions}
                     />
                     <SwipePickerComponent
                       value={'calories'}
@@ -82,9 +72,9 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
               </>
             ))}
 
-            <View style={FiltersComponentsStyle.buttonApply}>
+            <View style={style.buttonApply}>
               <TouchableOpacity>
-                <Text style={FiltersComponentsStyle.buttonText}>Aplicar</Text>
+                <Text style={style.buttonText}>Aplicar</Text>
               </TouchableOpacity>
             </View>
           </View>

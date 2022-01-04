@@ -1,10 +1,9 @@
-import React, { FC } from "react";
-import { Text, View } from "react-native";
-import FiltersComponentsStyle from "../../styles/HomeComponentsStyle/FilterComponentStyle";
-import IoniconsIcon from "react-native-vector-icons/Ionicons";
-import { reorderFiltersHomeInteractor } from "../../redux/interactors/homeIconsInteractors";
-import { useDispatch } from "react-redux";
-import { HomeIconTypes } from "../../redux/types/homeIconsTypes";
+import React, { FC } from 'react';
+import { Text, View } from 'react-native';
+import style from './FilterComponentStyle';
+import IoniconsIcon from 'react-native-vector-icons/Ionicons';
+import { reorderFiltersHomeInteractor } from '../../redux/interactors/homeIconsInteractors';
+import { useDispatch } from 'react-redux';
 
 interface Props {
   id: any;
@@ -25,7 +24,7 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
 
   const applyFilter = () => {
     // This is from this view
-    if (title == "cookers") {
+    if (title == 'cookers') {
       setcookersView(!cookersView);
     }
     const payload = {
@@ -46,24 +45,18 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
       <View
         style={
           isPressed
-            ? [
-                FiltersComponentsStyle.circle,
-                FiltersComponentsStyle.circlePress,
-              ]
-            : [
-                FiltersComponentsStyle.circle,
-                FiltersComponentsStyle.circleNotPress,
-              ]
+            ? [style.circle, style.circlePress]
+            : [style.circle, style.circleNotPress]
         }
       >
         <IoniconsIcon
           name={name}
-          color={"black"}
+          color={'black'}
           size={45}
           onPress={applyFilter}
         />
       </View>
-      <Text style={FiltersComponentsStyle.title}>{title}</Text>
+      <Text style={style.title}>{title}</Text>
     </View>
   );
 };

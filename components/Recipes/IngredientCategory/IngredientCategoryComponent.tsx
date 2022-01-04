@@ -1,14 +1,10 @@
 import React, { FC } from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import Colors from '../../../assets/Colors';
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
-import { normalizeFontSize, normalizePx } from '../../../styles/normalize';
+import { View, TouchableOpacity, Text } from 'react-native';
 import { paintChooseIngredientInteractor } from '../../../redux/interactors/paintChooseIngredientInteractors';
-import { Dimensions } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { Avatar } from 'react-native-paper';
-
-const width = Dimensions.get('window').width;
+import style from './IngredientCategoryStyles';
 
 interface Props {
   ingredientId: any;
@@ -36,23 +32,17 @@ const CategoryGridComponent: FC<Props> = (props: Props) => {
   };
 
   return (
-    <View style={SearchIngredientStyle.eachCategoryContainer}>
+    <View style={style.eachCategoryContainer}>
       <TouchableOpacity>
-        <View style={SearchIngredientStyle.categoryCircle}>
+        <View style={style.categoryCircle}>
           {isImage == false ? (
             <MaterialCommunityIcons name={iconName} size={35} color="black" />
           ) : (
             <View
               style={
                 isPressed
-                  ? [
-                      SearchIngredientStyle.categoryCircle,
-                      SearchIngredientStyle.circlePress,
-                    ]
-                  : [
-                      SearchIngredientStyle.categoryCircle,
-                      SearchIngredientStyle.circleNotPress,
-                    ]
+                  ? [style.categoryCircle, style.circlePress]
+                  : [style.categoryCircle, style.circleNotPress]
               }
             >
               <TouchableOpacity onPress={pressIngredient}>
@@ -65,38 +55,8 @@ const CategoryGridComponent: FC<Props> = (props: Props) => {
           )}
         </View>
       </TouchableOpacity>
-      <Text style={SearchIngredientStyle.categoryTitle}>{name}</Text>
+      <Text style={style.categoryTitle}>{name}</Text>
     </View>
   );
 };
 export default CategoryGridComponent;
-
-const SearchIngredientStyle = StyleSheet.create({
-  eachCategoryContainer: {
-    alignItems: 'center',
-    right: normalizePx(5),
-    width: width / 4,
-  },
-  categoryCircle: {
-    marginRight: normalizePx(10),
-    width: normalizePx(65),
-    height: normalizePx(65),
-    borderRadius: normalizePx(40),
-    backgroundColor: Colors.light.greyOfFilters,
-    alignItems: 'center',
-    justifyContent: 'center',
-    left: normalizePx(5),
-  },
-  categoryTitle: {
-    fontFamily: 'nunito-light',
-    fontSize: normalizeFontSize(10),
-    width: width / 4,
-    textAlign: 'center',
-  },
-  circlePress: {
-    backgroundColor: Colors.light.yellowRecipeIcons,
-  },
-  circleNotPress: {
-    backgroundColor: Colors.light.greyOfFilters,
-  },
-});

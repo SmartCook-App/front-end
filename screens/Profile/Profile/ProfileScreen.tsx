@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { View, ScrollView, SafeAreaView, TouchableOpacity } from "react-native";
-import RoundFiltersComponents from "../../../components/RoundFilters/RoundFiltersComponents";
+import RoundFiltersComponents from "../../../components/RoundFilters/RoundFiltersComponent";
 import PSL from "./ProfileLanguages";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";

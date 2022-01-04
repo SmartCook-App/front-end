@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Text, View, ImageBackground, TouchableOpacity } from 'react-native';
-import RecipesComponentStyle from '../../styles/HomeComponentsStyle/RecipesComponentStyle';
+import style from './RecipeAbstractStyles';
 import { Feather, MaterialIcons } from '@expo/vector-icons';
 
 interface Props {
@@ -12,24 +12,24 @@ interface Props {
 
 const RecipeAbstractComponent: FC<Props> = (props: Props) => {
   const { navigation, time, likes, title } = props;
-  const onPressRecipe = (item: any) => { 
+  const onPressRecipe = (item: any) => {
     navigation.navigate('RecipesHomeScreen');
   };
   return (
     <TouchableOpacity onPress={onPressRecipe}>
-      <View style={RecipesComponentStyle.container}>
+      <View style={style.container}>
         <ImageBackground
-          source={{uri: 'https://reactjs.org/logo-og.png'}}
-          style={RecipesComponentStyle.photo}
+          source={{ uri: 'https://reactjs.org/logo-og.png' }}
+          style={style.photo}
         >
-          <Text style={RecipesComponentStyle.timeOval}>
+          <Text style={style.timeOval}>
             <MaterialIcons name="access-time" color="white" /> {time}min
           </Text>
-          <Text style={RecipesComponentStyle.likesOval}>
+          <Text style={style.likesOval}>
             <Feather name="heart" color="black" /> {likes}
           </Text>
         </ImageBackground>
-        <Text style={RecipesComponentStyle.title}>{title}</Text>
+        <Text style={style.title}>{title}</Text>
       </View>
     </TouchableOpacity>
   );

@@ -1,38 +1,36 @@
-import { StyleSheet, Platform, Dimensions } from "react-native";
-import Colors from "../../assets/Colors";
-import window from "../../assets/Layout";
+import { StyleSheet, Dimensions } from 'react-native';
+import Colors from '../../assets/Colors';
 
-const { width, height } = Dimensions.get("window");
-console.log(width);
-const FiltersComponentsStyle = StyleSheet.create({
+const { width } = Dimensions.get('window');
+const RoundFiltersStyle = StyleSheet.create({
   oval: {
     flex: 1,
     backgroundColor: Colors.light.greyOfFilters,
     borderRadius: 14,
     width: 80,
     height: 20,
-    alignItems: "center",
+    alignItems: 'center',
     marginRight: 12,
     marginVertical: 20,
-    justifyContent: "space-around",
-    flexDirection: "row",
+    justifyContent: 'space-around',
+    flexDirection: 'row',
   },
   letter: {
-    fontFamily: "nunito-light",
+    fontFamily: 'nunito-light',
     fontSize: 10,
     width: 70,
-    textAlign: "center",
+    textAlign: 'center',
   },
   titleItemFilter: {
-    fontFamily: "nunito-bold",
+    fontFamily: 'nunito-bold',
     fontSize: 22,
-    textAlign: "center",
+    textAlign: 'center',
   },
   filterOptions: {
     fontSize: 16,
-    fontFamily: "nunito-regular",
+    fontFamily: 'nunito-regular',
     padding: 3,
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   iconFilterOptions: {
     marginLeft: 25,
@@ -44,25 +42,25 @@ const FiltersComponentsStyle = StyleSheet.create({
   buttonApply: {
     marginTop: 230,
     borderRadius: 8,
-    alignSelf: "center",
-    position: "absolute",
-    backgroundColor: "black",
+    alignSelf: 'center',
+    position: 'absolute',
+    backgroundColor: 'black',
     width: 340,
     height: 60,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   buttonText: {
-    fontFamily: "nunito-regular",
-    alignSelf: "center",
+    fontFamily: 'nunito-regular',
+    alignSelf: 'center',
     fontSize: 20,
-    color: "white",
+    color: 'white',
   },
   container: {
     marginHorizontal: width - 350,
     marginTop: 12,
   },
   containerRoundFilters: {
-    flexDirection: "row",
+    flexDirection: 'row',
     width: 370,
     marginHorizontal: 20,
   },
@@ -71,8 +69,8 @@ const FiltersComponentsStyle = StyleSheet.create({
     width: 62,
     height: 62,
     borderRadius: 50,
-    alignItems: "center",
-    justifyContent: "space-around",
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
   circlePress: {
     backgroundColor: Colors.light.yellow,
@@ -81,42 +79,42 @@ const FiltersComponentsStyle = StyleSheet.create({
     backgroundColor: Colors.light.greyOfFilters,
   },
   allCircles: {
-    justifyContent: "space-around",
+    justifyContent: 'space-around',
     height: 70,
   },
   direction: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   directionIconAndFilterText: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 4,
     marginTop: 8,
   },
   check: {
     marginLeft: 320,
-    position: "absolute",
+    position: 'absolute',
     color: Colors.light.yellow,
     opacity: 0.5,
   },
   title: {
-    fontFamily: "nunito-light",
+    fontFamily: 'nunito-light',
     fontSize: 12,
     width: 65,
-    textAlign: "center",
+    textAlign: 'center',
   },
   bottomPopUp: {
     //tengo que cambiar
-    position: "absolute",
+    position: 'absolute',
     bottom: -21,
     left: -20,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     height: 320,
     width: 410,
     borderRadius: 8,
   },
   crossButton: {
-    alignSelf: "flex-end",
+    alignSelf: 'flex-end',
     marginRight: 10,
     marginTop: 10,
   },
@@ -126,4 +124,4 @@ const FiltersComponentsStyle = StyleSheet.create({
   },
 });
 
-export default FiltersComponentsStyle;
+export default RoundFiltersStyle;

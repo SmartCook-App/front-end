@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
-import Colors from '../../assets/Colors';
-import { normalizePx } from '../../styles/normalize';
+import Colors from '../../../../assets/Colors';
+import { normalizePx } from '../../../../styles/normalize';
 
-const IndexScreenStyle = StyleSheet.create({
+const IngredientsButtonStyle = StyleSheet.create({
   ingredientsButton: {
     position: 'absolute',
     top: normalizePx(710),
@@ -11,4 +11,4 @@ const IndexScreenStyle = StyleSheet.create({
     backgroundColor: Colors.light.yellow,
   },
 });
-export default IndexScreenStyle;
+export default IngredientsButtonStyle;

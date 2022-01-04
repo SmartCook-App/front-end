@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import Colors from '../../assets/Colors';
-import { normalizePx } from '../../styles/normalize';
 import { Searchbar } from 'react-native-paper';
+import style from './SearchbarStyles'
 
 interface Props {
   placeholderText: any;
@@ -12,9 +12,9 @@ const SearchbarComponent: FC<Props> = (props: Props) => {
   const { placeholderText } = props;
 
   return (
-    <View style={SearchRecipesStyle.searchbarContainer}>
+    <View style={style.searchbarContainer}>
       <Searchbar
-        style={SearchRecipesStyle.searchbar}
+        style={style.searchbar}
         placeholder={placeholderText}
         value=""
         iconColor={Colors.light.yellow}
@@ -25,14 +25,4 @@ const SearchbarComponent: FC<Props> = (props: Props) => {
 
 export default SearchbarComponent;
 
-const SearchRecipesStyle = StyleSheet.create({
-  searchbarContainer: {
-    flex: 0.1,
-    paddingTop: normalizePx(20),
-    paddingLeft: normalizePx(10),
-    paddingRight: normalizePx(10),
-  },
-  searchbar: {
-    borderRadius: normalizePx(30),
-  },
-});
+

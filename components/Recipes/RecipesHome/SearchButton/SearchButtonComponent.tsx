@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import FiltersComponentsStyle from "../../../../styles/HomeComponentsStyle/FilterComponentStyle";
+import FiltersComponentsStyle from "../../../RoundFilters/FilterComponentStyle";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 
 interface Props {
