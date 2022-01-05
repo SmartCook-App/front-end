@@ -6,25 +6,27 @@ export const windowWidth = Dimensions.get('window').width;
 export const windowHeight = Dimensions.get('window').height;
 
 const HomeStyle = StyleSheet.create({
+  mainContainer:{
+    flexDirection: 'row',
+    flex: 1,
+    padding: normalizePx(10),
+    alignItems: 'center',
+  },
   homeButton: {
     backgroundColor: Colors.light.white,
-    padding: normalizePx(20),
-    height: normalizePx(60),
-    borderRadius: normalizePx(10),
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: normalizePx(7),
+    borderRadius: normalizePx(12),
+    flex: 0.3,
   },
   homeButtonText: {
     fontSize: normalizeFontSize(20),
     fontFamily: 'nunito-semiBold',
-    position: 'relative',
+    flex: 3,
     color: Colors.light.black,
-    left: '9%',
+    alignSelf: 'center'
   },
   homeMailIcon: {
-    left: normalizeFontSize(50),
-    resizeMode: 'contain',
-    position: 'absolute',
+    flex: 0.6,
   },
 });
 

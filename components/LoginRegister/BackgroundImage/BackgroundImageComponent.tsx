@@ -1,3 +1,4 @@
+import { resolveUri } from 'expo-asset/build/AssetSources';
 import React, { FC } from 'react';
 import { ImageBackground, View } from 'react-native';
 import style from './BackgroundImageStyles';
@@ -9,7 +10,7 @@ interface Props {
 const BackgroundImage: FC<Props> = (props: Props) => {
   return (
     <ImageBackground
-      source={{ uri: 'https://reactjs.org/logo-og.png' }}
+      source={require('../../../assets/Images/LoginImg/loginBackground.jpeg')}
       style={style.image}
       blurRadius={1}
     >

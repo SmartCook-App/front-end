@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import Colors from "../../../assets/Colors";
 export const windowWidth = Dimensions.get("window").width;
 export const windowHeight = Dimensions.get("window").height;
 import { normalizeFontSize, normalizePx } from "../../../styles/normalize";
