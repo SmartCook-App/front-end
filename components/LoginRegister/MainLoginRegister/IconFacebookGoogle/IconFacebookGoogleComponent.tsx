@@ -15,9 +15,9 @@ const IconFacebookGoogle : FC<Props> = (props: Props) => {
             onPress={() => navigation.navigate('Slide')}
             style={style.icons}>
             {imageIcon === 'facebook' ? (
-                <Image source={require('../../assets/Images/LoginImg/facebook.png')} style={style.imageButtonFacebook} />
+                <Image source={{ uri: 'https://reactjs.org/logo-og.png' }} style={style.imageButtonFacebook} />
             ) : (
-                <Image source={require(`../../assets/Images/LoginImg/google.png`)} style={style.imageButtonGoogle} />
+                <Image source={{ uri: 'https://reactjs.org/logo-og.png' }} style={style.imageButtonGoogle} />
             )}
 
         </TouchableOpacity>

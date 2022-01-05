@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colorsDark } from "react-native-elements/dist/config";
 import Colors from '../../assets/Colors';
 import { normalizeFontSize, normalizePx } from '../../styles/normalize';
 
@@ -12,16 +13,7 @@ const styles = StyleSheet.create({
   },
   backgroundContainer: {
     flex: 1,
-    backgroundColor: "#020202D1",
-  },
-  searchbarContainer: {
-    flex: 0.1,
-    paddingTop: normalizePx(20),
-    paddingLeft: normalizePx(10),
-    paddingRight: normalizePx(10),
-  },
-  searchbar: {
-    borderRadius: normalizePx(30),
+    backgroundColor: Colors.light.semiTransparent,
   },
   listContainer: {
     flex: 1,
@@ -39,8 +31,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   ingredientIcon: {
-    backgroundColor: "#FAB73D",
-    color: "black",
+    backgroundColor: Colors.light.yellow,
+    color: Colors.light.black,
     width: normalizePx(40),
     height: normalizePx(40),
     borderRadius: normalizePx(50),
@@ -58,12 +50,12 @@ const styles = StyleSheet.create({
   },
   ingredientText: {
     flex: 0.7,
-    color: "white",
+    color: Colors.light.white,
     paddingLeft: normalizePx(15),
   },
   divider: {
     flex: 0.01,
-    backgroundColor: "gray",
+    backgroundColor: Colors.light.lightGrey,
   },
   quantityContainer: {
     flex: 0.3,
@@ -75,14 +67,14 @@ const styles = StyleSheet.create({
   quantityIcons: {
     width: normalizePx(20),
     height: normalizePx(20),
-    backgroundColor: "#FAB73D",
-    color: "black",
+    backgroundColor: Colors.light.yellow,
+    color: Colors.light.black,
     borderRadius: normalizePx(10),
     textAlign: "center",
   },
   quantityText: {
     flex: 0.4,
-    color: "white",
+    color: Colors.light.white,
   },
   bottomContainer: {
     flex: 0.1,
@@ -91,34 +83,35 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   finishedListButton: {
-    backgroundColor: 'rgba(56, 56, 56, .9)',
+    backgroundColor: Colors.light.lightGrey,
+    opacity: 0.9,
     alignItems: "center",
     justifyContent: 'center',
     height: normalizePx(40),
     width: normalizePx(250),
     fontFamily: 'nunito-light',
-    borderColor: 'black',
-    borderWidth: 2,
+    borderColor: Colors.light.black,
+    borderWidth: normalizePx(2),
   },
   finishedListText: {
-    padding: 15,
-    color: 'white'
+    padding: normalizePx(15),
+    color: Colors.light.white,
   },
   addButton: {
-    marginLeft: 20,
+    marginLeft: normalizePx(20),
     backgroundColor: Colors.light.yellow,
     width: normalizePx(50),
     height: normalizePx(50),
     borderRadius: normalizePx(30)
   },
   addButtonText: {
-    color: 'black',
+    color: Colors.light.black,
     alignSelf: 'center',
     justifyContent: 'center',
     fontSize: normalizePx(30)
   },
   addItemBar: {
-    backgroundColor: 'white',
+    backgroundColor: Colors.light.red,
     width: normalizePx(300),
     height: normalizePx(40),
     borderRadius: normalizePx(30),
@@ -128,13 +121,13 @@ const styles = StyleSheet.create({
   },
   // SWIPE
   rightActions: {
-    backgroundColor: '#E54C4C',
+    backgroundColor: Colors.light.red,
     justifyContent: 'center',
     alignItems: 'flex-end',
     borderRadius: normalizePx(4)
   },
   actionText: {
-    color: '#fff',
+    color: Colors.light.white,
     fontWeight: '600',
     padding: normalizePx(20)
   },

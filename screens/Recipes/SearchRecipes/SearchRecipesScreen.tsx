@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { View, StyleSheet, ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
 import SLL from '../../ShoppingList/ShoppingListLanguages';
 import FL from '../../../assets/Languages/Recipes/RecipeFiltersHomeLanguages';
-import SL from '../../../assets/Languages/Recipes/SearchLanguages';
+import SRL from './SearchRecipesLanguages';
 import OvalFilterComponent from '../../../components/Recipes/OvalFilter/OvalFilterComponent';
 import RecentSearchComponent from '../../../components/Recipes/RecentSearch/RecentSearchComponent';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
@@ -25,7 +25,7 @@ const SearchRecipes: FC<Props> = (props: Props) => {
   return (
     <>
       <TopNavbar
-        title={SL[lang]?.searchRecipesTitle}
+        title={SRL[lang]?.searchRecipesTitle}
         navigation={navigation}
         goBack={true}
       />
@@ -41,7 +41,7 @@ const SearchRecipes: FC<Props> = (props: Props) => {
       </View>
       <View style={styles.recentSearchContainer}>
         <Text style={styles.recentSearchContainerTitle}>
-          {SL[lang]?.recentSearchTitle}
+          {SRL[lang]?.recentSearchTitle}
         </Text>
         <RecentSearchComponent recentSearchText="Ensalada de atún" />
         <RecentSearchComponent recentSearchText="Curry de pollo" />

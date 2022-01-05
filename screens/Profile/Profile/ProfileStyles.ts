@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import Colors from '../../../assets/Colors';
+import { normalizeFontSize, normalizePx } from '../../../styles/normalize';
 
 const ProfileStyles = StyleSheet.create({
   mainContainer: {
@@ -12,18 +13,18 @@ const ProfileStyles = StyleSheet.create({
   },
   headerRowContainer: {
     flexDirection: 'row',
-    paddingLeft: 30,
+    paddingLeft: normalizePx(30),
   },
   headerTextContainer: {
     flexDirection: 'column',
-    paddingLeft: 30,
-    paddingTop: 10,
+    paddingLeft: normalizePx(30),
+    paddingTop: normalizePx(10),
   },
   filtersContainer: {
     flexDirection: 'row',
     flex: 0.35,
-    paddingTop: 10,
-    paddingLeft: 30,
+    paddingTop: normalizePx(10),
+    paddingLeft: normalizePx(30),
   },
   addFilterContainer: {
     flexDirection: 'column',
@@ -36,38 +37,38 @@ const ProfileStyles = StyleSheet.create({
   },
   switchContainerText: {
     fontWeight: 'bold',
-    fontSize: 17,
-    color: '#FAB73D',
+    fontSize: normalizeFontSize(17),
+    color: Colors.light.yellow,
   },
   recipesContainer: {
     flex: 4,
   },
   followButton: {
-    backgroundColor: '#FAB73D',
-    color: '#FAB73D',
-    borderRadius: 50,
+    backgroundColor: Colors.light.yellow,
+    color: Colors.light.yellow,
+    borderRadius: normalizePx(50),
     alignItems: 'center',
-    padding: 10,
+    padding: normalizePx(10),
     alignSelf: 'stretch',
   },
   addFilterButton: {
-    marginRight: 10,
-    width: 62,
-    height: 62,
-    borderRadius: 50,
+    marginRight: normalizePx(10),
+    width: normalizePx(62),
+    height: normalizePx(62),
+    borderRadius: normalizePx(50),
     alignItems: 'center',
     justifyContent: 'space-around',
     backgroundColor: Colors.light.greyOfFilters,
   },
   addFilterButtonTitle: {
     fontFamily: 'nunito-light',
-    fontSize: 12,
-    width: 65,
+    fontSize: normalizeFontSize(12),
+    width: normalizePx(65),
     textAlign: 'center',
-    color: 'black',
+    color: Colors.light.black,
   },
   textProfile: {
-    color: 'black',
+    color: Colors.light.black,
   },
 });
 

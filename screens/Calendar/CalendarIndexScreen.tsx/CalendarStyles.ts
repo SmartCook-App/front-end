@@ -5,7 +5,7 @@ import Colors from '../../../assets/Colors';
 const CalendarStyle = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#FFFFFF',
+      backgroundColor: Colors.light.background,
       fontFamily: 'nunito-regular',
     },
     calendarContainer: {

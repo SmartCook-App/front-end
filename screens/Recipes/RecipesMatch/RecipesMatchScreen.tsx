@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
-import Colors from '../../../assets/Colors';
 import { useSelector } from 'react-redux';
-import { View, StyleSheet, ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
 import ML from './RecipesMatchLanguages';
 import { RootState } from '../../../redux/store';

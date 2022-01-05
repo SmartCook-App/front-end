@@ -2,9 +2,6 @@ import React, { FC } from 'react';
 import { View, Text } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
-import SLL from '../../ShoppingList/ShoppingListLanguages';
-import FL from '../../../assets/Languages/Recipes/RecipeFiltersHomeLanguages';
-import SL from '../../../assets/Languages/Recipes/SearchLanguages';
 import SISL from './SearchIngredientLanguages';
 import RecentSearchComponent from '../../../components/Recipes/RecentSearch/RecentSearchComponent';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
@@ -21,21 +18,20 @@ const SearchIngredient: FC<Props> = (props: Props) => {
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
-  var listNamesFilters = Object.values(FL[state.language]);
   const { navigation } = props;
   return (
     <>
       <TopNavbar
-        title={SL[lang]?.searchIngredientTitle}
+        title={SISL[lang]?.searchIngredientTitle}
         navigation={navigation}
         goBack={true}
       />
       <SearchbarComponent
-        placeholderText={SLL[state.language].searchbarPlaceholder}
+        placeholderText={SISL[state.language].searchbarPlaceholder}
       />
       <View style={styles.recentSearchContainer}>
         <Text style={styles.recentSearchContainerTitle}>
-          {SL[lang]?.recentSearchTitle}
+          {SISL[lang]?.recentSearchTitle}
         </Text>
         <RecentSearchComponent recentSearchText="Legumbres" />
         <RecentSearchComponent recentSearchText="Porotos" />
@@ -43,7 +39,7 @@ const SearchIngredient: FC<Props> = (props: Props) => {
       </View>
       <View style={styles.recentSearchContainer}>
         <Text style={styles.recentSearchContainerTitle}>
-          {SL[lang]?.categories}
+          {SISL[lang]?.categories}
         </Text>
       </View>
       <View style={styles.categoryContainer}>

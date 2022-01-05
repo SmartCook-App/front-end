@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import {
   View,
   TouchableOpacity,
@@ -7,8 +7,7 @@ import {
 } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
-import SLL from '../../ShoppingList/ShoppingListLanguages';
-import SL from '../../../assets/Languages/Recipes/SearchLanguages';
+import CIL from './ChooseIngredientLanguages';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
 import IngredientCategoryComponent from '../../../components/Recipes/IngredientCategory/IngredientCategoryComponent';
 import IoniconsIcon from 'react-native-vector-icons/Ionicons';
@@ -21,7 +20,6 @@ interface Props {
 
 const ChooseIngredient: FC<Props> = (props: Props) => {
   const state = useSelector((state: RootState) => state);
-  // const [isPressed, setIsPressed] = useState(false);
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
@@ -40,7 +38,6 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
   );
 
   const goToMatchView = () => {
-    console.log('estamos acr')
     navigation.navigate('Match', {
       screen: 'Match',
     });
@@ -49,23 +46,23 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
   return (
     <>
       <TopNavbar
-        title={SL[lang]?.searchIngredientTitle}
+        title={CIL[lang]?.searchIngredientTitle}
         navigation={navigation}
         goBack={true}
       />
       <View style={styles.subtextContainer}>
         <Text style={styles.capitalizedSubtext}>
-          {SL[lang]?.searchIngredientSubTitleCapitalized}
+          {CIL[lang]?.searchIngredientSubTitleCapitalized}
         </Text>
         <Text style={styles.normalSubtext}>
-          {SL[lang]?.searchIngredientSubTitleNormal}
+          {CIL[lang]?.searchIngredientSubTitleNormal}
         </Text>
       </View>
       <TouchableOpacity onPress={() => navigation.navigate('SearchIngredient')}>
         <View style={styles.searchIngredientButton}>
           <IoniconsIcon name={'search-outline'} color={'white'} size={25} />
           <Text style={styles.searchIngredientButtonText}>
-            {SLL[state.language].searchbarPlaceholder}
+            {CIL[state.language].searchbarPlaceholder}
           </Text>
         </View>
       </TouchableOpacity>

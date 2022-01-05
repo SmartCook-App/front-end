@@ -1,141 +1,67 @@
-import { StyleSheet, Platform, Dimensions } from "react-native";
-
+import { StyleSheet, Dimensions } from "react-native";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 export const windowWidth = Dimensions.get("window").width;
 export const windowHeight = Dimensions.get("window").height;
+import { normalizeFontSize, normalizePx } from "../../../styles/normalize";
 
-const HomeStyle = StyleSheet.create({
-  // boardContainerFixIos: {
-  //   marginTop: marginTopIos,
-  // },
-  // modalView: {
-  //   flex: modalFlex,
-  // },
+const MainLoginRegisterStyle = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
   },
-  image: {
-    flex: 1,
-    justifyContent: "center",
-  },
-  child: {
-    flex: 1,
-    backgroundColor: "rgba(109,108,108,0.41)",
-  },
-  childtwo: {
-    flex: 1,
-    backgroundColor: "rgba(0,0,0,0.57)",
-  },
   title: {
     textTransform: "uppercase",
-    color: "#FAB73D",
+    color: Colors.light.yellow,
     fontFamily: "nunito-black",
-    fontSize: 40,
-    padding: 30,
-    top: 70,
+    fontSize: normalizeFontSize(40),
+    padding: normalizePx(30),
+    top: normalizePx(70),
     textAlign: "center",
   },
   subtitle: {
-    color: "white",
+    color: Colors.light.white,
     fontFamily: "nunito-semiBold",
-    fontSize: 20,
-    top: 50,
+    fontSize: normalizeFontSize(20),
+    top: normalizePx(50),
     fontWeight: "bold",
     textAlign: "center",
   },
   rectanguleContainer: {
-    height: 140,
+    height: normalizePx(140),
     backgroundColor: "rgba(52, 52, 52, 0.07)",
-    borderWidth: 1,
-    borderColor: "#959595",
+    borderWidth: normalizePx(1),
+    borderColor: Colors.light.darkGrey2,
     top: "3%",
-    borderRadius: 7,
+    borderRadius: normalizePx(7),
   },
   containerFooter: {
     flex: 1,
-    width: 340,
+    width: normalizePx(340),
     top: "10%",
     left: "9%",
   },
   carousel: {
-    top: 60
-  },
-  carouselItem: {
-    backgroundColor:'transparent',
-    borderRadius: 5,
-    height: 250,
-    padding: 50,
-    marginLeft: 25,
-    marginRight: 25
-  },
-  carouselItemTitle: {
-    fontFamily: "nunito-light",
-    fontSize: 20,
-    textAlign: "center",
-    color: "#DADADA",
-  },
-  carouselItembody: {
-    fontFamily: "nunito-light",
-    fontSize: 15,
-    textAlign: "center",
-    color: "#DADADA"
+    top: normalizePx(60),
   },
   textFooter: {
     fontFamily: "nunito-light",
-    fontSize: 21,
+    fontSize: normalizeFontSize(21),
     textAlign: "center",
     top: "10%",
-    color: "#FFFFFF",
+    color: Colors.light.white,
   },
   textLater: {
     top: "8%",
-    fontSize: 18,
-    color: "#DADADA",
-  },
-  icons: {
-    borderRadius: 45,
-    width: 70,
-    height: 70,
-    backgroundColor: "white",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  imageButtonFacebook: {
-    height: 50,
-    width: 50,
-    resizeMode: "contain",
-  },
-  imageButtonGoogle: {
-    height: 50,
-    width: 50,
-    resizeMode: "contain",
+    fontSize: normalizeFontSize(18),
+    color: Colors.light.lightGrey2,
+    
   },
   buttonsLogin: {
-    padding: 25,
+    padding: normalizePx(25),
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-evenly",
   },
-  homeButton: {
-    backgroundColor: "white",
-    padding: 20,
-    height: 60,
-    borderRadius: 10,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  homeButtonText: {
-    fontSize: 20,
-    fontFamily: "nunito-semiBold",
-    position: "relative",
-    color: "#000000",
-    left: "9%",
-  },
-  homeMailIcon: {
-    left: 50,
-    resizeMode: "contain",
-    position: "absolute",
-  },
 });
 
-export default HomeStyle;
+export default MainLoginRegisterStyle;

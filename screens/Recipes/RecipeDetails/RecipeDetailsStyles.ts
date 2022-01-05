@@ -16,34 +16,12 @@ const RecipeDetailsStyles = StyleSheet.create({
     centerText:{
       flex: 1,
     },
-    changePortionButton:{
-      height: normalizePx(70),
-      width: normalizePx(70),
-      borderRadius: normalizePx(40),
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: Colors.light.transparentYellow,
-    },
     blackRectangule: {
       height: normalizePx(240),
       backgroundColor: Colors.light.transparentBlack,
     },
     whatYouNeedContainer:{
       padding: 5
-    },
-    header: {
-      flexDirection: 'row',
-      alignItems: 'center',
-    },
-    alignLeft: {
-      marginTop: normalizePx(50),
-      marginBottom: normalizePx(25),
-      left: normalizePx(240),
-    },
-    alignRight: {
-      marginTop: normalizePx(50),
-      marginBottom: normalizePx(30),
-      left: normalizePx(20),
     },
     bottom: {
       height: normalizePx(170),
@@ -77,21 +55,15 @@ const RecipeDetailsStyles = StyleSheet.create({
       bottom: normalizePx(55),
       right: normalizePx(20),
       borderRadius: normalizePx(50),
-      height: 70,
-      width: 70,
+      height: normalizePx(70),
+      width: normalizePx(70),
       alignSelf:"center",
-      padding:7,
+      padding: normalizePx(7),
       backgroundColor: Colors.light.transparentYellow,
     },
     goDownArrow: {
       alignItems: 'center',
       marginTop: normalizePx(100),
-      // backgroundColor: Colors.light.transparentBlack,
-    },
-    iconsContainer: {
-      width: normalizePx(140),
-      flexDirection: 'row',
-      justifyContent: 'space-evenly',
     },
     cookerContainer: {
       alignItems: 'center',
@@ -102,7 +74,7 @@ const RecipeDetailsStyles = StyleSheet.create({
     },
     cookerAvatar: {
       backgroundColor: Colors.light.transparentBlack,
-      marginVertical: 10
+      marginVertical: normalizePx(10)
     },
     cookerInfoContainer: {
       flexDirection: 'column',
@@ -122,14 +94,11 @@ const RecipeDetailsStyles = StyleSheet.create({
       paddingHorizontal: normalizePx(110),
       justifyContent: 'space-between',
     },
-    addPortionButton: {
-      backgroundColor: Colors.light.yellow,
-    },
     portionText: {
       color: Colors.light.white,
       fontWeight: 'bold',
       fontSize: normalizeFontSize(40),
-      padding: 5,
+      padding: normalizePx(5),
     },
     nutriCirclesContainer: {
       alignItems: 'center',
@@ -138,30 +107,15 @@ const RecipeDetailsStyles = StyleSheet.create({
       paddingVertical: normalizePx(30),
       justifyContent: 'space-between',
     },
-    nutriCircles: {
-      borderRadius: normalizePx(50),
-      width: normalizePx(70),
-      height: normalizePx(70),
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderColor: '#C4C4C4',
-      borderWidth: normalizePx(2),
-    },
-    nutriCirclesText: {
-      color: Colors.light.white,
-    },
-    nutriCirclesNumber: {
-      color: Colors.light.yellow,
-      fontWeight: 'bold',
-    },
     myNotesContainer: {
       flex: 1,
       minHeight: normalizePx(50),
       padding: normalizePx(15),
-      backgroundColor: 'rgba(0, 0, 0, 0.3)',
+      backgroundColor: Colors.light.white,
+      opacity: 0.3
     },
     myNoteText: {
-      color: 'white'
+      color: Colors.light.white,
     }
   });
   

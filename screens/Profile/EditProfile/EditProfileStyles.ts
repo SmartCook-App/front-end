@@ -1,120 +1,49 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../../assets/Colors";
+import { normalizeFontSize, normalizePx } from "../../../styles/normalize";
 
 const EditProfileStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column",
-  },
-  showViewRegisterLogIn: {
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-  },
-  registerLoginButton: {
-    marginTop: "20%",
-  },
-  registerLoginButtonText: {
-    fontSize: 22,
-    fontFamily: "nunito-semiBold",
-    color: "white",
-  },
-  crossButton: {
-    color: "white",
-    marginTop: "15%",
-    marginLeft: "5%",
-  },
-  buttonTextOpacity: {
-    color: "rgba(255, 255, 255, 0.53)",
-  },
-  line: {
-    backgroundColor: "white",
-    height: 2,
-    width: "100%",
-  },
-  button: {
-    backgroundColor: "white",
-    padding: 20,
-    marginTop: "7%",
-    borderRadius: 20,
-    width: 300,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  buttonLogIn: {
-    backgroundColor: "white",
-    padding: 20,
-    marginTop: "40.5%",
-    borderRadius: 20,
-    width: 300,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  buttonText: {
-    fontSize: 14,
-    position: "relative",
-    color: "#000000",
-    textTransform: "uppercase",
-  },
   textInput: {
-    borderBottomColor: "#ffffff",
-    borderBottomWidth: 1,
-    width: 300,
-    color: "white",
-    padding: 5,
-    margin: 15,
+    borderBottomColor: Colors.light.white,
+    borderBottomWidth: normalizePx(1),
+    width: normalizePx(300),
+    color: Colors.light.white,
+    padding: normalizePx(5),
+    margin: normalizePx(15),
   },
   errorText: {
-    fontSize: 14,
-    color: Colors.light.error,
-    width: 300,
+    fontSize: normalizeFontSize(14),
+    color: Colors.light.yellow,
+    width: normalizePx(300),
   },
   icon: {
-    color: "white",
+    color: Colors.light.white,
     resizeMode: "contain",
-    left: -13,
-    position: "absolute",
-  },
-  passwordIcon: {
-    color: "white",
-    resizeMode: "contain",
-    right: 18,
+    left: normalizePx(-13),
     position: "absolute",
   },
   viewInput: {
     alignItems: "center",
     justifyContent: "center",
   },
-  subContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  footerText: {
-    marginTop: 40,
-    color: "white",
-    fontFamily: "nunito-light",
-    textAlign: "center",
-  },
-  footerTextBold: {
-    fontFamily: "nunito-semiBold",
-    textAlign: "center",
-  },
   textUploadPicture: {
     fontFamily: "nunito-bold",
-    fontSize: 14,
+    fontSize: normalizeFontSize(14),
     color: Colors.light.yellow,
   },
   personalInfoText: {
-    fontSize: 10,
+    fontSize: normalizeFontSize(9),
+    textTransform: 'uppercase'
   },
   personalInfoView: {
-    marginRight: 200,
-    marginTop: 60,
-    marginBottom: 10,
+    marginRight: normalizePx(200),
+    marginTop: normalizePx(60),
+    marginBottom: normalizePx(10),
   },
   pictureUploadPicture: {
-    width: 50,
-    height: 50,
-    borderRadius: 50,
+    width: normalizePx(50),
+    height: normalizePx(50),
+    borderRadius: normalizePx(50),
   },
   firstcontainer: {
     flex: 1,
@@ -127,23 +56,19 @@ const EditProfileStyles = StyleSheet.create({
     justifyContent: "center",
   },
   circle: {
-    width: 100,
-    height: 100,
+    width: normalizePx(100),
+    height: normalizePx(100),
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 50,
-    backgroundColor: "#E1E1E1",
-  },
-  containerStyle: {
-    backgroundColor: "white",
-    padding: 20,
+    borderRadius: normalizePx(50),
+    backgroundColor: Colors.light.lightGrey2,
   },
   deleteButton: {
     fontFamily: "nunito-light",
-    color: "#FFFFFF",
-    marginTop: 50,
-    fontSize: 14,
+    color: Colors.light.white,
+    marginTop: normalizePx(50),
+    fontSize: normalizeFontSize(14),
   },
 });
 export default EditProfileStyles;

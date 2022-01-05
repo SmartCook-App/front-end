@@ -1,5 +1,9 @@
 const SIL: any = {
   ES: {
+    categories: 'categorias',
+    searchIngredientTitle: 'Buscar ingredientes',
+    recentSearchTitle: 'Búsquedas recientes',
+    searchbarPlaceholder: 'Buscar ingredientes',
     legumes: 'Legumbres',
     vegetables: 'Verduras',
     cereals: 'Cereales',
@@ -14,6 +18,10 @@ const SIL: any = {
     sugars: 'Azúcares',
   },
   EN: {
+    categories: 'categories',
+    searchIngredientTitle: 'Buscar ingredientes',
+    recentSearchTitle: 'Recent searches',
+    searchbarPlaceholder: 'Search ingredients',
     legumes: 'Legumes',
     vegetables: 'Vegetables',
     cereals: 'Cereals',
@@ -26,6 +34,7 @@ const SIL: any = {
     dairyProducts: 'Dairy Products',
     potatoes: 'Potatoes',
     sugars: 'Sugars',
+
   },
 };
 export default SIL;

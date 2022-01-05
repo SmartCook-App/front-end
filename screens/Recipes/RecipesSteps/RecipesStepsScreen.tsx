@@ -16,7 +16,7 @@ const RecipesStepsScreen: FC<Props> = (props: Props) => {
 
   return (
     <ImageBackground
-      source={require('../../../assets/Images/Eliminar/ensalada.jpg')}
+      source={{ uri: 'https://reactjs.org/logo-og.png' }}
       style={StepsRecipesStyle.backgroundImage}
     >
       <ScrollView>
@@ -52,12 +52,6 @@ const RecipesStepsScreen: FC<Props> = (props: Props) => {
             </Text>
           </View>
         </View>
-        {/* <Video */}
-        {/* source={{ */}
-        {/* uri: 'https://www.youtube.com/watch?v=mpSmBuco6I0', */}
-        {/* type: 'mp4', */}
-        {/* }} */}
-        {/* />  */}
         <View style={StepsRecipesStyle.containerImages}>
           <StepsDetails
             numberOfStep="1"

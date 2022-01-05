@@ -41,7 +41,7 @@ const RecipesComponent: FC<Props> = (props: Props) => {
           <TouchableOpacity onPress={onPressRecipe}>
             <View style={style.container}>
               <ImageBackground
-                source={require(`../../assets/Images/Eliminar/ensalada.jpg`)}
+                source={{ uri: 'https://reactjs.org/logo-og.png' }}
                 style={style.photo}
               >
                 <Text style={style.timeOval}>

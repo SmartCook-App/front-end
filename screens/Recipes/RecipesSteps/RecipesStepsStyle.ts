@@ -26,7 +26,7 @@ const RecipesStepsStyle = StyleSheet.create({
     color: Colors.light.white,
     fontWeight: 'bold',
     fontSize: normalizeFontSize(40),
-    padding: 5,
+    padding: normalizePx(5),
   },
   portions: {
     alignItems: 'center',

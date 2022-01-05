@@ -2,10 +2,7 @@ import React, { FC, useState } from "react";
 import {
   Text,
   View,
-  TextInput,
   TouchableOpacity,
-  StyleSheet,
-  Image,
 } from "react-native";
 import LRL from "./LogInRegisterLanguages";
 import { useSelector } from "react-redux";

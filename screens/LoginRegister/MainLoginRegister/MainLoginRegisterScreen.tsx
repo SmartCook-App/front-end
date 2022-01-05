@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { Text, View } from "react-native";
 import styles from "./MainLoginRegisterStyles";
 import { useSelector } from "react-redux";
-import { Link } from "@react-navigation/native";
 import { RootState } from "../../../redux/store";
 import MLRL from "./MainLoginRegisterLanguages";
 import BackgroundImage from "../../../components/LoginRegister/BackgroundImage/BackgroundImageComponent";
