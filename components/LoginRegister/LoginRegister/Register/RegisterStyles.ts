@@ -1,45 +1,47 @@
 import { StyleSheet } from 'react-native';
+import { normalizeFontSize, normalizePx } from '../../../../styles/normalize';
 import Colors from '../../../../assets/Colors';
 
 const RegisterStyle = StyleSheet.create({
   button: {
-    backgroundColor: 'white',
-    padding: 20,
+    backgroundColor: Colors.light.white,
+    padding: normalizePx(20),
+    //TODO
     marginTop: '7%',
-    borderRadius: 20,
-    width: 300,
+    borderRadius: normalizePx(20),
+    width: normalizePx(300),
     alignItems: 'center',
     justifyContent: 'center',
   },
   buttonText: {
-    fontSize: 14,
+    fontSize: normalizeFontSize(14),
     position: 'relative',
-    color: '#000000',
+    color: Colors.light.black,
     textTransform: 'uppercase',
   },
   textInput: {
-    borderBottomColor: '#ffffff',
-    borderBottomWidth: 1,
-    width: 300,
-    color: 'white',
-    padding: 5,
-    margin: 15,
+    borderBottomColor: Colors.light.background,
+    borderBottomWidth: normalizePx(1),
+    width: normalizePx(300),
+    color: Colors.light.white,
+    padding: normalizePx(5),
+    margin: normalizePx(15),
   },
   errorText: {
-    fontSize: 14,
-    color: Colors.light.error,
-    width: 300,
+    fontSize: normalizeFontSize(14),
+    color: Colors.light.yellow,
+    width: normalizePx(300),
   },
   icon: {
-    color: 'white',
+    color: Colors.light.white,
     resizeMode: 'contain',
-    left: -13,
+    left: normalizePx(-13),
     position: 'absolute',
   },
   passwordIcon: {
-    color: 'white',
+    color: Colors.light.white,
     resizeMode: 'contain',
-    right: 18,
+    right: normalizePx(18),
     position: 'absolute',
   },
   viewInput: {
@@ -51,8 +53,8 @@ const RegisterStyle = StyleSheet.create({
     justifyContent: 'center',
   },
   footerText: {
-    marginTop: 40,
-    color: 'white',
+    marginTop: normalizePx(40),
+    color: Colors.light.white,
     fontFamily: 'nunito-light',
     textAlign: 'center',
   },

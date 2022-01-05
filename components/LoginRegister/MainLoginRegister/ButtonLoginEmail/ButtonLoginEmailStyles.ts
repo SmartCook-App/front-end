@@ -1,26 +1,28 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { normalizeFontSize, normalizePx } from '../../../../styles/normalize';
+import Colors from '../../../../assets/Colors';
 
 export const windowWidth = Dimensions.get('window').width;
 export const windowHeight = Dimensions.get('window').height;
 
 const HomeStyle = StyleSheet.create({
   homeButton: {
-    backgroundColor: 'white',
-    padding: 20,
-    height: 60,
-    borderRadius: 10,
+    backgroundColor: Colors.light.white,
+    padding: normalizePx(20),
+    height: normalizePx(60),
+    borderRadius: normalizePx(10),
     alignItems: 'center',
     justifyContent: 'center',
   },
   homeButtonText: {
-    fontSize: 20,
+    fontSize: normalizeFontSize(20),
     fontFamily: 'nunito-semiBold',
     position: 'relative',
-    color: '#000000',
+    color: Colors.light.black,
     left: '9%',
   },
   homeMailIcon: {
-    left: 50,
+    left: normalizeFontSize(50),
     resizeMode: 'contain',
     position: 'absolute',
   },

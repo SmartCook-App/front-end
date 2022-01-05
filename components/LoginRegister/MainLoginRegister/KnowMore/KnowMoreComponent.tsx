@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Text, View } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import { RootState } from '../../../../redux/store';
+import { normalizePx } from '../../../../styles/normalize';
 import { useSelector } from 'react-redux';
 import MLRL from '../../../../screens/LoginRegister/MainLoginRegister/MainLoginRegisterLanguages';
 import style from './KnowMoreStyles';
@@ -43,8 +44,8 @@ const KnowMore: FC = () => {
       <Carousel
         layout={'default'}
         data={carouselItems}
-        sliderWidth={400}
-        itemWidth={400}
+        sliderWidth={normalizePx(400)}
+        itemWidth={normalizePx(400)}
         renderItem={renderItem}
       />
     </View>

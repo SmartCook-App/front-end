@@ -15,7 +15,7 @@ const AddSubButtonStyle = StyleSheet.create({
     color: Colors.light.white,
     fontWeight: 'bold',
     fontSize: normalizeFontSize(40),
-    padding: 5,
+    padding: normalizePx(5),
   },
 });
 export default AddSubButtonStyle;

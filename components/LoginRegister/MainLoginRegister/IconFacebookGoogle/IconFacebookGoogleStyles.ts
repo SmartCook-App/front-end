@@ -1,26 +1,27 @@
-import { StyleSheet, Dimensions } from "react-native";
-
-export const windowWidth = Dimensions.get("window").width;
-export const windowHeight = Dimensions.get("window").height;
+import { StyleSheet, Dimensions } from 'react-native';
+import { normalizePx } from '../../../../styles/normalize';
+import Colors from '../../../../assets/Colors';
+export const windowWidth = Dimensions.get('window').width;
+export const windowHeight = Dimensions.get('window').height;
 
 const IconFacebookGoogleStyle = StyleSheet.create({
   icons: {
-    borderRadius: 45,
-    width: 70,
-    height: 70,
-    backgroundColor: "white",
-    justifyContent: "center",
-    alignItems: "center",
+    borderRadius: normalizePx(45),
+    width: normalizePx(70),
+    height: normalizePx(70),
+    backgroundColor: Colors.light.white,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   imageButtonFacebook: {
-    height: 50,
-    width: 50,
-    resizeMode: "contain",
+    height: normalizePx(50),
+    width: normalizePx(50),
+    resizeMode: 'contain',
   },
   imageButtonGoogle: {
-    height: 50,
-    width: 50,
-    resizeMode: "contain",
+    height: normalizePx(50),
+    width: normalizePx(50),
+    resizeMode: 'contain',
   },
 });
 

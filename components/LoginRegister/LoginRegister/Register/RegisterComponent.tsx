@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import style from './RegisterStyles';
-import LRL from '../../../../screens/LoginRegister/LoginRegister/LogInRegisterLanguages';
+import LRL from './RegisterLanguages';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/store';
 import { FontAwesome5, Feather, MaterialIcons } from '@expo/vector-icons';
 import { Formik } from 'formik';
+import Colors from '../../../../assets/Colors';
 import * as Yup from 'yup';
 
 interface Props {
@@ -61,7 +62,7 @@ const RegisterComponent = (props: Props) => {
             <View style={style.viewInput}>
               <FontAwesome5 name="user-circle" size={23} style={style.icon} />
               <TextInput
-                placeholderTextColor="white"
+                placeholderTextColor={Colors.light.white}
                 style={style.textInput}
                 placeholder={LRL[lang]?.name}
                 onChangeText={handleChange('name')}
@@ -76,7 +77,7 @@ const RegisterComponent = (props: Props) => {
             </View>
             <View style={style.viewInput}>
               <TextInput
-                placeholderTextColor="white"
+                placeholderTextColor={Colors.light.white}
                 style={style.textInput}
                 placeholder={LRL[lang]?.lastName}
                 onChangeText={handleChange('lastName')}
@@ -92,7 +93,7 @@ const RegisterComponent = (props: Props) => {
             <View style={style.viewInput}>
               <Feather name="mail" size={23} style={style.icon} />
               <TextInput
-                placeholderTextColor="white"
+                placeholderTextColor={Colors.light.white}
                 style={style.textInput}
                 placeholder={LRL[lang]?.email}
                 onChangeText={handleChange('email')}
@@ -108,7 +109,7 @@ const RegisterComponent = (props: Props) => {
             <View style={style.viewInput}>
               <MaterialIcons name="vpn-key" size={23} style={style.icon} />
               <TextInput
-                placeholderTextColor="white"
+                placeholderTextColor={Colors.light.white}
                 style={style.textInput}
                 placeholder={LRL[lang]?.password}
                 onChangeText={handleChange('password')}

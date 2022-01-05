@@ -1,20 +1,19 @@
 import React, { FC } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
-import CL from '../../../screens/Calendar/CalendarIndexScreen.tsx/CalendarLanguages';
+import SRL from './ScheduledRecipeLanguages';
 import RecipeAbstractCalendarComponent from '../RecipeAbstractCalendar/RecipeAbstractCalendarComponent';
 import styles from './ScheduledRecipeStyles';
 
 interface Props {
   navigation: any;
   title: string;
-  isRecipeSaved: boolean;
+  isRecipeSaved: boolean; 
 }
 
 const ScheduledRecipeComponent: FC<Props> = (props: Props) => {
   const { navigation, isRecipeSaved, title } = props;
-  const state = useSelector((state: RootState) => state);
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
@@ -40,7 +39,7 @@ const ScheduledRecipeComponent: FC<Props> = (props: Props) => {
           </View>
         ) : (
           <Text style={styles.textNoRecipe}>
-            {CL[lang]?.noRecipeSavedText}
+            {SRL[lang]?.noRecipeSavedText}
           </Text>
         )}
       </View>

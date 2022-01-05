@@ -10,6 +10,7 @@ import {
 import style from './CookersRecipesStyles';
 import { Cookers } from '../../../../screens/Recipes/CookersDataArray';
 import { Feather, MaterialIcons } from '@expo/vector-icons';
+import Colors from '../../../../assets/Colors';
 
 interface Props {
   name: any;
@@ -17,7 +18,7 @@ interface Props {
   cal: any;
   time: any;
 }
-
+// TODO: datos de props se deben usar como por ejemplo name=Paula sin Culpas
 const RecipesComponent: FC<Props> = (props: Props) => {
   const { name, image, cal, time } = props;
 
@@ -31,7 +32,7 @@ const RecipesComponent: FC<Props> = (props: Props) => {
         <MaterialIcons
           name="keyboard-arrow-right"
           size={30}
-          color="#FAB73D"
+          color={Colors.light.yellow}
           style={style.goToCookersProfile}
         />
       </View>
