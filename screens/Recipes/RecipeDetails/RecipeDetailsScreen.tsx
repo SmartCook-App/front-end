@@ -31,6 +31,7 @@ interface Props {
 const RecipeDetailsScreen: FC<Props> = (props: Props) => {
   const { navigation } = props;
   const [amountPortions, setAmountPortions] = useState(1);
+  const [likeRecipe, setlikeRecipe] = useState(false);
   // TODO: eliminar esta data cuando tengamos la base de datos
   const data = ["1", "2", "3", "4", "5", "6"]
   const [inputValue, setInputValue] = useState("");
@@ -48,7 +49,7 @@ const RecipeDetailsScreen: FC<Props> = (props: Props) => {
       >
         <ScrollView>
         <View style={styles.blackRectangule}>
-          <TopBar navigation={navigation}/>
+          <TopBar navigation={navigation} likeRecipe={likeRecipe} setlikeRecipe={setlikeRecipe}/>
             <View style={styles.centerText}>
               <Text style={styles.title}>
                 Tallarines con Pesto y otras salsas
