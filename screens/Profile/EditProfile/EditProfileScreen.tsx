@@ -12,6 +12,7 @@ import * as Yup from 'yup';
 import { Image } from 'react-native-animatable';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
 import Colors from '../../../assets/Colors';
+import { ScrollView } from 'react-native-gesture-handler';
 
 interface Props {
   navigation: any;
@@ -52,6 +53,7 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
     <>
       <BackgroundImage>
         <TopNavbar title={'PERFIL'} goBack={true} navigation={navigation} />
+        <ScrollView>
         <View style={styles.firstcontainer}>
           {/* Hay que llevarlo a un componente  */}
           <Formik
@@ -194,8 +196,9 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
               </>
             )}
           </Formik>
-          <Text style={styles.deleteButton}>{EPL[lang]?.changePassword}</Text>
+          <Text style={styles.changePasswordText}>{EPL[lang]?.changePassword}</Text>
         </View>
+        </ScrollView>
       </BackgroundImage>
     </>
   );

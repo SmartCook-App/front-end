@@ -46,10 +46,12 @@ const EditProfileStyles = StyleSheet.create({
     borderRadius: normalizePx(50),
   },
   firstcontainer: {
-    flex: 1,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    marginBottom: 10,
+    padding: 5,
+    flex: 1
   },
   pictureUploadContainer: {
     alignItems: "center",
@@ -64,10 +66,10 @@ const EditProfileStyles = StyleSheet.create({
     borderRadius: normalizePx(50),
     backgroundColor: Colors.light.lightGrey2,
   },
-  deleteButton: {
+  changePasswordText: {
     fontFamily: "nunito-light",
     color: Colors.light.white,
-    marginTop: normalizePx(50),
+    marginTop: normalizePx(40),
     fontSize: normalizeFontSize(14),
   },
 });
