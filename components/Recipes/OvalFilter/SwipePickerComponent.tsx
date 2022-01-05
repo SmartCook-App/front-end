@@ -3,6 +3,9 @@ import { Text, View } from 'react-native';
 // import SwipePicker from "react-native-swipe-picker";
 import { Picker } from '@react-native-community/picker';
 import style from './OvalFilterStyles';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
+import OFL from './OvalFilterLanguage';
 
 interface Props {
   value: any;
@@ -12,6 +15,9 @@ interface Props {
 const SwipePickerComponent: FC<Props> = (props: Props) => {
   const { value, text } = props;
   const [selectedValue, setSelectedValue] = useState('');
+  const lang = useSelector<RootState, RootState['language']>(
+    (state) => state.language
+  );
   const [valueItems, _setValueItems] = useState(
     value === 'calories'
       ? [
@@ -61,7 +67,7 @@ const SwipePickerComponent: FC<Props> = (props: Props) => {
   );
   return (
     <View style={style.pickerView}>
-      <Text style={style.filterOptions}>Menos de</Text>
+      <Text style={style.filterOptions}>{OFL[lang]?.lessThan}</Text>
       <Picker
         selectedValue={selectedValue}
         onValueChange={(selectedValue: any) => setSelectedValue(selectedValue)}

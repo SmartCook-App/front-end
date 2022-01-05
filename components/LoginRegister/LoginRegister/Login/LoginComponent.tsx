@@ -1,11 +1,12 @@
 import React, { FC, useState } from 'react';
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import style from './LoginStyles';
-import LRL from '../../../../screens/LoginRegister/LoginRegister/LogInRegisterLanguages';
+import LL from './LoginLanguages';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/store';
 import { Feather, MaterialIcons } from '@expo/vector-icons';
 import { Formik } from 'formik';
+import Colors from '../../../../assets/Colors';
 import * as Yup from 'yup';
 
 interface Props {
@@ -27,9 +28,9 @@ const LoginComponent: FC<Props> = (props: Props) => {
         initialValues={initialValues}
         validationSchema={Yup.object({
           email: Yup.string()
-            .email(LRL[lang]?.formErrorEmail)
-            .required(LRL[lang]?.formErrorRequired),
-          password: Yup.string().required(LRL[lang]?.formErrorRequired),
+            .email(LL[lang]?.formErrorEmail)
+            .required(LL[lang]?.formErrorRequired),
+          password: Yup.string().required(LL[lang]?.formErrorRequired),
         })}
         onSubmit={(values, actions) => {
           handleSubmit();
@@ -48,9 +49,9 @@ const LoginComponent: FC<Props> = (props: Props) => {
             <View style={style.viewInput}>
               <Feather name="mail" size={23} style={style.icon} />
               <TextInput
-                placeholderTextColor="white"
+                placeholderTextColor={Colors.light.white}
                 style={style.textInput}
-                placeholder={LRL[lang]?.email}
+                placeholder={LL[lang]?.email}
                 onChangeText={handleChange('email')}
                 onBlur={handleBlur('email')}
                 value={values.email}
@@ -64,9 +65,9 @@ const LoginComponent: FC<Props> = (props: Props) => {
             <View style={style.viewInput}>
               <MaterialIcons name="vpn-key" size={23} style={style.icon} />
               <TextInput
-                placeholderTextColor="white"
+                placeholderTextColor={Colors.light.white}
                 style={style.textInput}
-                placeholder={LRL[lang]?.password}
+                placeholder={LL[lang]?.password}
                 onChangeText={handleChange('password')}
                 onBlur={handleBlur('password')}
                 value={values.password}
@@ -94,12 +95,12 @@ const LoginComponent: FC<Props> = (props: Props) => {
               ) : null}
             </View>
             <TouchableOpacity style={style.buttonLogIn} disabled={!isValid}>
-              <Text style={style.buttonText}>{LRL[lang]?.logIn}</Text>
+              <Text style={style.buttonText}>{LL[lang]?.logIn}</Text>
             </TouchableOpacity>
           </>
         )}
       </Formik>
-      <Text style={style.footerText}> {LRL[lang]?.forgotPassword} </Text>
+      <Text style={style.footerText}> {LL[lang]?.forgotPassword} </Text>
       {/* onPress={() => dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' })} */}
     </View>
   );

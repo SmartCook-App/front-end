@@ -2,9 +2,8 @@ import React, { FC, useState} from 'react';
 import { View, Text, TouchableWithoutFeedback, Modal, TextInput} from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/store';
-
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import RDL from '../../../../screens/Recipes/RecipeDetails/RecipeDetailsLanguages'
+import SL from './SubtitleLanguages'
 import style from './SubtitleStyles'
 
 interface Props {
@@ -19,11 +18,8 @@ const Subtitle: FC<Props> = (props: Props) => {
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
-
-  // This is to manage Modal State
   const [isModalVisible, setModalVisible] = useState(false);
 
-  // Create toggleModalVisibility function that will
   // Open and close modal upon button clicks.
   const toggleModalVisibility = () => {
       setModalVisible(!isModalVisible);
@@ -43,14 +39,13 @@ const Subtitle: FC<Props> = (props: Props) => {
                 onDismiss={toggleModalVisibility}>
              <View style={style.viewWrapper}>
                 <View style={style.modalView}>
-                  <Text style={style.myNotesTitle}>Mis Notas</Text>
-                     <TextInput placeholder="Enter something..." 
+                  <Text style={style.myNotesTitle}>{SL[lang]?.notes}</Text>
+                     <TextInput placeholder={SL[lang]?.enterSomething} 
                                 multiline= {true}
                                 value={inputValue} style={style.textInput} 
                                 onChangeText={(value) => setInputValue(value)} />
-                     {/** This button is responsible to close the modal */}
                      <TouchableOpacity style={style.uploadButtonContainer} >
-                        <Text onPress={toggleModalVisibility} style={style.uploadButton}>{RDL[lang]?.saveButton}</Text>
+                        <Text onPress={toggleModalVisibility} style={style.uploadButton}>{SL[lang]?.saveButton}</Text>
                       </TouchableOpacity>
                  </View>
              </View>
