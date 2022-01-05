@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     fontSize: normalizePx(30)
   },
   addItemBar: {
-    backgroundColor: Colors.light.red,
+    backgroundColor: Colors.light.white,
     width: normalizePx(300),
     height: normalizePx(40),
     borderRadius: normalizePx(30),
