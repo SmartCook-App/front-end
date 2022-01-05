@@ -1,10 +1,5 @@
 import React, { FC } from 'react';
-import {
-  View,
-  TouchableOpacity,
-  FlatList,
-  Text,
-} from 'react-native';
+import { View, TouchableOpacity, FlatList, Text } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
 import CIL from './ChooseIngredientLanguages';
@@ -41,7 +36,7 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
     navigation.navigate('Match', {
       screen: 'Match',
     });
-  }
+  };
 
   return (
     <>
@@ -58,7 +53,10 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
           {CIL[lang]?.searchIngredientSubTitleNormal}
         </Text>
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate('SearchIngredient')}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('SearchIngredientScreen')}
+      >
+        
         <View style={styles.searchIngredientButton}>
           <IoniconsIcon name={'search-outline'} color={'white'} size={25} />
           <Text style={styles.searchIngredientButtonText}>
