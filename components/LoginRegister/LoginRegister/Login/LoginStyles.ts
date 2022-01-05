@@ -54,6 +54,7 @@ const logInRegisterStyle = StyleSheet.create({
   },
   footerText: {
     marginTop: normalizePx(40),
+    alignSelf: 'center',
     color: Colors.light.white,
     fontFamily: 'nunito-light',
     textAlign: 'center',

@@ -11,7 +11,7 @@ const TabBarStyle = StyleSheet.create({
     flexDirection: 'row',
   },
   goBack: {
-    fontSize: normalizePx(25),
+    fontSize: normalizeFontSize(25),
     color: Colors.light.yellow,
     fontFamily: 'nunito-black',
   },
@@ -22,7 +22,7 @@ const TabBarStyle = StyleSheet.create({
     marginRight: normalizePx(350),
   },
   kababMenu: {
-    fontSize: normalizePx(30),
+    fontSize: normalizeFontSize(30),
     transform: [{ rotate: '90deg' }],
     color: Colors.light.yellow,
   },

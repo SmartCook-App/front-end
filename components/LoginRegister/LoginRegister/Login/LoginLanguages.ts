@@ -5,8 +5,7 @@ const LL: any = {
     password: 'Contraseña',
     formErrorRequired: '* Este campo es obligatorio',
     formErrorEmail: '* Por favor ingrese un mail válido',
-    forgotPassword:
-      '                                  ¿Olvidaste tu contraseña?                                  ',
+    forgotPassword: '¿Olvidaste tu contraseña?',
   },
   EN: {
     logIn: 'Log In',
@@ -14,8 +13,7 @@ const LL: any = {
     password: 'Password',
     formErrorRequired: '* This field is required',
     formErrorEmail: '* Please enter a valid email',
-    forgotPassword:
-      '                                  ¿Forgot your password?                                  ',
+    forgotPassword: '¿Forgot your password?',
   },
 };
 export default LL;

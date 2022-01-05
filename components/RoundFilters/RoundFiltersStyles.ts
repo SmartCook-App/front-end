@@ -57,7 +57,7 @@ const RoundFiltersStyle = StyleSheet.create({
     color: Colors.light.white,
   },
   container: {
-    marginHorizontal: width - normalizePx(350),
+    marginHorizontal: normalizePx(width) - normalizePx(350),
     marginTop: normalizePx(12),
   },
   containerRoundFilters: {

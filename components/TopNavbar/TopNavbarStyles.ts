@@ -18,9 +18,9 @@ const TopNavbarStyle = StyleSheet.create({
     textTransform: 'uppercase',
   },
   line: {
-    marginTop: normalizeFontSize(0.5),
+    marginTop: normalizePx(0.5),
     backgroundColor: Colors.light.lineUpperTitle,
-    height: normalizeFontSize(0.4),
+    height: normalizePx(0.4),
     width: normalizePx(420),
   },
   goBack: {

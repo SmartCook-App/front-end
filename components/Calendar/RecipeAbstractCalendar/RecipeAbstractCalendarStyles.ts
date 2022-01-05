@@ -19,24 +19,24 @@ const RecipeAbstractCalendar = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginLeft: RECIPE_ITEM_MARGIN,
-    marginTop: normalizeFontSize(25),
+    marginTop: normalizePx(25),
     width:
-      (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) /
+      (SCREEN_WIDTH - (recipeNumColums + normalizePx(1)) * RECIPE_ITEM_MARGIN) /
       recipeNumColums,
     height: RECIPE_ITEM_HEIGHT,
     borderColor: Colors.light.greyOfFilters,
-    borderWidth: normalizeFontSize(0.5),
+    borderWidth: normalizePx(0.5),
     borderRadius: BORDER_RADIUS,
   },
   photo: {
     width:
-      (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) /
+      (SCREEN_WIDTH - (recipeNumColums + normalizePx(1)) * RECIPE_ITEM_MARGIN) /
       recipeNumColums,
-    height: RECIPE_ITEM_HEIGHT - normalizeFontSize(21),
+    height: RECIPE_ITEM_HEIGHT - normalizePx(21),
     borderRadius: BORDER_RADIUS,
     overflow: 'hidden',
-    borderBottomLeftRadius: normalizeFontSize(0),
-    borderBottomRightRadius: normalizeFontSize(0),
+    borderBottomLeftRadius: normalizePx(0),
+    borderBottomRightRadius: normalizePx(0),
   },
   title: {
     flex: 1,
@@ -59,17 +59,18 @@ const RecipeAbstractCalendar = StyleSheet.create({
     alignSelf: 'flex-end',
     right:
       (SCREEN_WIDTH -
-        (recipeNumColums + normalizeFontSize(20)) * RECIPE_ITEM_MARGIN) /
+        (recipeNumColums + normalizePx(20)) * RECIPE_ITEM_MARGIN) /
       recipeNumColums,
-    top: RECIPE_ITEM_HEIGHT - normalizeFontSize(60),
+    top: RECIPE_ITEM_HEIGHT - normalizePx(60),
   },
   timeOval: {
     alignItems: 'center',
     width: normalizePx(60),
     height: normalizePx(16),
     textAlign: 'center',
-    borderRadius: normalizeFontSize(50),
-    backgroundColor: 'rgba(0, 0, 0, 0.35)',
+    borderRadius: normalizePx(50),
+    backgroundColor: Colors.light.black,
+    opacity: 0.35,
     color: Colors.light.background,
     left: normalizePx(12),
     top: normalizePx(5),
@@ -79,7 +80,7 @@ const RecipeAbstractCalendar = StyleSheet.create({
     height: normalizePx(30),
     width: normalizePx(30),
     alignSelf: 'flex-end',
-    top: normalizeFontSize(-10),
+    top: normalizePx(-10),
   },
 });
 export default RecipeAbstractCalendar;
