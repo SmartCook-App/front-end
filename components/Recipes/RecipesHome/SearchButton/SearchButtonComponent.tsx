@@ -17,7 +17,7 @@ const SearchButtonComponent: FC<Props> = (props: Props) => {
     (state) => state.language
   );
   const pressButton = () => {
-    navigation.navigate('SearchRecipes');
+    navigation.navigate('SearchRecipesScreen');
   };
 
   return (
