@@ -33,9 +33,7 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
   );
 
   const goToMatchView = () => {
-    navigation.navigate('Match', {
-      screen: 'Match',
-    });
+    navigation.navigate('RecipeMatchScreen');
   };
 
   return (
@@ -56,7 +54,6 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
       <TouchableOpacity
         onPress={() => navigation.navigate('SearchIngredientScreen')}
       >
-        
         <View style={styles.searchIngredientButton}>
           <IoniconsIcon name={'search-outline'} color={'white'} size={25} />
           <Text style={styles.searchIngredientButtonText}>
