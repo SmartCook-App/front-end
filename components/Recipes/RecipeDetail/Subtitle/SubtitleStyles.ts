@@ -22,20 +22,14 @@ const SubtitleStyle = StyleSheet.create({
   },
   uploadButton: {
     fontSize: normalizeFontSize(10),
-    color: 'white',
+    color: Colors.light.white,
     alignSelf: 'center',
-  },
-  screen: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#fff',
   },
   viewWrapper: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    backgroundColor: Colors.light.darkGrey3,
   },
   modalView: {
     alignItems: 'center',
@@ -47,7 +41,7 @@ const SubtitleStyle = StyleSheet.create({
     transform: [{ translateX: -(400 * 0.4) }, { translateY: -90 }],
     height: normalizePx(250),
     width: normalizePx(400 * 0.8),
-    backgroundColor: '#fff',
+    backgroundColor: Colors.light.background,
     borderRadius: normalizePx(7),
   },
   textInput: {
@@ -56,13 +50,13 @@ const SubtitleStyle = StyleSheet.create({
     borderRadius: normalizePx(5),
     paddingVertical: normalizePx(8),
     paddingHorizontal: normalizePx(16),
-    borderColor: 'rgba(0, 0, 0, 0.2)',
+    borderColor: Colors.light.darkGrey3,
     borderWidth: normalizePx(1),
     marginBottom: normalizePx(8),
     textAlignVertical: 'top',
   },
   uploadButtonContainer: {
-    backgroundColor: 'black',
+    backgroundColor: Colors.light.black,
     height: normalizePx(30),
     width: normalizePx(80),
     justifyContent: 'center',

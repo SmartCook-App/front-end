@@ -1,14 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 import Colors from '../../assets/Colors';
+import { normalizePx } from '../../styles/normalize';
 
 const TabBarStyle = StyleSheet.create({
   icon: {
-    width: 35,
-    alignItems: "center",
-    color: "#909090",
+    width: normalizePx(35),
+    alignItems: 'center',
+    color: Colors.light.darkGrey2,
   },
-  color: {
-    color: Colors.light.yellow
-  }
 });
 export default TabBarStyle;

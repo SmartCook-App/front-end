@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import { Text, View } from 'react-native';
-import style from './FilterComponentStyle';
+import style from './RoundFiltersStyles';
 import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 import { reorderFiltersHomeInteractor } from '../../redux/interactors/homeIconsInteractors';
 import { useDispatch } from 'react-redux';
+import { normalizePx } from '../../styles/normalize';
 
 interface Props {
   id: any;
@@ -23,7 +24,6 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
   const dispatch = useDispatch();
 
   const applyFilter = () => {
-    // This is from this view
     if (title == 'cookers') {
       setcookersView(!cookersView);
     }
@@ -34,7 +34,7 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
         name: name,
         title: title,
         press: !isPressed,
-        height: 150,
+        height: normalizePx(150),
       },
     };
     dispatch(reorderFiltersHomeInteractor(payload));
