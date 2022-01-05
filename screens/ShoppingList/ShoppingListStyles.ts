@@ -91,14 +91,14 @@ const styles = StyleSheet.create({
     width: normalizePx(250),
     fontFamily: 'nunito-light',
     borderColor: Colors.light.black,
-    borderWidth: 2,
+    borderWidth: normalizePx(2),
   },
   finishedListText: {
-    padding: 15,
+    padding: normalizePx(15),
     color: Colors.light.white,
   },
   addButton: {
-    marginLeft: 20,
+    marginLeft: normalizePx(20),
     backgroundColor: Colors.light.yellow,
     width: normalizePx(50),
     height: normalizePx(50),

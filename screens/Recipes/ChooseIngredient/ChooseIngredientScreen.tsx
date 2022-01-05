@@ -20,7 +20,6 @@ interface Props {
 
 const ChooseIngredient: FC<Props> = (props: Props) => {
   const state = useSelector((state: RootState) => state);
-  // const [isPressed, setIsPressed] = useState(false);
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
@@ -39,7 +38,6 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
   );
 
   const goToMatchView = () => {
-    console.log('estamos acr')
     navigation.navigate('Match', {
       screen: 'Match',
     });

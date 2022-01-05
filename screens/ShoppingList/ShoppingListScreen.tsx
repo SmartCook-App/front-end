@@ -107,7 +107,7 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
     return (
       <TouchableOpacity onPress={deleteButton}>
         <View style={styles.rightActions}>
-          <Text style={[styles.actionText]}>Delete</Text>
+          <Text style={[styles.actionText]}>{SLL[state.language].delete}</Text>
         </View>
       </TouchableOpacity>
     );

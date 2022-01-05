@@ -64,7 +64,6 @@ const RecipeDetailsStyles = StyleSheet.create({
     goDownArrow: {
       alignItems: 'center',
       marginTop: normalizePx(100),
-      // backgroundColor: Colors.light.transparentBlack,
     },
     cookerContainer: {
       alignItems: 'center',

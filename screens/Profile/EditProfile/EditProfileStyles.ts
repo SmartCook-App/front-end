@@ -32,7 +32,8 @@ const EditProfileStyles = StyleSheet.create({
     color: Colors.light.yellow,
   },
   personalInfoText: {
-    fontSize: normalizeFontSize(10),
+    fontSize: normalizeFontSize(9),
+    textTransform: 'uppercase'
   },
   personalInfoView: {
     marginRight: normalizePx(200),

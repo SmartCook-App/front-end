@@ -2,7 +2,6 @@ import { StyleSheet, Dimensions } from "react-native";
 import { normalizePx } from "../../../styles/normalize";
 
 const { width, height } = Dimensions.get("window");
-console.log(width);
 const RecipesHomeStyles = StyleSheet.create({
   container: {
     marginHorizontal: normalizePx(width - 350),

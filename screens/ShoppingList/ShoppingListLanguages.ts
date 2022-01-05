@@ -9,6 +9,7 @@ const SLL: any = {
     yes: 'Sí',
     no: 'No',
     whatDoYouNeedToAdd: '¿Qué deseas agregar?',
+    delete: 'Eliminar',
   },
   EN: {
     units: 'un',
@@ -20,6 +21,8 @@ const SLL: any = {
     yes: 'Yes',
     no: 'No',
     whatDoYouNeedToAdd: 'What do you want to add?',
+    delete: 'Delete',
+
   },
 };
 export default SLL;

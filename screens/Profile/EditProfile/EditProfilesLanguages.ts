@@ -2,13 +2,13 @@ const EPL: any = {
   ES: {
     choosePicture: 'Elige una nueva foto',
     deleteAccount: 'Eliminar cuenta',
-    infoAccount: 'INFORMACIÓN PERSONAL',
+    infoAccount: 'Información Personal',
     changePassword: 'Cambiar Contraseña',
   },
   EN: {
     choosePicture: 'Upload a new picture',
     deleteAccount: 'Delete account',
-    infoAccount: 'PERSONAL INFORMATION',
+    infoAccount: 'Personal Information',
     changePassword: 'Change Password',
   },
 };
