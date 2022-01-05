@@ -13,7 +13,7 @@ interface Props {
 const RecipeAbstractCalendarComponent: FC<Props> = (props: Props) => {
   const { navigation, time, likes, title } = props;
   const onPressRecipe = (item: any) => {
-    navigation.navigate('RecipesHomeScreen');
+    navigation.navigate('RecipeDetailsScreen');
   };
   return (
     <TouchableOpacity onPress={onPressRecipe}>
