@@ -174,6 +174,22 @@ export const AccountStackNavigator: FC = () => {
           headerShown: false,
         }}
       />
+      <RootStack.Screen
+        name="RecipeDetailsScreen"
+        component={RecipeDetailsScreen}
+        options={{
+          title: 'MLRL[lang]?.appName',
+          headerShown: false,
+        }}
+      />
+      <RootStack.Screen
+        name="StepsRecipesScreen"
+        component={StepsRecipesScreen}
+        options={{
+          title: ' MLRL[lang]?.appName',
+          headerShown: false,
+        }}
+      />
     </RootStack.Navigator>
   );
 };
@@ -218,6 +234,22 @@ export const CalendarStackNavigator: FC = () => {
         name="CalendarScreen"
         component={CalendarScreen}
         options={{
+          headerShown: false,
+        }}
+      />
+      <RootStack.Screen
+        name="RecipeDetailsScreen"
+        component={RecipeDetailsScreen}
+        options={{
+          title: 'MLRL[lang]?.appName',
+          headerShown: false,
+        }}
+      />
+      <RootStack.Screen
+        name="StepsRecipesScreen"
+        component={StepsRecipesScreen}
+        options={{
+          title: ' MLRL[lang]?.appName',
           headerShown: false,
         }}
       />
