@@ -8,12 +8,17 @@ interface Props {
   navigation: any;
   setlikeRecipe: any;
   likeRecipe: any;
+  visible: any;
+  setVisible: any;
 }
 
 const TopBar: FC<Props> = (props: Props) => {
-  const { navigation, setlikeRecipe, likeRecipe } = props;
+  const { navigation, setlikeRecipe, likeRecipe, visible, setVisible } = props;
   const pressLike = (item: any) => {
     setlikeRecipe(!likeRecipe);
+  };
+  const saveRecipe = (item: any) => {
+    setVisible(!visible);
   };
   return (
     <View style={style.header}>
@@ -41,11 +46,13 @@ const TopBar: FC<Props> = (props: Props) => {
             size={25}
             color={Colors.light.yellow}
           />
-          <MaterialIcons
-            name="playlist-add"
-            size={30}
-            color={Colors.light.yellow}
-          />
+          <TouchableOpacity onPress={saveRecipe}>
+            <MaterialIcons
+              name="playlist-add"
+              size={30}
+              color={Colors.light.yellow}
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </View>
