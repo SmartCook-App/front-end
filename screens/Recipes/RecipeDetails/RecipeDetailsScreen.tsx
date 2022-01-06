@@ -32,12 +32,12 @@ const RecipeDetailsScreen: FC<Props> = (props: Props) => {
   const { navigation } = props;
   const [amountPortions, setAmountPortions] = useState(1);
   const [likeRecipe, setlikeRecipe] = useState(false);
+  const [saveRecipe, setSaveRecipe] = useState(false);
   // TODO: eliminar esta data cuando tengamos la base de datos
   const data = ['1', '2', '3', '4', '5', '6'];
   const [inputValue, setInputValue] = useState('');
   const [visibleModalDate, setVisibleModalDate] = React.useState(false);
   const [visibleModalFoodTime, setVisibleModalFoodTime] = React.useState(false);
-  const [expandSelectDate, setexpandSelectDate] = React.useState(false);
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );

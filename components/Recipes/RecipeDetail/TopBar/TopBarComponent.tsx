@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import style from './TopBarStyles';
 import Colors from '../../../../assets/Colors';
-import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
+import { AntDesign, Ionicons, FontAwesome, Feather } from '@expo/vector-icons';
 
 interface Props {
   navigation: any;
@@ -17,7 +17,7 @@ const TopBar: FC<Props> = (props: Props) => {
   const pressLike = (item: any) => {
     setlikeRecipe(!likeRecipe);
   };
-  const saveRecipe = (item: any) => {
+  const addToCalendar = (item: any) => {
     setVisible(!visible);
   };
   return (
@@ -41,17 +41,15 @@ const TopBar: FC<Props> = (props: Props) => {
               <AntDesign name="hearto" size={25} color={Colors.light.yellow} />
             </TouchableOpacity>
           )}
-          <Ionicons
-            name="share-social-outline"
-            size={25}
-            color={Colors.light.yellow}
-          />
-          <TouchableOpacity onPress={saveRecipe}>
-            <MaterialIcons
-              name="playlist-add"
-              size={30}
+          <TouchableOpacity>
+            <FontAwesome
+              name="bookmark-o"
+              size={25}
               color={Colors.light.yellow}
             />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={addToCalendar}>
+            <Feather name="calendar" size={25} color={Colors.light.yellow} />
           </TouchableOpacity>
         </View>
       </View>
