@@ -8,14 +8,32 @@ interface Props {
   navigation: any;
   setlikeRecipe: any;
   likeRecipe: any;
+  setSavedRecipe: any;
+  savedRecipe: any;
   visible: any;
+  visibleCategory: any;
+  setVisibleCategory: any;
   setVisible: any;
 }
 
 const TopBar: FC<Props> = (props: Props) => {
-  const { navigation, setlikeRecipe, likeRecipe, visible, setVisible } = props;
+  const {
+    navigation,
+    setlikeRecipe,
+    likeRecipe,
+    visible,
+    setVisible,
+    setSavedRecipe,
+    savedRecipe,
+    visibleCategory,
+    setVisibleCategory,
+  } = props;
   const pressLike = (item: any) => {
     setlikeRecipe(!likeRecipe);
+  };
+  const saveRecipe = (item: any) => {
+    setSavedRecipe(!savedRecipe);
+    setVisibleCategory(!visibleCategory);
   };
   const addToCalendar = (item: any) => {
     setVisible(!visible);
@@ -41,13 +59,23 @@ const TopBar: FC<Props> = (props: Props) => {
               <AntDesign name="hearto" size={25} color={Colors.light.yellow} />
             </TouchableOpacity>
           )}
-          <TouchableOpacity>
-            <FontAwesome
-              name="bookmark-o"
-              size={25}
-              color={Colors.light.yellow}
-            />
-          </TouchableOpacity>
+          {savedRecipe ? (
+            <TouchableOpacity onPress={saveRecipe}>
+              <FontAwesome
+                name="bookmark"
+                size={25}
+                color={Colors.light.yellow}
+              />
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity onPress={saveRecipe}>
+              <FontAwesome
+                name="bookmark-o"
+                size={25}
+                color={Colors.light.yellow}
+              />
+            </TouchableOpacity>
+          )}
           <TouchableOpacity onPress={addToCalendar}>
             <Feather name="calendar" size={25} color={Colors.light.yellow} />
           </TouchableOpacity>

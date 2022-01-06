@@ -7,10 +7,12 @@ const RDL: any = {
     add: 'Añadir',
     nutritionInfo: 'Información Nutricional',
     visitProfile: 'Visitar perfil',
-    chooseDay: 'Elige el día que quieras agregarlo al menú:',
+    chooseDay: 'Elija el día que quiera agregarlo al menú:',
     selectDay: 'Seleccionar fecha',
     chooseFood: 'Elija comida del día:',
     selectFood: 'Seleccionar comida',
+    chooseCategory: 'Elija categoría que desee agregar receta:',
+    selectCategory: 'Seleccionar categoría',
   },
   EN: {
     saveButton: 'Save',
@@ -24,6 +26,8 @@ const RDL: any = {
     selectDay: 'Select date',
     chooseFood: 'Choose meal of the day:',
     selectFood: 'Select food',
+    chooseCategory: 'Choose the category you want to add a recipe to:',
+    selectCategory: 'Select category ',
   },
 };
 export default RDL;
