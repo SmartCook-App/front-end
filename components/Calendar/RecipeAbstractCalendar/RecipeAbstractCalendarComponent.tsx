@@ -1,7 +1,16 @@
 import React, { FC } from 'react';
-import { Text, View, ImageBackground, TouchableOpacity } from 'react-native';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
+import {
+  Alert,
+  Text,
+  View,
+  ImageBackground,
+  TouchableOpacity,
+} from 'react-native';
 import styles from './RecipeAbstractCalendarStyles';
-import { Feather, MaterialIcons, Entypo } from '@expo/vector-icons';
+import { Feather, MaterialIcons } from '@expo/vector-icons';
+import RAC from './RecipeAbstractCalendarLanguages';
 
 interface Props {
   navigation: any;
@@ -15,8 +24,23 @@ const RecipeAbstractCalendarComponent: FC<Props> = (props: Props) => {
   const onPressRecipe = (item: any) => {
     navigation.navigate('RecipeDetailsScreen');
   };
+  const lang = useSelector<RootState, RootState['language']>(
+    (state) => state.language
+  );
+  const deleteFromCalendar = () => {
+    Alert.alert(RAC[lang]?.delete, RAC[lang]?.areYouSure, [
+      {
+        text: RAC[lang]?.yes,
+        onPress: () => console.log('Eliminar receta'),
+      },
+      {
+        text: RAC[lang]?.cancel,
+        onPress: () => console.log('Cancelar'),
+      },
+    ]);
+  };
   return (
-    <TouchableOpacity onPress={onPressRecipe}>
+    <TouchableOpacity onPress={onPressRecipe} onLongPress={deleteFromCalendar}>
       <View style={styles.container}>
         <ImageBackground
           source={{ uri: 'https://reactjs.org/logo-og.png' }}
@@ -24,9 +48,6 @@ const RecipeAbstractCalendarComponent: FC<Props> = (props: Props) => {
         >
           <Text style={styles.timeOval}>
             <MaterialIcons name="access-time" color="white" /> {time}min
-          </Text>
-          <Text style={styles.deleteButton}>
-            <Entypo name="cross" size={20} color="black" />
           </Text>
           <Text style={styles.likesOval}>
             <Feather name="heart" color="black" /> {likes}
