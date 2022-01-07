@@ -24,7 +24,7 @@ const Calendar: FC<Props> = (props: Props) => {
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
-  // Función que obtiene el día seleccionado
+  // Function that obtains the selected day
   const onDateChange = (date: any) => {
     setSelectedDate(date.format('MMM DD').toLocaleString('es-Es'));
   };
