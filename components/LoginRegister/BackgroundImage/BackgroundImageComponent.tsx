@@ -1,4 +1,3 @@
-import { resolveUri } from 'expo-asset/build/AssetSources';
 import React, { FC } from 'react';
 import { ImageBackground, View } from 'react-native';
 import style from './BackgroundImageStyles';
