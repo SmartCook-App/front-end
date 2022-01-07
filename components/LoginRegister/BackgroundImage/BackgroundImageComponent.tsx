@@ -9,7 +9,7 @@ interface Props {
 const BackgroundImage: FC<Props> = (props: Props) => {
   return (
     <ImageBackground
-      source={{ uri: 'https://reactjs.org/logo-og.png' }}
+      source={require('../../../assets/Images/LoginImg/loginBackground.jpeg')}
       style={style.image}
       blurRadius={1}
     >

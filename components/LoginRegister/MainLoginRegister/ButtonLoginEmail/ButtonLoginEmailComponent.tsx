@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import style from './ButtonLoginEmailStyles';
 
@@ -15,8 +15,10 @@ const ButtonLoginEmail: FC<Props> = (props: Props) => {
       onPress={() => navigation.navigate('LoginRegisterScreen')}
       style={style.homeButton}
     >
+    <View style={style.mainContainer}>
       <Text style={style.homeButtonText}>{content}</Text>
       <Feather name="mail" size={35} style={style.homeMailIcon} />
+    </View>
     </TouchableOpacity>
   );
 };

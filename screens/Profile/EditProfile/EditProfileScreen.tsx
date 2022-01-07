@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, Modal } from 'react-native';
 import LRL from '../../LoginRegister/LoginRegister/LogInRegisterLanguages';
 import EPL from './EditProfilesLanguages';
 import styles from './EditProfileStyles';
@@ -12,6 +12,7 @@ import * as Yup from 'yup';
 import { Image } from 'react-native-animatable';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
 import Colors from '../../../assets/Colors';
+import { ScrollView } from 'react-native-gesture-handler';
 
 interface Props {
   navigation: any;
@@ -36,6 +37,7 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
   const handleSubmit = () => {
     console.log('submitting');
   };
+  const [changePasswordButton, setChangePasswordButton] = useState(false);
 
   const toggleModal = () => {
     setVisible(!visible);
@@ -48,10 +50,24 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
         onPress: () => console.log('OK'),
       },
     ]);
+
+    const changePassword = () => {
+      setChangePasswordButton(!changePasswordButton)
+    }
+  
+    const sendEmailToUpdatePassword = () => {
+      Alert.alert('Hola', 'Esta opción no esta disponible todavía. Para cambiar tu contraseña contáctate con nuestro equipo', [
+        {
+          text: 'Ok',
+          onPress: () => setChangePasswordButton(!changePasswordButton),
+        },
+      ]);
+    }
   return (
     <>
       <BackgroundImage>
         <TopNavbar title={'PERFIL'} goBack={true} navigation={navigation} />
+        <ScrollView>
         <View style={styles.firstcontainer}>
           {/* Hay que llevarlo a un componente  */}
           <Formik
@@ -190,12 +206,40 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
                   ) : null}
                 </View>
                 <View style={styles.viewInput}>
+                <Modal animationType="slide" 
+                   transparent visible={changePasswordButton} 
+                   presentationStyle="overFullScreen" 
+                  >
+                  <View style={styles.viewWrapper}>
+                      <View style={styles.modalView}>
+                        <Text style={styles.forgetPasswordTitle}>{EPL[lang]?.changePassword}</Text>
+                        <Text style={styles.forgetPassowordDescription}>{EPL[lang]?.description}</Text>
+
+                          <TextInput placeholder={EPL[lang]?.currentPassword} 
+                                      style={styles.textInput} 
+                                      />
+                          <View style={styles.line}></View>
+                          <TextInput placeholder={EPL[lang]?.newPassword} 
+                                      style={styles.textInput} 
+                                      />
+                          <View style={styles.line}></View>
+                          <TextInput placeholder={EPL[lang]?.repeatNewPassword} 
+                                      style={styles.textInput} 
+                                      />       
+                          <View style={styles.line}></View>                   
+                          <TouchableOpacity style={styles.uploadButtonContainer} onPress={sendEmailToUpdatePassword} >
+                            <Text style={styles.uploadButton}>{EPL[lang]?.accept}</Text>
+                          </TouchableOpacity>
+                      </View>
+                  </View>
+            </Modal>
                 </View>
               </>
             )}
           </Formik>
-          <Text style={styles.deleteButton}>{EPL[lang]?.changePassword}</Text>
+          <Text style={styles.changePasswordText} onPress={changePassword}>{EPL[lang]?.changePassword}</Text>
         </View>
+        </ScrollView>
       </BackgroundImage>
     </>
   );

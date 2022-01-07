@@ -6,7 +6,6 @@ const logInRegisterStyle = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection:'column',
-        alignItems:'center',
         justifyContent:'center',
     },
     showViewRegisterLogIn: {

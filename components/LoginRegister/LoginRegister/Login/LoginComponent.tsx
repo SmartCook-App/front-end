@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, Modal, Alert } from 'react-native';
 import style from './LoginStyles';
 import LL from './LoginLanguages';
 import { useSelector } from 'react-redux';
@@ -15,12 +15,26 @@ interface Props {
 const LoginComponent: FC<Props> = (props: Props) => {
   const initialValues = { email: '', password: '' };
   const [showPassword, setShowPassword] = useState(true);
+  const [changePasswordButton, setChangePasswordButton] = useState(false);
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
   const handleSubmit = () => {
     console.log('submitting');
   };
+
+  const changePassword = () => {
+    setChangePasswordButton(!changePasswordButton)
+  }
+
+  const sendEmailToUpdatePassword = () => {
+    Alert.alert('Hola', 'Esta opción no esta disponible todavía. Para cambiar tu contraseña contáctate con nuestro equipo', [
+      {
+        text: 'Ok',
+        onPress: () => setChangePasswordButton(!changePasswordButton),
+      },
+    ]);
+  }
 
   return (
     <View style={style.subContainer}>
@@ -97,11 +111,29 @@ const LoginComponent: FC<Props> = (props: Props) => {
             <TouchableOpacity style={style.buttonLogIn} disabled={!isValid}>
               <Text style={style.buttonText}>{LL[lang]?.logIn}</Text>
             </TouchableOpacity>
+            <Modal animationType="slide" 
+                   transparent visible={changePasswordButton} 
+                   presentationStyle="overFullScreen" 
+                  >
+                  <View style={style.viewWrapper}>
+                      <View style={style.modalView}>
+                        <Text style={style.forgetPasswordTitle}>{LL[lang]?.forgetPasswordTitlePopUp}</Text>
+                        <Text style={style.forgetPassowordDescription}>{LL[lang]?.description}</Text>
+
+                          <TextInput placeholder={LL[lang]?.email} 
+                                      style={style.textInput} 
+                                      />
+  
+                          <TouchableOpacity style={style.uploadButtonContainer} onPress={sendEmailToUpdatePassword} >
+                            <Text style={style.uploadButton}>{LL[lang]?.send}</Text>
+                          </TouchableOpacity>
+                      </View>
+                  </View>
+            </Modal>
           </>
         )}
       </Formik>
-      <Text style={style.footerText}> {LL[lang]?.forgotPassword} </Text>
-      {/* onPress={() => dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' })} */}
+      <Text style={style.footerText} onPress={changePassword}> {LL[lang]?.forgotPassword} </Text>
     </View>
   );
 };

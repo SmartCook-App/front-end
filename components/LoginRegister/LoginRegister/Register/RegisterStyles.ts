@@ -57,6 +57,7 @@ const RegisterStyle = StyleSheet.create({
     color: Colors.light.white,
     fontFamily: 'nunito-light',
     textAlign: 'center',
+    padding: normalizePx(20),
   },
   footerTextBold: {
     fontFamily: 'nunito-semiBold',
