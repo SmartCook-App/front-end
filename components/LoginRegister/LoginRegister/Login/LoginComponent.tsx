@@ -8,7 +8,6 @@ import { Feather, MaterialIcons } from '@expo/vector-icons';
 import { Formik } from 'formik';
 import Colors from '../../../../assets/Colors';
 import * as Yup from 'yup';
-import { createIconSetFromFontello } from 'react-native-vector-icons';
 
 interface Props {
   navigation: any;
