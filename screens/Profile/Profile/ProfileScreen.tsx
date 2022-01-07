@@ -1,28 +1,37 @@
-import React, { FC, useState } from "react";
-import { View, ScrollView, SafeAreaView, TouchableOpacity } from "react-native";
-import RoundFiltersComponents from "../../../components/RoundFilters/RoundFiltersComponent";
-import PSL from "./ProfileLanguages";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
-import RecipesComponent from "../../../components/ShowAllRecipes/ShowAllRecipesComponent";
-import { Ionicons } from "@expo/vector-icons";
-import styles from "./ProfileStyles";
-import { Text } from "../../../components/Themed";
-import { addFilterHomeInteractor } from "../../../redux/interactors/homeIconsInteractors";
-import { HomeIconTypes } from "../../../redux/types/homeIconsTypes";
+import React, { FC, useState } from 'react';
+import {
+  View,
+  ScrollView,
+  SafeAreaView,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
+import { Modal } from 'react-native-paper';
+import RoundFiltersComponents from '../../../components/RoundFilters/RoundFiltersComponent';
+import PSL from './ProfileLanguages';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
+import RecipesComponent from '../../../components/ShowAllRecipes/ShowAllRecipesComponent';
+import { Ionicons, Entypo } from '@expo/vector-icons';
+import styles from './ProfileStyles';
+import { Text } from '../../../components/Themed';
+import { addFilterHomeInteractor } from '../../../redux/interactors/homeIconsInteractors';
+import { HomeIconTypes } from '../../../redux/types/homeIconsTypes';
+import Colors from '../../../assets/Colors';
 import TopNavbarWithKebabComponent from '../../../components/Profile/EditProfile/TopNavbarWithKebab/TopNavbarWithKebabComponent';
-
 
 interface Props {
   navigation: any;
 }
 
-const AccountScreen:  FC<Props> = (props: Props) =>  {
+const AccountScreen: FC<Props> = (props: Props) => {
   const { navigation } = props;
   const state = useSelector((state: RootState) => state);
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
   const [ownProfile, setOwnProfile] = useState(true);
+  const [visibleModalAddCategory, setVisibleAddCategory] = useState(false);
+  const [text, setText] = useState('');
   const dispatch = useDispatch();
 
   const onPressEditProfile = (item: any) => {
@@ -30,27 +39,31 @@ const AccountScreen:  FC<Props> = (props: Props) =>  {
   };
 
   const addFilter = () => {
+    setVisibleAddCategory(!visibleModalAddCategory);
     const newFilter: HomeIconTypes = {
-      id: "7",
-      name: "cart-outline",
-      title: "new filter",
+      id: '7',
+      name: 'cart-outline',
+      title: 'new filter',
       press: false,
       height: 150,
     };
     dispatch(addFilterHomeInteractor(newFilter));
   };
+  const closeModalAddCategory = (item: any) => {
+    setVisibleAddCategory(!visibleModalAddCategory);
+  };
 
   return (
     <>
       <SafeAreaView style={styles.mainContainer}>
-      <TopNavbarWithKebabComponent
-          title={"PERFIL"}
+        <TopNavbarWithKebabComponent
+          title={'PERFIL'}
           goBack={true}
           navigation={navigation}
         />
         <View style={styles.headerContainer}>
           <View style={styles.headerRowContainer}>
-            <Ionicons name={"person-circle-outline"} size={80} />
+            <Ionicons name={'person-circle-outline'} size={80} />
             <View style={styles.headerTextContainer}>
               <Text style={styles.textProfile}>Nombre</Text>
               {/* Aca hay que reemplazar con la informacion del usuario cuando */}
@@ -60,7 +73,10 @@ const AccountScreen:  FC<Props> = (props: Props) =>  {
             </View>
           </View>
           {ownProfile ? (
-            <TouchableOpacity style={styles.followButton} onPress={onPressEditProfile}>
+            <TouchableOpacity
+              style={styles.followButton}
+              onPress={onPressEditProfile}
+            >
               <Text>{PSL[state.language]?.editButton}</Text>
             </TouchableOpacity>
           ) : (
@@ -76,11 +92,7 @@ const AccountScreen:  FC<Props> = (props: Props) =>  {
                 style={styles.addFilterButton}
                 onPress={addFilter}
               >
-                <Ionicons
-                  name={"add"}
-                  size={45}
-                  color={"black"}
-                />
+                <Ionicons name={'add'} size={45} color={'black'} />
               </TouchableOpacity>
               <Text style={styles.addFilterButtonTitle}>
                 {PSL[state.language]?.addFilter}
@@ -98,7 +110,7 @@ const AccountScreen:  FC<Props> = (props: Props) =>  {
                 setupdateOrderButtons={setupdateOrderButtons}
                 cookersView={cookersView}
                 setcookersView={setcookersView}
-                screen={"AccountScreen"}
+                screen={'AccountScreen'}
               />
             ))}
           </ScrollView>
@@ -121,13 +133,39 @@ const AccountScreen:  FC<Props> = (props: Props) =>  {
         </View>
         <ScrollView style={styles.recipesContainer}>
           <RecipesComponent
-            name={"name"}
-            image={"image"}
-            cal={"cal"}
-            time={"time"}
+            name={'name'}
+            image={'image'}
+            cal={'cal'}
+            time={'time'}
             navigation={navigation}
           />
         </ScrollView>
+        <Modal
+          visible={visibleModalAddCategory}
+          contentContainerStyle={styles.modalContainer}
+        >
+          <TouchableOpacity onPress={closeModalAddCategory}>
+            <Entypo name="cross" size={30} style={styles.closeModalCross} />
+          </TouchableOpacity>
+          <Text style={styles.modalTitle}>
+            {PSL[state.language]?.addCategoryModalTitle}
+          </Text>
+          <TextInput
+            placeholderTextColor={Colors.light.darkGray}
+            style={styles.modalTextInput}
+            placeholder={PSL[state.language]?.inputTextModalPlaceholder}
+            onChangeText={(text) => setText(text)}
+            value={text}
+          />
+          <TouchableOpacity
+            style={styles.addCategoryButtonContainer}
+            onPress={closeModalAddCategory}
+          >
+            <Text style={styles.addCategoryButton}>
+              {PSL[state.language]?.add}
+            </Text>
+          </TouchableOpacity>
+        </Modal>
       </SafeAreaView>
     </>
   );

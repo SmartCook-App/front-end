@@ -12,7 +12,7 @@ const RecipesStepsStyle = StyleSheet.create({
     flex: 1,
     resizeMode: 'stretch',
     opacity: 0.5,
-    backgroundColor: 'rgba(0,0,0,1)',
+    backgroundColor: 'red',
   },
   ingredientsContainer: {
     justifyContent: 'center',
