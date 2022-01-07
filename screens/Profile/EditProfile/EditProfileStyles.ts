@@ -49,8 +49,8 @@ const EditProfileStyles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 10,
-    padding: 5,
+    marginBottom: normalizePx(10),
+    padding: normalizePx(5),
     flex: 1
   },
   pictureUploadContainer: {
