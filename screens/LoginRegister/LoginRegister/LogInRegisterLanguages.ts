@@ -16,8 +16,7 @@ const LRL: any = {
     legalMessageTerms: "Términos del servicio",
     and: "y",
     legalMessagePolitics: "Política de privacidad",
-    forgotPassword:
-      "                                  ¿Olvidaste tu contraseña?                                  ",
+    forgotPassword:"¿Olvidaste tu contraseña?",
     birthday: 'Fecha nacimiento',
     gender: 'Género',
   },
@@ -38,8 +37,7 @@ const LRL: any = {
     legalMessageTerms: "Terms of Service",
     and: "and",
     legalMessagePolitics: "Privacy Policy",
-    forgotPassword:
-      "                                  ¿Forgot your password?                                  ",
+    forgotPassword: "¿Forgot your password?",
     birthday: 'Date of birth',
     gender: 'Gender'
   },
