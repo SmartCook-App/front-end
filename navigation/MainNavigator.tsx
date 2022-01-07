@@ -11,8 +11,9 @@ const MainNavigator: FC = () => {
   return (
     <>
       {!state.userAuth.id || state.userAuth.registerUserAuthStatus.success ? (
-        <>
-          <MainPageStackNavigator />
+        <> 
+        <TabNavigator />
+          {/* <MainPageStackNavigator /> */}
         </>
       ) : (
         <TabNavigator />

@@ -13,7 +13,7 @@ interface Props {
   navigation: any;
 }
 
-const ChooseIngredient: FC<Props> = (props: Props) => {
+const ChooseIngredientScreen: FC<Props> = (props: Props) => {
   const state = useSelector((state: RootState) => state);
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
@@ -79,4 +79,4 @@ const ChooseIngredient: FC<Props> = (props: Props) => {
   );
 };
 
-export default ChooseIngredient;
+export default ChooseIngredientScreen;

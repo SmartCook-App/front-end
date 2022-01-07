@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { View, Text, ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
-import TopBar from '../../../components/Recipes/RecipeDetail/TopBar/TopBarComponent';
+import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
 import StepsRecipesStyle from './RecipesStepsStyle';
 import AddSubButton from '../../../components/Recipes/AddSubButton/AddSubButtonComponent';
 import StepsDetails from '../../../components/Recipes/RecipesSteps/StepsDetails/StepsDetailsComponent';
@@ -21,7 +21,11 @@ const RecipesStepsScreen: FC<Props> = (props: Props) => {
     >
       <ScrollView>
         <View style={StepsRecipesStyle.container}>
-          <TopBar navigation={navigation} />
+          <TopNavbar 
+            navigation={navigation} 
+            title={"Steps"}
+            goBack={true}
+            />
           <View style={StepsRecipesStyle.portions}>
             <AddSubButton
               text={'-'}
