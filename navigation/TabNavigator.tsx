@@ -1,19 +1,16 @@
-
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import IoniconsComponent from '../components/HomeComponents/IoniconsComponent';
+import IoniconsComponent from '../components/TabNavigator/IoniconsComponent';
 import Colors from '../assets/Colors';
-import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
-import {normalizePx} from "../styles/normalize";
+import { normalizePx } from '../styles/normalize';
 import {
   RecepiesStackNavigator,
   AccountStackNavigator,
   ShoppingListStackNavigator,
   CalendarStackNavigator,
-} from "./StackNavigator";
+} from './StackNavigator';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -28,7 +25,11 @@ export const TabNavigator: FC = () => {
       inactiveColor="#000000"
       sceneAnimationEnabled={false}
       shifting={true}
-      barStyle={{ height: normalizePx(70), backgroundColor: Colors.light.navbarColor, marginBottom: 2 }}   
+      barStyle={{
+        height: normalizePx(70),
+        backgroundColor: Colors.light.navbarColor,
+        marginBottom: 2,
+      }}
     >
       <Tab.Screen
         name="Recepies"
@@ -42,7 +43,7 @@ export const TabNavigator: FC = () => {
         name="List"
         component={ShoppingListStackNavigator}
         options={{
-          tabBarLabel: "Lista",
+          tabBarLabel: 'Lista',
           tabBarColor: Colors.light.navbarColor,
           tabBarIcon: () => <IoniconsComponent name="list-outline" />,
         }}
@@ -66,4 +67,3 @@ export const TabNavigator: FC = () => {
     </Tab.Navigator>
   );
 };
-
