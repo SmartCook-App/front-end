@@ -72,5 +72,47 @@ const EditProfileStyles = StyleSheet.create({
     marginTop: normalizePx(40),
     fontSize: normalizeFontSize(14),
   },
+  viewWrapper: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.light.darkGrey3,
+  },
+  modalView: {
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: normalizePx(250),
+    width: normalizePx(380),
+    backgroundColor: Colors.light.background,
+    borderRadius: normalizePx(7),
+    padding: normalizePx(15),
+  },
+  forgetPasswordTitle: {
+    fontSize: normalizeFontSize(20),
+    fontWeight: 'bold'
+  },
+  forgetPassowordDescription: {
+    fontSize: normalizeFontSize(12),
+    padding: normalizePx(10)
+  },
+  uploadButtonContainer: {
+    backgroundColor: Colors.light.yellow,
+    height: normalizePx(30),
+    width: normalizePx(80),
+    justifyContent: 'center',
+    borderRadius: normalizePx(20),
+    marginTop: normalizePx(10)
+  },
+  uploadButton: {
+    fontSize: normalizeFontSize(10),
+    color: Colors.light.white,
+    alignSelf: 'center',
+  },
+  line: {
+    backgroundColor: Colors.light.lightGrey,
+    height: normalizePx(0.6),
+    width: '80%'
+  }
 });
 export default EditProfileStyles;

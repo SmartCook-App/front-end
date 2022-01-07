@@ -115,11 +115,10 @@ const LoginComponent: FC<Props> = (props: Props) => {
             <Modal animationType="slide" 
                    transparent visible={changePasswordButton} 
                    presentationStyle="overFullScreen" 
-                  //  onDismiss={setChangePasswordButton}
                   >
                   <View style={style.viewWrapper}>
                       <View style={style.modalView}>
-                        <Text style={style.forgetPasswordTitle}>Olvido de contraseña</Text>
+                        <Text style={style.forgetPasswordTitle}>{LL[lang]?.forgetPasswordTitlePopUp}</Text>
                         <Text style={style.forgetPassowordDescription}>{LL[lang]?.description}</Text>
 
                           <TextInput placeholder={LL[lang]?.email} 

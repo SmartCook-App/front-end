@@ -8,7 +8,8 @@ const LL: any = {
     forgotPassword: '¿Olvidaste tu contraseña?',
     actualPassword: 'Contraseña actual',
     description: 'Te enviaremos un mail para restablecer tu contraseña',
-    send: 'Enviar'
+    send: 'Enviar',
+    forgetPasswordTitlePopUp: 'Olvido de contraseña',
   },
   EN: {
     logIn: 'Log In',
@@ -19,9 +20,8 @@ const LL: any = {
     forgotPassword: '¿Forgot your password?',
     actualPassword: 'Contraseña actual',
     description: 'Will send you an email to recover your password',
-    send: 'Send'
-
-
-  },
+    send: 'Send',
+    forgetPasswordTitlePopUp: 'Password Recovery',
+  }
 };
 export default LL;

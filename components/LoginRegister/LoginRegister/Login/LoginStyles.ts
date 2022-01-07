@@ -66,17 +66,14 @@ const logInRegisterStyle = StyleSheet.create({
     backgroundColor: Colors.light.darkGrey3,
   },
   modalView: {
+    alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    elevation: normalizePx(5),
-    transform: [{ translateX: -(400 * 0.4) }, { translateY: -90 }],
-    height: normalizePx(250),
-    width: normalizePx(400 * 0.8),
+    minHeight: normalizePx(250),
+    width: normalizePx(380),
     backgroundColor: Colors.light.background,
     borderRadius: normalizePx(7),
+    padding: normalizePx(15),
   },
   uploadButtonContainer: {
     backgroundColor: Colors.light.black,
@@ -97,7 +94,7 @@ const logInRegisterStyle = StyleSheet.create({
   forgetPassowordDescription: {
     fontSize: normalizeFontSize(12),
     padding: normalizePx(10)
-  }
+  },
 });
 
 export default logInRegisterStyle;
