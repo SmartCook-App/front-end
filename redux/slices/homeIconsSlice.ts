@@ -101,7 +101,7 @@ const homeIconsSlice = createSlice({
   reducers: {
     reorderFilters: (state: HomeIconsState, action: Action) => {
       const {screen, filter} = action.payload;
-      if (screen == "IndexScreen") {
+      if (screen == "RecipesHomeScreen") {
         return {
           ...state,
           homeIconArray: updateFilters(state.homeIconArray, filter).sort((a,b) => 
