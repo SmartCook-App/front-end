@@ -54,7 +54,7 @@ const RecipeAbstractStyle = StyleSheet.create({
     fontSize: normalizeFontSize(10),
     textAlign: 'center',
     borderRadius: normalizePx(50),
-    backgroundColor: Colors.light.greyOfFilters,
+    backgroundColor: Colors.light.yellow,
     transform: [{ scaleX: 1 }],
     alignSelf: 'flex-end',
     right:
