@@ -9,14 +9,7 @@ const TabBarStyle = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-  },
-  goBack: {
-    fontSize: normalizeFontSize(25),
-    color: Colors.light.yellow,
-    fontFamily: 'nunito-black',
-  },
-  view: {
-    flexDirection: 'row',
+    padding: normalizePx(8),
   },
   touch: {
     marginRight: normalizePx(350),
@@ -25,18 +18,20 @@ const TabBarStyle = StyleSheet.create({
     fontSize: normalizeFontSize(30),
     transform: [{ rotate: '90deg' }],
     color: Colors.light.yellow,
+    textAlign: 'right'
   },
   title: {
     color: Colors.light.yellow,
     fontSize: normalizeFontSize(16),
     fontFamily: 'nunito-black',
-    position: 'absolute',
     textTransform: 'uppercase',
+    textAlign: 'center'
+  
   },
   line: {
     marginTop: normalizePx(0.5),
     backgroundColor: Colors.light.lineUpperTitle,
-    height: normalizePx(0.4),
+    height: normalizePx(0.6),
     width: normalizePx(420),
   },
 });

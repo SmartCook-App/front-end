@@ -3,9 +3,14 @@ import Colors from '../../assets/Colors';
 import { normalizeFontSize, normalizePx } from '../../styles/normalize';
 
 const TopNavbarStyle = StyleSheet.create({
-  container: {
-    marginTop: normalizePx(30),
-    height: normalizePx(60),
+  firstContainer: {
+    flex: 0.2,
+    textAlign: 'center',
+    justifyContent: 'center',
+    padding: normalizePx(15),
+  },
+  containerWithoutGoBack:{
+    flex: 0.6,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
@@ -14,22 +19,37 @@ const TopNavbarStyle = StyleSheet.create({
     color: Colors.light.yellow,
     fontSize: normalizeFontSize(16),
     fontFamily: 'nunito-black',
-    position: 'absolute',
     textTransform: 'uppercase',
+    textAlign: 'center',
+    flex: 1
   },
   line: {
-    marginTop: normalizePx(0.5),
     backgroundColor: Colors.light.lineUpperTitle,
-    height: normalizePx(0.4),
-    width: normalizePx(420),
+    height: normalizePx(0.6),
+    width: normalizePx(440),
+  },
+  containerWithGoBack:{
+    flex: 0.15,
+    justifyContent: 'center',
+  },
+  secondContainer: {
+    flexDirection: 'row',
+    flex:1,
   },
   goBack: {
     fontSize: normalizePx(25),
-    color: Colors.light.yellow,
+    color: 'black',
     fontFamily: 'nunito-black',
+    backgroundColor: 'blue'
   },
-  touch: {
-    marginRight: normalizePx(350),
+  goBackView: {
+    flex: 1,
+    backgroundColor: 'red',
+
   },
+  textView: {
+    flex: 1,
+    backgroundColor: 'yellow'
+  }
 });
 export default TopNavbarStyle;

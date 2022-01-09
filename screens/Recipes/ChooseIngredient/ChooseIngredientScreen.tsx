@@ -37,7 +37,7 @@ const ChooseIngredientScreen: FC<Props> = (props: Props) => {
   };
 
   return (
-    <>
+    <View style={{flex: 2}}>
       <TopNavbar
         title={CIL[lang]?.searchIngredientTitle}
         navigation={navigation}
@@ -75,7 +75,7 @@ const ChooseIngredientScreen: FC<Props> = (props: Props) => {
           <AntDesign name="check" size={35} color="white" />
         </View>
       </TouchableOpacity>
-    </>
+    </View>
   );
 };
 

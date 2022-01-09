@@ -17,6 +17,7 @@ const RecipesStepsStyle = StyleSheet.create({
   ingredientsContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+    flex: 2
   },
   ingredientsText: {
     color: Colors.light.white,
@@ -34,14 +35,17 @@ const RecipesStepsStyle = StyleSheet.create({
     padding: normalizePx(15),
     paddingHorizontal: normalizePx(110),
     justifyContent: 'space-between',
+    flex: 2
   },
   containerImages:{
     marginTop: normalizePx(100),
+    flex: 2
   },
   ButtonContainer: {
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: Colors.light.transparentBlack,
+    flex:2
   },
   markAsCookedButton: {
     backgroundColor: Colors.light.yellow,

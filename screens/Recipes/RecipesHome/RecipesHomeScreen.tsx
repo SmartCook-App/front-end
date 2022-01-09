@@ -24,7 +24,7 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
 
   return (
     <>
-      <View>
+      <View style={styles.mainContainer}>
         <TopNavbar title={'SMARTCOOK'} goBack={false} navigation={navigation} />
         <View style={styles.container}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -52,13 +52,13 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
           </ScrollView>
         </View>
         {cookersView ? (
-          <ScrollView>
+          <ScrollView style={{flex: 2}}>
             <CookersRecipesComponent
               navigation={navigation}
             />
           </ScrollView>
         ) : (
-          <ScrollView>
+          <ScrollView style={{flex: 1}}>
             <RecipesComponent
               name={'name'}
               image={'image'}
@@ -68,9 +68,9 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
             />
           </ScrollView>
         )}
-        <IngredientsButtonComponent
-          navigation={navigation}
-        ></IngredientsButtonComponent>
+          <IngredientsButtonComponent
+            navigation={navigation}
+          ></IngredientsButtonComponent>
       </View>
     </>
   );

@@ -15,17 +15,20 @@ const RecipesStepsScreen: FC<Props> = (props: Props) => {
   const [amountPortions, setAmountPortions] = useState(1);
 
   return (
+    <>
+    <TopNavbar 
+    navigation={navigation} 
+    title={"Steps"}
+    goBack={true}
+    />
     <ImageBackground
-      source={{ uri: 'https://reactjs.org/logo-og.png' }}
+      source={{ uri: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' }}
       style={StepsRecipesStyle.backgroundImage}
     >
-      <ScrollView>
+   
+      <ScrollView style={{flex:2}}>
         <View style={StepsRecipesStyle.container}>
-          <TopNavbar 
-            navigation={navigation} 
-            title={"Steps"}
-            goBack={true}
-            />
+      
           <View style={StepsRecipesStyle.portions}>
             <AddSubButton
               text={'-'}
@@ -86,6 +89,7 @@ const RecipesStepsScreen: FC<Props> = (props: Props) => {
         </View>
       </ScrollView>
     </ImageBackground>
+    </>
   );
 };
 export default RecipesStepsScreen;

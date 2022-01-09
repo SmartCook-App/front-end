@@ -67,7 +67,7 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
     <>
       <BackgroundImage>
         <TopNavbar title={'PERFIL'} goBack={true} navigation={navigation} />
-        <ScrollView>
+        <ScrollView style={{flex:0.8}}>
         <View style={styles.firstcontainer}>
           {/* Hay que llevarlo a un componente  */}
           <Formik

@@ -17,7 +17,7 @@ const Match: FC<Props> = (props: Props) => {
         (state) => state.language
       );
     return (
-        <View>
+        <View style={styles.container}>
             <TopNavbar
                 title={ML[lang]?.topnavBarText}
                 navigation={navigation}

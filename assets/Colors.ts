@@ -14,7 +14,7 @@ export default {
     tint: tintColorLight,
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorLight,
-    lineUpperTitle: '#BEBDBD',
+    lineUpperTitle: '#D1CECE',
     greyOfFilters: '#E9E9E9',
     navbarColor: '#E7E7E7',
     lightGrey: 'rgba(109,108,108,0.41)',

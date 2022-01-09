@@ -1,27 +1,20 @@
 import React, { FC, useState } from 'react';
-import { TouchableOpacity, Text, View, Dimensions, Alert } from 'react-native';
+import { Text, View, Alert } from 'react-native';
 import styles from './TopNavbarWithKebabStyles';
-import { Ionicons } from '@expo/vector-icons';
 import TNWKL from './TopNavbarWithKebabLanguages';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/store';
 import { Menu, MenuItem } from 'react-native-material-menu';
 
 interface Props {
-  navigation: any;
   title: any;
-  goBack: any;
 }
-// screen sizing
-const { width, height } = Dimensions.get('window');
-// orientation must fixed
-const SCREEN_WIDTH = width < height ? width : height;
 
 const TopNavbarWithKebab: FC<Props> = (props: Props) => {
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
   );
-  const { title, navigation, goBack } = props;
+  const { title } = props;
   const [visible, setVisible] = useState(false);
 
   const hideMenu = () => {
@@ -43,27 +36,22 @@ const TopNavbarWithKebab: FC<Props> = (props: Props) => {
     <View>
       <>
         <View style={styles.container}>
-          <TouchableOpacity style={styles.touch}>
-            <Text>
-              <Ionicons
-                name="arrow-undo"
-                style={styles.goBack}
-                onPress={navigation.goBack}
-              />
-            </Text>
-          </TouchableOpacity>
-          <Text style={styles.title}>{title}</Text>
-          <Menu
-            visible={visible}
-            anchor={
-              <Text onPress={showMenu} style={styles.kababMenu}>
-                ...
-              </Text>
-            }
-            onRequestClose={hideMenu}
-          >
-            <MenuItem onPress={hideMenu}>{TNWKL[lang]?.deleteAccount}</MenuItem>
-          </Menu>
+          <View style={{flex: 1}}>
+            <Text style={styles.title}>{title}</Text>
+          </View>
+          <View style={{flex: 0.1}}>
+            <Menu
+              visible={visible}
+              anchor={
+                <Text onPress={showMenu} style={styles.kababMenu}>
+                  ...
+                </Text>
+              }
+              onRequestClose={hideMenu}
+            >
+              <MenuItem onPress={hideMenu}>{TNWKL[lang]?.deleteAccount}</MenuItem>
+            </Menu>
+          </View>
         </View>
       </>
       <View style={styles.line}></View>

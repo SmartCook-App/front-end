@@ -25,7 +25,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/Images/ReactNativeImages/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "example.com"
     },
     "web": {
       "favicon": "./assets/Images/ReactNativeImages/favicon.png"

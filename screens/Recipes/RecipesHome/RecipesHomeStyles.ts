@@ -1,16 +1,20 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 import { normalizePx } from "../../../styles/normalize";
 
-const { width, height } = Dimensions.get("window");
 const RecipesHomeStyles = StyleSheet.create({
+  mainContainer:{
+    flex: 2,
+    marginBottom: normalizePx(20),
+  },
   container: {
-    marginHorizontal: normalizePx(width - 350),
-    marginTop: normalizePx(12),
+    marginBottom: normalizePx(22),
+    flex: 0.1,
+    alignItems: 'center',
   },
   containerRoundFilters: {
     flexDirection: "row",
-    width: normalizePx(370),
     marginHorizontal: normalizePx(20),
+    flex: 0.3
   },
 });
 

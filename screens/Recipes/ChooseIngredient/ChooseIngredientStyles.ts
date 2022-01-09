@@ -8,6 +8,7 @@ const ChooseIngredientStyles = StyleSheet.create({
       justifyContent: 'center',
       flexDirection: 'column',
       marginVertical: normalizePx(15),
+      minHeight: normalizePx(70)
     },
     capitalizedSubtext: {
       textTransform: 'uppercase',
