@@ -8,16 +8,10 @@ const RecipesStepsStyle = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
   },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'stretch',
-    opacity: 0.5,
-    backgroundColor: 'rgba(0,0,0,1)',
-  },
   ingredientsContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 2
+    flex: 2,
   },
   ingredientsText: {
     color: Colors.light.white,
@@ -35,17 +29,17 @@ const RecipesStepsStyle = StyleSheet.create({
     padding: normalizePx(15),
     paddingHorizontal: normalizePx(110),
     justifyContent: 'space-between',
-    flex: 2
+    flex: 2,
   },
-  containerImages:{
+  containerImages: {
     marginTop: normalizePx(100),
-    flex: 2
+    flex: 2,
   },
   ButtonContainer: {
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: Colors.light.transparentBlack,
-    flex:2
+    flex: 2,
   },
   markAsCookedButton: {
     backgroundColor: Colors.light.yellow,
@@ -53,16 +47,16 @@ const RecipesStepsStyle = StyleSheet.create({
     borderRadius: normalizePx(35),
     height: normalizePx(50),
     width: normalizePx(275),
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     margin: normalizePx(15),
   },
   markAsCookedButtonText: {
     fontSize: normalizeFontSize(15),
     position: 'absolute',
     textAlign: 'center',
-    fontFamily: "nunito-semiBold",
+    fontFamily: 'nunito-semiBold',
     color: Colors.light.white,
-  }
+  },
 });
 export default RecipesStepsStyle;
