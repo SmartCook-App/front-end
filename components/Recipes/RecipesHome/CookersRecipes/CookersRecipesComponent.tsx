@@ -1,5 +1,11 @@
 import React, { FC } from 'react';
-import { FlatList, Text, ScrollView, View } from 'react-native';
+import {
+  FlatList,
+  Text,
+  ScrollView,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import style from './CookersRecipesStyles';
 import { Cookers } from '../../../../screens/Recipes/CookersDataArray';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -13,19 +19,23 @@ interface Props {
 const RecipesComponent: FC<Props> = (props: Props) => {
   const { navigation } = props;
 
-  const onPressRecipe = (item: any) => {
-    //sth
+  const goToProfileScreen = (item: any) => {
+    navigation.navigate('ProfileScreen');
   };
   const renderRecipes = (cooker: any) => (
     <View style={style.cookersContainer}>
       <View style={style.cookersTitle}>
         <Text style={style.cookersName}> Paula Sin Culpas</Text>
-        <MaterialIcons
-          name="keyboard-arrow-right"
-          size={30}
-          color={Colors.light.yellow}
+        <TouchableOpacity
           style={style.goToCookersProfile}
-        />
+          onPress={goToProfileScreen}
+        >
+          <MaterialIcons
+            name="keyboard-arrow-right"
+            size={30}
+            color={Colors.light.yellow}
+          />
+        </TouchableOpacity>
       </View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {cooker['item'].map((recipe: any) => (

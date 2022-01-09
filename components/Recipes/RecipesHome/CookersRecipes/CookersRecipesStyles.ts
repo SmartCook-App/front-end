@@ -27,8 +27,8 @@ const CookersRecipesStyle = StyleSheet.create({
     justifyContent: 'center',
   },
   goToCookersProfile: {
-    left: normalizePx(110),
-    bottom: normalizePx(7),
+    left: normalizePx(100),
+    bottom: normalizePx(5),
   },
   cookersName: {
     right: normalizePx(110),
