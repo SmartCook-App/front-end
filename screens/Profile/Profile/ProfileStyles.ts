@@ -4,6 +4,7 @@ import { normalizeFontSize, normalizePx } from '../../../styles/normalize';
 
 const ProfileStyles = StyleSheet.create({
   mainContainer: {
+    backgroundColor: Colors.light.white,
     flex: 1,
   },
   headerContainer: {

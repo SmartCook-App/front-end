@@ -1,9 +1,11 @@
-import { StyleSheet } from "react-native";
-import { normalizePx } from "../../../styles/normalize";
+import { StyleSheet } from 'react-native';
+import Colors from '../../../assets/Colors';
+import { normalizePx } from '../../../styles/normalize';
 
 const RecipesHomeStyles = StyleSheet.create({
-  mainContainer:{
+  mainContainer: {
     flex: 2,
+    backgroundColor: Colors.light.white,
     marginBottom: normalizePx(20),
   },
   container: {
@@ -12,9 +14,9 @@ const RecipesHomeStyles = StyleSheet.create({
     alignItems: 'center',
   },
   containerRoundFilters: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginHorizontal: normalizePx(20),
-    flex: 0.3
+    flex: 0.3,
   },
 });
 

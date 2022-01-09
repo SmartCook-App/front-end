@@ -37,7 +37,7 @@ const ChooseIngredientScreen: FC<Props> = (props: Props) => {
   };
 
   return (
-    <View style={{flex: 2}}>
+    <View style={styles.mainContainer}>
       <TopNavbar
         title={CIL[lang]?.searchIngredientTitle}
         navigation={navigation}
