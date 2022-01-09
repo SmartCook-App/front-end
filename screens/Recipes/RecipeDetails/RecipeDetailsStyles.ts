@@ -111,11 +111,13 @@ const RecipeDetailsStyles = StyleSheet.create({
     flex: 1,
     minHeight: normalizePx(50),
     padding: normalizePx(15),
-    backgroundColor: Colors.light.white,
-    opacity: 0.3,
+    backgroundColor: Colors.light.darkGray,
+    opacity: 0.5,
   },
   myNoteText: {
     color: Colors.light.white,
+    fontFamily: 'nunito-bold',
+    fontSize: normalizeFontSize(14),
   },
   modalContainer: {
     backgroundColor: Colors.light.white,
