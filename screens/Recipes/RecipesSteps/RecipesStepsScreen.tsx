@@ -23,10 +23,12 @@ const RecipesStepsScreen: FC<Props> = (props: Props) => {
   const [amountPortions, setAmountPortions] = useState(1);
 
   return (
-    <>
-      <TopNavbar navigation={navigation} title={'Steps'} goBack={true} />
+    <View style={{ flex: 1 }}>
       <BackgroundImage>
-        <ScrollView style={{ flex: 2 }}>
+        <View style={{ flex: 0.1 }}>
+          <TopNavbar navigation={navigation} title={'Steps'} goBack={true} />
+        </View>
+        <ScrollView style={{ flex: 0.9 }}>
           <View style={StepsRecipesStyle.container}>
             <View style={StepsRecipesStyle.portions}>
               <AddSubButton
@@ -90,7 +92,7 @@ const RecipesStepsScreen: FC<Props> = (props: Props) => {
           </View>
         </ScrollView>
       </BackgroundImage>
-    </>
+    </View>
   );
 };
 export default RecipesStepsScreen;

@@ -4,7 +4,7 @@ import { normalizePx } from '../../../styles/normalize';
 
 const RecipesHomeStyles = StyleSheet.create({
   mainContainer: {
-    flex: 2,
+    flex: 1,
     backgroundColor: Colors.light.white,
     marginBottom: normalizePx(20),
   },

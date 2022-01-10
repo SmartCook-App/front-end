@@ -31,53 +31,57 @@ const Calendar: FC<Props> = (props: Props) => {
 
   return (
     <View style={CalendarStyle.container}>
-      <TopNavbar title={CL[lang]?.topBarTitle} navigation="None" goBack={false} />
-      <View style={CalendarStyle.calendarContainer}>
-        <CalendarPicker
-          startFromMonday={true}
-          todayBackgroundColor={Colors.light.greyOfFilters}
-          selectedDayColor={Colors.light.yellow}
-          selectedDayTextColor={Colors.light.white}
-          onDateChange={onDateChange}
-          weekdays={CL[lang]?.daysOfTheWeek}
-          months={CL[lang]?.months}
-          previousComponent={
-            <MaterialIcons name="navigate-before" size={24} color="black" />
-          }
-          nextComponent={
-            <MaterialIcons name="navigate-next" size={24} color="black" />
-          }
-          textStyle={CalendarStyle.calendarText}
-        />
+      <View style={{ flex: 0.1 }}>
+        <TopNavbar title={CL[lang]?.topBarTitle} navigation="None" goBack={false} />
       </View>
-      <ScrollView style={CalendarStyle.savedRecipes}>
-        <Text style={CalendarStyle.selectedDateText}>{selectedDate}</Text>
-        <ScheduledRecipeComponent
-          navigation={navigation}
-          isRecipeSaved={true}
-          title={CL[lang]?.breakfast}
-        />
-        <ScheduledRecipeComponent
-          navigation={navigation}
-          isRecipeSaved={false}
-          title={CL[lang]?.snack}
-        />
-        <ScheduledRecipeComponent
-          navigation={navigation}
-          isRecipeSaved={true}
-          title={CL[lang]?.lunch}
-        />
-        <ScheduledRecipeComponent
-          navigation={navigation}
-          isRecipeSaved={false}
-          title={CL[lang]?.tea}
-        />
-        <ScheduledRecipeComponent
-          navigation={navigation}
-          isRecipeSaved={false}
-          title={CL[lang]?.dinner}
-        />
-      </ScrollView>
+      <View style={{ flex: 0.9 }}>
+        <View style={CalendarStyle.calendarContainer}>
+          <CalendarPicker
+            startFromMonday={true}
+            todayBackgroundColor={Colors.light.greyOfFilters}
+            selectedDayColor={Colors.light.yellow}
+            selectedDayTextColor={Colors.light.white}
+            onDateChange={onDateChange}
+            weekdays={CL[lang]?.daysOfTheWeek}
+            months={CL[lang]?.months}
+            previousComponent={
+              <MaterialIcons name="navigate-before" size={24} color="black" />
+            }
+            nextComponent={
+              <MaterialIcons name="navigate-next" size={24} color="black" />
+            }
+            textStyle={CalendarStyle.calendarText}
+          />
+        </View>
+        <ScrollView style={CalendarStyle.savedRecipes}>
+          <Text style={CalendarStyle.selectedDateText}>{selectedDate}</Text>
+          <ScheduledRecipeComponent
+            navigation={navigation}
+            isRecipeSaved={true}
+            title={CL[lang]?.breakfast}
+          />
+          <ScheduledRecipeComponent
+            navigation={navigation}
+            isRecipeSaved={false}
+            title={CL[lang]?.snack}
+          />
+          <ScheduledRecipeComponent
+            navigation={navigation}
+            isRecipeSaved={true}
+            title={CL[lang]?.lunch}
+          />
+          <ScheduledRecipeComponent
+            navigation={navigation}
+            isRecipeSaved={false}
+            title={CL[lang]?.tea}
+          />
+          <ScheduledRecipeComponent
+            navigation={navigation}
+            isRecipeSaved={false}
+            title={CL[lang]?.dinner}
+          />
+        </ScrollView>
+      </View>
     </View>
   );
 };

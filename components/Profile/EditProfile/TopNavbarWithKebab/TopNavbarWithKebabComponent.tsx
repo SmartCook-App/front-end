@@ -33,27 +33,27 @@ const TopNavbarWithKebab: FC<Props> = (props: Props) => {
 
   const showMenu = () => setVisible(true);
   return (
-    <View>
-      <>
-        <View style={styles.container}>
-          <View style={{flex: 1}}>
-            <Text style={styles.title}>{title}</Text>
-          </View>
-          <View style={{flex: 0.1}}>
-            <Menu
-              visible={visible}
-              anchor={
-                <Text onPress={showMenu} style={styles.kababMenu}>
-                  ...
-                </Text>
-              }
-              onRequestClose={hideMenu}
-            >
-              <MenuItem onPress={hideMenu}>{TNWKL[lang]?.deleteAccount}</MenuItem>
-            </Menu>
-          </View>
+    <View style={styles.mainContainer}>
+      <View style={styles.horizontalContainer}>
+        <View style={styles.emptyView}>
         </View>
-      </>
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>{title}</Text>
+        </View>
+        <View style={styles.threeCircles}>
+          <Menu
+            visible={visible}
+            anchor={
+              <Text onPress={showMenu} style={styles.kababMenu}>
+                ...
+              </Text>
+            }
+            onRequestClose={hideMenu}
+          >
+            <MenuItem onPress={hideMenu}>{TNWKL[lang]?.deleteAccount}</MenuItem>
+          </Menu>
+        </View>
+      </View>
       <View style={styles.line}></View>
     </View>
   );

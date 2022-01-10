@@ -8,23 +8,26 @@ import RecipesComponent from "../../../components/ShowAllRecipes/ShowAllRecipesC
 import styles from './RecipesMatchStyle';
 
 interface Props {
-  navigation: any;
+    navigation: any;
 }
 
 const Match: FC<Props> = (props: Props) => {
-    const {navigation} = props;
+    const { navigation } = props;
     const lang = useSelector<RootState, RootState['language']>(
         (state) => state.language
-      );
+    );
     return (
         <View style={styles.container}>
-            <TopNavbar
-                title={ML[lang]?.topnavBarText}
-                navigation={navigation}
-                goBack={true}
-            />
-            <Text style={styles.matchText}>{ML[lang]?.match}</Text>
-            <ScrollView style={styles.containerRecipes}>
+            <View style={{ flex: 0.1 }}>
+                <TopNavbar
+                    title={ML[lang]?.topnavBarText}
+                    navigation={navigation}
+                    goBack={true}
+                />
+            </View>
+            <View style={{ flex: 0.9 }}>
+                <Text style={styles.matchText}>{ML[lang]?.match}</Text>
+                <ScrollView style={styles.containerRecipes}>
                     <RecipesComponent
                         name={"name"}
                         image={"image"}
@@ -32,7 +35,8 @@ const Match: FC<Props> = (props: Props) => {
                         time={"time"}
                         navigation={navigation}
                     />
-            </ScrollView>
+                </ScrollView>
+            </View>
         </View>
     );
 };

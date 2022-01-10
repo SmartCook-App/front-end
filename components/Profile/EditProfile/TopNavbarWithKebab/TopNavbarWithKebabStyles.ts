@@ -1,15 +1,12 @@
 import { StyleSheet } from 'react-native';
 import Colors from '../../../../assets/Colors';
 import { normalizeFontSize, normalizePx } from '../../../../styles/normalize';
+import window from '../../../../assets/Layout';
 
 const TabBarStyle = StyleSheet.create({
-  container: {
-    marginTop: normalizePx(30),
-    height: normalizePx(60),
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
+  mainContainer: {
     padding: normalizePx(8),
+    flex: 1
   },
   touch: {
     marginRight: normalizePx(350),
@@ -26,13 +23,30 @@ const TabBarStyle = StyleSheet.create({
     fontFamily: 'nunito-black',
     textTransform: 'uppercase',
     textAlign: 'center'
-  
+
   },
   line: {
-    marginTop: normalizePx(0.5),
     backgroundColor: Colors.light.lineUpperTitle,
     height: normalizePx(0.6),
-    width: normalizePx(420),
+    width: normalizePx(440),
   },
+  horizontalContainer: {
+    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'space-between',
+    width: window.window.width - normalizePx(10),
+    alignSelf: 'center'
+  },
+  emptyView: {
+    flex: 0.1,
+
+  },
+  textContainer: {
+    justifyContent: 'center',
+    flex: 0.8,
+  },
+  threeCircles: {
+    flex: 0.1,
+  }
 });
 export default TabBarStyle;

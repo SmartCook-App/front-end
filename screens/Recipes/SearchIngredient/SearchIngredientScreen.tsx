@@ -22,129 +22,134 @@ const SearchIngredient: FC<Props> = (props: Props) => {
   return (
     <>
       <View style={styles.mainContainer}>
-        <TopNavbar
-          title={SISL[lang]?.searchIngredientTitle}
-          navigation={navigation}
-          goBack={true}
-        />
-        <SearchbarComponent
-          placeholderText={SISL[state.language].searchbarPlaceholder}
-        />
-        <View style={styles.recentSearchContainer}>
-          <Text style={styles.recentSearchContainerTitle}>
-            {SISL[lang]?.recentSearchTitle}
-          </Text>
-          <RecentSearchComponent recentSearchText="Legumbres" />
-          <RecentSearchComponent recentSearchText="Porotos" />
-          <RecentSearchComponent recentSearchText="Verduras" />
+        <View style={{ flex: 0.1 }}>
+          <TopNavbar
+            title={SISL[lang]?.searchIngredientTitle}
+            navigation={navigation}
+            goBack={true}
+          />
         </View>
-        <View style={styles.recentSearchContainer}>
-          <Text style={styles.recentSearchContainerTitle}>
-            {SISL[lang]?.categories}
-          </Text>
-        </View>
-        <View style={styles.categoryContainer}>
-          <View style={styles.categoryRowContainer}>
-            <IngredientCategoryComponent
-              ingredientId="None"
-              isPressed="None"
-              iconName="food-apple"
-              name={SISL[lang]?.legumes}
-              isImage={false}
-              image="None"
-            />
-            <IngredientCategoryComponent
-              ingredientId="None"
-              isPressed="None"
-              iconName="food-apple"
-              name={SISL[lang]?.vegetables}
-              isImage={false}
-              image="None"
-            />
-            <IngredientCategoryComponent
-              ingredientId="None"
-              isPressed="None"
-              iconName="food-apple"
-              name={SISL[lang]?.cereals}
-              isImage={false}
-              image="None"
-            />
-            <IngredientCategoryComponent
-              ingredientId="None"
-              isPressed="None"
-              iconName="food-apple"
-              name={SISL[lang]?.fat}
-              isImage={false}
-              image="None"
-            />
+        <View style={{ flex: 0.9 }}>
+          <SearchbarComponent
+            placeholderText={SISL[state.language].searchbarPlaceholder}
+          />
+          <View style={styles.recentSearchContainer}>
+            <Text style={styles.recentSearchContainerTitle}>
+              {SISL[lang]?.recentSearchTitle}
+            </Text>
+            <RecentSearchComponent recentSearchText="Legumbres" />
+            <RecentSearchComponent recentSearchText="Porotos" />
+            <RecentSearchComponent recentSearchText="Verduras" />
           </View>
-          <View style={styles.categoryRowContainer}>
-            <IngredientCategoryComponent
-              ingredientId="None"
-              isPressed="None"
-              iconName="cupcake"
-              name={SISL[lang]?.flours}
-              isImage={false}
-              image="None"
-            />
-            <IngredientCategoryComponent
-              ingredientId="None"
-              isPressed="None"
-              iconName="fruit-cherries"
-              name={SISL[lang]?.fruits}
-              isImage={false}
-              image="None"
-            />
-            <IngredientCategoryComponent
-              ingredientId="None"
-              isPressed="None"
-              iconName="peanut"
-              name={SISL[lang]?.driedFruits}
-              isImage={false}
-              image="None"
-            />
-            <IngredientCategoryComponent
-              ingredientId="None"
-              isPressed="None"
-              iconName="food-steak"
-              name={SISL[lang]?.meats}
-              isImage={false}
-              image="None"
-            />
+          <View style={styles.recentSearchContainer}>
+            <Text style={styles.recentSearchContainerTitle}>
+              {SISL[lang]?.categories}
+            </Text>
           </View>
-          <View style={styles.categoryRowContainer}>
-            <IngredientCategoryComponent
-              ingredientId="None"
-              isPressed="None"
-              iconName="fish"
-              name={SISL[lang]?.fish}
-              isImage={false}
-              image="None"
-            />
-            <IngredientCategoryComponent
-              ingredientId="None"
-              isPressed="None"
-              iconName="food-apple"
-              name={SISL[lang]?.dairyProducts}
-              isImage={false}
-              image="None"
-            />
-            <IngredientCategoryComponent
-              ingredientId="None"
-              isPressed="None"
-              iconName="food-apple"
-              name={SISL[lang]?.potatoes}
-              isImage={false}
-              image="None"
-            />
-            <IngredientCategoryComponent
-              ingredientId="None"
-              isPressed="None"
-              iconName="spoon-sugar"
-              name={SISL[lang]?.sugars}
-              isImage={false}
-              image="None"
-            />
+          <View style={styles.categoryContainer}>
+            <View style={styles.categoryRowContainer}>
+              <IngredientCategoryComponent
+                ingredientId="None"
+                isPressed="None"
+                iconName="food-apple"
+                name={SISL[lang]?.legumes}
+                isImage={false}
+                image="None"
+              />
+              <IngredientCategoryComponent
+                ingredientId="None"
+                isPressed="None"
+                iconName="food-apple"
+                name={SISL[lang]?.vegetables}
+                isImage={false}
+                image="None"
+              />
+              <IngredientCategoryComponent
+                ingredientId="None"
+                isPressed="None"
+                iconName="food-apple"
+                name={SISL[lang]?.cereals}
+                isImage={false}
+                image="None"
+              />
+              <IngredientCategoryComponent
+                ingredientId="None"
+                isPressed="None"
+                iconName="food-apple"
+                name={SISL[lang]?.fat}
+                isImage={false}
+                image="None"
+              />
+            </View>
+            <View style={styles.categoryRowContainer}>
+              <IngredientCategoryComponent
+                ingredientId="None"
+                isPressed="None"
+                iconName="cupcake"
+                name={SISL[lang]?.flours}
+                isImage={false}
+                image="None"
+              />
+              <IngredientCategoryComponent
+                ingredientId="None"
+                isPressed="None"
+                iconName="fruit-cherries"
+                name={SISL[lang]?.fruits}
+                isImage={false}
+                image="None"
+              />
+              <IngredientCategoryComponent
+                ingredientId="None"
+                isPressed="None"
+                iconName="peanut"
+                name={SISL[lang]?.driedFruits}
+                isImage={false}
+                image="None"
+              />
+              <IngredientCategoryComponent
+                ingredientId="None"
+                isPressed="None"
+                iconName="food-steak"
+                name={SISL[lang]?.meats}
+                isImage={false}
+                image="None"
+              />
+            </View>
+            <View style={styles.categoryRowContainer}>
+              <IngredientCategoryComponent
+                ingredientId="None"
+                isPressed="None"
+                iconName="fish"
+                name={SISL[lang]?.fish}
+                isImage={false}
+                image="None"
+              />
+              <IngredientCategoryComponent
+                ingredientId="None"
+                isPressed="None"
+                iconName="food-apple"
+                name={SISL[lang]?.dairyProducts}
+                isImage={false}
+                image="None"
+              />
+              <IngredientCategoryComponent
+                ingredientId="None"
+                isPressed="None"
+                iconName="food-apple"
+                name={SISL[lang]?.potatoes}
+                isImage={false}
+                image="None"
+              />
+              <IngredientCategoryComponent
+                ingredientId="None"
+                isPressed="None"
+                iconName="spoon-sugar"
+                name={SISL[lang]?.sugars}
+                isImage={false}
+                image="None"
+              />
+
+            </View>
           </View>
         </View>
       </View>

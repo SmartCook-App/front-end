@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { TouchableOpacity, Text, View, Dimensions } from 'react-native';
+import { TouchableOpacity, Text, View } from 'react-native';
 import style from './TopNavbarStyles';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -15,34 +15,38 @@ const TopNavbar: FC<Props> = (props: Props) => {
   return (
     <>
     {goBack == false ? (
-      <View style={style.firstContainer}>
-          <View style={style.containerWithoutGoBack}>
-            <Text style={style.title}>{title}</Text>
-          </View>
-          <View style={style.line}></View>
-      </View>
-      ): (
-        <View style={style.containerWithGoBack}>
-          <View style={style.secondContainer}>
-            <View style={style.goBackView}>
-              <TouchableOpacity onPress={navigation.goBack}>
-                <Text>
-                  <Ionicons
-                    name="arrow-undo"
-                    style={style.goBack}
-                  />
-                </Text>
-              </TouchableOpacity>
-            </View>
-            <View style={style.textView}>
-              <Text style={style.title}>{title}</Text>
-            </View>
+      <View style={style.mainContainer}>
+          <View style={style.horizontalContainer}>
+              <View style={style.textContainerWithoutGoBack}>
+                <Text style={style.title}>{title}</Text>
+              </View>
           </View>
           <View style={style.line}></View>
         </View>
+      ): (
+      <View style={style.mainContainer}>
+        <View style={style.horizontalContainer}>
+          <View style={style.goBackContainer}>
+            <TouchableOpacity onPress={navigation.goBack}>
+                <Ionicons
+                  name="arrow-undo"
+                  style={style.goBack}
+                />
+            </TouchableOpacity>
+          </View>
+          
+          <View style={style.textContainer}>
+            <Text style={style.title}>{title}</Text>
+          </View>
+          <View style={style.emptyView}>    
+          </View>
+        </View>
+        <View style={style.line}></View>
+      </View>
+
       )}
-      </>
-  );
+    </>
+      );
 };
 
 export default TopNavbar;
