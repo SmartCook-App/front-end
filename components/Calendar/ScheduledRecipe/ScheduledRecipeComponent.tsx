@@ -9,7 +9,7 @@ import styles from './ScheduledRecipeStyles';
 interface Props {
   navigation: any;
   title: string;
-  isRecipeSaved: boolean; 
+  isRecipeSaved: boolean;
 }
 
 const ScheduledRecipeComponent: FC<Props> = (props: Props) => {

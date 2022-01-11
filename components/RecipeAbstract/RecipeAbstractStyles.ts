@@ -55,12 +55,12 @@ const RecipeAbstractStyle = StyleSheet.create({
     textAlign: 'center',
     borderRadius: normalizePx(50),
     backgroundColor: Colors.light.yellow,
-    transform: [{ scaleX: 1 }],
+    // transform: [{ scaleX: 1 }],
     alignSelf: 'flex-end',
-    right:
-      (SCREEN_WIDTH -
-        (recipeNumColums + normalizePx(20)) * RECIPE_ITEM_MARGIN) /
-      recipeNumColums,
+    // right:
+    //   (SCREEN_WIDTH -
+    //     (recipeNumColums + normalizePx(20)) * RECIPE_ITEM_MARGIN) /
+    //   recipeNumColums,
     top: RECIPE_ITEM_HEIGHT - normalizePx(60),
   },
   timeOval: {

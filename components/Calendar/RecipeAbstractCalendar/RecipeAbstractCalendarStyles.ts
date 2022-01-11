@@ -39,13 +39,13 @@ const RecipeAbstractCalendar = StyleSheet.create({
     borderBottomRightRadius: normalizePx(0),
   },
   title: {
-    flex: 1,
+    flex: 0.5,
     fontSize: normalizeFontSize(12),
     fontFamily: 'nunito-regular',
     textAlign: 'center',
     color: Colors.light.black,
-    marginRight: normalizePx(6),
-    marginLeft: normalizePx(6),
+    // marginRight: normalizePx(6),
+    // marginLeft: normalizePx(6),
   },
   likesOval: {
     alignItems: 'center',
