@@ -14,8 +14,9 @@ To install Expo CLI run:
 
 ### `yarn start`
 
-To work with emulators open [https://reactnative.dev/docs/environment-setup](React Native Documentation).
-##Run the emulator
+To work with emulators see [React Native Documentation](https://reactnative.dev/docs/environment-setup).
+
+## Run the emulator
 ### For android `yarn android`
 ### For ios `yarn ios`
 
