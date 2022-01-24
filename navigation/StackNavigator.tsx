@@ -148,6 +148,22 @@ export const RecepiesStackNavigator: FC = () => {
           headerShown: false,
         }}
       />
+      <RootStack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{
+          title: ' MLRL[lang]?.appName',
+          headerShown: false,
+        }}
+      />
+      <RootStack.Screen
+        name="EditProfileScreen"
+        component={EditProfileScreen}
+        options={{
+          title: ' MLRL[lang]?.appName',
+          headerShown: false,
+        }}
+      />
     </RootStack.Navigator>
   );
 };

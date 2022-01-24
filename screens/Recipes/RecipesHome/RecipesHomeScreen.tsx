@@ -24,50 +24,54 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
 
   return (
     <>
-      <View>
-        <TopNavbar title={'SMARTCOOK'} goBack={false} navigation={navigation} />
-        <View style={styles.container}>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {listNamesFilters.map((item: any) => (
-              <OvalFilterComponent item={item} />
-            ))}
-          </ScrollView>
+      <View style={styles.mainContainer}>
+        <View style={styles.topBar}>
+          <TopNavbar title={'SMARTCOOK'} goBack={false} navigation={navigation} />
         </View>
-        <View style={styles.containerRoundFilters}>
-          <SearchButtonComponent navigation={navigation} />
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {state.homeIcons.homeIconArray.map((icon: any) => (
-              <RoundFiltersComponents
-                id={icon.id}
-                name={icon.name}
-                title={icon.title}
-                isPressed={icon.press}
-                updateOrderButtons={updateOrderButtons}
-                setupdateOrderButtons={setupdateOrderButtons}
-                cookersView={cookersView}
-                setcookersView={setcookersView}
-                screen={'RecipesHomeScreen'}
+        <View style={styles.secondContainer}>
+          <View style={styles.container}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {listNamesFilters.map((item: any) => (
+                <OvalFilterComponent item={item} />
+              ))}
+            </ScrollView>
+          </View>
+          <View style={styles.containerRoundFilters}>
+            <SearchButtonComponent navigation={navigation} />
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {state.homeIcons.homeIconArray.map((icon: any) => (
+                <RoundFiltersComponents
+                  id={icon.id}
+                  title={icon.title}
+                  isPressed={icon.press}
+                  updateOrderButtons={updateOrderButtons}
+                  setupdateOrderButtons={setupdateOrderButtons}
+                  cookersView={cookersView}
+                  setcookersView={setcookersView}
+                  screen={'RecipesHomeScreen'}
+                  image={icon.image}
+                />
+              ))}
+            </ScrollView>
+          </View>
+          {cookersView ? (
+            <ScrollView style={styles.flexOne}>
+              <CookersRecipesComponent
+                navigation={navigation}
               />
-            ))}
-          </ScrollView>
+            </ScrollView>
+          ) : (
+            <ScrollView style={styles.flexOne}>
+              <RecipesComponent
+                name={'name'}
+                image={'image'}
+                cal={'cal'}
+                time={'time'}
+                navigation={navigation}
+              />
+            </ScrollView>
+          )}
         </View>
-        {cookersView ? (
-          <ScrollView>
-            <CookersRecipesComponent
-              navigation={navigation}
-            />
-          </ScrollView>
-        ) : (
-          <ScrollView>
-            <RecipesComponent
-              name={'name'}
-              image={'image'}
-              cal={'cal'}
-              time={'time'}
-              navigation={navigation}
-            />
-          </ScrollView>
-        )}
         <IngredientsButtonComponent
           navigation={navigation}
         ></IngredientsButtonComponent>

@@ -1,5 +1,8 @@
 const CFL: any = {
   ES: {
+    sidePlate: 'Acompañamiento',
+    appetizer: 'Aperitivos',
+    cheap: 'Barato',
     popular: "Popular",
     cookers: "Cocineros",
     alcoholicBeverages: "Bebidas alcoholicas",

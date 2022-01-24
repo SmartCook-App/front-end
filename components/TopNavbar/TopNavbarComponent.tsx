@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { TouchableOpacity, Text, View, Dimensions } from 'react-native';
+import { TouchableOpacity, Text, View } from 'react-native';
 import style from './TopNavbarStyles';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -13,32 +13,40 @@ const TopNavbar: FC<Props> = (props: Props) => {
   const { title, navigation, goBack } = props;
 
   return (
-    <View>
-      {goBack == false ? (
-        <>
-          <View style={style.container}>
-            <Text style={style.title}>{title}</Text>
+    <>
+    {goBack == false ? (
+      <View style={style.mainContainer}>
+          <View style={style.horizontalContainer}>
+              <View style={style.textContainerWithoutGoBack}>
+                <Text style={style.title}>{title}</Text>
+              </View>
           </View>
-        </>
-      ) : (
-        <>
-          <View style={style.container}>
-            <TouchableOpacity style={style.touch}>
-              <Text>
+          <View style={style.line}></View>
+        </View>
+      ): (
+      <View style={style.mainContainer}>
+        <View style={style.horizontalContainer}>
+          <View style={style.goBackContainer}>
+            <TouchableOpacity onPress={navigation.goBack}>
                 <Ionicons
                   name="arrow-undo"
                   style={style.goBack}
-                  onPress={navigation.goBack}
                 />
-              </Text>
             </TouchableOpacity>
+          </View>
+          
+          <View style={style.textContainer}>
             <Text style={style.title}>{title}</Text>
           </View>
-        </>
+          <View style={style.emptyView}>    
+          </View>
+        </View>
+        <View style={style.line}></View>
+      </View>
+
       )}
-      <View style={style.line}></View>
-    </View>
-  );
+    </>
+      );
 };
 
 export default TopNavbar;

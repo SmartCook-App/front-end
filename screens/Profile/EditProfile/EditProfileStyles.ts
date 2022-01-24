@@ -51,11 +51,11 @@ const EditProfileStyles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: normalizePx(10),
     padding: normalizePx(5),
-    flex: 1
   },
   pictureUploadContainer: {
     alignItems: "center",
     justifyContent: "center",
+    
   },
   circle: {
     width: normalizePx(100),

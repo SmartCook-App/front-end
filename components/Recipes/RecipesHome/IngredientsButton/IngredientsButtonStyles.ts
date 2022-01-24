@@ -5,7 +5,7 @@ import { normalizePx } from '../../../../styles/normalize';
 const IngredientsButtonStyle = StyleSheet.create({
   ingredientsButton: {
     position: 'absolute',
-    top: normalizePx(710),
+    top: normalizePx(650),
     right: normalizePx(30),
     borderRadius: normalizePx(50),
     backgroundColor: Colors.light.yellow,

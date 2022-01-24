@@ -4,6 +4,7 @@ import { normalizeFontSize, normalizePx } from '../../../styles/normalize';
 
 const ProfileStyles = StyleSheet.create({
   mainContainer: {
+    backgroundColor: Colors.light.white,
     flex: 1,
   },
   headerContainer: {
@@ -49,7 +50,8 @@ const ProfileStyles = StyleSheet.create({
     borderRadius: normalizePx(50),
     alignItems: 'center',
     padding: normalizePx(10),
-    alignSelf: 'stretch',
+    alignSelf: 'center',
+    width: normalizePx(350),
   },
   addFilterButton: {
     marginRight: normalizePx(10),

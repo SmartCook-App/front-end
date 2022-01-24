@@ -1,17 +1,32 @@
-import { StyleSheet, Dimensions } from "react-native";
-import { normalizePx } from "../../../styles/normalize";
+import { StyleSheet } from 'react-native';
+import Colors from '../../../assets/Colors';
+import { normalizePx } from '../../../styles/normalize';
 
-const { width, height } = Dimensions.get("window");
 const RecipesHomeStyles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    backgroundColor: Colors.light.white,
+    marginBottom: normalizePx(10),
+  },
+  topBar: {
+    flex: 0.1,
+  },
+  secondContainer: {
+    flex: 0.9,
+  },
   container: {
-    marginHorizontal: normalizePx(width - 350),
-    marginTop: normalizePx(12),
+    marginBottom: normalizePx(15),
+    flex: 0.1,
+    alignItems: 'center',
   },
   containerRoundFilters: {
-    flexDirection: "row",
-    width: normalizePx(370),
+    flexDirection: 'row',
     marginHorizontal: normalizePx(20),
+    flex: 0.2,
   },
+  flexOne: {
+    flex: 1
+  }
 });
 
 export default RecipesHomeStyles;

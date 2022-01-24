@@ -5,6 +5,9 @@ const TNWKL: any = {
     yes: 'Sí',
     no: 'No',
     deleteAccount: 'Eliminar Cuenta',
+    reportProblem: 'Reportar problema',
+    reportTitle: 'Gracias por ayudarnos!',
+    reportSubTitle: 'Reportar problema'
   },
   EN: {
     weAreSorry: 'We are sorry!',
@@ -12,6 +15,7 @@ const TNWKL: any = {
     yes: 'Yes',
     no: 'No',
     deleteAccount: 'Delete Account',
+    reportProblem: 'Reportar problema',
   },
 };
 export default TNWKL;

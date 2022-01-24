@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
   ingredientIcon: {
     backgroundColor: Colors.light.yellow,
     color: Colors.light.black,
-    width: normalizePx(40),
-    height: normalizePx(40),
+    width: normalizePx(50),
+    height: normalizePx(50),
     borderRadius: normalizePx(50),
     textAlign: "center",
     textAlignVertical: "center",
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     flex: 0.7,
     color: Colors.light.white,
     paddingLeft: normalizePx(15),
+    fontSize: normalizeFontSize(12)
   },
   divider: {
     flex: 0.01,
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
   bottomContainer: {
     flex: 0.1,
     flexDirection: "row",
-    justifyContent:'center',
+    justifyContent: 'center',
     alignItems: 'center'
   },
   finishedListButton: {

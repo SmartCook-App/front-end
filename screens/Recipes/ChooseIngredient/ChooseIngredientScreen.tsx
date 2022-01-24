@@ -37,45 +37,49 @@ const ChooseIngredientScreen: FC<Props> = (props: Props) => {
   };
 
   return (
-    <>
-      <TopNavbar
-        title={CIL[lang]?.searchIngredientTitle}
-        navigation={navigation}
-        goBack={true}
-      />
-      <View style={styles.subtextContainer}>
-        <Text style={styles.capitalizedSubtext}>
-          {CIL[lang]?.searchIngredientSubTitleCapitalized}
-        </Text>
-        <Text style={styles.normalSubtext}>
-          {CIL[lang]?.searchIngredientSubTitleNormal}
-        </Text>
-      </View>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('SearchIngredientScreen')}
-      >
-        <View style={styles.searchIngredientButton}>
-          <IoniconsIcon name={'search-outline'} color={'white'} size={25} />
-          <Text style={styles.searchIngredientButtonText}>
-            {CIL[state.language].searchbarPlaceholder}
-          </Text>
-        </View>
-      </TouchableOpacity>
-      <View style={styles.ingredientsContainer}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          numColumns={4}
-          data={state.paintChooseIngredient.ingredientsArray}
-          renderItem={renderIngredient}
-          keyExtractor={(item) => `${item}`}
+    <View style={styles.mainContainer}>
+      <View style={{ flex: 0.1 }}>
+        <TopNavbar
+          title={CIL[lang]?.searchIngredientTitle}
+          navigation={navigation}
+          goBack={true}
         />
       </View>
-      <TouchableOpacity onPress={goToMatchView}>
-        <View style={styles.readyButton}>
-          <AntDesign name="check" size={35} color="white" />
+      <View style={{ flex: 0.9 }}>
+        <View style={styles.subtextContainer}>
+          <Text style={styles.capitalizedSubtext}>
+            {CIL[lang]?.searchIngredientSubTitleCapitalized}
+          </Text>
+          <Text style={styles.normalSubtext}>
+            {CIL[lang]?.searchIngredientSubTitleNormal}
+          </Text>
         </View>
-      </TouchableOpacity>
-    </>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('SearchIngredientScreen')}
+        >
+          <View style={styles.searchIngredientButton}>
+            <IoniconsIcon name={'search-outline'} color={'white'} size={25} />
+            <Text style={styles.searchIngredientButtonText}>
+              {CIL[state.language].searchbarPlaceholder}
+            </Text>
+          </View>
+        </TouchableOpacity>
+        <View style={styles.ingredientsContainer}>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            numColumns={4}
+            data={state.paintChooseIngredient.ingredientsArray}
+            renderItem={renderIngredient}
+            keyExtractor={(item) => `${item}`}
+          />
+        </View>
+        <TouchableOpacity onPress={goToMatchView}>
+          <View style={styles.readyButton}>
+            <AntDesign name="check" size={35} color="white" />
+          </View>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };
 

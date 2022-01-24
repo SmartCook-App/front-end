@@ -62,7 +62,7 @@ const RecipeDetailsScreen: FC<Props> = (props: Props) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={{ uri: 'https://reactjs.org/logo-og.png' }}
+        source={{ uri: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' }}
         style={styles.photo}
       >
         <ScrollView>
@@ -193,7 +193,7 @@ const RecipeDetailsScreen: FC<Props> = (props: Props) => {
                   icon={{ name: 'user', type: 'font-awesome' }}
                   activeOpacity={1}
                   containerStyle={styles.cookerAvatar}
-                  source={{ uri: 'https://reactjs.org/logo-og.png' }}
+                  source={{ uri: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' }}
                 />
               )}
             />

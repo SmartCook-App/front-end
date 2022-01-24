@@ -100,7 +100,7 @@ const RoundFiltersStyle = StyleSheet.create({
   },
   title: {
     fontFamily: 'nunito-light',
-    fontSize: normalizeFontSize(12),
+    fontSize: normalizeFontSize(10),
     width: normalizePx(65),
     textAlign: 'center',
   },

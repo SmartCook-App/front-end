@@ -19,6 +19,7 @@ import TopNavbar from '../../components/TopNavbar/TopNavbarComponent';
 import SLL from './ShoppingListLanguages';
 import SearchbarComponent from '../../components/Searchbar/SearchbarComponent';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import { normalizePx } from '../../styles/normalize';
 
 interface Props {
   navigation: any;
@@ -119,7 +120,7 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
           <IoniconsIcon
             name="pizza-outline"
             style={styles.ingredientIcon}
-            size={30}
+            size={normalizePx(35)}
           />
           <View style={styles.ingredientContainer}>
             <View style={styles.textAndQuantityContainer}>
@@ -157,60 +158,64 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
     <>
       <SafeAreaView style={styles.mainContainer}>
         <ImageBackground
-          source={{ uri: 'https://reactjs.org/logo-og.png' }}
+          source={{ uri: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' }}
           resizeMode="cover"
           style={styles.image}
         >
           <View style={styles.backgroundContainer}>
-            <TopNavbar
-              title={'LISTA DE COMPRAS'}
-              goBack={false}
-              navigation={navigation}
-            />
-            <SearchbarComponent
-              placeholderText={SLL[state.language].searchbarPlaceholder}
-            />
-            <View style={styles.listContainer}>
-              <FlatList
-                data={DATA}
-                renderItem={renderItem}
-                keyExtractor={(item) => item.id}
+            <View style={{ flex: 0.1 }}>
+              <TopNavbar
+                title={'LISTA DE COMPRAS'}
+                goBack={false}
+                navigation={navigation}
               />
             </View>
-            <View style={styles.bottomContainer}>
-              {visibleShowAddItem ? (
-                <View style={styles.bottomContainer}>
-                  <TextInput
-                    autoFocus={true}
-                    style={styles.addItemBar}
-                    placeholder={SLL[state.language].whatDoYouNeedToAdd}
-                  />
-                  <TouchableOpacity
-                    style={styles.addButton}
-                    onPress={addItemToList}
-                  >
-                    <Text style={styles.addButtonText}>+</Text>
-                  </TouchableOpacity>
-                </View>
-              ) : (
-                <>
-                  <TouchableOpacity
-                    style={styles.finishedListButton}
-                    onPress={confirmDelete}
-                  >
-                    <Text style={styles.finishedListText}>
-                      {SLL[state.language].finishButtonLabel}
-                    </Text>
-                  </TouchableOpacity>
+            <View style={{ flex: 0.9 }}>
+              <SearchbarComponent
+                placeholderText={SLL[state.language].searchbarPlaceholder}
+              />
+              <View style={styles.listContainer}>
+                <FlatList
+                  data={DATA}
+                  renderItem={renderItem}
+                  keyExtractor={(item) => item.id}
+                />
+              </View>
+              <View style={styles.bottomContainer}>
+                {visibleShowAddItem ? (
+                  <View style={styles.bottomContainer}>
+                    <TextInput
+                      autoFocus={true}
+                      style={styles.addItemBar}
+                      placeholder={SLL[state.language].whatDoYouNeedToAdd}
+                    />
+                    <TouchableOpacity
+                      style={styles.addButton}
+                      onPress={addItemToList}
+                    >
+                      <Text style={styles.addButtonText}>+</Text>
+                    </TouchableOpacity>
+                  </View>
+                ) : (
+                  <>
+                    <TouchableOpacity
+                      style={styles.finishedListButton}
+                      onPress={confirmDelete}
+                    >
+                      <Text style={styles.finishedListText}>
+                        {SLL[state.language].finishButtonLabel}
+                      </Text>
+                    </TouchableOpacity>
 
-                  <TouchableOpacity
-                    style={styles.addButton}
-                    onPress={showItemToList}
-                  >
-                    <Text style={styles.addButtonText}>+</Text>
-                  </TouchableOpacity>
-                </>
-              )}
+                    <TouchableOpacity
+                      style={styles.addButton}
+                      onPress={showItemToList}
+                    >
+                      <Text style={styles.addButtonText}>+</Text>
+                    </TouchableOpacity>
+                  </>
+                )}
+              </View>
             </View>
           </View>
         </ImageBackground>

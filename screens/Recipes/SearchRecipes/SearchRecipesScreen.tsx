@@ -19,36 +19,40 @@ const SearchRecipes: FC<Props> = (props: Props) => {
   const state = useSelector((state: RootState) => state);
   const lang = useSelector<RootState, RootState['language']>(
     (state) => state.language
-        );
+  );
   var listNamesFilters = Object.values(FL[state.language]);
   const { navigation } = props;
   return (
-    <>
-      <TopNavbar
-        title={SRL[lang]?.searchRecipesTitle}
-        navigation={navigation}
-        goBack={true}
-      />
-      <SearchbarComponent
-        placeholderText={SLL[state.language].searchbarRecipePlaceholder}
-      />
-      <View style={styles.ovalFiltersContainer}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {listNamesFilters.map((item: any) => (
-            <OvalFilterComponent item={item} />
-          ))}
-        </ScrollView>
+    <View style={{ flex: 1 }}>
+      <View style={{ flex: 0.1 }}>
+        <TopNavbar
+          title={SRL[lang]?.searchRecipesTitle}
+          navigation={navigation}
+          goBack={true}
+        />
       </View>
-      <View style={styles.recentSearchContainer}>
-        <Text style={styles.recentSearchContainerTitle}>
-          {SRL[lang]?.recentSearchTitle}
-        </Text>
-        <RecentSearchComponent recentSearchText="Ensalada de atún" />
-        <RecentSearchComponent recentSearchText="Curry de pollo" />
-        <RecentSearchComponent recentSearchText="Porotos negros" />
-        <RecentSearchComponent recentSearchText="Fideos con salsa de vegetales" />
+      <View style={{ flex: 0.9 }}>
+        <SearchbarComponent
+          placeholderText={SLL[state.language].searchbarRecipePlaceholder}
+        />
+        <View style={styles.ovalFiltersContainer}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {listNamesFilters.map((item: any) => (
+              <OvalFilterComponent item={item} />
+            ))}
+          </ScrollView>
+        </View>
+        <View style={styles.recentSearchContainer}>
+          <Text style={styles.recentSearchContainerTitle}>
+            {SRL[lang]?.recentSearchTitle}
+          </Text>
+          <RecentSearchComponent recentSearchText="Ensalada de atún" />
+          <RecentSearchComponent recentSearchText="Curry de pollo" />
+          <RecentSearchComponent recentSearchText="Porotos negros" />
+          <RecentSearchComponent recentSearchText="Fideos con salsa de vegetales" />
+        </View>
       </View>
-    </>
+    </View>
   );
 };
 
