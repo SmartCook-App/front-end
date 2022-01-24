@@ -19,6 +19,7 @@ import TopNavbar from '../../components/TopNavbar/TopNavbarComponent';
 import SLL from './ShoppingListLanguages';
 import SearchbarComponent from '../../components/Searchbar/SearchbarComponent';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import { normalizePx } from '../../styles/normalize';
 
 interface Props {
   navigation: any;
@@ -119,7 +120,7 @@ const ShoppingListScreen: FC<Props> = (props: Props) => {
           <IoniconsIcon
             name="pizza-outline"
             style={styles.ingredientIcon}
-            size={30}
+            size={normalizePx(35)}
           />
           <View style={styles.ingredientContainer}>
             <View style={styles.textAndQuantityContainer}>

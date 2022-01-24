@@ -58,7 +58,7 @@ const AccountScreen: FC<Props> = (props: Props) => {
       <SafeAreaView style={styles.mainContainer}>
         <View style={{ flex: 0.1 }}>
           <TopNavbarWithKebabComponent
-            title={'PERFIL'}
+            title={'PERFIL'} goBack={false} reportProblem={true} navigation={navigation}
           />
         </View>
         <View style={{ flex: 0.9 }}>

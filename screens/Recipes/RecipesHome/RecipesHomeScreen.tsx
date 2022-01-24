@@ -25,10 +25,10 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
   return (
     <>
       <View style={styles.mainContainer}>
-        <View style={{ flex: 0.1 }}>
+        <View style={styles.topBar}>
           <TopNavbar title={'SMARTCOOK'} goBack={false} navigation={navigation} />
         </View>
-        <View style={{ flex: 0.9 }}>
+        <View style={styles.secondContainer}>
           <View style={styles.container}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               {listNamesFilters.map((item: any) => (
@@ -42,7 +42,6 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
               {state.homeIcons.homeIconArray.map((icon: any) => (
                 <RoundFiltersComponents
                   id={icon.id}
-                  name={icon.name}
                   title={icon.title}
                   isPressed={icon.press}
                   updateOrderButtons={updateOrderButtons}
@@ -50,18 +49,19 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
                   cookersView={cookersView}
                   setcookersView={setcookersView}
                   screen={'RecipesHomeScreen'}
+                  image={icon.image}
                 />
               ))}
             </ScrollView>
           </View>
           {cookersView ? (
-            <ScrollView style={{ flex: 2 }}>
+            <ScrollView style={styles.flexOne}>
               <CookersRecipesComponent
                 navigation={navigation}
               />
             </ScrollView>
           ) : (
-            <ScrollView style={{ flex: 1 }}>
+            <ScrollView style={styles.flexOne}>
               <RecipesComponent
                 name={'name'}
                 image={'image'}
@@ -72,7 +72,6 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
             </ScrollView>
           )}
         </View>
-
         <IngredientsButtonComponent
           navigation={navigation}
         ></IngredientsButtonComponent>

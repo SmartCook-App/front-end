@@ -13,6 +13,7 @@ import { Image } from 'react-native-animatable';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
 import Colors from '../../../assets/Colors';
 import { ScrollView } from 'react-native-gesture-handler';
+import TopNavbarWithKebabComponent from '../../../components/Profile/EditProfile/TopNavbarWithKebab/TopNavbarWithKebabComponent';
 
 interface Props {
   navigation: any;
@@ -68,7 +69,9 @@ const EditProfileScreen: FC<Props> = (props: Props) => {
       <View style={{ flex: 1 }}>
         <BackgroundImage>
           <View style={{ flex: 0.1 }}>
-            <TopNavbar title={'PERFIL'} goBack={true} navigation={navigation} />
+            <TopNavbarWithKebabComponent
+              title={'PERFIL'} goBack={true} reportProblem={false} navigation={navigation}
+            />
           </View>
           <ScrollView style={{ flex: 0.9 }}>
             <View style={styles.firstcontainer}>

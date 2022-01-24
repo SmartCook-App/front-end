@@ -47,6 +47,15 @@ const TabBarStyle = StyleSheet.create({
   },
   threeCircles: {
     flex: 0.1,
-  }
+  },
+  goBackContainer: {
+    justifyContent: 'center',
+    flex: 0.1,
+  },
+  goBack: {
+    fontSize: normalizePx(25),
+    color: Colors.light.yellow,
+    fontFamily: 'nunito-black',
+  },
 });
 export default TabBarStyle;

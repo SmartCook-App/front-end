@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import style from './IngredientsButtonStyles';
-
+import { normalizePx } from '../../../../styles/normalize';
 interface Props {
   navigation: any;
 }
@@ -18,7 +18,7 @@ const IngredientsButtonComponent: FC<Props> = (props: Props) => {
     <MaterialCommunityIcons
       name={'carrot'}
       style={style.ingredientsButton}
-      size={62}
+      size={normalizePx(80)}
       onPress={onPress}
     />
   );

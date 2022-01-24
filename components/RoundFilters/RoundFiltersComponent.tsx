@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import style from './RoundFiltersStyles';
 import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 import { reorderFiltersHomeInteractor } from '../../redux/interactors/homeIconsInteractors';
 import { useDispatch } from 'react-redux';
 import { normalizePx } from '../../styles/normalize';
+import { Avatar } from 'react-native-paper';
 
 interface Props {
   id: any;
-  name: any;
   title: any;
   isPressed: boolean;
   cookersView: boolean;
@@ -16,10 +16,11 @@ interface Props {
   updateOrderButtons: any;
   setupdateOrderButtons: any;
   screen: string;
+  image: any;
 }
 
 const RoundFiltersComponents: FC<Props> = (props: Props) => {
-  const { id, name, title, setcookersView, isPressed, screen } = props;
+  const { id, title, setcookersView, isPressed, screen, image } = props;
   let { cookersView } = props;
   const dispatch = useDispatch();
 
@@ -31,10 +32,9 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
       screen: screen,
       filter: {
         id: id,
-        name: name,
         title: title,
         press: !isPressed,
-        height: normalizePx(150),
+        image: image,
       },
     };
     dispatch(reorderFiltersHomeInteractor(payload));
@@ -49,12 +49,12 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
             : [style.circle, style.circleNotPress]
         }
       >
-        <IoniconsIcon
-          name={name}
-          color={'black'}
-          size={45}
-          onPress={applyFilter}
-        />
+        <TouchableOpacity onPress={applyFilter}>
+          <Avatar.Image
+            size={53}
+            source={image}
+          />
+        </TouchableOpacity>
       </View>
       <Text style={style.title}>{title}</Text>
     </View>

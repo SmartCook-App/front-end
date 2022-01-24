@@ -47,8 +47,8 @@ const CategoryGridComponent: FC<Props> = (props: Props) => {
             >
               <TouchableOpacity onPress={pressIngredient}>
                 <Avatar.Image
-                  size={55}
-                  source={{ uri: 'https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGFwcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60' }}
+                  size={58}
+                  source={image}
                 />
               </TouchableOpacity>
             </View>
