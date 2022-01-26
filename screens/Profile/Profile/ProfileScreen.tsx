@@ -22,10 +22,14 @@ import TopNavbarWithKebabComponent from '../../../components/Profile/EditProfile
 
 interface Props {
   navigation: any;
+  id: any;
+  title: any;
+  isPressed: boolean;
+  image: any;
 }
 
 const AccountScreen: FC<Props> = (props: Props) => {
-  const { navigation } = props;
+  const { navigation, id, title, isPressed, image } = props;
   const state = useSelector((state: RootState) => state);
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
@@ -41,11 +45,10 @@ const AccountScreen: FC<Props> = (props: Props) => {
   const addFilter = () => {
     setVisibleAddCategory(!visibleModalAddCategory);
     const newFilter: HomeIconTypes = {
-      id: '7',
-      name: 'cart-outline',
-      title: 'new filter',
-      press: false,
-      height: 150,
+      id: id,
+      title: title,
+      press: !isPressed,
+      image: image,
     };
     dispatch(addFilterHomeInteractor(newFilter));
   };
@@ -58,7 +61,10 @@ const AccountScreen: FC<Props> = (props: Props) => {
       <SafeAreaView style={styles.mainContainer}>
         <View style={{ flex: 0.1 }}>
           <TopNavbarWithKebabComponent
-            title={'PERFIL'} goBack={false} reportProblem={true} navigation={navigation}
+            title={'PERFIL'}
+            goBack={false}
+            reportProblem={true}
+            navigation={navigation}
           />
         </View>
         <View style={{ flex: 0.9 }}>
@@ -104,7 +110,6 @@ const AccountScreen: FC<Props> = (props: Props) => {
               {state.homeIcons.accountsIconArray.map((icon: any) => (
                 <RoundFiltersComponents
                   id={icon.id}
-                  name={icon.name}
                   title={icon.title}
                   isPressed={icon.press}
                   updateOrderButtons={updateOrderButtons}
@@ -112,6 +117,7 @@ const AccountScreen: FC<Props> = (props: Props) => {
                   cookersView={cookersView}
                   setcookersView={setcookersView}
                   screen={'AccountScreen'}
+                  image={icon.image}
                 />
               ))}
             </ScrollView>
