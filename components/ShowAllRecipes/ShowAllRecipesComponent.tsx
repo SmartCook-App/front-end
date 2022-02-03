@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { VirtualizedList, View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { recipes } from '../../screens/Recipes/recipesDataArray';
 import RecipeAbstractComponent from '../RecipeAbstract/RecipeAbstactComponent';
@@ -16,7 +16,8 @@ const RecipesComponent: FC<Props> = (props: Props) => {
   const { name, image, cal, time, navigation } = props;
   const dispatch = useDispatch();
   const recipesArray = dispatch(getRecipesInteractor());
-
+  console.log('imprimiento recipes array');
+  console.log(recipesArray);
   const renderRecipes = (item: any) => (
     <RecipeAbstractComponent
       navigation={navigation}
@@ -28,10 +29,10 @@ const RecipesComponent: FC<Props> = (props: Props) => {
 
   return (
     <View>
-      <VirtualizedList
+      <FlatList
         showsVerticalScrollIndicator={false}
-        initialNumToRender={2}
-        data={recipesArray}
+        numColumns={2}
+        data={Object.values(recipesArray)}
         renderItem={renderRecipes}
         keyExtractor={(item) => `${item.recipeId}`}
       />
