@@ -5,27 +5,23 @@ import OvalFilterComponent from '../../../components/Recipes/OvalFilter/OvalFilt
 import RoundFiltersComponents from '../../../components/RoundFilters/RoundFiltersComponent';
 import FL from '../../../assets/Languages/Recipes/RecipeFiltersHomeLanguages';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
 import { RootState } from '../../../redux/store';
 import RecipesComponent from '../../../components/ShowAllRecipes/ShowAllRecipesComponent';
 import CookersRecipesComponent from '../../../components/Recipes/RecipesHome/CookersRecipes/CookersRecipesComponent';
 import IngredientsButtonComponent from '../../../components/Recipes/RecipesHome/IngredientsButton/IngredientsButtonComponent';
 import SearchButtonComponent from '../../../components/Recipes/RecipesHome/SearchButton/SearchButtonComponent';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
-import { getRecipesInteractor } from '../../../redux/interactors/recipeHomeInteractors';
 
 interface Props {
   navigation: any;
 }
 const RecipesHomeScreen: FC<Props> = (props: Props) => {
   const { navigation } = props;
-  const dispatch = useDispatch();
   const state = useSelector((state: RootState) => state);
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
   var listNamesFilters = Object.values(FL[state.language]);
 
-  useEffect(() => {dispatch(getRecipesInteractor());}, []);
   return (
     <>
       <View style={styles.mainContainer}>

@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
-import { FlatList, View } from 'react-native';
+import { VirtualizedList, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import { recipes } from '../../screens/Recipes/recipesDataArray';
 import RecipeAbstractComponent from '../RecipeAbstract/RecipeAbstactComponent';
-
+import { getRecipesInteractor } from '../../redux/interactors/recipeHomeInteractors';
 interface Props {
   navigation: any;
   name: any;
@@ -13,6 +14,8 @@ interface Props {
 
 const RecipesComponent: FC<Props> = (props: Props) => {
   const { name, image, cal, time, navigation } = props;
+  const dispatch = useDispatch();
+  const recipesArray = dispatch(getRecipesInteractor());
 
   const renderRecipes = (item: any) => (
     <RecipeAbstractComponent
@@ -25,10 +28,10 @@ const RecipesComponent: FC<Props> = (props: Props) => {
 
   return (
     <View>
-      <FlatList
+      <VirtualizedList
         showsVerticalScrollIndicator={false}
-        numColumns={2}
-        data={recipes}
+        initialNumToRender={2}
+        data={recipesArray}
         renderItem={renderRecipes}
         keyExtractor={(item) => `${item.recipeId}`}
       />
