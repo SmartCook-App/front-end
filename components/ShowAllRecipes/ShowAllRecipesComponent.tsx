@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { FlatList, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { recipes } from '../../screens/Recipes/recipesDataArray';
@@ -16,8 +16,7 @@ const RecipesComponent: FC<Props> = (props: Props) => {
   const { name, image, cal, time, navigation } = props;
   const dispatch = useDispatch();
   const recipesArray = dispatch(getRecipesInteractor());
-  console.log('imprimiento recipes array');
-  console.log(recipesArray);
+
   const renderRecipes = (item: any) => (
     <RecipeAbstractComponent
       navigation={navigation}
