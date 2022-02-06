@@ -17,6 +17,7 @@ interface Props {
 }
 const RecipesHomeScreen: FC<Props> = (props: Props) => {
   const { navigation } = props;
+  // revisar si es mala practica importar todo el state
   const state = useSelector((state: RootState) => state);
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);

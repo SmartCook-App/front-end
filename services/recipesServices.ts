@@ -4,14 +4,13 @@ import { getHeaders } from './headersManager';
 
 // GET all recipes
 const getRecipes = async () => {
+  const headers = await getHeaders();
   try {
-    const headers = await getHeaders();
     const response: AxiosResponse<any> = await axiosBaseInstance({
       headers,
       method: 'get',
-      url: '/recipe/',
+      url: '/recipe',
     });
-    console.log(response?.data);
     return response?.data;
   } catch (error) {
     throw error;

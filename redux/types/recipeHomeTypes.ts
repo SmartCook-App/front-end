@@ -1,3 +1,5 @@
+import { BaseRequestStatus } from './base'
+
 export interface Recipe {
   id: string;
   name: string;
@@ -15,4 +17,5 @@ export interface Recipe {
 
 export interface RecipesState {
   allCurrentRecipes: object[] | null;
+  getRecipes: BaseRequestStatus;
 }
