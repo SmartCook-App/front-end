@@ -25,7 +25,8 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
   const [cookersView, setcookersView] = useState(false);
   var listNamesFilters = Object.values(FL[state.language]);
 
-  useEffect(() => {dispatch(getRecipesInteractor());}, []);
+  console.log("hola")
+  useEffect(() => { dispatch(getRecipesInteractor()); }, []);
   return (
     <>
       <View style={styles.mainContainer}>

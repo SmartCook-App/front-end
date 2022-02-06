@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import style from './RecipeAbstractStyles';
 import { Feather, MaterialIcons } from '@expo/vector-icons';
@@ -15,6 +15,7 @@ const RecipeAbstractComponent: FC<Props> = (props: Props) => {
   const onPressRecipe = (item: any) => {
     navigation.navigate('RecipeDetailsScreen');
   };
+
   return (
     <TouchableOpacity onPress={onPressRecipe}>
       <View style={style.container}>
