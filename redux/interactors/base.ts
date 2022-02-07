@@ -2,6 +2,8 @@ import {
   ActionCreatorWithPayload,
   ActionCreatorWithoutPayload,
 } from '@reduxjs/toolkit';
+import errorHandler from '../../services/errorHandler';
+
 
 export const buildInteractorDirectAction =
   (request: ActionCreatorWithPayload<any>) => (params: any) => {
@@ -17,17 +19,18 @@ export const buildInteractor =
     errorAction: ActionCreatorWithPayload<any>,
     request: ((args: any) => Promise<any>) | null
   ) =>
-  (params: any) => {
-    return async function (dispatch: any) {
-      dispatch(loadingAction());
-      try {
-        const response = await request!(params);
-        dispatch(successAction(response));
-      } catch (error) {
-        dispatch(errorAction(error?.message));
-      }
+    (params: any) => {
+      return async function (dispatch: any) {
+        dispatch(loadingAction());
+        try {
+          const response = await request!(params);
+          dispatch(successAction(response));
+        } catch (error) {
+          const composedErrorMessage = errorHandler(error);
+          dispatch(errorAction(composedErrorMessage));
+        }
+      };
     };
-  };
 
 export const buildInteractorNoParams =
   (
@@ -36,18 +39,19 @@ export const buildInteractorNoParams =
     errorAction: ActionCreatorWithPayload<any>,
     request: (() => Promise<any>) | null
   ) =>
-  () => {
-    return async function (dispatch: any) {
-      dispatch(loadingAction());
-      try {
-        const response = await request!();
-        dispatch(successAction(response));
-      } catch (error) {
-        const composedErrorMessage = errorHandler(error);
-        dispatch(errorAction(composedErrorMessage));
-      }
+    () => {
+      return async function (dispatch: any) {
+        console.log("Santiago");
+        dispatch(loadingAction());
+        try {
+          const response = await request!();
+          dispatch(successAction(response));
+        } catch (error) {
+          const composedErrorMessage = errorHandler(error);
+          dispatch(errorAction(composedErrorMessage));
+        }
+      };
     };
-  };
 
 export const buildInteractorDirectActionNoParams =
   (request: ActionCreatorWithoutPayload) => () => {

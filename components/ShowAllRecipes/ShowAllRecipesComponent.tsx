@@ -17,6 +17,7 @@ const RecipesComponent: FC<Props> = (props: Props) => {
   const dispatch = useDispatch();
   const recipesArray = dispatch(getRecipesInteractor());
 
+
   const renderRecipes = (item: any) => (
     <RecipeAbstractComponent
       navigation={navigation}

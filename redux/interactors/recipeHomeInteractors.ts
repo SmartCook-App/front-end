@@ -1,9 +1,9 @@
 // @ts-nocheck projectActions properties generated at runtime
 import recipesServices from '../../services/recipesServices';
 import { recipesHomeActions } from '../slices/recipeHomeSlice';
-import { buildInteractorNoParams, buildInteractor } from './base';
+import { buildInteractorNoParams } from './base';
 
-export const getRecipesInteractor = buildInteractor(
+export const getRecipesInteractor = buildInteractorNoParams(
   recipesHomeActions.loadingGetRecipes,
   recipesHomeActions.successGetRecipes,
   recipesHomeActions.errorGetRecipes,

@@ -11,6 +11,7 @@ import CookersRecipesComponent from '../../../components/Recipes/RecipesHome/Coo
 import IngredientsButtonComponent from '../../../components/Recipes/RecipesHome/IngredientsButton/IngredientsButtonComponent';
 import SearchButtonComponent from '../../../components/Recipes/RecipesHome/SearchButton/SearchButtonComponent';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
+import { getRecipesInteractor } from '../../../redux/interactors/recipeHomeInteractors';
 
 interface Props {
   navigation: any;
@@ -22,6 +23,13 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
   var listNamesFilters = Object.values(FL[state.language]);
+
+  useEffect(() => {
+    getRecipesInteractor();
+  }, [getRecipesInteractor]);
+  // console.log('imprimiendo recetas');
+
+  // console.log(state.recipesHome.allCurrentRecipes);
 
   return (
     <>

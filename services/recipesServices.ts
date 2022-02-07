@@ -1,4 +1,5 @@
 import { AxiosResponse } from 'axios';
+import { PricingButton } from 'react-native-elements/dist/pricing/PricingCard';
 import { axiosBaseInstance } from './config';
 import { getHeaders } from './headersManager';
 
