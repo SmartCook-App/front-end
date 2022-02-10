@@ -4,32 +4,41 @@ import styles from './RecipesHomeStyles';
 import OvalFilterComponent from '../../../components/Recipes/OvalFilter/OvalFilterComponent';
 import RoundFiltersComponents from '../../../components/RoundFilters/RoundFiltersComponent';
 import FL from '../../../assets/Languages/Recipes/RecipeFiltersHomeLanguages';
-import { useSelector } from 'react-redux';
+import { useSelector, connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { RootState } from '../../../redux/store';
 import RecipesComponent from '../../../components/ShowAllRecipes/ShowAllRecipesComponent';
 import CookersRecipesComponent from '../../../components/Recipes/RecipesHome/CookersRecipes/CookersRecipesComponent';
 import IngredientsButtonComponent from '../../../components/Recipes/RecipesHome/IngredientsButton/IngredientsButtonComponent';
 import SearchButtonComponent from '../../../components/Recipes/RecipesHome/SearchButton/SearchButtonComponent';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
-import { getRecipesInteractor } from '../../../redux/interactors/recipeHomeInteractors';
+import * as recipeHomeInteractors from '../../../redux/interactors/recipeHomeInteractors';
 
+// interface DispatchProps {
+//   getRecipesInteractor: typeof recipeHomeInteractors.getRecipesInteractor;
+// }
+
+// interface Props extends DispatchProps {
+//   navigation: any;
+// }
 interface Props {
   navigation: any;
 }
 const RecipesHomeScreen: FC<Props> = (props: Props) => {
+  // const { navigation, getRecipesInteractor } = props;
   const { navigation } = props;
   // revisar si es mala practica importar todo el state
   const state = useSelector((state: RootState) => state);
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
   var listNamesFilters = Object.values(FL[state.language]);
+  console.log("diego diego")
 
-  useEffect(() => {
-    getRecipesInteractor();
-  }, [getRecipesInteractor]);
-  // console.log('imprimiendo recetas');
+  // useEffect(() => {
+  //   getRecipesInteractor();
+  // }, []);
 
-  // console.log(state.recipesHome.allCurrentRecipes);
+  // console.log("ACA ESTAMOS OJO", state.recipesHome.allCurrentRecipes)
 
   return (
     <>
@@ -41,6 +50,11 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
             navigation={navigation}
           />
         </View>
+        {/* <TouchableWithoutFeedback onPress={clearAsyncStorage}>
+          <View>
+            <Text>hola</Text>
+          </View>
+        </TouchableWithoutFeedback> */}
         <View style={styles.secondContainer}>
           <View style={styles.container}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -90,5 +104,17 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
     </>
   );
 };
+
+//cambiar esto por un useDispatch
+// const mapDispatchToProps = (dispatch: any): DispatchProps => ({
+//   ...bindActionCreators(
+//     {
+//       ...recipeHomeInteractors,
+//     },
+//     dispatch,
+//   ),
+// })
+
+// export default connect(null, mapDispatchToProps)(RecipesHomeScreen);
 
 export default RecipesHomeScreen;

@@ -1,9 +1,10 @@
 import React, { FC, useEffect } from 'react';
 import { FlatList, View } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { recipes } from '../../screens/Recipes/recipesDataArray';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 import RecipeAbstractComponent from '../RecipeAbstract/RecipeAbstactComponent';
 import { getRecipesInteractor } from '../../redux/interactors/recipeHomeInteractors';
+
 interface Props {
   navigation: any;
   name: any;
@@ -14,8 +15,14 @@ interface Props {
 
 const RecipesComponent: FC<Props> = (props: Props) => {
   const { name, image, cal, time, navigation } = props;
-  const dispatch = useDispatch();
-  const recipesArray = dispatch(getRecipesInteractor());
+  // const dispatch = useDispatch();
+  const state = useSelector((state: RootState) => state);
+  const recipesArray = state.recipesHome.allCurrentRecipes;
+
+  // const recipesArray = dispatch(getRecipesInteractor());
+  useEffect(() => {
+    getRecipesInteractor();
+  }, []);
 
 
   const renderRecipes = (item: any) => (

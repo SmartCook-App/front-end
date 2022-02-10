@@ -1,5 +1,4 @@
 import { AxiosResponse } from 'axios';
-import { PricingButton } from 'react-native-elements/dist/pricing/PricingCard';
 import { axiosBaseInstance } from './config';
 import { getHeaders } from './headersManager';
 
@@ -10,10 +9,11 @@ const getRecipes = async () => {
     const response: AxiosResponse<any> = await axiosBaseInstance({
       headers,
       method: 'get',
-      url: '/recipe',
+      url: '/recipes/',
     });
     return response?.data;
   } catch (error) {
+    console.log("error", error)
     throw error;
   }
 };

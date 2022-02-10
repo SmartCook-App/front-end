@@ -26,6 +26,7 @@ export const buildInteractor =
           const response = await request!(params);
           dispatch(successAction(response));
         } catch (error) {
+          console.log(error)
           const composedErrorMessage = errorHandler(error);
           dispatch(errorAction(composedErrorMessage));
         }
@@ -41,12 +42,15 @@ export const buildInteractorNoParams =
   ) =>
     () => {
       return async function (dispatch: any) {
-        console.log("Santiago");
         dispatch(loadingAction());
         try {
+          console.log("aca esta el problema")
           const response = await request!();
+          console.log("acaa2")
           dispatch(successAction(response));
+          console.log("acaa3")
         } catch (error) {
+          console.log("ERROR", error)
           const composedErrorMessage = errorHandler(error);
           dispatch(errorAction(composedErrorMessage));
         }
