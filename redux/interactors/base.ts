@@ -43,8 +43,7 @@ export const buildInteractorNoParams =
         const response = await request!();
         dispatch(successAction(response));
       } catch (error) {
-        const composedErrorMessage = errorHandler(error);
-        dispatch(errorAction(composedErrorMessage));
+        dispatch(errorAction(error?.message));
       }
     };
   };

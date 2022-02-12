@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { RecipesState } from '../types/recipeHomeTypes';
 import { Action, baseRequestStatusReducers } from './base';
 
-
 const initialState: RecipesState = {
   allCurrentRecipes: [],
   getRecipes: {
@@ -20,7 +19,7 @@ const successGetRecipes = (state: RecipesState, action: Action) => {
       loading: false,
       success: true,
       error: false,
-    }
+    },
   };
 };
 
@@ -32,7 +31,7 @@ const recipeHomeSlice = createSlice({
       'getRecipes',
       initialState,
       null,
-      successGetRecipes,
+      successGetRecipes
     ),
   },
 });

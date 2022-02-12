@@ -11,6 +11,8 @@ const getRecipes = async () => {
       method: 'get',
       url: '/recipe',
     });
+    console.log('imprimiendo data');
+    console.log(response?.data);
     return response?.data;
   } catch (error) {
     throw error;
