@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import style from './RecipeAbstractStyles';
 import { Feather, MaterialIcons } from '@expo/vector-icons';

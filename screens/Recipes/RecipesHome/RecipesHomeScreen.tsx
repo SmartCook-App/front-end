@@ -4,7 +4,8 @@ import styles from './RecipesHomeStyles';
 import OvalFilterComponent from '../../../components/Recipes/OvalFilter/OvalFilterComponent';
 import RoundFiltersComponents from '../../../components/RoundFilters/RoundFiltersComponent';
 import FL from '../../../assets/Languages/Recipes/RecipeFiltersHomeLanguages';
-import { useSelector } from 'react-redux';
+import { useSelector, connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { RootState } from '../../../redux/store';
 import RecipesComponent from '../../../components/ShowAllRecipes/ShowAllRecipesComponent';
 import CookersRecipesComponent from '../../../components/Recipes/RecipesHome/CookersRecipes/CookersRecipesComponent';
@@ -16,6 +17,7 @@ interface Props {
   navigation: any;
 }
 const RecipesHomeScreen: FC<Props> = (props: Props) => {
+  // const { navigation, getRecipesInteractor } = props;
   const { navigation } = props;
   // revisar si es mala practica importar todo el state
   const state = useSelector((state: RootState) => state);
@@ -37,6 +39,11 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
             navigation={navigation}
           />
         </View>
+        {/* <TouchableWithoutFeedback onPress={clearAsyncStorage}>
+          <View>
+            <Text>hola</Text>
+          </View>
+        </TouchableWithoutFeedback> */}
         <View style={styles.secondContainer}>
           <View style={styles.container}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -80,5 +87,17 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
     </>
   );
 };
+
+//cambiar esto por un useDispatch
+// const mapDispatchToProps = (dispatch: any): DispatchProps => ({
+//   ...bindActionCreators(
+//     {
+//       ...recipeHomeInteractors,
+//     },
+//     dispatch,
+//   ),
+// })
+
+// export default connect(null, mapDispatchToProps)(RecipesHomeScreen);
 
 export default RecipesHomeScreen;

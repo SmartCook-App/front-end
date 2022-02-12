@@ -16,6 +16,6 @@ export interface Recipe {
 }
 
 export interface RecipesState {
-  allCurrentRecipes: object[] | null;
+  allCurrentRecipes: [] | null;
   getRecipes: BaseRequestStatus;
 }

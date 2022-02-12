@@ -9,12 +9,13 @@ const getRecipes = async () => {
     const response: AxiosResponse<any> = await axiosBaseInstance({
       headers,
       method: 'get',
-      url: '/recipe',
+      url: '/recipes/',
     });
     console.log('imprimiendo data');
     console.log(response?.data);
     return response?.data;
   } catch (error) {
+    console.log("error", error)
     throw error;
   }
 };

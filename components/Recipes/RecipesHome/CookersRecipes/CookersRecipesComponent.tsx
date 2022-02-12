@@ -22,6 +22,7 @@ const RecipesComponent: FC<Props> = (props: Props) => {
   const goToProfileScreen = (item: any) => {
     navigation.navigate('ProfileScreen');
   };
+  console.log("recetaas")
   const renderRecipes = (cooker: any) => (
     <View style={style.cookersContainer}>
       <View style={style.cookersTitle}>

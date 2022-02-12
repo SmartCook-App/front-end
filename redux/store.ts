@@ -7,6 +7,7 @@ import { languageReducer } from './slices/languageSlice';
 import { homeIconsReducer } from './slices/homeIconsSlice';
 import { recipesHomeReducer } from './slices/recipeHomeSlice';
 import { paintChooseIngredientReducer } from './slices/paintChooseIngredientSlice';
+import { recipesHomeReducer } from './slices/recipeHomeSlice';
 
 // Parts of the state you want to persist and level of persistance
 const persistConfig = {
