@@ -4,7 +4,7 @@ import styles from './RecipesHomeStyles';
 import OvalFilterComponent from '../../../components/Recipes/OvalFilter/OvalFilterComponent';
 import RoundFiltersComponents from '../../../components/RoundFilters/RoundFiltersComponent';
 import FL from '../../../assets/Languages/Recipes/RecipeFiltersHomeLanguages';
-import { useSelector, connect } from 'react-redux';
+import { useSelector, connect, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { RootState } from '../../../redux/store';
 import RecipesComponent from '../../../components/ShowAllRecipes/ShowAllRecipesComponent';
@@ -19,15 +19,16 @@ interface Props {
 const RecipesHomeScreen: FC<Props> = (props: Props) => {
   // const { navigation, getRecipesInteractor } = props;
   const { navigation } = props;
+  const dispatch = useDispatch();
   // revisar si es mala practica importar todo el state
   const state = useSelector((state: RootState) => state);
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
   var listNamesFilters = Object.values(FL[state.language]);
-  // useEffect(() => {
-  //   getRecipesInteractor();
-  // }, [getRecipesInteractor]);
-  // console.log(state.recipes.allCurrentRecipes);
+  
+  useEffect(() => {
+    dispatch(getRecipesInteractor())
+  }, []);
 
   return (
     <>

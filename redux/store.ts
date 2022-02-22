@@ -5,7 +5,6 @@ import thunk from 'redux-thunk';
 import { userAuthReducer } from './slices/userAuthSlice';
 import { languageReducer } from './slices/languageSlice';
 import { homeIconsReducer } from './slices/homeIconsSlice';
-import { recipesHomeReducer } from './slices/recipeHomeSlice';
 import { paintChooseIngredientReducer } from './slices/paintChooseIngredientSlice';
 import { recipesHomeReducer } from './slices/recipeHomeSlice';
 

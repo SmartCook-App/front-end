@@ -10,23 +10,23 @@ interface Props {
 }
 
 const RecipesComponent: FC<Props> = (props: Props) => {
-  const { name, image, cal, time, navigation } = props;
-  // const dispatch = useDispatch();
+  const { navigation } = props;
   const state = useSelector((state: RootState) => state);
-  const recipesArray = state.recipesHome.allCurrentRecipes;
-
-  // const recipesArray = dispatch(getRecipesInteractor());
-  useEffect(() => {
-    getRecipesInteractor();
-  }, []);
-
+  const recipesArray = state.recipes.allCurrentRecipes;
 
   const renderRecipes = (item: any) => (
     <RecipeAbstractComponent
       navigation={navigation}
       time={item.item.time}
-      likes={item.item.likes}
-      title={item.item.title}
+      likes="10"
+      title={item.item.name}
+      calories= {item.item.calories}
+      fat= {item.item.fat}
+      proteins= {item.item.proteins}
+      carbs= {item.item.carbs}
+      portions= {item.item.portions}
+      owner= {item.item.owner}
+      tips= {item.item.tips}
     />
   );
 
@@ -35,9 +35,9 @@ const RecipesComponent: FC<Props> = (props: Props) => {
       <FlatList
         showsVerticalScrollIndicator={false}
         numColumns={2}
-        data={Object.values(recipesArray)}
+        data={recipesArray}
         renderItem={renderRecipes}
-        keyExtractor={(item) => `${item.recipeId}`}
+        keyExtractor={(item) => `${item.id}`}
       />
     </View>
   );

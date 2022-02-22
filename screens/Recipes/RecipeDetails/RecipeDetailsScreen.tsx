@@ -26,11 +26,25 @@ import SelectBar from '../../../components/Recipes/RecipeDetail/SelectBar/Select
 
 interface Props {
   navigation: any;
+  route: any;
 }
 
 const RecipeDetailsScreen: FC<Props> = (props: Props) => {
   const { navigation } = props;
-  const [amountPortions, setAmountPortions] = useState(1);
+  const {
+    time,
+    likes,
+    title,
+    calories,
+    fat,
+    proteins,
+    carbs,
+    portions,
+    // buscar id del owner para obtener el nombre y ver dde poner los tips
+    owner,
+    tips,
+  } = props.route.params;
+  const [amountPortions, setAmountPortions] = useState(portions);
   const [likeRecipe, setlikeRecipe] = useState(false);
   const [savedRecipe, setSavedRecipe] = useState(false);
   // TODO: eliminar esta data cuando tengamos la base de datos
@@ -62,7 +76,9 @@ const RecipeDetailsScreen: FC<Props> = (props: Props) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={{ uri: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' }}
+        source={{
+          uri: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
+        }}
         style={styles.photo}
       >
         <ScrollView>
@@ -79,24 +95,22 @@ const RecipeDetailsScreen: FC<Props> = (props: Props) => {
               setVisibleCategory={setVisibleModalSaveInCategory}
             />
             <View style={styles.centerText}>
-              <Text style={styles.title}>
-                Tallarines con Pesto y otras salsas
-              </Text>
+              <Text style={styles.title}>{title}</Text>
             </View>
           </View>
           <View style={styles.bottom}>
             <View style={styles.info}>
               <View style={styles.infoContainer}>
-                <MaterialIcons
-                  name="access-time"
+                <MaterialCommunityIcons
+                  name="clock-time-five"
                   size={25}
                   color={Colors.light.yellowRecipeIcons}
                 />
-                <Text style={styles.infoText}> 30 min</Text>
+                <Text style={styles.infoText}> {time} min</Text>
               </View>
               <View style={styles.infoContainer}>
-                <AntDesign
-                  name="hearto"
+                <MaterialCommunityIcons
+                  name="silverware-fork-knife"
                   size={25}
                   color={Colors.light.yellowRecipeIcons}
                 />
@@ -104,19 +118,19 @@ const RecipeDetailsScreen: FC<Props> = (props: Props) => {
               </View>
               <View style={styles.infoContainer}>
                 <AntDesign
-                  name="apple-o"
+                  name="heart"
                   size={25}
                   color={Colors.light.yellowRecipeIcons}
                 />
-                <Text style={styles.infoText}> 2500</Text>
+                <Text style={styles.infoText}> {likes}</Text>
               </View>
               <View style={styles.infoContainer}>
-                <SimpleLineIcons
-                  name="fire"
+                <AntDesign
+                  name="apple1"
                   size={25}
                   color={Colors.light.yellowRecipeIcons}
                 />
-                <Text style={styles.infoText}> 450</Text>
+                <Text style={styles.infoText}> {calories}</Text>
               </View>
             </View>
             <TouchableHighlight
@@ -193,7 +207,9 @@ const RecipeDetailsScreen: FC<Props> = (props: Props) => {
                   icon={{ name: 'user', type: 'font-awesome' }}
                   activeOpacity={1}
                   containerStyle={styles.cookerAvatar}
-                  source={{ uri: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' }}
+                  source={{
+                    uri: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
+                  }}
                 />
               )}
             />
@@ -215,10 +231,10 @@ const RecipeDetailsScreen: FC<Props> = (props: Props) => {
           />
           <View style={styles.nutriCirclesContainer}>
             <NutritionCircles
-              calories="140"
-              proteins="14"
-              fat="16"
-              carbs="86"
+              calories={calories}
+              proteins={proteins}
+              fat={fat}
+              carbs={carbs}
             />
           </View>
         </ScrollView>

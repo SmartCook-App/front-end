@@ -8,12 +8,19 @@ interface Props {
   time: any;
   likes: any;
   title: any;
+  calories: any;
+  fat: any;
+  proteins: any;
+  carbs: any;
+  portions: any;
+  owner: any;
+  tips: any;
 }
 
 const RecipeAbstractComponent: FC<Props> = (props: Props) => {
-  const { navigation, time, likes, title } = props;
+  const { navigation, time, likes, title, calories, fat, proteins, carbs, portions, owner, tips } = props;
   const onPressRecipe = (item: any) => {
-    navigation.navigate('RecipeDetailsScreen');
+    navigation.navigate('RecipeDetailsScreen', {time, likes, title, calories, fat, proteins, carbs, portions, owner, tips });
   };
 
   return (

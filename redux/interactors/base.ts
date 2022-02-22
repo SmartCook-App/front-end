@@ -4,7 +4,6 @@ import {
 } from '@reduxjs/toolkit';
 import errorHandler from '../../services/errorHandler';
 
-
 export const buildInteractorDirectAction =
   (request: ActionCreatorWithPayload<any>) => (params: any) => {
     return (dispatch: any) => {
@@ -19,19 +18,19 @@ export const buildInteractor =
     errorAction: ActionCreatorWithPayload<any>,
     request: ((args: any) => Promise<any>) | null
   ) =>
-    (params: any) => {
-      return async function (dispatch: any) {
-        dispatch(loadingAction());
-        try {
-          const response = await request!(params);
-          dispatch(successAction(response));
-        } catch (error) {
-          console.log(error)
-          const composedErrorMessage = errorHandler(error);
-          dispatch(errorAction(composedErrorMessage));
-        }
-      };
+  (params: any) => {
+    return async function (dispatch: any) {
+      dispatch(loadingAction());
+      try {
+        const response = await request!(params);
+        dispatch(successAction(response));
+      } catch (error) {
+        console.log(error);
+        const composedErrorMessage = errorHandler(error);
+        dispatch(errorAction(composedErrorMessage));
+      }
     };
+  };
 
 export const buildInteractorNoParams =
   (
@@ -40,22 +39,18 @@ export const buildInteractorNoParams =
     errorAction: ActionCreatorWithPayload<any>,
     request: (() => Promise<any>) | null
   ) =>
-    () => {
-      return async function (dispatch: any) {
-        dispatch(loadingAction());
-        try {
-          console.log("aca esta el problema")
-          const response = await request!();
-          console.log("acaa2")
-          dispatch(successAction(response));
-          console.log("acaa3")
-        } catch (error) {
-          console.log("ERROR", error)
-          const composedErrorMessage = errorHandler(error);
-          dispatch(errorAction(composedErrorMessage));
-        }
-      };
+  () => {
+    return async function (dispatch: any) {
+      dispatch(loadingAction());
+      try {
+        const response = await request!();
+        dispatch(successAction(response));
+      } catch (error) {
+        const composedErrorMessage = errorHandler(error);
+        dispatch(errorAction(composedErrorMessage));
+      }
     };
+  };
 
 export const buildInteractorDirectActionNoParams =
   (request: ActionCreatorWithoutPayload) => () => {

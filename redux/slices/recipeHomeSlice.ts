@@ -12,7 +12,6 @@ const initialState: RecipesState = {
 };
 
 const successGetRecipes = (state: RecipesState, action: Action) => {
-  console.log("oaaaaaaajjjjjjjjjjjjjjjjj")
   return {
     ...state,
     allCurrentRecipes: action.payload,
