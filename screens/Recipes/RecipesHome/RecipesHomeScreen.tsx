@@ -4,8 +4,7 @@ import styles from './RecipesHomeStyles';
 import OvalFilterComponent from '../../../components/Recipes/OvalFilter/OvalFilterComponent';
 import RoundFiltersComponents from '../../../components/RoundFilters/RoundFiltersComponent';
 import FL from '../../../assets/Languages/Recipes/RecipeFiltersHomeLanguages';
-import { useSelector, connect, useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../../redux/store';
 import RecipesComponent from '../../../components/ShowAllRecipes/ShowAllRecipesComponent';
 import CookersRecipesComponent from '../../../components/Recipes/RecipesHome/CookersRecipes/CookersRecipesComponent';
@@ -13,22 +12,40 @@ import IngredientsButtonComponent from '../../../components/Recipes/RecipesHome/
 import SearchButtonComponent from '../../../components/Recipes/RecipesHome/SearchButton/SearchButtonComponent';
 import TopNavbar from '../../../components/TopNavbar/TopNavbarComponent';
 import { getRecipesInteractor } from '../../../redux/interactors/recipeHomeInteractors';
+import { getDishCategoryInteractor } from '../../../redux/interactors/dishCategoryInteractor';
+import {
+  Category,
+  DishCategoryState,
+} from '../../../redux/types/dishCategoryTypes';
 interface Props {
   navigation: any;
 }
 const RecipesHomeScreen: FC<Props> = (props: Props) => {
-  // const { navigation, getRecipesInteractor } = props;
   const { navigation } = props;
   const dispatch = useDispatch();
+  const [selectedFilter, setSelectedFilter] = useState();
   // revisar si es mala practica importar todo el state
   const state = useSelector((state: RootState) => state);
   const [updateOrderButtons, setupdateOrderButtons] = useState(false);
   const [cookersView, setcookersView] = useState(false);
   var listNamesFilters = Object.values(FL[state.language]);
-  
+  const [dishCategoriesArray, setDishCategoriesArray] = useState([]);
+
   useEffect(() => {
-    dispatch(getRecipesInteractor())
+    dispatch(getRecipesInteractor());
+    dispatch(getDishCategoryInteractor());
   }, []);
+
+  useEffect(() => {
+    const dishCategoryRecipes = state.dishCategories.dishCategories.find(
+      (filter) => filter.id === selectedFilter
+    )!;
+    if (dishCategoryRecipes) {
+      if (dishCategoryRecipes.dish_category_intermediate.length != 0) {
+        setDishCategoriesArray(dishCategoryRecipes.dish_category_intermediate);
+      }
+    }
+  }, [selectedFilter]);
 
   return (
     <>
@@ -56,17 +73,20 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
           <View style={styles.containerRoundFilters}>
             <SearchButtonComponent navigation={navigation} />
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              {state.homeIcons.homeIconArray.map((icon: any) => (
+              {state.dishCategories.dishCategories.map((icon: any) => (
+                // {state.homeIcons.homeIconArray.map((icon: any) => (
                 <RoundFiltersComponents
                   id={icon.id}
-                  title={icon.title}
+                  title={icon.name}
                   isPressed={icon.press}
                   updateOrderButtons={updateOrderButtons}
                   setupdateOrderButtons={setupdateOrderButtons}
                   cookersView={cookersView}
                   setcookersView={setcookersView}
+                  setSelectedFilter={setSelectedFilter}
                   screen={'RecipesHomeScreen'}
-                  image={icon.image}
+                  //TODO: cambiar a imagen real
+                  image={require('../../../assets/Images/Filters/Aperitivo.jpg')}
                 />
               ))}
             </ScrollView>
@@ -77,7 +97,10 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
             </ScrollView>
           ) : (
             <ScrollView style={styles.flexOne}>
-              <RecipesComponent navigation={navigation} />
+              <RecipesComponent
+                navigation={navigation}
+                dishCategoriesArray={dishCategoriesArray}
+              />
             </ScrollView>
           )}
         </View>
@@ -88,17 +111,5 @@ const RecipesHomeScreen: FC<Props> = (props: Props) => {
     </>
   );
 };
-
-//cambiar esto por un useDispatch
-// const mapDispatchToProps = (dispatch: any): DispatchProps => ({
-//   ...bindActionCreators(
-//     {
-//       ...recipeHomeInteractors,
-//     },
-//     dispatch,
-//   ),
-// })
-
-// export default connect(null, mapDispatchToProps)(RecipesHomeScreen);
 
 export default RecipesHomeScreen;

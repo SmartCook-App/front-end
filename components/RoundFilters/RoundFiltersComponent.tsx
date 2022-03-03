@@ -15,12 +15,13 @@ interface Props {
   setcookersView: any;
   updateOrderButtons: any;
   setupdateOrderButtons: any;
+  setSelectedFilter: any;
   screen: string;
   image: any;
 }
 
 const RoundFiltersComponents: FC<Props> = (props: Props) => {
-  const { id, title, setcookersView, isPressed, screen, image } = props;
+  const { id, title, setcookersView, isPressed, screen, image, setSelectedFilter } = props;
   let { cookersView } = props;
   const dispatch = useDispatch();
 
@@ -28,6 +29,10 @@ const RoundFiltersComponents: FC<Props> = (props: Props) => {
     if (title == 'cookers') {
       setcookersView(!cookersView);
     }
+    // if (!isPressed){
+    //   setSelectedFilter(id);      
+    // }
+    setSelectedFilter(id);
     const payload = {
       screen: screen,
       filter: {
