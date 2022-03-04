@@ -72,7 +72,7 @@ const OvalFilterComponent: FC<Props> = (props: Props) => {
                     />
                     <SwipePickerComponent
                       value={'calories'}
-                      text={'calorías'}
+                      text={item.name}
                     />
                   </View>
                 ) : null}

@@ -34,6 +34,7 @@ const SearchRecipes: FC<Props> = (props: Props) => {
       <View style={{ flex: 0.9 }}>
         <SearchbarComponent
           placeholderText={SLL[state.language].searchbarRecipePlaceholder}
+          navigation={navigation}
         />
         <View style={styles.ovalFiltersContainer}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>

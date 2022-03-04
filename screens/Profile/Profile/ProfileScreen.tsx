@@ -36,6 +36,7 @@ const AccountScreen: FC<Props> = (props: Props) => {
   const [ownProfile, setOwnProfile] = useState(true);
   const [visibleModalAddCategory, setVisibleAddCategory] = useState(false);
   const [text, setText] = useState('');
+  const [selectedFilter, setSelectedFilter] = useState();
   const dispatch = useDispatch();
 
   const onPressEditProfile = (item: any) => {
@@ -116,6 +117,7 @@ const AccountScreen: FC<Props> = (props: Props) => {
                   setupdateOrderButtons={setupdateOrderButtons}
                   cookersView={cookersView}
                   setcookersView={setcookersView}
+                  setSelectedFilter={setSelectedFilter}
                   screen={'AccountScreen'}
                   image={icon.image}
                 />

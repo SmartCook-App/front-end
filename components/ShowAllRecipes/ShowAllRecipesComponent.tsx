@@ -16,7 +16,6 @@ const RecipesComponent: FC<Props> = (props: Props) => {
   const recipesArray = state.recipes.allCurrentRecipes;
   const [recipes, setRecipes] = useState<any>([]);
 
-
   useEffect(() => {
     var array: any = []
     dishCategoriesArray.forEach(function (recipe_id: string, i: number) {
@@ -29,8 +28,6 @@ const RecipesComponent: FC<Props> = (props: Props) => {
   }, [dishCategoriesArray]);
 
   const renderRecipes = (item: any) => (
-    console.log("entrandp"),
-    console.log(item.item),
     <RecipeAbstractComponent
       navigation={navigation}
       time={item.item.time}
@@ -48,9 +45,7 @@ const RecipesComponent: FC<Props> = (props: Props) => {
 
   return (
     <View>
-      {dishCategoriesArray ? (
-        console.log(1),
-        console.log(recipes),
+      {dishCategoriesArray.length !=0 ? (
         <FlatList
           showsVerticalScrollIndicator={false}
           numColumns={2}
@@ -59,7 +54,6 @@ const RecipesComponent: FC<Props> = (props: Props) => {
           keyExtractor={(item) => `${item.id}`}
         />
       ) : (
-        console.log(2),
         <FlatList
           showsVerticalScrollIndicator={false}
           numColumns={2}
