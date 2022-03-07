@@ -9,7 +9,7 @@ const FRHL: any = {
       ],
     },
     time: {
-      name: "Time",
+      name: "Tiempo",
       values: [{ "Menos de": "clock-o" }],
     },
     calories: {

@@ -6,6 +6,8 @@ import { userAuthReducer } from './slices/userAuthSlice';
 import { languageReducer } from './slices/languageSlice';
 import { homeIconsReducer } from './slices/homeIconsSlice';
 import { paintChooseIngredientReducer } from './slices/paintChooseIngredientSlice';
+import { recipesHomeReducer } from './slices/recipeHomeSlice';
+import { dishCategoryReducer } from './slices/dishCategorySlice';
 
 // Parts of the state you want to persist and level of persistance
 const persistConfig = {
@@ -20,6 +22,8 @@ const RootReducer = combineReducers({
   language: languageReducer,
   homeIcons: homeIconsReducer,
   paintChooseIngredient: paintChooseIngredientReducer,
+  recipes: recipesHomeReducer,
+  dishCategories: dishCategoryReducer,
 });
 
 const RootReducerPersistor = persistReducer(persistConfig, RootReducer);
